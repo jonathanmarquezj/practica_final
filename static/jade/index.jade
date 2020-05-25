@@ -1,0 +1,715 @@
+//- ------------------------------------
+//- BASE LAYOUT
+//- ------------------------------------
+extends aaa-master-layout
+
+//- ------------------------------------
+//- PAGE CONFIGURATION
+//- ------------------------------------
+prepend config
+	- var link = "index.html"
+	- var page = 'dashboard.dashboard-1'
+	- var styles = [ 'font.artill-weather']
+	- var scripts = [ 'a.shared.easing', 'weather.simpleWeather', 'form.checkBo', 'form.switchery', 'tabs.easyResponsiveTabs', 'textrotator.simpleTextRotator', 'datetime.jqClock', 'charts.d3', 'charts.c3', 'charts.rickshaw', 'charts.easypiechart', 'table.fooTables', 'x.call.shared.tooltipster', 'x.call.dashboard.1' ]
+
+append config
+	- var pageBodyClasses = bodyClasses.push('l-dashboard')
+
+
+//- ------------------------------------
+//- PAGE CONTENT
+//- ------------------------------------
+block content
+
+	include components/layout/header/header_3/header_3__t_3
+
+	//SECTION
+	section.l-main-container
+
+		include components/layout/sidebar/sidebar_1/sidebar_1__t_1__left_4
+
+		//Main Content
+		section.l-container
+
+			include components/layout/header/header_1/header_1__t_1__2
+
+			// Row 1 - Page Summary Info
+			include components/widgets/widget_page_summary/page_summary_in_box
+
+
+			// Row 2 - Tabs Statistic
+			.l-spaced-vertical.group
+
+				// Widget Tabs 2
+				.widget-tabs-2
+					.hide.tab-chart-track-color
+					ul
+						li.l-span-lg-3.l-span-sm-6
+							.l-span-xs-7
+								.tab-2-title Analytics
+								.tab-2-stat 745
+									span.text-success +15
+								.tab-2-info New Users
+							.l-span-xs-5.tab-chart-wrapper
+								.tabChartUpdate1.tab-chart-update.tt-top(title="Update")
+									i.fa.fa-refresh
+
+								span.tabChart1.tab-chart(data-percent="75")
+									span.percent
+									i.tab-chart-1-color.fa.fa-area-chart
+
+						li.l-span-lg-3.l-span-sm-6
+							.l-span-xs-7
+								.tab-2-title Finance
+								.tab-2-stat 1532
+									span.text-danger -56.61
+								.tab-2-info NESDUQ
+							.l-span-xs-5.tab-chart-wrapper
+								.tabChartUpdate2.tab-chart-update.tt-top(title="Update")
+									i.fa.fa-refresh
+
+								span.tabChart2.tab-chart(data-percent="32")
+									span.percent
+									i.tab-chart-2-color.fa.fa-line-chart
+
+						li.l-span-lg-3.l-span-sm-6
+							.l-span-xs-7
+								.tab-2-title Blog
+								.tab-2-stat 682
+								.tab-2-info Posts
+							.l-span-xs-5.tab-chart-wrapper
+								.tabChartUpdate3.tab-chart-update.tt-top(title="Update")
+									i.fa.fa-refresh
+
+								span.tabChart3.tab-chart(data-percent="54")
+									span.percent
+									i.tab-chart-3-color.fa.fa-rss
+
+						li.l-span-lg-3.l-span-sm-6
+							.l-span-xs-7
+								.tab-2-title Social
+								.tab-2-stat 24,567
+									span.text-success +205
+								.tab-2-info Likes
+							.l-span-xs-5.tab-chart-wrapper
+								.tabChartUpdate4.tab-chart-update.tt-top(title="Update")
+									i.fa.fa-refresh
+
+								span.tabChart4.tab-chart(data-percent="45")
+									span.percent
+									i.tab-chart-4-color.fa.fa-facebook
+
+			// Row 3 - General
+			.l-spaced-vertical
+				include components/widgets/widget_statistic/statistic_in_box
+
+			// Row 4 - Operating System, Demographics
+			.l-spaced
+				.l-row
+
+					.l-col-lg-5.l-col-md-12
+
+						// Widget Statistic - Operating System
+						.widget-statistic.is-statistic-right.is-statistic-left
+							.statistic-header
+								.l-span-sm-7
+									.statistic-title Operating System
+								.l-span-sm-5
+									ul.statistic-options
+										li
+											a#statisticFullScreen_2.ason-widget.tt-top(href='#', title="Fullscreen", data-ason-type="fullscreen", data-ason-target=".widget-statistic", data-ason-content="true")
+										li
+											a.ason-widget.tt-top(href='#', title="Refresh", data-ason-type="refresh", data-ason-target=".widget-statistic", data-ason-duration="1000")
+												i.fa.fa-rotate-right
+										li
+											a.ason-widget.tt-top(href='#', title="Toggle", data-ason-type="toggle", data-ason-find=".widget-statistic", data-ason-target=".statistic-body", data-ason-content="true", data-ason-duration="200")
+										li.last
+											a.ason-widget.tt-top(href='#', title="Delete", data-ason-type="delete", data-ason-target=".widget-statistic", data-ason-content="true", data-ason-animation="fadeOut")
+							.statistic-body
+								.l-row
+									.l-span-lg-6.l-span-md-3.l-span-sm-6
+										.statistic-item.t-item-1
+											i.item-value.fa.fa-caret-up
+											.statistic-item-chart-wrapper
+												.hide.rickshaw-statistic-item-1
+												#statisticChart_1
+											ul
+												li.item-title 123
+												li.item-type Windows
+												li.item-change <span>+4%</span> this week
+
+									.l-span-lg-6.l-span-md-3.l-span-sm-6
+										.statistic-item.t-item-2
+											i.item-value.fa.fa-caret-down
+											.statistic-item-chart-wrapper
+												.hide.rickshaw-statistic-item-2
+												#statisticChart_2
+											ul
+												li.item-title 87
+												li.item-type Macintosh
+												li.item-change <span>-7%</span> this week
+
+									.l-span-lg-6.l-span-md-3.l-span-sm-6
+										.statistic-item.t-item-3
+											i.item-value.fa.fa-caret-down
+											.statistic-item-chart-wrapper
+												.hide.rickshaw-statistic-item-3
+												#statisticChart_3
+											ul
+												li.item-title 52
+												li.item-type Android
+												li.item-change <span>-32</span> this week
+
+									.l-span-lg-6.l-span-md-3.l-span-sm-6
+										.statistic-item.t-item-4
+											i.item-value.fa.fa-caret-up
+											.statistic-item-chart-wrapper
+												.hide.rickshaw-statistic-item-4
+												#statisticChart_4
+											ul
+												li.item-title 115
+												li.item-type iOS
+												li.item-change <span>+50</span> this week
+
+					.l-col-lg-7.l-col-md-12
+
+						// Widget Statistic - Demographics
+						.widget-statistic.statistic-last.is-statistic-right.is-statistic-left
+							.statistic-header
+								.l-span-sm-6
+									#statisticTitle_2.statistic-title Demographics <span>- Listing</span>
+								.l-span-sm-6
+									ul.statistic-options
+										li
+											a#statisticFullScreen_2.ason-widget.tt-top(href='#', title="Fullscreen", data-ason-type="fullscreen", data-ason-target=".widget-statistic", data-ason-content="true")
+										li
+											a.ason-widget.tt-top(href='#', title="Refresh", data-ason-type="refresh", data-ason-target=".widget-statistic", data-ason-duration="1000")
+												i.fa.fa-rotate-right
+										li
+											a.ason-widget.tt-top(href='#', title="Toggle", data-ason-type="toggle", data-ason-find=".widget-statistic", data-ason-target=".statistic-body", data-ason-content="true", data-ason-duration="200")
+										li.last
+											a.ason-widget.tt-top(href='#', title="Delete", data-ason-type="delete", data-ason-target=".widget-statistic", data-ason-content="true", data-ason-animation="fadeOut")
+
+									ul.statistic-options
+										li.tt-top(title="Toggle Display")
+											.hide.switcheryDisplay
+											input#switcheryDisplay(type='checkbox')
+
+										li
+											select#typeSelect.form-control
+												option(value="l") Language
+												option(value="c") Country
+
+
+
+							.statistic-body
+								.statistic-demographics
+
+									// Listing
+									.statistic-listing
+
+										// Language Listing
+										.statistic-language-listing
+											table#languageListing.table.table-hover.toggle-arrow-small(data-page-size='6')
+												thead
+													tr.active
+														th.l-col-xs-2(data-toggle='true')
+															| #
+														th.l-col-xs-3
+															| Language
+														th.l-col-xs-2(data-hide='phone')
+															| Users
+														th.l-col-xs-5(data-hide='phone')
+															| % Users
+
+												tbody
+													tr
+														td 1
+														td.font-semibold English
+														td.text-danger 63
+														td.text-muted
+															.l-col-sm-4
+																| 46.00%
+															.l-col-sm-8
+																.progress.progress-no-border.progress-radius-10.progress-small
+																	.progress-bar.progress-bar-info(role='progressbar', aria-valuenow='46', aria-valuemin='0', aria-valuemax='100', style='width: 46%;')
+																		span.sr-only 46% Complete
+													tr
+														td 2
+														td.font-semibold Spanish
+														td.text-danger 38
+														td.text-muted
+															.l-col-sm-4
+																| 21.00%
+															.l-col-sm-8
+																.progress.progress-no-border.progress-radius-10.progress-small
+																	.progress-bar.progress-bar-info(role='progressbar', aria-valuenow='21', aria-valuemin='0', aria-valuemax='100', style='width: 21%;')
+																		span.sr-only 21% Complete
+													tr
+														td 3
+														td.font-semibold Hungarian
+														td.text-danger 46
+														td.text-muted
+															.l-col-sm-4
+																| 32.00%
+															.l-col-sm-8
+																.progress.progress-no-border.progress-radius-10.progress-small
+																	.progress-bar.progress-bar-info(role='progressbar', aria-valuenow='32', aria-valuemin='0', aria-valuemax='100', style='width: 32%;')
+																		span.sr-only 32% Complete
+													tr
+														td 4
+														td.font-semibold German
+														td.text-danger 26
+														td.text-muted
+															.l-col-sm-4
+																| 12.00%
+															.l-col-sm-8
+																.progress.progress-no-border.progress-radius-10.progress-small
+																	.progress-bar.progress-bar-info(role='progressbar', aria-valuenow='12', aria-valuemin='0', aria-valuemax='100', style='width: 12%;')
+																		span.sr-only 12% Complete
+													tr
+														td 5
+														td.font-semibold Swedish
+														td.text-danger 41
+														td.text-muted
+															.l-col-sm-4
+																| 23.00%
+															.l-col-sm-8
+																.progress.progress-no-border.progress-radius-10.progress-small
+																	.progress-bar.progress-bar-info(role='progressbar', aria-valuenow='23', aria-valuemin='0', aria-valuemax='100', style='width: 23%;')
+																		span.sr-only 23% Complete
+													tr
+														td 6
+														td.font-semibold French
+														td.text-danger 17
+														td.text-muted
+															.l-col-sm-4
+																| 8.00%
+															.l-col-sm-8
+																.progress.progress-no-border.progress-radius-10.progress-small
+																	.progress-bar.progress-bar-info(role='progressbar', aria-valuenow='8', aria-valuemin='0', aria-valuemax='100', style='width: 8%;')
+																		span.sr-only 8% Complete
+													tr
+														td 7
+														td.font-semibold Italian
+														td.text-danger 15
+														td.text-muted
+															.l-col-sm-4
+																| 5.00%
+															.l-col-sm-8
+																.progress.progress-no-border.progress-radius-10.progress-small
+																	.progress-bar.progress-bar-info(role='progressbar', aria-valuenow='5', aria-valuemin='0', aria-valuemax='100', style='width: 5%;')
+																		span.sr-only 5% Complete
+
+													tr
+														td 8
+														td.font-semibold Chinese
+														td.text-danger 36
+														td.text-muted
+															.l-col-sm-4
+																| 19.00%
+															.l-col-sm-8
+																.progress.progress-no-border.progress-radius-10.progress-small
+																	.progress-bar.progress-bar-info(role='progressbar', aria-valuenow='19', aria-valuemin='0', aria-valuemax='100', style='width: 19%;')
+																		span.sr-only 19% Complete
+
+													tr
+														td 9
+														td.font-semibold Japanese
+														td.text-danger 29
+														td.text-muted
+															.l-col-sm-4
+																| 16.00%
+															.l-col-sm-8
+																.progress.progress-no-border.progress-radius-10.progress-small
+																	.progress-bar.progress-bar-info(role='progressbar', aria-valuenow='16', aria-valuemin='0', aria-valuemax='100', style='width: 16%;')
+																		span.sr-only 16% Complete
+
+												tfoot.hide-if-no-paging
+													tr
+														td(colspan='4').tac
+															ul.pagination.pagination-sm
+
+										// Country Listing
+										.statistic-country-listing
+											table#countryListing.table.table-hover.toggle-arrow-small(data-page-size='6')
+												thead
+													tr.active
+														th.l-col-xs-2(data-toggle='true')
+															| #
+														th.l-col-xs-3
+															| Country
+														th.l-col-xs-2(data-hide='phone')
+															| Users
+														th.l-col-xs-5(data-hide='phone')
+															| % Users
+
+												tbody
+
+													tr
+														td 1
+														td.font-semibold United States
+														td.text-danger 29
+														td.text-muted
+															.l-col-sm-4
+																| 16.00%
+															.l-col-sm-8
+																.progress.progress-no-border.progress-radius-10.progress-small
+																	.progress-bar.progress-bar-success(role='progressbar', aria-valuenow='16', aria-valuemin='0', aria-valuemax='100', style='width: 16%;')
+																		span.sr-only 16% Complete
+													tr
+														td 2
+														td.font-semibold United Kingdom
+														td.text-danger 16
+														td.text-muted
+															.l-col-sm-4
+																| 7.00%
+															.l-col-sm-8
+																.progress.progress-no-border.progress-radius-10.progress-small
+																	.progress-bar.progress-bar-success(role='progressbar', aria-valuenow='7', aria-valuemin='0', aria-valuemax='100', style='width: 7%;')
+																		span.sr-only 7% Complete
+													tr
+														td 3
+														td.font-semibold Australia
+														td.text-danger 18
+														td.text-muted
+															.l-col-sm-4
+																| 9.00%
+															.l-col-sm-8
+																.progress.progress-no-border.progress-radius-10.progress-small
+																	.progress-bar.progress-bar-success(role='progressbar', aria-valuenow='9', aria-valuemin='0', aria-valuemax='100', style='width: 9%;')
+																		span.sr-only 9% Complete
+													tr
+														td 4
+														td.font-semibold Spain
+														td.text-danger 38
+														td.text-muted
+															.l-col-sm-4
+																| 21.00%
+															.l-col-sm-8
+																.progress.progress-no-border.progress-radius-10.progress-small
+																	.progress-bar.progress-bar-success(role='progressbar', aria-valuenow='21', aria-valuemin='0', aria-valuemax='100', style='width: 21%;')
+																		span.sr-only 21% Complete
+													tr
+														td 5
+														td.font-semibold Hungary
+														td.text-danger 46
+														td.text-muted
+															.l-col-sm-4
+																| 32.00%
+															.l-col-sm-8
+																.progress.progress-no-border.progress-radius-10.progress-small
+																	.progress-bar.progress-bar-success(role='progressbar', aria-valuenow='32', aria-valuemin='0', aria-valuemax='100', style='width: 32%;')
+																		span.sr-only 32% Complete
+													tr
+														td 6
+														td.font-semibold Germany
+														td.text-danger 26
+														td.text-muted
+															.l-col-sm-4
+																| 12.00%
+															.l-col-sm-8
+																.progress.progress-no-border.progress-radius-10.progress-small
+																	.progress-bar.progress-bar-success(role='progressbar', aria-valuenow='12', aria-valuemin='0', aria-valuemax='100', style='width: 12%;')
+																		span.sr-only 12% Complete
+													tr
+														td 7
+														td.font-semibold Sweden
+														td.text-danger 41
+														td.text-muted
+															.l-col-sm-4
+																| 23.00%
+															.l-col-sm-8
+																.progress.progress-no-border.progress-radius-10.progress-small
+																	.progress-bar.progress-bar-success(role='progressbar', aria-valuenow='23', aria-valuemin='0', aria-valuemax='100', style='width: 23%;')
+																		span.sr-only 23% Complete
+													tr
+														td 8
+														td.font-semibold France
+														td.text-danger 17
+														td.text-muted
+															.l-col-sm-4
+																| 8.00%
+															.l-col-sm-8
+																.progress.progress-no-border.progress-radius-10.progress-small
+																	.progress-bar.progress-bar-success(role='progressbar', aria-valuenow='8', aria-valuemin='0', aria-valuemax='100', style='width: 8%;')
+																		span.sr-only 8% Complete
+													tr
+														td 9
+														td.font-semibold Italy
+														td.text-danger 15
+														td.text-muted
+															.l-col-sm-4
+																| 5.00%
+															.l-col-sm-8
+																.progress.progress-no-border.progress-radius-10.progress-small
+																	.progress-bar.progress-bar-success(role='progressbar', aria-valuenow='5', aria-valuemin='0', aria-valuemax='100', style='width: 5%;')
+																		span.sr-only 5% Complete
+
+													tr
+														td 10
+														td.font-semibold China
+														td.text-danger 36
+														td.text-muted
+															.l-col-sm-4
+																| 19.00%
+															.l-col-sm-8
+																.progress.progress-no-border.progress-radius-10.progress-small
+																	.progress-bar.progress-bar-success(role='progressbar', aria-valuenow='19', aria-valuemin='0', aria-valuemax='100', style='width: 19%;')
+																		span.sr-only 19% Complete
+
+													tr
+														td 11
+														td.font-semibold Japan
+														td.text-danger 29
+														td.text-muted
+															.l-col-sm-4
+																| 16.00%
+															.l-col-sm-8
+																.progress.progress-no-border.progress-radius-10.progress-small
+																	.progress-bar.progress-bar-success(role='progressbar', aria-valuenow='16', aria-valuemin='0', aria-valuemax='100', style='width: 16%;')
+																		span.sr-only 16% Complete
+
+												tfoot.hide-if-no-paging
+													tr
+														td(colspan='4').tac
+															ul.pagination.pagination-sm
+
+									// Graphic
+									.statistic-graphical
+										.hide.c3-donut-1
+										.hide.c3-donut-2
+										.hide.c3-donut-3
+										.hide.c3-donut-4
+										.hide.c3-donut-5
+										.hide.c3-donut-6
+										.hide.c3-donut-7
+										.hide.c3-donut-8
+										.hide.c3-donut-9
+
+										// Language Graphic
+										.statistic-language-graphical
+											#c3Language
+
+										// Country Graphic
+										.statistic-country-graphical
+											#c3Country
+
+			// Row 5 - Gender, Age
+			.l-spaced
+				.l-row
+
+					.l-col-lg-3.l-col-md-6
+
+						// Widget Statistic - Gender
+						.widget-statistic.statistic-last.is-statistic-right.is-statistic-left
+							.statistic-header
+								.l-span-sm-6
+									.statistic-title Gender
+								.l-span-sm-6
+									ul.statistic-options
+										li
+											a#statisticFullScreen_2.ason-widget.tt-top(href='#', title="Fullscreen", data-ason-type="fullscreen", data-ason-target=".widget-statistic", data-ason-content="true")
+										li
+											a.ason-widget.tt-top(href='#', title="Refresh", data-ason-type="refresh", data-ason-target=".widget-statistic", data-ason-duration="1000")
+												i.fa.fa-rotate-right
+										li
+											a.ason-widget.tt-top(href='#', title="Toggle", data-ason-type="toggle", data-ason-find=".widget-statistic", data-ason-target=".statistic-body", data-ason-content="true", data-ason-duration="200")
+										li.last
+											a.ason-widget.tt-top(href='#', title="Delete", data-ason-type="delete", data-ason-target=".widget-statistic", data-ason-content="true", data-ason-animation="fadeOut")
+
+							.statistic-body
+								.statistic-gender
+									.hide.c3-gender-1
+									.hide.c3-gender-2
+
+									// Gender Graphic
+									#c3Gender
+
+					.l-col-lg-4.l-col-md-6.l-clear-md
+
+						// Widget Statistic - Browser
+						.widget-statistic.statistic-last.is-statistic-right.is-statistic-left
+							.statistic-header
+								.l-span-sm-6
+									.statistic-title Browser
+								.l-span-sm-6
+									ul.statistic-options
+										li
+											a#statisticFullScreen_3.ason-widget.tt-top(href='#', title="Fullscreen", data-ason-type="fullscreen", data-ason-target=".widget-statistic", data-ason-content="true")
+										li
+											a.ason-widget.tt-top(href='#', title="Refresh", data-ason-type="refresh", data-ason-target=".widget-statistic", data-ason-duration="1000")
+												i.fa.fa-rotate-right
+										li
+											a.ason-widget.tt-top(href='#', title="Toggle", data-ason-type="toggle", data-ason-find=".widget-statistic", data-ason-target=".statistic-body", data-ason-content="true", data-ason-duration="200")
+										li.last
+											a.ason-widget.tt-top(href='#', title="Delete", data-ason-type="delete", data-ason-target=".widget-statistic", data-ason-content="true", data-ason-animation="fadeOut")
+
+							.statistic-body.group
+								.statistic-browser
+									.hide.rickshaw-browser-1
+									.hide.rickshaw-browser-2
+									.hide.rickshaw-browser-3
+
+									// Browser Graphic
+									#browserChart
+									#browserChartLegend.browser_legend
+
+					.l-col-lg-5.l-col-md-12
+
+						// Widget Statistic - Activity
+						.widget-statistic.statistic-last.is-statistic-right.is-statistic-left
+							.statistic-header
+								.l-span-sm-6
+									.statistic-title Activity
+								.l-span-sm-6
+									ul.statistic-options
+										li
+											a#statisticFullScreen_2.ason-widget.tt-top(href='#', title="Fullscreen", data-ason-type="fullscreen", data-ason-target=".widget-statistic", data-ason-content="true")
+										li
+											a.ason-widget.tt-top(href='#', title="Refresh", data-ason-type="refresh", data-ason-target=".widget-statistic", data-ason-duration="1000")
+												i.fa.fa-rotate-right
+										li
+											a.ason-widget.tt-top(href='#', title="Toggle", data-ason-type="toggle", data-ason-find=".widget-statistic", data-ason-target=".statistic-body", data-ason-content="true", data-ason-duration="200")
+										li.last
+											a.ason-widget.tt-top(href='#', title="Delete", data-ason-type="delete", data-ason-target=".widget-statistic", data-ason-content="true", data-ason-animation="fadeOut")
+
+							.statistic-body
+
+								.statistic-activity.ason-widget(data-ason-type="scrollbar", data-ason-min-height="320px")
+
+									.activity-row
+										.l-span-xs-1.activity-type
+											i.fa.fa-check.text-dark
+
+										.l-col-xs-3.activity-img
+											a(href="page-profile.html")
+												span
+													img(src="img/widgets/user_2.jpg")
+
+										.l-col-xs-8.activity-info
+											h5
+												a(href="#") Victoria Gardner
+												= ' '
+												| followed you.
+
+											div Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+											.time 10:32
+											ul.activity-settings
+												li
+													a(href="page-profile.html")
+														i.fa.fa-edit
+												li
+													a.ason-widget(href='#', data-ason-type="delete", data-ason-target=".activity-row", data-ason-content="true", data-ason-animation="fadeOut")
+
+									.activity-row
+										.l-span-xs-1.activity-type
+											i.fa.fa-thumbs-up.text-info
+
+										.l-col-xs-3.activity-img
+											a(href="page-profile.html")
+												span
+													img(src="img/widgets/user_1.jpg")
+
+										.l-col-xs-8.activity-info
+											h5
+												a(href="#") Charles Gibson
+												= ' '
+												| liked
+												= ' '
+												a(href="#") Proteus
+
+											div Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+											.time 9:02
+											ul.activity-settings
+												li
+													a(href="page-profile.html")
+														i.fa.fa-edit
+												li
+													a.ason-widget(href='#', data-ason-type="delete", data-ason-target=".activity-row", data-ason-content="true", data-ason-animation="fadeOut")
+
+
+									.activity-row
+										.l-span-xs-1.activity-type
+											i.fa.fa-user-plus.text-primary
+
+										.l-col-xs-3.activity-img
+											a(href="page-profile.html")
+												span
+													img(src="img/widgets/user_4.jpg")
+
+										.l-col-xs-8.activity-info
+											strong
+											h5
+												a(href="#") Carol Gibson
+												= ' '
+												| has signed up on
+												= ' '
+												a(href="#") ThemeRiver
+
+											div Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+											.time Sun
+											ul.activity-settings
+												li
+													a(href="page-profile.html")
+														i.fa.fa-edit
+												li
+													a.ason-widget(href='#', data-ason-type="delete", data-ason-target=".activity-row", data-ason-content="true", data-ason-animation="fadeOut")
+
+
+									.activity-row
+										.l-span-xs-1.activity-type
+											i.fa.fa-comment.text-success
+
+										.l-col-xs-3.activity-img
+											a(href="page-profile.html")
+												span
+													img(src="img/widgets/user_3.jpg")
+
+										.l-col-xs-8.activity-info
+											h5
+												a(href="#") Peter Harvey
+												= ' '
+												| commented on
+												= ' '
+												a(href="#") IOS icon
+											div Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+											.time Sat
+											ul.activity-settings
+												li
+													a(href="page-profile.html")
+														i.fa.fa-edit
+												li
+													a.ason-widget(href='#', data-ason-type="delete", data-ason-target=".activity-row", data-ason-content="true", data-ason-animation="fadeOut")
+
+
+									.activity-row
+										.l-span-xs-1.activity-type
+											i.fa.fa-pinterest-p.text-danger
+
+										.l-col-xs-3.activity-img
+											a(href="page-profile.html")
+												span
+													img(src="img/widgets/user_5.jpg")
+
+										.l-col-xs-8.activity-info
+											h5
+												a(href="#") Anthony Gardner
+												= ' '
+												| repinned your pin.
+
+											div Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+											.time Fri
+											ul.activity-settings
+												li
+													a(href="page-profile.html")
+														i.fa.fa-edit
+												li
+													a.ason-widget(href='#', data-ason-type="delete", data-ason-target=".activity-row", data-ason-content="true", data-ason-animation="fadeOut")
+
+
+
+
+			include components/layout/footer/footer_1/footer_1__t_1
+
+		include components/layout/sidebar/sidebar_2/sidebar_2__t_2__right

@@ -1,0 +1,34 @@
+//- Component Configuration
+
+-var scripts_header_1 = [ 'a.shared.classie', 'a.shared.perfectScrollbar', 'widget.uisearch' ]
+//- ------------------------------------
+
+//HEADER
+
+header.l-header.l-header-1.t-header-1
+
+	.navbar.navbar-ason
+		.container-fluid
+			include ../../../modules/navbar/navbar_header
+
+			#ason-navbar-collapse.collapse.navbar-collapse
+				ul.nav.navbar-nav
+					li
+						include ../../../widgets/widget_profile/profile_in_header
+					li
+						include ../../../widgets/widget_message/message_in_header
+
+
+				ul.nav.navbar-nav.navbar-right
+					li
+						include ../../../widgets/widget_task/task_in_header
+					li
+						include ../../../widgets/widget_notification/notification_in_header
+					li.group
+						// Expanding Search Widget
+						.widget-search-expanding.search-expanding-in-header.pull-right#search-exp.ml-10
+								form(role='form')
+									input.search-exp-input(type='text', value='', name='search', placeholder='Search...')
+									input.search-exp-submit(type='submit', value='')
+									span.search-exp-icon
+										i.fa.fa-search

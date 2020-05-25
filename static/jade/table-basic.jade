@@ -1,0 +1,259 @@
+//- ------------------------------------
+//- BASE LAYOUT
+//- ------------------------------------
+extends aaa-master-layout
+
+
+//- ------------------------------------
+//- PAGE CONFIGURATION
+//- ------------------------------------
+prepend config
+	- var link = "table-basic.html"
+	- var page = "table.t-basic"
+	- var pageSubTitle = " - Table - Basic"
+
+
+//- ------------------------------------
+//- PAGE CONTENT
+//- ------------------------------------
+block content
+
+	//SECTION
+	section.l-main-container
+
+		include components/layout/sidebar/sidebar_1/sidebar_1__t_1__left
+
+		//Main Content
+		section.l-container
+
+			include components/layout/header/header_1/header_1__t_1
+
+			.l-page-header
+				h2.l-page-title <span>Basic</span> Table
+				+breadcrumb(bread_table_basic)
+
+			.l-spaced
+				.l-row
+					.l-box.l-col-md-6.l-spaced-bottom
+						.l-box-header
+							h2.l-box-title <span>Basic</span> Table
+							+box-options
+
+						.l-box-body.l-spaced
+							table.table
+								thead
+									tr
+										th #
+										th First Name
+										th Last Name
+										th Username
+								tbody
+									tr
+										td 1
+										td John
+										td Doe
+										td Jonny
+									tr
+										td 2
+										td Jane
+										td Doe
+										td Janny
+									tr
+										td 3
+										td Lox
+										td Design
+										td Loxi
+
+					.l-box.l-col-md-6.l-spaced-bottom
+						.l-box-header
+							h2.l-box-title <span>Striped</span> Table
+							+box-options
+
+						.l-box-body.l-spaced
+							table.table.table-striped
+								thead
+									tr
+										th #
+										th First Name
+										th Last Name
+										th Username
+								tbody
+									tr
+										td 1
+										td John
+										td Doe
+										td Jonny
+									tr
+										td 2
+										td Jane
+										td Doe
+										td Janny
+									tr
+										td 3
+										td Lox
+										td Design
+										td Loxi
+				.l-row
+					.l-box.l-col-md-6.l-spaced-bottom
+						.l-box-header
+							h2.l-box-title <span>Bordered</span> Table
+							+box-options
+
+						.l-box-body.l-spaced
+							table.table.table-bordered
+								thead
+									tr
+										th #
+										th First Name
+										th Last Name
+										th Username
+								tbody
+									tr
+										td(rowspan='2') 1
+										td John
+										td Doe
+										td Jonny
+									tr
+										td Jane
+										td Doe
+										td Janny
+									tr
+										td 2
+										td Lox
+										td Design
+										td Loxi
+									tr
+										td 3
+										td(colspan='2') Larry the Bird
+										td Twotto
+
+					.l-box.l-col-md-6.l-spaced-bottom
+						.l-box-header
+							h2.l-box-title <span>Hover</span> Table
+							+box-options
+
+						.l-box-body.l-spaced
+							table.table.table-hover
+								thead
+									tr
+										th #
+										th First Name
+										th Last Name
+										th Username
+								tbody
+									tr
+										td 1
+										td John
+										td Doe
+										td Jonny
+									tr
+										td 2
+										td Jane
+										td Doe
+										td Janny
+									tr
+										td 3
+										td Lox
+										td Design
+										td Loxi
+									tr
+										td 4
+										td Grace
+										td Barnes
+										td Graci
+
+				.l-row
+					.l-box.l-col-md-6
+						.l-box-header
+							h2.l-box-title <span>Contextual Classes </span>in Table
+							+box-options
+
+						.l-box-body.l-spaced
+							table.table
+								thead
+									tr
+										th #
+										th Column heading
+										th Column heading
+										th Column heading
+								tbody
+									tr.active
+										td 1
+										td Column content
+										td Column content
+										td Column content
+									tr.success
+										td 2
+										td Column content
+										td Column content
+										td Column content
+									tr.info
+										td 3
+										td Column content
+										td Column content
+										td Column content
+									tr.warning
+										td 4
+										td Column content
+										td Column content
+										td Column content
+									tr.danger
+										td 5
+										td Column content
+										td Column content
+										td Column content
+
+					.l-box.l-col-md-6
+						.l-box-header
+							h2.l-box-title <span>Responsive</span> Table
+							+box-options
+
+						.l-box-body.l-spaced
+							div.table-responsive
+								table.table
+									thead
+										tr
+											th #
+											th Table heading
+											th Table heading
+											th Table heading
+											th Table heading
+											th Table heading
+											th Table heading
+									tbody
+										tr
+											td 1
+											td Table cell
+											td Table cell
+											td Table cell
+											td Table cell
+											td Table cell
+											td Table cell
+										tr
+											td 2
+											td Table cell
+											td Table cell
+											td Table cell
+											td Table cell
+											td Table cell
+											td Table cell
+										tr
+											td 3
+											td Table cell
+											td Table cell
+											td Table cell
+											td Table cell
+											td Table cell
+											td Table cell
+										tr
+											td 4
+											td Table cell
+											td Table cell
+											td Table cell
+											td Table cell
+											td Table cell
+											td Table cell
+
+			include components/layout/footer/footer_1/footer_1__t_1
+
+		include components/layout/sidebar/sidebar_2/sidebar_2__t_2__right

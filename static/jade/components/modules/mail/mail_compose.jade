@@ -1,0 +1,72 @@
+// New message
+.new-message
+	h3.new-message-title New Message
+
+	// New message header
+	.new-message-header
+		// Send
+		button.btn.btn-mail-send.new-message-send(type='button') Send
+
+		// Draft
+		button.btn.btn-mail.new-message-draft(type='button') Draft
+
+		// Discard
+		button.btn.btn-mail.new-message-discard(type='button')
+			i.fa.fa-trash
+
+	// New message body
+	.new-message-body
+
+		form(role='form')
+			.input-group.new-message-to
+				span.input-group-addon To
+				input#inputTo.form-control(type='text')
+				span.input-group-btn
+					button.btn-cc.btn.btn-mail(type='button') CC
+				span.input-group-btn
+					button.btn-bcc.btn.btn-mail(type='button') BCC
+
+			.new-message-cc
+				.input-group
+					span.input-group-addon CC
+					input#inputCc.form-control(type='text')
+					span.input-group-btn
+						button.close-cc.btn.btn-mail(type='button')
+							i.fa.fa-times
+
+			.new-message-bcc
+				.input-group
+					span.input-group-addon BCC
+					input#inputBcc.form-control(type='text')
+					span.input-group-btn
+						button.close-bcc.btn.btn-mail(type='button')
+							i.fa.fa-times
+
+			.input-group.new-message-to
+				span.input-group-addon Subject
+				input#inputSubject.form-control(type='text')
+
+			.form-group.message-content
+				div#inputMessage Your Message
+
+			.input-group
+				span.input-group-btn
+					span.btn.btn-mail.btn-file
+						| Browse…
+						input#exampleInputFile(type='file', multiple='')
+				input.form-control.input-upload(type='text', readonly='', placeholder='Upload Files')
+			span.help-block
+				| You can select one or more files at a time
+
+
+	// New message footer
+	.new-message-footer
+		// Send
+		button.btn.btn-mail-send.new-message-send(type='button') Send
+
+		// Draft
+		button.btn.btn-mail.new-message-draft(type='button') Draft
+
+		// Discard
+		button.btn.btn-mail.new-message-discard(type='button')
+			i.fa.fa-trash

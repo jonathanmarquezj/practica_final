@@ -1,0 +1,43 @@
+//- ------------------------------------
+//- BASE LAYOUT
+//- ------------------------------------
+extends aaa-master-layout
+
+
+//- ------------------------------------
+//- PAGE CONFIGURATION
+//- ------------------------------------
+prepend config
+	- var link = "page-error-503.html"
+	- var page = "page.error.e-503"
+	- var pageSubTitle = " - Pages - Error - 503"
+	- var hideThemeSettings = true
+
+append config
+	- var pageBodyClasses = bodyClasses.push('error-503-body')
+
+
+//- ------------------------------------
+//- PAGE CONTENT
+//- ------------------------------------
+block content
+
+	//Main Content
+	section
+		.error-503-header
+			.error-503-content
+				h1 503
+
+				h2 Out of Resources!
+
+		.error-503-content
+			p Our resources were depleted.
+			p For quick solutions check out our links below:
+
+			ul.list-inline
+				li
+					a(href = 'index.html') Home
+				li
+					a(href = '#') Contact Us
+				li
+					a(href = '#') Faqs

@@ -1,0 +1,152 @@
+//- ------------------------------------
+//- BASE LAYOUT
+//- ------------------------------------
+extends aaa-master-layout
+
+
+//- ------------------------------------
+//- PAGE CONFIGURATION
+//- ------------------------------------
+prepend config
+	- var link = "chart-other.html"
+	- var page = "chart.ch-other"
+	- var pageSubTitle = " - Charts - Other Types"
+	- var scripts = [ 'a.shared.raphael', 'charts.circliful', 'charts.sparkline', 'x.call.chart.other' ]
+
+
+//- ------------------------------------
+//- PAGE CONTENT
+//- ------------------------------------
+block content
+
+	//SECTION
+	section.l-main-container
+
+		include components/layout/sidebar/sidebar_1/sidebar_1__t_1__left
+
+		//Main Content
+		section.l-container
+
+			include components/layout/header/header_1/header_1__t_1
+
+			.l-page-header
+				h2.l-page-title <span>Other Type</span> Charts
+				+breadcrumb(bread_chart_other)
+
+			.l-spaced
+
+				.l-row
+					.l-box.l-col-md-6.l-spaced-bottom
+						.l-box-header
+							h2.l-box-title <span> skill Diadgram</span> with Raphaël
+							+box-options
+
+						.l-box-body.l-spaced
+							#diagram
+
+							div.get
+								div.arc
+									span.text JavaScript
+									input.percent(type='hidden', value='92')
+									input.color(type='hidden', value='#79b48d')
+									.hide.other-skill-1
+								div.arc
+									span.text CSS3
+									input.percent(type='hidden', value='86')
+									input.color(type='hidden', value='#f4f1d6')
+									.hide.other-skill-2
+								div.arc
+									span.text HTML5
+									input.percent(type='hidden', value='78')
+									input.color(type='hidden', value='#f9ad61')
+									.hide.other-skill-3
+								div.arc
+									span.text PHP
+									input.percent(type='hidden', value='62')
+									input.color(type='hidden', value='#f25d49')
+									.hide.other-skill-4
+								div.arc
+									span.text MySQL
+									input.percent(type='hidden', value='47')
+									input.color(type='hidden', value='#7b2f25')
+									.hide.other-skill-5
+
+					.l-box.l-col-md-6.l-spaced-bottom
+						.l-box-header
+							h2.l-box-title <span>circliful</span> Charts
+							+box-options
+
+						.l-box-body.l-spaced
+
+							div.circli-cont
+								div#circle_1(data-dimension='300', data-text='75%', data-info='New Clients', data-width='30', data-fontsize='38', data-percent='35', data-fgcolor='#BBBBBB', data-bgcolor='#EDEDED', data-type='half', data-fill='#fff')
+							div.circli-cont
+								div#circle_2(data-dimension='300', data-text='65', data-info='New Users', data-width='30', data-fontsize='38', data-percent='46', data-fgcolor='#737373', data-bgcolor='#F4F4F4', data-total='150', data-part='72', data-border='inline', data-icon='fa fa-users', data-icon-size='28', data-icon-color='#dadfe1')
+
+				.l-row
+					.l-box.l-col-md-4.l-spaced-bottom
+						.l-box-header
+							h2.l-box-title Sparkline <span>Bar</span> Chart
+							+box-options
+
+						.l-box-body.l-spaced.text-center
+							.hide.other-spark-bar-1
+							.hide.other-spark-bar-2
+							span.sparkBar Loading...
+
+					.l-box.l-col-md-4.l-spaced-bottom
+						.l-box-header
+							h2.l-box-title Sparkline <span>Line</span> Chart
+							+box-options
+
+						.l-box-body.l-spaced.text-center.sparkLineWrapper
+							.hide.other-spark-line-1
+							.hide.other-spark-line-2
+							.hide.other-spark-line-3
+							span.sparkLine Loading...
+
+					.l-box.l-col-md-4.l-spaced-bottom
+						.l-box-header
+							h2.l-box-title Sparkline <span>Bullet</span> Chart
+							+box-options
+
+						.l-box-body.l-spaced.text-center
+							.hide.other-spark-bullet-1
+							.hide.other-spark-bullet-2
+							.hide.other-spark-bullet-3
+							.hide.other-spark-bullet-4
+							.hide.other-spark-bullet-5
+							span.sparkBullet Loading...
+
+				.l-row
+					.l-box.l-col-md-6
+						.l-box-header
+							h2.l-box-title Sparkline <span>Box</span> Chart
+							+box-options
+
+						.l-box-body.l-spaced.text-center
+							.hide.other-spark-box-1
+							.hide.other-spark-box-2
+							.hide.other-spark-box-3
+							.hide.other-spark-box-4
+							.hide.other-spark-box-5
+							span.sparkBox Loading...
+
+					.l-box.l-col-md-6
+						.l-box-header
+							h2.l-box-title Sparkline <span>Pie</span> Chart
+							+box-options
+
+						.l-box-body.l-spaced.text-center
+							.hide.other-spark-pie-1
+							.hide.other-spark-pie-2
+							.hide.other-spark-pie-3
+							.hide.other-spark-pie-4
+							span.sparkPie Loading...
+
+			include components/layout/footer/footer_1/footer_1__t_1
+
+		include components/layout/sidebar/sidebar_2/sidebar_2__t_2__right
+
+
+

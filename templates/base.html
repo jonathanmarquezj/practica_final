@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <title>{% block title %}{% endblock %}</title>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <link rel="shortcut icon" href="{{url_for('static', filename = 'favicon.ico')}}">
+    <link rel="stylesheet" href="{{url_for('static', filename = 'css/basic.css')}}">
+    <link rel="stylesheet" href="{{url_for('static', filename = 'css/general.css')}}">
+    <link rel="stylesheet" href="{{url_for('static', filename = 'css/theme.css')}}" class="style-theme">
+    <link rel="stylesheet" href="{{url_for('static', filename = 'css/addons/fonts/artill-clean-icons.css')}}"/>
+  </head>
+  <body class="l-dashboard">
+    <!--SECTION-->
+    <section class="l-main-container">
+      <aside id="sb-left" class="l-sidebar l-sidebar-1 t-sidebar-1">
+        <div class="l-side-box"><a href="#" data-ason-type="sidebar" data-ason-to-sm="sidebar" data-ason-target="#sb-left" class="sidebar-switcher switcher t-switcher-side ason-widget"><i class="fa fa-bars"></i></a></div>
+        <div class="l-side-box">
+        </div>
+        <!--MENU-->
+        <div class="l-side-box">
+          <nav class="navigation">
+            <ul data-ason-type="menu" class="ason-widget">
+              <li class="active"><a href="/"><i class="icon fa fa-calendar"></i><span class="title">Inicio</span><span class="arrow"><i class="fa fa-angle-left"></i></span><span class="info"></span></a></li>
+            </ul>
+          </nav>
+        </div>
+        <!--FIN MENU-->
+      </aside>
+
+      <section class="l-container">
+        <!--CABECERA-->
+        <header class="l-header l-header-1 t-header-1">
+          <div class="navbar navbar-ason">
+            <div class="container-fluid">
+              <div class="navbar-header">
+                <button type="button" data-toggle="collapse" data-target="#ason-navbar-collapse" class="navbar-toggle collapsed"><span class="sr-only">Toggle navigation</span><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></button><a href="/" class="navbar-brand widget-logo"><span class="logo-default-header"><img src="{{url_for('static', filename = 'img/logo_dark.png')}}" alt="Proteus"></span></a>
+              </div>
+              <div id="ason-navbar-collapse" class="collapse navbar-collapse">
+                <ul class="nav navbar-nav navbar-right">
+                  <li class="hidden-sm">
+                    <a href="#" class="full-screen-page sidebar-switcher switcher t-switcher-header"><i class="fa fa-expand"></i></a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </header>
+        <!--FIN CABECERA-->
+
+        <!-- CONTENIDO -->
+          {% block contenido %}{% endblock %}
+        <!-- FIN CONTENIDO -->
+        
+        
+        <!--PIE-->
+        <footer class="l-footer l-footer-1 t-footer-1">
+          <div class="group pt-10 pb-10 ph">
+            <div class="copyright pull-left">
+              © Jonathan Marquez Jimenez
+            </div>
+            <div class="version pull-right">v 1.0</div>
+          </div>
+        </footer>
+        <!-- FIN PIE -->
+      </section>
+      
+    </section>
+    <!-- jQuery-->
+    <script src="{{url_for('static', filename = 'js/basic/jquery.min.js')}}"></script>
+    <script src="{{url_for('static', filename = 'js/basic/jquery-migrate.min.js')}}"></script>
+    <script src="{{url_for('static', filename = 'js/shared/jquery-ui.min.js')}}"></script>
+    <script src="{{url_for('static', filename = 'js/shared/jquery.ui.touch-punch.min.js')}}"></script>
+    <script type="text/javascript">
+      // jQuery Ui and Bootstrap conflict workaround
+      $.widget.bridge('uitooltip', $.ui.tooltip);
+      $.widget.bridge('uibutton');
+    </script>
+    <!-- General-->
+    <script src="{{url_for('static', filename = 'js/basic/modernizr.min.js')}}"></script>
+    <script src="{{url_for('static', filename = 'js/basic/bootstrap.min.js')}}"></script>
+    <script src="{{url_for('static', filename = 'js/shared/jquery.asonWidget.js')}}"></script>
+    <script src="{{url_for('static', filename = 'js/plugins/plugins.js')}}"></script>
+    <script src="{{url_for('static', filename = 'js/general.js')}}"></script>
+    <script src="{{url_for('static', filename = 'js/plugins/pageprogressbar/pace.min.js')}}"></script>
+    
+    {% block script %}{% endblock %}
+    
+  </body>
+</html>

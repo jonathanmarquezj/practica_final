@@ -1,0 +1,148 @@
+// Fullscreen
+.l-row#lolo
+
+	// fullscreen
+	.l-col-md-6
+		.l-box.widget
+			.l-box-header
+				h2.l-box-title Full Screen Widget
+				.widget-opt.fr
+					a(href='#').ason-widget(data-ason-type="fullscreen", data-ason-target=".l-box", data-ason-content="true")
+			.l-box-body.l-spaced
+				p Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper. Aenean ultricies mi vitae est. Mauris placerat eleifend leo.
+
+	// fullscreen
+	.l-col-md-6
+		.l-box.widget
+			.l-box-header
+				h2.l-box-title Full Screen Widget
+				.widget-opt.fr
+					a.btn.btn-default.btn-xs(href='#', role='button').ason-widget(data-ason-type="fullscreen", data-ason-target=".l-row") Toggle
+			.l-box-body.l-spaced
+				p Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper. Aenean ultricies mi vitae est. Mauris placerat eleifend leo.
+
+// Delete
+.l-row
+
+	// delete
+	.l-col-md-6
+		.l-box.widget
+			.l-box-header
+				h2.l-box-title Delete Widget
+				.widget-opt.fr
+					a(href='#').ason-widget(data-ason-type="delete", data-ason-target=".l-box", data-ason-content="true", data-ason-animation="fadeOut")
+			.l-box-body.l-spaced
+				p Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper. Aenean ultricies mi vitae est. Mauris placerat eleifend leo.
+
+	// delete
+	.l-col-md-6
+		.l-box.widget
+			.l-box-header
+				h2.l-box-title Delete Widget
+				.widget-opt.fr
+					a.btn.btn-danger.btn-xs.ason-widget(href='#', data-ason-type="delete", data-ason-target=".l-row") Delete
+			.l-box-body.l-spaced
+				p Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper. Aenean ultricies mi vitae est. Mauris placerat eleifend leo.
+
+// Refresh
+.l-row
+	.group
+		// refresh
+		.l-col-md-6
+			.l-box.widget
+				.l-box-header
+					h2.l-box-title Refresh Widget
+					.widget-opt.fr
+						a(href='#').ason-widget(data-ason-type="refresh", data-ason-parent="false", data-ason-target="#refresh", data-ason-content="true", data-ason-duration="1100")
+				.l-box-body#refresh
+					.l-spaced-p
+						p Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper. Aenean ultricies mi vitae est. Mauris placerat eleifend leo.
+
+		// refresh
+		.l-col-md-6
+			.l-box.widget
+				.l-box-header
+					h2.l-box-title Refresh Widget
+					.widget-opt.fr
+						a.btn.btn-default.btn-xs.ason-widget(href='#', data-ason-type="refresh", data-ason-target=".l-row", data-ason-duration="3000", data-ason-loader-class="spinner snake") Refresh
+				.l-box-body.l-spaced
+					p Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper. Aenean ultricies mi vitae est. Mauris placerat eleifend leo.
+
+// Toggle
+.l-row
+	// toggle
+	.l-col-md-6
+		.l-box.widget
+			.l-box-header
+				h2.l-box-title Toggle Widget
+				.widget-opt.fr
+					a(href='#').ason-widget(data-ason-type="toggle", data-ason-parent="false", data-ason-target="#toggle", data-ason-content="true", data-ason-duration="200")
+			.l-box-body.l-spaced#toggle
+				p Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper. Aenean ultricies mi vitae est. Mauris placerat eleifend leo.
+
+	// toggle
+	.l-col-md-6
+		.l-box.widget
+			.l-box-header
+				h2.l-box-title Toggle Widget - Closed and with Fade Effect
+				.widget-opt.fr
+					a.btn.btn-default.btn-xs.ason-widget(href='#', data-ason-animation-open="fadeIn", data-ason-animation-close="fadeOut", data-ason-duration="300", data-ason-type="toggle", data-ason-parent="false", data-ason-target="#toggle_2") Toggle
+			.l-box-body.l-spaced.toggle-closed#toggle_2
+				p Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper. Aenean ultricies mi vitae est. Mauris placerat eleifend leo.
+
+// Scrollbar
+.l-row
+	// scrollbar
+	.l-col-md-6
+		.l-box.widget
+			.l-box-header
+				h2.l-box-title Scrollbar Widget
+
+			.l-box-body.l-spaced.ason-widget(data-ason-type="scrollbar")
+				p Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper. Aenean ultricies mi vitae est. Mauris placerat eleifend leo. Duis ultricies ipsum at tristique hendrerit. Suspendisse tristique placerat ligula, in finibus dolor sagittis nec. Integer tincidunt sodales urna, eget feugiat lorem euismod eu. Mauris bibendum elementum lacus, et pharetra ante mollis eu. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Morbi fringilla tempus aliquam. Vestibulum vel facilisis dolor. Donec pulvinar felis sodales hendrerit sodales. Nunc commodo consequat turpis fermentum scelerisque. Proin ultrices nisi enim, id facilisis sem viverra ac. Suspendisse sed vestibulum diam, quis ultrices est. Praesent sed nisi nibh. Aliquam euismod congue magna quis rhoncus. Nunc pellentesque interdum tellus nec consequat. Vestibulum quis nunc purus. Nulla vehicula suscipit porttitor. Duis ultricies ipsum at tristique hendrerit. Suspendisse tristique placerat ligula, in finibus dolor sagittis nec. Integer tincidunt sodales urna, eget feugiat lorem euismod eu. Mauris bibendum elementum lacus, et pharetra ante mollis eu. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Morbi fringilla tempus aliquam. Vestibulum vel facilisis dolor. Donec pulvinar felis sodales hendrerit sodales. Nunc commodo consequat turpis fermentum scelerisque. Proin ultrices nisi enim, id facilisis sem viverra ac. Suspendisse sed vestibulum diam, quis ultrices est. Praesent sed nisi nibh. Aliquam euismod congue magna quis rhoncus. Nunc pellentesque interdum tellus nec consequat. Vestibulum quis nunc purus. Nulla vehicula suscipit porttitor.
+
+	// scrollbar
+	.l-col-md-6
+		.l-box.widget
+			.l-box-header
+				h2.l-box-title Scrollbar Widget with custom Max Height
+
+			.l-box-body.l-spaced.ason-widget(data-ason-type="scrollbar", data-ason-max-height="150px")
+				p Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper. Aenean ultricies mi vitae est. Mauris placerat eleifend leo. Duis ultricies ipsum at tristique hendrerit. Suspendisse tristique placerat ligula, in finibus dolor sagittis nec. Integer tincidunt sodales urna, eget feugiat lorem euismod eu. Mauris bibendum elementum lacus, et pharetra ante mollis eu. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Morbi fringilla tempus aliquam. Vestibulum vel facilisis dolor. Donec pulvinar felis sodales hendrerit sodales. Nunc commodo consequat turpis fermentum scelerisque. Proin ultrices nisi enim, id facilisis sem viverra ac. Suspendisse sed vestibulum diam, quis ultrices est. Praesent sed nisi nibh. Aliquam euismod congue magna quis rhoncus. Nunc pellentesque interdum tellus nec consequat. Vestibulum quis nunc purus. Nulla vehicula suscipit porttitor. Duis ultricies ipsum at tristique hendrerit. Suspendisse tristique placerat ligula, in finibus dolor sagittis nec. Integer tincidunt sodales urna, eget feugiat lorem euismod eu. Mauris bibendum elementum lacus, et pharetra ante mollis eu. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Morbi fringilla tempus aliquam. Vestibulum vel facilisis dolor. Donec pulvinar felis sodales hendrerit sodales. Nunc commodo consequat turpis fermentum scelerisque. Proin ultrices nisi enim, id facilisis sem viverra ac. Suspendisse sed vestibulum diam, quis ultrices est. Praesent sed nisi nibh. Aliquam euismod congue magna quis rhoncus. Nunc pellentesque interdum tellus nec consequat. Vestibulum quis nunc purus. Nulla vehicula suscipit porttitor.
+
+
+.l-row
+	.l-col-md-6.ason-widget(data-ason-type="draggable")
+
+		.l-box.l-spaced-bottom.ui-drag-item
+			.l-box-header.ui-drag-handle
+				.l-box-title Draggable box
+			.l-box-body.l-spaced Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper. Aenean ultricies mi vitae est. Mauris placerat eleifend leo. Quisque sit amet est et sapien ullamcorper pharetra. Vestibulum erat wisi, condimentum sed, commodo vitae, ornare sit amet, wisi. Aenean fermentum, elit eget tincidunt condimentum, eros ipsum rutrum orci, sagittis tempus lacus enim ac dui. Donec non enim in turpis pulvinar facilisis. Ut felis. Praesent dapibus, neque id cursus faucibus, tortor neque egestas augue, eu vulputate magna eros eu erat. Aliquam erat volutpat.
+
+		.l-box.l-spaced-bottom.ui-drag-item
+			.l-box-header.ui-drag-handle
+				.l-box-title Draggable box
+			.l-box-body.l-spaced Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper. Aenean ultricies mi vitae est. Mauris placerat eleifend leo. Quisque sit amet est et sapien ullamcorper pharetra. Vestibulum erat wisi, condimentum sed, commodo vitae, ornare sit amet, wisi. Aenean fermentum, elit eget tincidunt condimentum, eros ipsum rutrum orci, sagittis tempus lacus enim ac dui. Donec non enim in turpis pulvinar facilisis. Ut felis. Praesent dapibus, neque id cursus faucibus, tortor neque egestas augue, eu vulputate magna eros eu erat. Aliquam erat volutpat.
+
+		.l-box.l-spaced-bottom.ui-drag-item
+			.l-box-header.ui-drag-handle
+				.l-box-title Draggable box
+			.l-box-body.l-spaced Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper. Aenean ultricies mi vitae est. Mauris placerat eleifend leo. Quisque sit amet est et sapien ullamcorper pharetra. Vestibulum erat wisi, condimentum sed, commodo vitae, ornare sit amet, wisi. Aenean fermentum, elit eget tincidunt condimentum, eros ipsum rutrum orci, sagittis tempus lacus enim ac dui. Donec non enim in turpis pulvinar facilisis. Ut felis. Praesent dapibus, neque id cursus faucibus, tortor neque egestas augue, eu vulputate magna eros eu erat. Aliquam erat volutpat.
+
+
+	.l-col-md-6.ason-widget(data-ason-type="draggable")
+
+		.l-box.l-spaced-bottom.ui-drag-item
+			.l-box-header.ui-drag-handle
+				.l-box-title Draggable box
+			.l-box-body.l-spaced Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper. Aenean ultricies mi vitae est. Mauris placerat eleifend leo. Quisque sit amet est et sapien ullamcorper pharetra. Vestibulum erat wisi, condimentum sed, commodo vitae, ornare sit amet, wisi. Aenean fermentum, elit eget tincidunt condimentum, eros ipsum rutrum orci, sagittis tempus lacus enim ac dui. Donec non enim in turpis pulvinar facilisis. Ut felis. Praesent dapibus, neque id cursus faucibus, tortor neque egestas augue, eu vulputate magna eros eu erat. Aliquam erat volutpat.
+
+		.l-box.l-spaced-bottom.ui-drag-item
+			.l-box-header.ui-drag-handle
+				.l-box-title Draggable box
+			.l-box-body.l-spaced Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper. Aenean ultricies mi vitae est. Mauris placerat eleifend leo. Quisque sit amet est et sapien ullamcorper pharetra. Vestibulum erat wisi, condimentum sed, commodo vitae, ornare sit amet, wisi. Aenean fermentum, elit eget tincidunt condimentum, eros ipsum rutrum orci, sagittis tempus lacus enim ac dui. Donec non enim in turpis pulvinar facilisis. Ut felis. Praesent dapibus, neque id cursus faucibus, tortor neque egestas augue, eu vulputate magna eros eu erat. Aliquam erat volutpat.
+
+		.l-box.l-spaced-bottom.ui-drag-item
+			.l-box-header.ui-drag-disabled
+				.l-box-title Not draggable box
+			.l-box-body.l-spaced Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper. Aenean ultricies mi vitae est. Mauris placerat eleifend leo. Quisque sit amet est et sapien ullamcorper pharetra. Vestibulum erat wisi, condimentum sed, commodo vitae, ornare sit amet, wisi. Aenean fermentum, elit eget tincidunt condimentum, eros ipsum rutrum orci, sagittis tempus lacus enim ac dui. Donec non enim in turpis pulvinar facilisis. Ut felis. Praesent dapibus, neque id cursus faucibus, tortor neque egestas augue, eu vulputate magna eros eu erat. Aliquam erat volutpat.

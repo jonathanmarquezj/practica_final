@@ -1,0 +1,70 @@
+//- ------------------------------------
+//- BASE LAYOUT
+//- ------------------------------------
+extends aaa-master-layout
+
+
+//- ------------------------------------
+//- PAGE CONFIGURATION
+//- ------------------------------------
+prepend config
+	- var link = "layout-footer-sticky-boxed.html"
+	- var page = "layout.footer.f-sticky-boxed"
+	- var pageSubTitle = " - Sticky Footer in Boxed Layout"
+	- var styles = [ 'syntaxhighlighter']
+	- var scripts = [ 'a.syntaxhighlighter' ]
+
+append config
+	- var pageBodyClasses = bodyClasses.push('l-boxed','l-footer-sticky-1')
+
+
+//- ------------------------------------
+//- PAGE CONTENT
+//- ------------------------------------
+block content
+
+	//SECTION
+	section.l-main-container.t-boxed.has-footer-1
+
+		include components/layout/sidebar/sidebar_1/sidebar_1__t_1__left
+
+		//Main Content
+		section.l-container
+
+			include components/layout/header/header_1/header_1__t_1__no_sb
+
+			.l-page-header
+				h2.l-page-title <span>Sticky</span> Footer in <span>Boxed</span> layout
+				+breadcrumb(bread_layout_footer_sticky_boxed)
+
+			.min-height-900
+				.l-spaced-vertical
+					.l-box.no-border
+						.l-spaced
+
+							.syntax-wrapper
+								.syntax-info
+									p.mv
+										| <strong>Sticky footer</strong> in a <strong>boxed</strong> layout.
+
+								.table-responsive
+									pre(class="brush:xml;")
+										|&lt;body class="l-boxed l-footer-sticky-1" &gt;
+										|	&nbsp;
+										|	<section class="l-main-container has-footer-1">
+										|	&nbsp;
+										|		<section class="l-container">
+										|	&nbsp;
+										|			Page content...
+										|	&nbsp;
+										|			<footer class="l-footer l-footer-1">
+										|				Footer content...
+										|       		</footer>
+										|	&nbsp;
+										|   		</section>
+										|	&nbsp;
+										|   	</section>
+										|	&nbsp;
+										|&lt;/body&gt;
+
+			include components/layout/footer/footer_1/footer_1__t_1

@@ -1,0 +1,55 @@
+//- ------------------------------------
+//- BASE LAYOUT
+//- ------------------------------------
+extends aaa-master-layout
+
+//- ------------------------------------
+//- PAGE CONFIGURATION
+//- ------------------------------------
+prepend config
+	- var link = "app-mail.html"
+	- var page = "app.ap-mail"
+	- var pageSubTitle = " - Apps - Mail"
+	- var styles = [ 'summernote' ]
+	- var scripts = [ 'form.summernote', 'tooltips.tooltipster', 'form.checkBo', 'x.call.app.mail' ]
+
+
+append config
+	- var pageBodyClasses = bodyClasses.push('l-mail-app')
+
+
+//- ------------------------------------
+//- PAGE CONTENT
+//- ------------------------------------
+block content
+
+	//SECTION
+	section.l-main-container
+
+		include components/layout/sidebar/mail/sidebar_left_mail
+
+		//Main wrapper
+		section.l-container
+
+			include components/layout/header/mail/header_mail
+
+			.mailcheckbo
+				include components/modules/mail/mail_options
+
+				// Mail content
+				.mail-content.mail-layout-bottom
+
+					include components/modules/mail/mail_list
+
+					include components/modules/mail/mail_details
+
+				include components/modules/mail/mail_compose
+
+
+
+			include components/layout/footer/footer_1/footer_1__t_1
+
+		include components/layout/sidebar/mail/slidebar_right_mail
+
+
+

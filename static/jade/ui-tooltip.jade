@@ -1,0 +1,211 @@
+//- ------------------------------------
+//- BASE LAYOUT
+//- ------------------------------------
+extends aaa-master-layout
+
+
+//- ------------------------------------
+//- PAGE CONFIGURATION
+//- ------------------------------------
+prepend config
+	- var link = "ui-tooltip.html"
+	- var page = "ui.u-tooltip"
+	- var pageSubTitle = " - Ui Elements - Tooltips and Popovers"
+	- var scripts = [ 'tooltips.webuiPopover', 'tooltips.tooltipster', 'x.call.ui.tooltips' ]
+
+
+//- ------------------------------------
+//- PAGE CONTENT
+//- ------------------------------------
+block content
+
+	//SECTION
+	section.l-main-container
+
+		include components/layout/sidebar/sidebar_1/sidebar_1__t_1__left
+
+		//Main Content
+		section.l-container
+
+			include components/layout/header/header_1/header_1__t_1
+
+			.l-page-header
+				h2.l-page-title <span>Tooltips</span> and <span>Popovers</span>
+				+breadcrumb(bread_ui_tooltip)
+
+			.l-spaced
+
+				//Tooltips
+				.l-box.l-spaced-bottom
+					.l-box-header
+						h2.l-box-title <span>Bootstrap</span> Tooltips
+						+box-options
+
+					.l-box-body.l-spaced
+						button.toolt.btn.btn-default(type='button', data-toggle='tooltip', data-placement='left', title='Tooltip on left') Tooltip on left
+						button.toolt.btn.btn-default(type='button', data-toggle='tooltip', data-placement='top', title='Tooltip on top') Tooltip on top
+						button.toolt.btn.btn-default(type='button', data-toggle='tooltip', data-placement='bottom', title='Tooltip on bottom') Tooltip on bottom
+						button.toolt.btn.btn-default(type='button', data-toggle='tooltip', data-placement='right', title='Tooltip on right') Tooltip on right
+
+				//Styled Tooltips
+				.l-box.l-spaced-bottom
+					.l-box-header
+						h2.l-box-title <span>Styled</span> Tooltips
+						+box-options
+
+					.l-box-body.l-spaced
+
+						.l-row.l-spaced-bottom
+							.l-col-md-5
+								a.btn.btn-default.tt_default(href = '#', title='This is the tooltip') Default setting
+
+							.l-col-md-2
+								a.btn.btn-default.tt_html(href = '#') Fixed width, position, & HTML
+
+							.l-col-md-5
+								a.btn.btn-default.tt_event.pull-right(href = '#', title='Press any key on your keyboard or click anywhere in the page to close this') Triggered by click event
+
+						.l-row
+							.l-col-md-5
+								a.btn.btn-default.tt_theme(href = '#', title='Build custom themes and CSS powered animations!') Custom themes &amp; animations
+
+							.l-col-md-2
+								a.btn.btn-default.tt_multiple(href = '#') Multiple tooltips on a single element
+
+							.l-col-md-5
+								a.btn.btn-default.tt_interact.pull-right(href = '#', title="This is an interactive tooltip, you can select it.") Interaction with tooltips
+
+				//Popovers opened by hover
+				.l-box.l-spaced-bottom
+					.l-box-header
+						h2.l-box-title <span>Bootstrap</span> Popovers
+						+box-options
+
+					.l-box-body.l-spaced
+						button.popov.btn.btn-default(type='button', data-container='body', data-toggle='popover', data-placement='left', title="Popover Left", data-content='Vivamus sagittis lacus vel augue laoreet rutrum faucibus.')
+							| Popover on left
+						button.popov.btn.btn-default(type='button', data-container='body', data-toggle='popover', data-placement='top', title="Popover Right", data-content='Vivamus sagittis lacus vel augue laoreet rutrum faucibus.')
+							| Popover on top
+						button.popov.btn.btn-default(type='button', data-container='body', data-toggle='popover', data-placement='bottom', title="Popover Bottom", data-content='Vivamus sagittis lacus vel augue laoreet rutrum faucibus.')
+							| Popover on bottom
+						button.popov.btn.btn-default(type='button', data-container='body', data-toggle='popover', data-placement='right', title="Popover Right", data-content='Vivamus sagittis lacus vel augue laoreet rutrum faucibus.')
+							| Popover on right
+
+				//Styled Popovers
+				.l-box.l-spaced-bottom
+					.l-box-header
+						h2.l-box-title <span>Styled</span> Popovers
+						+box-options
+
+					.l-box-body.l-spaced
+
+						h4.sep-bottom Predefined positions
+						.l-row.l-spaced-bottom
+							.l-col-md-5
+								a.webui-popov.btn.btn-default(href='#', data-placement='bottom-right') pop bottom-right
+							.l-col-md-2
+								a.webui-popov.btn.btn-default(href='#', data-placement='bottom') pop bottom
+							.l-col-md-5
+								a.webui-popov.btn.btn-default.pull-right(href='#', data-placement='bottom-left') pop bottom-left
+
+						.l-row.l-spaced-bottom
+							.l-col-md-6
+								a.webui-popov.btn.btn-default(href='#', data-placement='right') pop right
+							.l-col-md-6
+								a.webui-popov.btn.btn-default.pull-right(href='#', data-placement='left') pop left
+
+						.l-row.l-spaced-bottom
+							.l-col-md-5
+								a.webui-popov.btn.btn-default(href='#', data-placement='top-right') pop top-right
+							.l-col-md-2
+								a.webui-popov.btn.btn-default(href='#', data-placement='top') pop top
+							.l-col-md-5
+								a.webui-popov.btn.btn-default.pull-right(href='#', data-placement='top-left') pop top-left
+
+						h4.sep-bottom Autodetect positions
+						.l-row.l-spaced-bottom
+							.l-col-md-5
+								a.webui-popov.btn.btn-default(href='#') auto detect
+							.l-col-md-2
+								a.webui-popov.btn.btn-default(href='#') auto detect
+							.l-col-md-5
+								a.webui-popov.btn.btn-default.pull-right(href='#', data-placement='auto') auto detect
+
+						h4.sep-bottom Different Popover content
+						.l-row.l-spaced-bottom
+							.l-col-md-5
+								a.webui-table.btn.btn-default(href='#', data-placement='auto') pop with table
+							.l-col-md-2
+								a.webui-list.btn.btn-default(href='#', data-placement='auto') pop with list
+							.l-col-md-5
+								a.webui-large.btn.btn-default.pull-right(href='#', data-placement='auto') pop large content
+						.l-row
+							.l-col-md-6
+								a.webui-async.btn.btn-default(href='#', data-placement='auto') pop async
+							.l-col-md-6
+								a.webui-iframe.btn.btn-default.pull-right(href='#', data-placement='auto') pop iframe
+
+						#tableContent(style='display:none;')
+							table.table
+								thead
+									tr
+										th #
+										th First Name
+										th Last Name
+										th Username
+								tbody
+									tr
+										td 1
+										td Mark
+										td Otto
+										td @mdo
+									tr
+										td 2
+										td Jacob
+										td Thornton
+										td @fat
+									tr
+										td 3
+										td Larry
+										td the Bird
+										td @twitter
+
+						#listContent(style='display:none;')
+							ul.list-group
+								li.list-group-item Cras justo odio
+								li.list-group-item Dapibus ac facilisis in
+								li.list-group-item Morbi leo risus
+								li.list-group-item Porta ac consectetur ac
+								li.list-group-item Vestibulum at eros
+
+						#largeContent(style='display:none;')
+							p
+								| The jQuery Foundation’s
+								a(href='http://jquery.org/mission') mission
+								| has always been about more than just our namesake projects of jQuery, jQuery UI, and jQuery Mobile. We already host several projects such as Sizzle, QUnit and Globalize that are not dependent on the jQuery library.
+							p
+								| This wider web-oriented mission is evident in our jQuery Conferences, which span a wide range of developer concerns beyond jQuery, including Node, CSS, tooling, testing and much more. Over the years we’ve had talks on build tools, accessibility, security, performance, design patterns, and frameworks such as Ember and Angular. At our San Diego conference this past February, for example, Lenny Markus gave a great talk on
+								a(title='NodeJS In the Enterprise', href='https://www.youtube.com/watch?v=qJVk6KiOEBA', target='_blank') PayPal’s continuing adoption of Node
+								| as they move away from Java and proprietary solutions, Catherine Farman talked about
+								a(title='Real World Responsive Design Projects and Patterns', href='https://www.youtube.com/watch?v=CkC8F3x8-nc', target='_blank') real world responsive design
+								| , and John Dimm gave a talk on the
+								a(title='Fun with Speech', href='https://www.youtube.com/watch?v=n8G1CuR2zZc', target='_blank') HTML5 speech APIs
+								| .
+							p
+								| The jQuery Foundation is participating in the continuing evolution of the web platform via our memberships in both the W3C and ECMA TC39 (The group standardizing what we know as JavaScript). We feel that it’s essential to have strong representation in those standards groups to ensure they meet the needs of developers. The Foundation provides a platform for developers to have a voice in these standards bodies.
+							p
+								| Beyond the technical compatibility between our projects, we also share the open source model and all the benefits it provides. The Foundation adds the benefit of a top-level structure designed to serve the projects, providing the resources they need but letting the contributors decide the best direction for the project based on community input. Any project that joins the Foundation is given the ability to serve their community’s needs rather than be constrained by the goals of a for-profit company.
+							p
+								| Though this has been our mission for a long time, we felt we needed to make this clearer. We are excited to start bringing this part of our mission into the light and start actively working toward a more open web accessible to everyone. If you are excited as well, please help us. Contribute your time to
+								a(href='https://jquery.org/projects/', target='_blank') Foundation projects
+								| . Offer your company’s services. If you or your company have an established open source project that you believe could benefit everyone and flourish by becoming part of the jQuery Foundation, check out our philosophy around
+								a(href='https://jquery.org/projects/join/') projects joining the Foundation
+								| and
+								a(href='mailto:info@jquery.org') let us know you’re interested
+								| . If you would rather just support the existing and future projects of the Foundation through financial support,
+								a(href='https://jquery.org/join/') become a member of the Foundation.
+								| Open source projects will only thrive if everyone who benefits from them contributes back in whatever way they can.
+
+			include components/layout/footer/footer_1/footer_1__t_1
+
+		include components/layout/sidebar/sidebar_2/sidebar_2__t_2__right

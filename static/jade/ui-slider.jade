@@ -1,0 +1,165 @@
+//- ------------------------------------
+//- BASE LAYOUT
+//- ------------------------------------
+extends aaa-master-layout
+
+
+//- ------------------------------------
+//- PAGE CONFIGURATION
+//- ------------------------------------
+prepend config
+	- var link = "ui-slider.html"
+	- var page = "ui.u-slider"
+	- var pageSubTitle = " - UI Elements - Sliders"
+	- var scripts = [ 'sliders.jqueryUiSliderPips', 'x.call.ui.slider' ]
+
+//- ------------------------------------
+//- HEAD STYLES GENERAL
+//- ------------------------------------
+prepend  head-styles-general
+	// Pre general
+	link(class="style-theme-addon", rel="stylesheet", href="css/addons/theme/jquery-ui.css")
+
+//- ------------------------------------
+//- PAGE CONTENT
+//- ------------------------------------
+block content
+
+	//SECTION
+	section.l-main-container
+
+		include components/layout/sidebar/sidebar_1/sidebar_1__t_1__left
+
+		//Main Content
+		section.l-container
+
+			include components/layout/header/header_1/header_1__t_1
+
+			.l-page-header
+				h2.l-page-title <span>Sliders</span>
+				+breadcrumb(bread_ui_slider)
+
+			.l-spaced
+
+				//Sliders
+				.l-box.l-spaced-bottom
+					.l-box-header
+						h2.l-box-title <span>Sliders</span>
+						+box-options
+
+					.l-box-body.l-spaced-left.l-spaced-right.l-spaced-bottom
+
+						.l-row
+							.l-col-md-8
+								h4.sep-bottom Horiztonal
+								#jqueryUiSlider_1
+
+								h4.sep-bottom Range Slider
+								p
+									label(for='amount_1') Price range:
+									input#amount_1.ui-amount(type='text', readonly='')
+								#jqueryUiSlider_2
+
+								h4.sep-bottom Snap to increment
+								p
+									label(for='amount_2') Donation amount ($50 increments):
+									input#amount_2.ui-amount(type='text', readonly='')
+								#jqueryUiSlider_3
+
+							.l-col-md-4
+								.l-col-md-4.l-col-sm-6
+									h4.sep-bottom Vertical
+									#jqueryUiSlider_4(style='height:250px;')
+
+								.l-col-md-8.l-col-sm-6
+									h4.sep-bottom Vertical range slider
+									p
+										label(for='amount_3') Target sales goal (Millions):
+										input#amount_3.ui-amount(type='text', readonly='')
+									#jqueryUiSlider_5(style='height:210px;')
+
+
+				//Sliders with Pins and Floats
+				.l-box.l-spaced-bottom
+					.l-box-header
+						h2.l-box-title <span>Sliders</span> with <span>Pins</span> and <span>Floats</span>
+						+box-options
+
+					.l-box-body.l-spaced
+						.l-row
+							.l-col-md-8
+								h4.sep-bottom.mt-0 Slider with Pips
+								.l-spaced-bottom
+									#jqueryUiSliderPips_1
+
+								h4.sep-bottom.l-spaced-p-top Slider with Floats
+								#jqueryUiSliderPips_2
+
+								h4.sep-bottom.l-spaced-p-top Slider with Pips and Floats
+								#jqueryUiSliderPips_3
+
+								h4.sep-bottom.l-spaced-p-top Labeled Slider
+								#jqueryUiSliderPips_4
+
+								h4.sep-bottom.l-spaced-p-top Range Slider with hidden labels
+								#jqueryUiSliderPips_5
+
+								h4.sep-bottom.l-spaced-p-top Slider with all labels hidden (only pips)
+								#jqueryUiSliderPips_6
+
+								h4.sep-bottom.l-spaced-p-top Slider with prefix and suffix on labels
+								#jqueryUiSliderPips_7
+
+								h4.sep-bottom.l-spaced-p-top Slider with labels
+								.text-center.mb-10
+								#custom_label_output Nothing Selected.
+								#jqueryUiSliderPips_8
+
+
+							.l-col-md-4.slider-md-adjust
+								.l-col-sm-6
+									h4.sep-bottom.mt-0 Vertical Slider with pip and label
+									.text-center.l-spaced-top
+										#jqueryUiSliderPips_9(style='height:450px;')
+
+								.l-col-sm-6
+									h4.sep-bottom.mt-0 Vertical Slider with floats, prefix and suffix
+									#jqueryUiSliderPips_10(style='height:450px;')
+
+				//Colored Sliders
+				.l-box.l-spaced-bottom
+					.l-box-header
+						h2.l-box-title <span>Colored Sliders</span>
+						+box-options
+
+					.l-box-body.l-spaced
+						h4.sep-bottom Primary Slider
+						.mt
+							#jqueryPrimaryUiSlider.ui-slider-primary
+						h4.sep-bottom Success Slider
+						.mt
+							#jquerySuccessUiSlider.ui-slider-success
+						h4.sep-bottom Info Slider
+						.mt
+							#jqueryInfoUiSlider.ui-slider-info
+						h4.sep-bottom Warning Slider
+						.mt
+							#jqueryWarningUiSlider.ui-slider-warning
+						h4.sep-bottom Danger Slider
+						.mt
+							#jqueryDangerUiSlider.ui-slider-danger
+
+			include components/layout/footer/footer_1/footer_1__t_1
+
+		include components/layout/sidebar/sidebar_2/sidebar_2__t_2__right
+
+//- ------------------------------------
+//- FOOT SCRIPTS JQUERY
+//- ------------------------------------
+append foot-scripts-jquery
+	script(src="js/shared/jquery-ui.min.js")
+	script(src="js/shared/jquery.ui.touch-punch.min.js")
+	script(type='text/javascript').
+		// jQuery Ui and Bootstrap conflict workaround
+		$.widget.bridge('uitooltip', $.ui.tooltip);
+		$.widget.bridge('uibutton', $.ui.button);

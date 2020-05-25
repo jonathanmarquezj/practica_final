@@ -1,0 +1,45 @@
+//- Component Configuration
+
+//- ------------------------------------
+
+//HEADER SLIDE
+header#header.l-header-slide.l-header-slide-3.t-header-slide-3
+
+	.widget-weather-forecast.l-row
+
+		.l-span-xl-10.l-span-lg-9.l-span-md-9.l-span-sm-12
+			#weatherForecast
+				='&nbsp;'
+				//- a.weather-day-col(href="#")
+				//- 	.weather-day Monday
+				//- 	.weather-date May 25
+				//- 	.weather-icon
+				//- 		i.ac.ac-0
+				//- 	.weather-temp 65°F
+				//- 	.weather-description Sunny
+
+		.l-span-xl-2.l-span-lg-3.l-span-md-3.hidden-sm.hidden-xs
+			.weather-forecast-settings
+				h3 Forecast Settings
+
+				.form-group
+					.input-group.input-group-sm
+						.input-group-addon
+							i.fa.fa-map-marker
+						input.forecast-location.form-control(type='text', placeholder='Search location', value="New York, NY")
+						span.input-group-btn
+							button.btn.btn-dark.forecast-location-btn(type='button')
+								i.fa.fa-search
+
+				.forecastcheckbo
+					div
+						label.forecast-unit.cb-radio.cb-radio-primary-1
+							input(type='radio', name='temperature', value='f', checked='checked')
+							| Fahrenheit
+					div
+						label.forecast-unit.cb-radio.cb-radio-primary-1
+							input(type='radio', name='temperature', value='c')
+							| Celsius
+
+
+				a(href="#").forecast-geo-location Use Your Location

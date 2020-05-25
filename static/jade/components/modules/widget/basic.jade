@@ -1,0 +1,279 @@
+.l-row
+
+	// with options
+	.l-col-md-6
+		.l-box.widget
+			.l-box-header
+				h2.l-box-title Widget with options
+				ul.l-box-options
+					li
+						a(href = '#')
+							i.fa.fa-cogs
+					li
+						a(href = '#')
+							i.fa.fa-bars
+					li
+						a(href='#').ason-widget(data-ason-type="fullscreen", data-ason-target=".l-box", data-ason-content="true")
+
+					li
+						a.ason-widget(href='#', data-ason-type="refresh", data-ason-target=".l-box", data-ason-duration="1000")
+							i.fa.fa-rotate-right
+					li
+						a(href = '#').ason-widget(data-ason-type="toggle", data-ason-find=".l-box", data-ason-target=".l-box-body", data-ason-content="true", data-ason-duration="200")
+
+					li
+						a(href='#').ason-widget(data-ason-type="delete", data-ason-target=".l-box", data-ason-content="true", data-ason-animation="fadeOut")
+
+			.l-box-body.l-spaced
+				p Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper. Aenean ultricies mi vitae est. Mauris placerat eleifend leo.
+
+	// with button
+	.l-col-md-6
+		.l-box.widget
+			.l-box-header
+				h2.l-box-title Widget with button
+				.widget-opt.fr
+					a.btn.btn-primary.btn-xs(href='#', role='button') Button
+			.l-box-body.l-spaced
+				p Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper. Aenean ultricies mi vitae est. Mauris placerat eleifend leo.
+
+.l-row
+
+	// with button group
+	.l-col-md-6
+		.l-box.widget
+			.l-box-header#elem
+				h2.l-box-title Widget with button group
+				.widget-opt.fr
+					.btn-group.btn-group-xs
+						button.btn.btn-success(type='button') Left
+						button.btn.btn-success(type='button') Middle
+						button.btn.btn-success(type='button') Right
+
+			.l-box-body.l-spaced
+				p Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper. Aenean ultricies mi vitae est. Mauris placerat eleifend leo.
+
+	// with dropdown
+	.l-col-md-6
+		.l-box.widget
+			.l-box-header
+				h2.l-box-title Widget with dropdown
+				.widget-opt.fr
+					.btn-group
+						button.btn.btn-drop.btn-dark.btn-xs.dropdown-toggle(type='button', data-toggle='dropdown')
+							| Dropdown
+							span.caret
+						ul.dropdown-menu.drop-dark.dropdown-menu-right(role='menu')
+							li: a(href='#') Action
+							li: a(href='#') Another action
+							li: a(href='#') Something else here
+							li.divider
+							li: a(href='#') Separated link
+			.l-box-body.l-spaced
+				p Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper. Aenean ultricies mi vitae est. Mauris placerat eleifend leo.
+
+.l-row
+
+	// with loader
+	.l-col-md-6
+		.l-box.widget
+			.l-box-header
+				h2.l-box-title Widget with loader
+				.widget-opt.fr.widget-loader
+					.spinner.audiowave
+
+			.l-box-body.l-spaced
+				p Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper. Aenean ultricies mi vitae est. Mauris placerat eleifend leo.
+
+	// with progressbar
+	.l-col-md-6
+		.l-box.widget
+			.l-box-header
+				h2.l-box-title Widget with progressbar
+				.widget-opt.fr
+					.progress.widget-progress
+						.progress-bar.progress-bar-striped.active.progress-bar-info(role='progressbar', aria-valuenow='65', aria-valuemin='0', aria-valuemax='100', style='width: 65%;')
+							| 65%
+			.l-box-body.l-spaced
+				p Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper. Aenean ultricies mi vitae est. Mauris placerat eleifend leo.
+
+.l-row
+
+	// with badge and label
+	.l-col-md-6
+		.l-box.widget
+			.l-box-header
+				h2.l-box-title Widget with badge and label
+				.widget-opt.fr
+					ul.list-inline.widget-label-badge
+						li: span.label.label-default 3,5%
+						li: span.badge.badge-warning 32
+
+			.l-box-body.l-spaced
+				p Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper. Aenean ultricies mi vitae est. Mauris placerat eleifend leo.
+
+	// with search
+	.l-col-md-6
+		.l-box.widget
+			.l-box-header
+				h2.l-box-title Widget with search
+				.widget-opt.fr.widget-basic-search
+					.input-group
+						input.form-control(type='text', placeholder='Search...')
+						span.input-group-btn
+							button.btn.btn-default.btn-xs(type='button')
+								i.fa.fa-search
+			.l-box-body.l-spaced
+				p Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper. Aenean ultricies mi vitae est. Mauris placerat eleifend leo.
+
+.l-row
+
+	// with slider
+	.l-col-md-6
+		.l-box.widget
+			.l-box-header
+				h2.l-box-title Widget with slider
+				.widget-opt.fr.widget-slider
+					#jqueryUiSlider_1
+
+			.l-box-body.l-spaced
+				p Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper. Aenean ultricies mi vitae est. Mauris placerat eleifend leo.
+
+	// with graph
+	.l-col-md-6
+		.l-box.widget
+			.l-box-header
+				h2.l-box-title Widget with graph
+				.widget-opt.fr.widget-graph
+					span.sparkBar Loading...
+			.l-box-body.l-spaced
+				p Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper. Aenean ultricies mi vitae est. Mauris placerat eleifend leo.
+
+.l-row
+
+	// with tabs
+	.l-col-md-6
+		.l-box.widget.widget-basic-tabs
+			.l-box-header
+				h2.l-box-title Widget with tabs
+				.widget-opt.fr
+					ul.nav.nav-tabs(role='tablist')
+						li.active
+							a(href='#tab_1') Tab 1
+						li
+							a(href='#tab_2') Tab 2
+
+			.l-box-body.l-spaced
+				.tab-content
+					#tab_1.tab-pane.active Tab 1 - Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper. Aenean ultricies mi vitae est. Mauris placerat eleifend leo.
+					#tab_2.tab-pane Tab 2 - Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper. Aenean ultricies mi vitae est. Mauris placerat eleifend leo.
+
+	// with pagination
+	.l-col-md-6
+		.l-box.widget
+			.l-box-header
+				h2.l-box-title Widget with pagination
+				.widget-opt.fr.widget-pagination
+					ul.pagination.pagination-sm
+						li.disabled
+							a(href='#')
+								span(aria-hidden='true')
+									i.fa.fa-angle-double-left
+								span.sr-only Previous
+						li.active
+							a(href='#')
+								| 1
+								span.sr-only (current)
+						li
+							a(href='#') 2
+						li
+							a(href='#') 3
+						li
+							a(href='#')
+								span(aria-hidden='true')
+									i.fa.fa-angle-double-right
+								span.sr-only Next
+			.l-box-body.l-spaced
+				p Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper. Aenean ultricies mi vitae est. Mauris placerat eleifend leo.
+
+.l-row
+
+	// widget on the left side
+	.l-col-md-6
+		.l-box.widget
+			.l-box-header
+				h2.l-box-title.fr Widget on the left side
+				.widget-opt.fl
+					.btn-group
+						a.btn.btn-default.btn-xs(href='#', role='button' data-toggle='dropdown')
+							i.fa.fa-cog
+						ul.dropdown-menu.drop-default(role='menu')
+							li: a(href='#')
+								i.fa.fa-edit.mr-5
+								| Edit
+							li.divider
+							li: a(href='#')
+								i.fa.fa-cut.mr-5
+								| Cut
+							li: a(href='#')
+								i.fa.fa-copy.mr-5
+								| Copy
+							li: a(href='#')
+								i.fa.fa-paste.mr-5
+								| Paste
+							li.divider
+							li: a(href='#')
+								i.fa.fa-trash-o.mr-5
+								| Delete
+
+			.l-box-body.l-spaced
+				p Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper. Aenean ultricies mi vitae est. Mauris placerat eleifend leo.
+
+	// centered text with widgets
+	.l-col-md-6
+		.l-box.widget
+			.l-box-header
+				.l-span-md-3.l-span-xs-2
+					.widget-opt
+						a.btn.btn-dark.btn-xs(href='#', role='button')
+							i.fa.fa-rotate-right
+				.l-span-md-6.l-span-xs-8.tac
+					h2.l-box-title.fn Centered text with widgets
+
+				.l-span-md-3.l-span-xs-2.tar
+					.widget-opt
+						a.btn.btn-danger.btn-xs(href='#', role='button')
+							i.fa.fa-times
+			.l-box-body.l-spaced
+				p Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper. Aenean ultricies mi vitae est. Mauris placerat eleifend leo.
+
+.l-row
+
+	// widget on the left side
+	.l-col-md-6
+		.l-box.widget
+			.l-box-body.l-spaced
+				p Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper. Aenean ultricies mi vitae est. Mauris placerat eleifend leo. Quisque sit amet est et sapien ullamcorper pharetra. Vestibulum erat wisi, condimentum sed, commodo vitae, ornare sit amet, wisi. Aenean fermentum, elit eget tincidunt condimentum, eros ipsum rutrum orci, sagittis tempus lacus enim ac dui. Donec non enim in turpis pulvinar facilisis.
+
+			.l-box-footer
+				h2.l-box-title Widget in footer
+				.widget-opt.fr
+					a.btn.btn-dark.btn-xs(href='#', role='button') Close
+
+	// centered text with widgets
+	.l-col-md-6
+		.l-box.widget
+			.l-box-header
+				h2.l-box-title Widget in header and footer
+				.widget-opt.fr
+					a(href='#', role='button')
+						i.fa.fa-angle-down
+
+			.l-box-body.l-spaced
+				p Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper. Aenean ultricies mi vitae est. Mauris placerat eleifend leo.
+
+
+			.l-box-footer
+				h2.l-box-title Aliquam tincidunt mauris eu risus.
+				.widget-opt.fr
+					a.btn.btn-info.btn-xs(href='#', role='button') Info

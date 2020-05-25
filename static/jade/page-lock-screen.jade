@@ -1,0 +1,49 @@
+//- ------------------------------------
+//- BASE LAYOUT
+//- ------------------------------------
+extends aaa-master-layout
+
+
+//- ------------------------------------
+//- PAGE CONFIGURATION
+//- ------------------------------------
+prepend config
+	- var link = "page-lock-screen.html"
+	- var page = "page.p-lock-screen"
+	- var pageSubTitle = " - Page - Lock Screen"
+	- var scripts = [ 'form.validate', 'form.validate.additional', 'x.call.page.lockscreen' ]
+	- var hideThemeSettings = true
+
+append config
+	- var pageBodyClasses = bodyClasses.push('login-bg')
+
+//- ------------------------------------
+//- PAGE CONTENT
+//- ------------------------------------
+block content
+
+	//SECTION
+	section.l-main-container
+
+		//Main Content
+		.login-wrapper
+
+			.login-container
+
+				//Logo
+				h1.login-logo
+					img(src = 'img/logo.png', alt = 'Proteus')
+
+				.lock-screen-image
+					img(src = 'img/profile/profile.jpg', alt = 'Profile')
+
+				p.tac  Please enter your password to unlock the screen!
+
+				//Form
+				form#lockScreenForm.login-form(role='form', action='index.html')
+					.form-group
+						input#lockScreenPassword.form-control(type='password', name='lockScreenPassword', placeholder='Password')
+
+					button.btn.btn-dark.btn-block.btn-login(type='submit') Log In
+
+				.login-options

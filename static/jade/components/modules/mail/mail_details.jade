@@ -1,0 +1,149 @@
+// Mail details
+.mail-details
+
+	// Mail details header
+	.mail-details-header
+		h3.mail-details-subject Meeting rescheduled due to flight delay (2)
+
+		button.btn.btn-mail.mail-details-print(type='button')
+			i.fa.fa-print
+			| Print
+
+		.btn-group.mail-details-options
+			button#reply.btn.btn-mail(type='button')
+				i.fa.fa-reply
+				| Reply
+			button.btn.btn-mail.dropdown-toggle(type='button', data-toggle='dropdown')
+				span.caret
+				span.sr-only Default Dropdown
+			ul.dropdown-menu.drop-mail(role='menu')
+				li
+					a(href='#')
+						i.fa.fa-reply
+						| Reply
+				li
+					a(href='#')
+						i.fa.fa-reply-all
+						| Reply All
+				li
+					a(href='#')
+						i.fa.fa-mail-forward
+						| Forward
+				li.divider
+				li
+					a(href='#')
+						i.fa.fa-exclamation-circle
+						| Spam
+				li
+					a(href='#')
+						i.fa.fa-trash-o
+						| Delete
+
+	// Mail message 1
+	.mail-details-message.open
+
+		.mail-details-message-header
+			.mail-details-sender
+				img.mail-profile(src="img/mail/profile_1.jpg")
+				| <strong>John Doe</strong> (noreply@johndoe.com) to <strong>me</strong>
+
+			.mail-details-time
+				| Today at 9:28
+
+		.mail-details-message-content
+
+			.mail-details-message-body
+				p Hello Johnny!!!
+
+				p Sum expectantes. Ego hodie expectantes. Expectantes, et misit unum de pueris Gus interficere. Et suus vos. Nescio quis, qui est bonus usus liberi ad Isai? Qui nosti ... Quis dimisit filios ad necem ... hmm? Gus! Est, ante me factus singulis decem gradibus. Et nunc ad aliud opus mihi tandem tollendum est puer ille consensus et nunc fugit. Ipse suus obtinuit eam. Non solum autem illa, sed te tractantur in se trahens felis.
+				p No! Hoc non credant? Gus habet cameras ubique placet. Audire te! Non, omnia novit, omnia simul. Ubi eras hodie? In Lab! Et vos nolite cogitare suus 'possible ut Tyrus de cigarette elevaverunt CAPSA vestris? Age! Tu non vides? Pompeius extrema partem es. Tu omne quod ille voluit.
+				p Tu nunc coci ejus. Tu autem cocus Lab et probavimus liceat mihi sine causa est nunc coci interficere. Reputo it! Suus egregie. Ut antecedat. Quod si putas me posse facere, ergo ante. Pone aute in caput, et nunc interficere. Faciat! Fac. Fac. Fac.
+				p Saule ... , ostendit quod hoc quidem ... hoc quod dixit, ... potuit adiutorium mihi, et educat me in tota vita nova facio certus ut Im 'non invenit. Ego quidem illius memini Saul. Gus sit amet interfíciat mei tota familia. Nunc opus est mihi iste. Saul ... nunc Saule.
+
+				ul.list-styled
+					li Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+					li Phasellus vel turpis quis libero egestas maximus.
+					li Aenean volutpat nibh a condimentum facilisis.
+					li Donec eget quam maximus, fringilla elit vel, mollis nulla.
+					li Nullam a nulla ut orci gravida pharetra id a orci.
+				p
+				ul.list-styled
+					li Ut ac sem elementum ligula molestie egestas.
+					li Nullam id erat sed orci interdum porta ac sed magna.
+				p
+				ul.list-styled
+					li Nulla et ipsum a ipsum pulvinar sagittis in quis lorem.
+					li Quisque vestibulum orci et venenatis scelerisque.
+					li Fusce a nisl sed felis molestie imperdiet at non purus.
+					li Aliquam porttitor purus ac neque suscipit sodales.
+					li Aenean fermentum diam bibendum sagittis bibendum.
+
+			.mail-details-message-attachment
+				.mail-details-attachment-header
+					i.fa.fa-paperclip
+					| 3 attachments -
+					a(href='#') Download all
+					span.mail-doc-sep |
+					a(href='#') View all
+
+				.mail-details-attachment-body
+					.l-col-lg-3.l-col-md-4
+						.well.well-sm
+							.img-wrapper
+								img(src="img/mail/profile_1.jpg")
+							h4 sample_img_1.jpg
+							p 280KB
+							a(href='#') Download
+							span.mail-doc-sep |
+							a(href='#') View
+
+					.l-col-lg-3.l-col-md-4
+						.well.well-sm
+							.img-wrapper
+								img(src="img/mail/profile_1.jpg")
+							h4 sample_img_2.jpg
+							p 135KB
+							a(href='#') Download
+							span.mail-doc-sep |
+							a(href='#') View
+
+					.l-col-lg-3.l-col-md-4
+						.well.well-sm
+							.img-wrapper
+								i.fa.fa-file
+							h4 sample_doc_1.doc
+							p 38KB
+							a(href='#') Download
+							span.mail-doc-sep |
+							a(href='#') View
+
+	// Mail message 2
+	.mail-details-message
+		.mail-details-message-header
+			.mail-details-sender
+				img.mail-profile(src="img/mail/profile_1.jpg")
+				| <strong>me</strong> to <strong>John Doe</strong> (noreply@johndoe.com)
+
+			.mail-details-time
+				| Today at 9:40
+
+		.mail-details-message-content
+
+			.mail-details-message-body
+				p Hello Mike!!!
+
+				p Sum expectantes. Ego hodie expectantes. Expectantes, et misit unum de pueris Gus interficere. Et suus vos. Nescio quis, qui est bonus usus liberi ad Isai? Qui nosti ... Quis dimisit filios ad necem ... hmm? Gus! Est, ante me factus singulis decem gradibus. Et nunc ad aliud opus mihi tandem tollendum est puer ille consensus et nunc fugit. Ipse suus obtinuit eam. Non solum autem illa, sed te tractantur in se trahens felis.
+				p No! Hoc non credant? Gus habet cameras ubique placet. Audire te! Non, omnia novit, omnia simul. Ubi eras hodie? In Lab! Et vos nolite cogitare suus 'possible ut Tyrus de cigarette elevaverunt CAPSA vestris? Age! Tu non vides? Pompeius extrema partem es. Tu omne quod ille voluit.
+				p Tu nunc coci ejus. Tu autem cocus Lab et probavimus liceat mihi sine causa est nunc coci interficere. Reputo it! Suus egregie. Ut antecedat. Quod si putas me posse facere, ergo ante. Pone aute in caput, et nunc interficere. Faciat! Fac. Fac. Fac.
+				p Saule ... , ostendit quod hoc quidem ... hoc quod dixit, ... potuit adiutorium mihi, et educat me in tota vita nova facio certus ut Im 'non invenit. Ego quidem illius memini Saul. Gus sit amet interfíciat mei tota familia. Nunc opus est mihi iste. Saul ... nunc Saule.
+
+				ul.list-styled
+					li Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+					li Phasellus vel turpis quis libero egestas maximus.
+					li Aenean volutpat nibh a condimentum facilisis.
+					li Donec eget quam maximus, fringilla elit vel, mollis nulla.
+					li Nullam a nulla ut orci gravida pharetra id a orci.
+				p
+				ul.list-styled
+					li Ut ac sem elementum ligula molestie egestas.
+					li Nullam id erat sed orci interdum porta ac sed magna.

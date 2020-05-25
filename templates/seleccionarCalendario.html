@@ -1,0 +1,39 @@
+{% extends "base.html" %}
+{% block title %}CALENDARIO{% endblock %}
+{% block contenido %}
+<div class="l-row l-spaced-horizontal l-spaced-top">
+  <!-- ENTRADAS RECIENTES -->
+  <div class="l-box l-col-md-12 l-spaced-bottom">
+    <div class="l-box-header">
+      <h2 class="l-box-title"><span>CALENDARIO</span></h2>
+    </div>
+    <div class="l-box-body l-spaced group">
+        <div class="doc doc-info doc-border doc-left l-spaced-bottom"><strong><span class="doc-text">MENSAJE:</span></strong> Seleccione su calendario para poder visualizarlo mas adelante.</div>
+      <form id="validateDefault" role="form" class="form-horizontal" method="post" action="calendario" data-parsley-validate>
+        <div class="form-group">
+          <label for="calendar_id" class="col-sm-2 control-label">Calendarios*</label>
+          <div class="col-sm-8">
+            <select id="calendar_id" name="calendar_id" class="form-control">
+              {% for key, value in calendarios.items() -%}
+                <option value="{{ key }}">{{ value }}</option>
+              {% endfor -%}
+            </select>
+          </div>
+        </div>
+          <div class="col-sm-offset-7 col-sm-9">
+              <a href="/calendario" class="btn btn-dark">Atras</a>
+              <button type="submit" class="btn btn-dark">Entrar</button>
+          </div>
+      </form>
+    </div>
+  </div>
+  <!-- FIN ENTRADAS RECIENTES -->
+</div>
+{% endblock %}
+
+
+
+{% block script %}
+    
+{% endblock %}
+

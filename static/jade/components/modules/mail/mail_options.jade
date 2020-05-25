@@ -1,0 +1,185 @@
+.mail-options
+	// Select options
+	.btn-group.mail-select
+		.btn.btn-label.btn-mail
+			label.cb-checkbox.cb-checkbox-dark-1#mail-all
+				input(name='chbox', type='checkbox', value='')
+		button.btn.btn-mail.tt-mail.dropdown-toggle(type='button', data-toggle='dropdown', title='Select')
+			span.caret
+			span.sr-only Toggle Dropdown
+		ul.dropdown-menu.drop-mail(role='menu')
+			li
+				a(href='#') All
+			li
+				a(href='#') None
+			li
+				a(href='#') Read
+			li
+				a(href='#') Unread
+			li
+				a(href='#') Starred
+			li
+				a(href='#') Unstarred
+
+	// Compose
+	a.btn.btn-mail-send.mail-options-compose(href='#', role='button')
+		i.fa.fa-pencil-square-o.icon-sep-right
+		| Compose
+
+	// Refresh
+	a.btn.btn-mail.mail-refresh.tt-mail(href='#', title='Refresh').ason-widget(data-ason-type="refresh", data-ason-parent="false", data-ason-target=".mail-list-container", data-ason-duration="1100")
+		i.fa.fa-repeat
+
+	// Respond options
+	.btn-group.mail-reply
+		a.btn.btn-mail.tt-mail(href='#', role='button', title='Reply')
+			i.fa.fa-reply
+		a.btn.btn-mail.tt-mail(href='#', role='button', title='Reply All')
+			i.fa.fa-reply-all
+		a.btn.btn-mail.tt-mail(href='#', role='button', title='Forward')
+			i.fa.fa-mail-forward
+
+	// Organization options
+	.btn-group.mail-organization
+		.btn-group
+			button.btn.btn-mail.dropdown-toggle(type='button', data-toggle='dropdown')
+				i.fa.fa-archive.icon-sep-right
+				| Move
+				span.caret
+			ul.dropdown-menu.drop-mail(role='menu')
+				li
+					a(href='#') Games
+						.pull-right Tab + 1
+				li
+					a(href='#') Work
+						.pull-right Tab + 2
+				li
+					a(href='#') Design
+						.pull-right Tab + 3
+				li
+					a(href='#') Development
+						.pull-right Tab + 4
+				li
+					a(href='#') Invoices
+						.pull-right Tab + 5
+				li.divider
+				li
+					a(href='#') Spam
+						.pull-right Tab + S
+				li
+					a(href='#') Trash
+						.pull-right Tab + T
+				li.divider
+				li
+					a(href='#') New Folder
+						.pull-right Tab + N
+
+		.btn-group
+			button.btn.btn-mail.dropdown-toggle(type='button', data-toggle='dropdown')
+				i.fa.fa-tag.icon-sep-right
+				| Label
+				span.caret
+			ul.dropdown-menu.drop-mail(role='menu')
+				li
+					a(href='#')
+						i.fa.fa-circle-thin.label-color-1.icon-sep-right
+						| Work
+				li
+					a(href='#')
+						i.fa.fa-circle-thin.label-color-2.icon-sep-right
+						| Family
+				li
+					a(href='#')
+						i.fa.fa-circle-thin.label-color-3.icon-sep-right
+						| Social
+				li
+					a(href='#')
+						i.fa.fa-circle-thin.label-color-4.icon-sep-right
+						| Projects
+				li
+					a(href='#')
+						i.fa.fa-circle-thin.label-color-5.icon-sep-right
+						| Bills
+				li.divider
+				li
+					a(href='#') New Label
+						.pull-right Tab + L
+
+		a.btn.btn-mail(href='#', role='button')
+			i.fa.fa-exclamation-circle.icon-sep-right
+			| Spam
+
+		a.btn.btn-mail(href='#', role='button')
+			i.fa.fa-trash-o.icon-sep-right
+			| Delete
+
+	// Labeling options
+	.btn-group.mail-labels
+
+
+
+	// Sorting options
+	.btn-group.mail-sorting
+		button.btn.btn-mail.dropdown-toggle(type='button', data-toggle='dropdown')
+			| Sort by
+			span.caret
+		ul.dropdown-menu.drop-mail(role='menu')
+			li
+				a(href='#') Date
+					i.fa.fa-angle-up.pull-right
+			li
+				a(href='#') Unread Messages
+					i.fa.fa-angle-up.pull-right
+			li
+				a(href='#') Starred
+					i.fa.fa-angle-up.pull-right
+			li
+				a(href='#') Attachments
+					i.fa.fa-angle-up.pull-right
+
+	// More mail options
+	.btn-group.mail-more
+		button.btn.btn-mail.dropdown-toggle(type='button', data-toggle='dropdown')
+			| More
+			span.caret
+		ul.dropdown-menu.drop-mail(role='menu')
+			li
+				a(href='#') Mark as Read
+					.pull-right M
+			li
+				a(href='#') Mark as Unread
+					.pull-right Alt + M
+			li
+				a(href='#') Star
+					.pull-right S
+			li
+				a(href='#') Remove Star
+					.pull-right Alt + S
+			li.divider
+			li
+				a(href='#') Toggle Profile Image
+					.pull-right Alt + P
+			li.divider
+			li
+				a(href='#') Print
+					.pull-right P
+			li.divider
+			li
+				a(href='#') Delete
+					.pull-right D
+
+	// Layout options
+	.btn-group.mail-layout
+		button.btn.btn-mail.dropdown-toggle(type='button', data-toggle='dropdown')
+			| View
+			span.caret
+		ul.dropdown-menu.drop-mail(role='menu')
+			li
+				a(href='#')#viewBottom Bottom
+					.pull-right Alt + B
+			li
+				a(href='#')#viewRight Right
+					.pull-right Alt + R
+			li
+				a(href='#')#viewNone None
+					.pull-right Alt + N

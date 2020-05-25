@@ -1,0 +1,381 @@
+//- ------------------------------------
+//- BASE LAYOUT
+//- ------------------------------------
+extends aaa-master-layout
+
+
+//- ------------------------------------
+//- PAGE CONFIGURATION
+//- ------------------------------------
+prepend config
+	- var link = "ui-pricing-table.html"
+	- var page = "ui.u-pricing-table"
+	- var pageSubTitle = " - Ui Elements - Pricing Tables"
+
+
+//- ------------------------------------
+//- PAGE CONTENT
+//- ------------------------------------
+block content
+
+	//SECTION
+	section.l-main-container
+
+		include components/layout/sidebar/sidebar_1/sidebar_1__t_1__left
+
+		//Main Content
+		section.l-container
+
+			include components/layout/header/header_1/header_1__t_1
+
+			.l-page-header
+				h2.l-page-title <span>Pricing Tables</span>
+				+breadcrumb(bread_ui_pricing_table)
+
+			.l-spaced.show-grid
+
+				.l-box.l-spaced-bottom
+
+					.l-box-header
+						h2.l-box-title Pricing Tables <span> Version 1</span>
+						+box-options
+
+					.l-box-body
+
+						.l-row.t-pt-row-1
+							ul.plans.plans-1.centered
+
+								li.plan.l-col-md-3.l-col-sm-6.mb
+									ul
+										li.title
+											h2 Basic
+										li.price
+											p $10
+												span /month
+										li.options
+											ul
+												li
+													span 2x
+													| option 1
+												li
+													span Free
+													| option 2
+												li
+													span Unlimited
+													| option 3
+												li
+													span  Unlimited
+													| option 4
+												li
+													span  1x
+													| option 5
+										li.btn-cont
+											a.btn.btn-default.btn-block(href='#') Purchase
+
+								li.plan.l-col-md-3.l-col-sm-6.l-clear-sm.mb
+									ul
+										li.title
+											h2.title Corporate
+										li.price
+											p $20
+												span /month
+										li.options
+											ul
+												li
+													span 2x
+													| option 1
+												li
+													span Free
+													| option 2
+												li
+													span Unlimited
+													| option 3
+												li
+													span  Unlimited
+													| option 4
+												li
+													span  1x
+													| option 5
+										li.btn-cont
+											a.btn.btn-default.btn-block(href='#') Purchase
+
+								li.plan.best.l-col-md-3.l-col-sm-6.mb
+									ul
+										li.title
+											h2 Business
+										li.price
+											p $30
+												span /month
+										li.options
+											ul
+												li
+													span 2x
+													| option 1
+												li
+													span Free
+													| option 2
+												li
+													span Unlimited
+													| option 3
+												li
+													span  Unlimited
+													| option 4
+												li
+													span  1x
+													| option 5
+										li.btn-cont
+											a.btn.btn-default.btn-block(href='#') Purchase
+
+								li.plan.l-col-md-3.l-col-sm-6.mb
+									ul
+										li.title
+											h2 Platinum
+										li.price
+											p $40
+												span /month
+										li.options
+											ul
+												li
+													span 2x
+													| option 1
+												li
+													span Free
+													| option 2
+												li
+													span Unlimited
+													| option 3
+												li
+													span  Unlimited
+													| option 4
+												li
+													span  1x
+													| option 5
+										li.btn-cont
+											a.btn.btn-default.btn-block(href='#') Purchase
+
+
+				.l-box.l-spaced-bottom
+
+					.l-box-header
+						h2.l-box-title Pricing Tables <span> Version 2</span>
+						+box-options
+
+					.l-box-body
+
+						.l-row
+							ul.plans.plans-2
+
+								li.plan.plan-bordered.l-col-md-4.mb
+									ul
+										li.title
+											h2 Basic
+										li.price
+											p
+												span.nr $10
+												span /MONTH
+										li.options.centered
+											ul
+												li
+													span 2x
+													| option 1
+												li
+													span Free
+													| option 2
+												li
+													span Unlimited
+													| option 3
+												li
+													span  Unlimited
+													| option 4
+												li
+													span  1x
+													| option 5
+										li.btn-cont.centered
+											a.btn.btn-default(href='#') Sign Up
+
+								li.plan.plan-bordered.best.l-col-md-4.mb
+									ul
+										li.title
+											h2 Corporate
+										li.price
+											p
+												span.nr $20
+												span /MONTH
+										li.options.centered
+											ul
+												li
+													span 2x
+													| option 1
+												li
+													span Free
+													| option 2
+												li
+													span Unlimited
+													| option 3
+												li
+													span  Unlimited
+													| option 4
+												li
+													span  1x
+													| option 5
+										li.btn-cont.centered
+											a.btn.btn-default(href='#') Sign Up
+
+								li.plan.plan-bordered.l-col-md-4.mb
+									ul
+										li.title
+											h2 Business
+										li.price
+											p
+												span.nr $30
+												span /MONTH
+										li.options.centered
+											ul
+												li
+													span 2x
+													| option 1
+												li
+													span Free
+													| option 2
+												li
+													span Unlimited
+													| option 3
+												li
+													span  Unlimited
+													| option 4
+												li
+													span  1x
+													| option 5
+										li.btn-cont.centered
+											a.btn.btn-default(href='#') Sign Up
+
+				.l-box.l-spaced-bottom
+
+					.l-box-header
+						h2.l-box-title Pricing Tables <span> Version 3</span>
+						+box-options
+
+					.l-box-body
+
+						.l-row
+							ul.plans.plans-3.centered
+
+								li.plan.plan-bordered.l-span-md-3.l-span-sm-6.mb
+									ul
+										li.title
+											h2 Basic Plan
+										li.price
+											p
+												span.cur $
+												| 10.90
+												span /mo
+										li.options
+											ul
+												li
+													span 2x
+													| option 1
+												li
+													span Free
+													| option 2
+												li
+													span Unlimited
+													| option 3
+												li
+													span  Unlimited
+													| option 4
+												li
+													span  1x
+													| option 5
+										li.btn-cont
+											a.btn.btn-default(href='#') Sign Up
+
+								li.plan.plan-bordered.best.l-span-md-3.l-span-sm-6.mb
+									ul
+										li.title
+											h2 Corporate Plan
+										li.price
+											p
+												span.cur $
+												| 20.90
+												span /mo
+										li.options
+											ul
+												li
+													span 2x
+													| option 1
+												li
+													span Free
+													| option 2
+												li
+													span Unlimited
+													| option 3
+												li
+													span  Unlimited
+													| option 4
+												li
+													span  1x
+													| option 5
+										li.btn-cont
+											a.btn.btn-default(href='#') Sign Up
+
+								li.plan.plan-bordered.l-span-md-3.l-span-sm-6.mb
+									ul
+										li.title
+											h2 Business Plan
+										li.price
+											p
+												span.cur $
+												| 30.90
+												span /mo
+										li.options
+											ul
+												li
+													span 2x
+													| option 1
+												li
+													span Free
+													| option 2
+												li
+													span Unlimited
+													| option 3
+												li
+													span  Unlimited
+													| option 4
+												li
+													span  1x
+													| option 5
+										li.btn-cont
+											a.btn.btn-default(href='#') Sign Up
+
+								li.plan.plan-bordered.l-span-md-3.l-span-sm-6.mb
+									ul
+										li.title
+											h2 Platinum Plan
+										li.price
+											p
+												span.cur $
+												| 40.90
+												span /mo
+										li.options
+											ul
+												li
+													span 2x
+													| option 1
+												li
+													span Free
+													| option 2
+												li
+													span Unlimited
+													| option 3
+												li
+													span  Unlimited
+													| option 4
+												li
+													span  1x
+													| option 5
+										li.btn-cont
+											a.btn.btn-default(href='#') Sign Up
+
+			include components/layout/footer/footer_1/footer_1__t_1
+
+		include components/layout/sidebar/sidebar_2/sidebar_2__t_2__right

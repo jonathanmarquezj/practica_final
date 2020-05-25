@@ -1,0 +1,67 @@
+//- ------------------------------------
+//- BASE LAYOUT
+//- ------------------------------------
+extends aaa-master-layout
+
+
+//- ------------------------------------
+//- PAGE CONFIGURATION
+//- ------------------------------------
+prepend config
+	- var link = "layout-footer-default-2.html"
+	- var page = "layout.footer.f-default-2"
+	- var pageSubTitle = " - Default Footer 2"
+	- var styles = [ 'syntaxhighlighter']
+	- var scripts = [ 'a.syntaxhighlighter' ]
+	- var hideThemeSettingsFooter = true
+
+//- ------------------------------------
+//- PAGE CONTENT
+//- ------------------------------------
+block content
+
+	//SECTION
+	section.l-main-container
+
+
+		include components/layout/sidebar/sidebar_1/sidebar_1__t_1__left
+
+		//Main Content
+		section.l-container
+
+			include components/layout/header/header_1/header_1__t_1__no_sb
+
+			.l-page-header
+				h2.l-page-title <span>Default 2</span> Footer
+				+breadcrumb(bread_layout_footer_default_2)
+
+			.l-spaced-vertical
+				.l-box.no-border
+					.l-spaced
+
+						.syntax-wrapper
+							.syntax-info
+								p.mv  Default footer content <strong>outside</strong> the main container.
+
+							.table-responsive
+								pre(class="brush:xml;")
+									|&lt;body&gt;
+									|	&nbsp;
+									|	<section class="l-main-container">
+									|	&nbsp;
+									|		<section class="l-container">
+									|	&nbsp;
+									|   		</section>
+									|	&nbsp;
+									|		Page content...
+									|   	</section>
+									|	&nbsp;
+									|	<footer class="l-footer l-footer-1">
+									|		Full width footer content...
+									|   	</footer>
+									|	&nbsp;
+									|&lt;/body&gt;
+
+	include components/layout/footer/footer_1/footer_1__t_1
+
+

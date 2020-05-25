@@ -1,0 +1,98 @@
+// Message Widget
+ul.widget-message.message-in-side
+	li.dropdown-menu-header
+		| Messages
+		span.label.label-info 5
+	li.msg-content.ason-widget(data-ason-type="scrollbar")
+		ul
+			li
+				a(href = '#')
+					.l-row
+						.l-col-sm-3.msg-image
+							img(src='img/widgets/user_1.jpg')
+						.l-col-sm-7.msg-info
+							h4 Harold Holland
+							p John, don't forget tomorrow we have a meeting
+							.time
+								i.fa.fa-clock-o
+								span &nbsp; 5 minutes ago
+						.l-col-sm-2.msg-status
+							ul
+								li
+									div.msg-tip(data-toggle="tooltip", data-placement='bottom', title="Mark as read")
+										i.fa.fa-circle-o
+								li
+									span.label.label-info New
+
+			li
+				a(href = '#')
+					.l-row
+						.l-col-sm-3.msg-image
+							img(src='img/widgets/user_2.jpg')
+						.l-col-sm-7.msg-info
+							h4 Barbara Curtis
+							p Tomorrow is movie night, don't forget it
+							.time
+								i.fa.fa-clock-o
+								span &nbsp; 40 minutes ago
+						.l-col-sm-2.msg-status
+							ul
+								li
+									div.msg-tip(data-toggle="tooltip", title="Mark as read")
+										i.fa.fa-circle-o
+								li
+									span.label.label-info New
+
+			li
+				a(href = '#')
+					.l-row
+						.l-col-sm-3.msg-image
+							img(src='img/widgets/user_3.jpg')
+						.l-col-sm-7.msg-info
+							h4 Gary Fernandez
+							p Check out our brand new product, you will love it !!!
+							.time
+								i.fa.fa-clock-o
+								span &nbsp; 12:00 AM
+						.l-col-sm-2.msg-status
+							ul
+								li
+									div.msg-tip(data-toggle="tooltip", title="Mark as read")
+										i.fa.fa-circle-o
+
+			li
+				a(href = '#')
+					.l-row
+						.l-col-sm-3.msg-image
+							img(src='img/widgets/user_4.jpg')
+						.l-col-sm-7.msg-info
+							h4 Kristina Wade
+							p Congratulation for your new promotion
+							.time
+								i.fa.fa-clock-o
+								span &nbsp; Dec 24, 2014 at 2:32 PM
+						.l-col-sm-2.msg-status
+							ul
+								li
+									div.msg-tip(data-toggle="tooltip", title="Mark as unread")
+										i.fa.fa-circle
+
+			li
+				a(href = '#')
+					.l-row
+						.l-col-sm-3.msg-image
+							img(src='img/widgets/user_5.jpg')
+						.l-col-sm-7.msg-info
+							h4 Eugene Powell
+							p Check out our new top selling products
+							.time
+								i.fa.fa-clock-o
+								span &nbsp; Nov 12, 2014 at 8:15 PM
+						.l-col-sm-2.msg-status
+							ul
+								li
+									div.msg-tip(data-toggle="tooltip", title="Mark as unread")
+										i.fa.fa-circle
+
+	li.dropdown-menu-footer
+		a(href = 'app-mail.html') View all messages

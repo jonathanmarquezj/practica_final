@@ -1,0 +1,105 @@
+//- ------------------------------------
+//- BASE LAYOUT
+//- ------------------------------------
+extends aaa-master-layout
+
+
+//- ------------------------------------
+//- PAGE CONFIGURATION
+//- ------------------------------------
+prepend config
+	- var link = "layout-sidebar-1-right-2-left.html"
+	- var page = "layout.sidebar.pixel.si-1-right-2-left"
+	- var pageSubTitle = " - 1 Right and 2 Left Sidebars"
+	- var styles = [ 'syntaxhighlighter']
+	- var scripts = [ 'a.syntaxhighlighter', 'velocity.custom.effects'  ]
+
+
+//- ------------------------------------
+//- PAGE CONTENT
+//- ------------------------------------
+block content
+
+		//SECTION
+		section.l-main-container
+
+			include components/layout/sidebar/sidebar_1/sidebar_1__t_1__left
+
+			include components/layout/sidebar/sidebar_3/sidebar_3__t_2__left
+
+			//Main Content
+			section.l-container
+
+				include components/layout/header/header_1/header_1__t_1__sb_left
+
+				.l-page-header
+					h2.l-page-title <span>1 Right</span> and <span>2 Left</span> Sidebars
+					+breadcrumb(bread_layout_sidebar_pixel_1_right_2_left)
+
+				.l-spaced-vertical
+					.l-box.no-border
+						.l-spaced
+
+							.syntax-wrapper
+								.syntax-info
+									.mv
+										p This example features <strong>2 left sidebars</strong> and <strong>1 right sidebar</strong>.
+										p The functionality of the <strong>first left sidebar</strong> we already covered <strong><a href="layout-sidebar-left.html">here</a></strong>.
+										p The <strong>second left sidebar</strong> is an overview sidebar for your most important stats which can be toggled between <strong>collapsed</strong> and <strong>compact</strong> states on all screen sizes.
+										p The <strong>right sidebar</strong> functionality is to display the latest news but when it gets resized to medium or small size it dissapears.
+										p Notice we call the <strong>Ason Widget</strong> directly on the sidebar itself and not through a toggle button.
+										p As we mentioned before the whole theme is super flexible and customizable to almost any need.
+										p For more information please check out the <strong>documentation!</strong>
+
+								.table-responsive
+									pre(class="brush:xml;")
+										|&lt;body&gt;
+										|	&nbsp;
+										|	<section class="l-main-container">
+										|	&nbsp;
+										|		<aside id="sb-left-id" class="l-sidebar l-sidebar-1">
+										|	&nbsp;
+										|			<a href="#" class="ason-widget" data-ason-type="sidebar" data-ason-to-sm="sidebar" data-ason-target="#sb-left-id" >
+										|				<i class="fa fa-bars"> </i>
+										|			</a>
+										|	&nbsp;
+										|   		</aside>
+										|	&nbsp;
+										|		<aside id="sb-left-2-id" class="l-sidebar l-sidebar-collapsed-left">
+										|	&nbsp;
+										|			Sidebar content...
+										|	&nbsp;
+										|   		</aside>
+
+										|	&nbsp;
+										|		<section class="l-container">
+										|	&nbsp;
+										|			<header class="l-header l-header-1">
+										|	&nbsp;
+										|				<a href="#" class="ason-widget" data-ason-type="sidebar" data-ason-on-all="collapsed" data-ason-to-all="compact" data-ason-target="#sb-left-2-id" >
+										|					<i class="fa fa-pie-chart"> </i>
+										|				</a>
+										|	&nbsp;
+										|				Header content...
+										|	&nbsp;
+										|       		</header>
+										|	&nbsp;
+										| 			Page content...
+										|	&nbsp;
+										|   		</section>
+										|	&nbsp;
+										|		<aside class="ason-widget l-sidebar l-sidebar-1" data-ason-type="sidebar" data-ason-on-md="hidden" data-ason-on-sm="hidden">
+										|	&nbsp;
+										|			Sidebar content...
+										|	&nbsp;
+										|   		</aside>
+										|	&nbsp;
+										|   	</section>
+										|	&nbsp;
+										|&lt;/body&gt;
+
+
+					include components/layout/footer/footer_1/footer_1__t_1
+
+			include components/layout/sidebar/sidebar_1/sidebar_1__t_1
+

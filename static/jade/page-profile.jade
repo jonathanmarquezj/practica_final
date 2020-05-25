@@ -1,0 +1,545 @@
+//- ------------------------------------
+//- BASE LAYOUT
+//- ------------------------------------
+extends aaa-master-layout
+
+
+//- ------------------------------------
+//- PAGE CONFIGURATION
+//- ------------------------------------
+prepend config
+	- var link = "page-profile.html"
+	- var page = "page.p-profile"
+	- var pageSubTitle = " - Page - Profile"
+	- var styles = [ 'jasny.bootstrap' ]
+	- var scripts = [ 'a.shared.jasnyBootstrap', 'form.checkradios', 'a.shared.shuffle', 'profile.touch', 'tabs.easyResponsiveTabs', 'x.call.page.profile' ]
+
+
+//- ------------------------------------
+//- PAGE CONTENT
+//- ------------------------------------
+block content
+
+	//SECTION
+	section.l-main-container
+
+		include components/layout/sidebar/sidebar_1/sidebar_1__t_1__left
+
+		//Main Content
+		section.l-container
+
+			include components/layout/header/header_1/header_1__t_1
+
+			.l-page-header
+				h2.l-page-title <span>Profile</span> Page
+				+breadcrumb(bread_page_profile)
+
+			.l-spaced
+
+				.profile-header
+
+					.profile-img
+						img(src='img/profile/profile.jpg')
+
+					h2 William Jones
+					h3 Web Designer
+					p @johndoe
+
+
+					ul.contact-info
+						li
+							i.fa.fa-phone
+							| (367) 347-2967
+						li
+							i.fa.fa-envelope
+							a(href = 'mailto:info@smartadmin.com') info@smartadmin.com
+						li
+							i.fa.fa-skype
+							| @johndoe007
+						li
+
+					ul.social-links
+						li
+							a(href = '#')
+								i.fa.fa-facebook
+						li
+							a(href = '#')
+								i.fa.fa-twitter
+						li
+							a(href = '#')
+								i.fa.fa-dribbble
+						li
+							a(href = '#')
+								i.fa.fa-google
+						li
+							a(href = '#')
+								i.fa.fa-tumblr
+						li
+							a(href = '#')
+								i.fa.fa-linkedin
+
+					.profile-info
+						ul
+							li
+								| 346 &nbsp;
+								span friends
+							li
+								| 87 &nbsp;
+								span followers
+							li
+								| 52 &nbsp;
+								span photos
+							li
+								| 754 &nbsp;
+								span videos
+							li
+								| 1261 &nbsp;
+								span tracks
+
+				.profile-content
+
+					// Profile Tabs
+					#profile.profile-tabs
+						ul.resp-tabs-list
+							li Profile
+							li#activity Activity <span>(15)</span>
+							li Friends <span>(24)</span>
+
+						div.resp-tabs-container
+
+							//Profile
+							.profile-details-cont
+
+								.profile-details
+									form.form-horizontal(role='form')
+
+										h4.sep-bottom General
+
+										.form-group
+											label.col-sm-3.control-label(for='username') Username
+											.col-sm-9
+												input#username.form-control(type='text', placeholder='johndoe007', disabled='')
+
+										.form-group
+											label.col-sm-3.control-label(for='firstname') First name
+											.col-sm-9
+												input#firstname.form-control(type='text', placeholder='First name')
+
+										.form-group
+											label.col-sm-3.control-label(for='lastname') Last name
+											.col-sm-9
+												input#lastname.form-control(type='text', placeholder='Last name')
+
+										.form-group
+											label.col-sm-3.control-label(for='age') Age
+											.col-sm-9
+												input#age.form-control(type='text', placeholder='Age')
+
+										.form-group
+											label.col-sm-3.control-label Gender
+											.col-sm-9
+												.radio-inline
+													input.checkradios#sex1(type='radio', name='sexOptions', value='Male')
+													| Male
+												.radio-inline
+													input.checkradios#sex2(type='radio', name='sexOptions', value='Female')
+													| Female
+
+										.form-group
+											label.col-sm-3.control-label(for='companyname') Company name
+											.col-sm-9
+												input#companyname.form-control(type='text', placeholder='Company name...')
+
+										.form-group
+											label.col-sm-3.control-label(for='department') Department
+											.col-sm-9
+												input#department.form-control(type='text', placeholder='Department...')
+
+										.form-group
+											label.col-sm-3.control-label(for='profession') Profession
+											.col-sm-9
+												select#profession.form-control
+													option Please select a profession
+													option(selected) Web Design
+													option Front-end Developer
+													option Back-end Developer
+													option Support
+													option Administrator
+
+										.form-group
+											label.col-sm-3.control-label(for='description') Description
+											.col-sm-9
+												textarea#description.form-control(rows='3', placeholder='Description')
+
+
+										.form-group
+											label.col-sm-3.control-label Newsletter
+											.col-sm-9
+												.checkbox
+													input.checkradios(type='checkbox', value='')
+													| &nbsp;
+
+										h4.sep-bottom Password
+
+										.form-group
+											label.col-sm-3.control-label(for='password') Password
+											.col-sm-9
+												input#password.form-control(type='password', placeholder='Password')
+
+										.form-group
+											label.col-sm-3.control-label(for='repPassword') Repeat password
+											.col-sm-9
+												input#repPassword.form-control(type='password', placeholder='Repeat password')
+
+
+										h4.sep-bottom Contact
+
+										.form-group
+											label.col-sm-3.control-label(for='email') Email
+											.col-sm-9
+												input#email.form-control(type='email', placeholder='Email')
+
+										.form-group
+											label.col-sm-3.control-label(for='website') Website
+											.col-sm-9
+												input#website.form-control(type='text', placeholder='Website')
+
+										.form-group
+											label.col-sm-3.control-label(for='phone') Phone
+											.col-sm-9
+												input#phone.form-control(type='text', placeholder='Phone')
+
+
+										h4.sep-bottom Social Info
+
+										.form-group
+											label.col-sm-3.control-label(for='facebook') Facebook
+											.col-sm-9
+												input#facebook.form-control(type='text', placeholder='Facebook')
+
+										.form-group
+											label.col-sm-3.control-label(for='twitter') Twitter
+											.col-sm-9
+												input#twitter.form-control(type='text', placeholder='Twitter')
+
+										.form-group
+											label.col-sm-3.control-label(for='googleplus') Google Plus
+											.col-sm-9
+												input#googleplus.form-control(type='text', placeholder='Google Plus')
+
+										h4.sep-bottom Profile Image
+
+										.form-group
+											.col-sm-offset-3.col-sm-9
+												.fileinput.fileinput-new(data-provides='fileinput')
+													.fileinput-new.thumbnail(style='width: 120px; height: 120px;')
+														img(src='img/profile/profile.jpg')
+													.fileinput-preview.fileinput-exists.thumbnail(style='max-width: 120px; max-height: 120px;')
+													div
+														span.btn.btn-dark.btn-file
+															span.fileinput-new Select image
+															span.fileinput-exists Change
+															input(type='file', name='...')
+														a.btn.btn-default.fileinput-exists(href='#', data-dismiss='fileinput') Remove
+
+										hr
+
+										.form-group
+											.col-sm-offset-3.col-sm-9
+												button.btn.btn-primary.btn-update(type='submit') Update
+												a.btn.btn-default(href = '#') Reset
+
+
+							//Activity
+							div.min-height-800
+								.activity-filter
+									p Filter:
+									.filter-options.btn-group
+										button.btn.btn-border.btn-bd-1.btn-dark(data-group='all') All
+										button.btn.btn-border.btn-bd-1.btn-warning(data-group='comment') Comments
+										button.btn.btn-border.btn-bd-1.btn-success(data-group='friend') Friends
+										button.btn.btn-border.btn-bd-1.btn-danger(data-group='likes') Likes
+										button.btn.btn-border.btn-bd-1.btn-info(data-group='meeting') Meetings
+										button.btn.btn-border.btn-bd-1.btn-primary(data-group='party') Party
+										button.btn.btn-border.btn-bd-1.btn-dark(data-group='wall') Wall Posts
+
+								.activity-container
+
+									.activity-item(data-groups='["wall"]')
+										img(src='img/profile/user_1.jpg', alt='profile')
+										div
+											.user-info
+												h3
+													a(href = '#') Van Doe
+												| #{''}
+												| just
+												| #{''}
+												a(href = '#') wrote on your wall.
+											.time-stamp
+												i.fa.fa-pencil.text-dark
+												| an hour ago
+
+									.activity-item(data-groups='["party"]')
+										img(src='img/profile/user_2.jpg', alt='profile')
+										div
+											.user-info
+												h3
+													a(href = '#') Theresa Kim
+												| #{''}
+												| suggested meeting at
+												| #{''}
+												a(href = '#') Club Darius.
+											.time-stamp
+												i.fa.fa-glass.text-primary
+												| 4 hours ago
+
+
+									.activity-item(data-groups='["comment"]')
+										img(src='img/profile/user_3.jpg', alt='profile')
+										div
+											.user-info
+												h3
+													a(href = '#') Luis Machote
+												| #{''}
+												| said "brother, are we going ..."
+											.time-stamp
+												i.fa.fa-comment.text-warning
+												| 12 hours ago
+
+									.activity-item(data-groups='["meeting"]')
+										img(src='img/profile/user_4.jpg', alt='profile')
+										div
+											.user-info
+												h3
+													a(href = '#') Daniel Smith
+												| #{''}
+												| will be at
+												| #{''}
+												a(href = '#') Braum Bridge.
+											.time-stamp
+												i.fa.fa-map-marker.text-info
+												| Yesterday 3:23 PM
+
+									.activity-item(data-groups='["friend"]')
+										img(src='img/profile/user_5.jpg', alt='profile')
+										div
+											.user-info
+												h3
+													a(href = '#') Ann Walsh
+												| #{''}
+												| started following you
+											.time-stamp
+												i.fa.fa-user.text-success
+												| Monday 7:48 AM
+
+									.activity-item(data-groups='["likes"]')
+										img(src='img/profile/user_6.jpg', alt='profile')
+										div
+											.user-info
+												h3
+													a(href = '#') Henry Jones
+												| #{''}
+												| likes <strong>Stargate</strong>
+											.time-stamp
+												i.fa.fa-heart.text-danger
+												| Monday 7:48 AM
+
+									.activity-item(data-groups='["wall"]')
+										img(src='img/profile/user_7.jpg', alt='profile')
+										div
+											.user-info
+												h3
+													a(href = '#') Katherine Chen
+												| #{''}
+												| just
+												| #{''}
+												a(href = '#') wrote on your wall.
+											.time-stamp
+												i.fa.fa-pencil.text-dark
+												| an hour ago
+
+									.activity-item(data-groups='["party"]')
+										img(src='img/profile/user_8.jpg', alt='profile')
+										div
+											.user-info
+												h3
+													a(href = '#') David Deep
+												| #{''}
+												| suggested meeting at
+												| #{''}
+												a(href = '#') Club Darius.
+											.time-stamp
+												i.fa.fa-glass.text-primary
+												| 4 hours ago
+
+
+									.activity-item(data-groups='["comment"]')
+										img(src='img/profile/user_9.jpg', alt='profile')
+										div
+											.user-info
+												h3
+													a(href = '#') Kathy Mason
+												| #{''}
+												| said "brother, are we going ..."
+											.time-stamp
+												i.fa.fa-comment.text-warning
+												| 12 hours ago
+
+									.activity-item(data-groups='["meeting"]')
+										img(src='img/profile/user_10.jpg', alt='profile')
+										div
+											.user-info
+												h3
+													a(href = '#') Sean Carter
+												| #{''}
+												| will be at
+												| #{''}
+												a(href = '#') Braum Bridge.
+											.time-stamp
+												i.fa.fa-map-marker.text-info
+												| Yesterday 3:23 PM
+
+									.activity-item(data-groups='["friend"]')
+										img(src='img/profile/user_11.jpg', alt='profile')
+										div
+											.user-info
+												h3
+													a(href = '#') Michael Peter
+												| #{''}
+												| started following you
+											.time-stamp
+												i.fa.fa-user.text-success
+												| Monday 7:48 AM
+
+									.activity-item(data-groups='["likes"]')
+										img(src='img/profile/user_12.jpg', alt='profile')
+										div
+											.user-info
+												h3
+													a(href = '#') Brian Spencer
+												| #{''}
+												| likes <strong>Stargate</strong>
+											.time-stamp
+												i.fa.fa-heart.text-danger
+												| Monday 7:48 AM
+
+									.shuffle-sizer
+
+
+
+							//Friends
+							div
+								ul.friends-list
+									li
+										figure
+											img(src='img/profile/friend_1.jpg', alt='friend')
+											figcaption
+												h3 John Walter
+												span Web Designer
+												a.btn.btn-primary(href='#') Contact
+											ul.friend-info
+												li
+													i.fa.fa-users
+													| 67
+												li
+													i.fa.fa-camera
+													| 81
+												li
+													i.fa.fa-comments
+													| 12
+
+									li
+										figure
+											img(src='img/profile/friend_2.jpg', alt='friend')
+											figcaption
+												h3 Julia Hawk
+												span Front-End Developer
+												a.btn.btn-primary(href='#') Contact
+											ul.friend-info
+												li
+													i.fa.fa-users
+													| 42
+												li
+													i.fa.fa-camera
+													| 105
+												li
+													i.fa.fa-comments
+													| 78
+
+									li
+										figure
+											img(src='img/profile/friend_3.jpg', alt='friend')
+											figcaption
+												h3 John Hoffmann
+												span Seo, Co-Founder
+												a.btn.btn-primary(href='#') Contact
+											ul.friend-info
+												li
+													i.fa.fa-users
+													| 201
+												li
+													i.fa.fa-camera
+													| 25
+												li
+													i.fa.fa-comments
+													| 36
+
+									li
+										figure
+											img(src='img/profile/friend_4.jpg', alt='friend')
+											figcaption
+												h3 Jason Straus
+												span Administrator
+												a.btn.btn-primary(href='#') Contact
+											ul.friend-info
+												li
+													i.fa.fa-users
+													| 49
+												li
+													i.fa.fa-camera
+													| 28
+												li
+													i.fa.fa-comments
+													| 51
+
+									li
+										figure
+											img(src='img/profile/friend_5.jpg', alt='friend')
+											figcaption
+												h3 Adrián Castro
+												span UX Design
+												a.btn.btn-primary(href='#') Contact
+											ul.friend-info
+												li
+													i.fa.fa-users
+													| 87
+												li
+													i.fa.fa-camera
+													| 64
+												li
+													i.fa.fa-comments
+													| 5
+
+									li
+										figure
+											img(src='img/profile/friend_6.jpg', alt='friend')
+											figcaption
+												h3 Lorand Mathe
+												span Chairman
+												a.btn.btn-primary(href='#') Contact
+											ul.friend-info
+												li
+													i.fa.fa-users
+													| 96
+												li
+													i.fa.fa-camera
+													| 111
+												li
+													i.fa.fa-comments
+													| 25
+								.tac
+									a(href="#").btn.btn-primary LOAD MORE
+
+			include components/layout/footer/footer_1/footer_1__t_1
+
+		include components/layout/sidebar/sidebar_2/sidebar_2__t_2__right

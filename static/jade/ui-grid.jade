@@ -1,0 +1,585 @@
+//- ------------------------------------
+//- BASE LAYOUT
+//- ------------------------------------
+extends aaa-master-layout
+
+
+//- ------------------------------------
+//- PAGE CONFIGURATION
+//- ------------------------------------
+prepend config
+	- var link = "ui-grid.html"
+	- var page = "ui.u-grid"
+	- var pageSubTitle = " - Ui Elements - Grid Systems"
+
+
+//- ------------------------------------
+//- PAGE CONTENT
+//- ------------------------------------
+block content
+
+	//SECTION
+	section.l-main-container
+
+		include components/layout/sidebar/sidebar_1/sidebar_1__t_1__left
+
+		//Main Content
+		section.l-container
+
+			include components/layout/header/header_1/header_1__t_1
+
+			.l-page-header
+				h2.l-page-title <span>Grid Systems</span>
+				+breadcrumb(bread_ui_grids)
+
+			.l-spaced.show-grid
+				.l-box.l-spaced-bottom
+					.l-box-header
+						h2.l-box-title <span>Bootstrap</span> Grid System
+						+box-options
+
+					.l-box-body.container-fluid.l-spaced-horizontal
+						h4.sep-bottom.bs-sep Basic Layout
+						.row
+							.col-lg-1.col-md-1.col-sm-1.col-xs-1
+								.visible-xl-block .col-lg-1
+								.visible-lg-block .col-lg-1
+								.visible-md-block .col-md-1
+								.visible-sm-block .col-sm-1
+								.visible-xs-block .col-xs-1
+
+							.col-lg-11.col-md-11.col-sm-11.col-xs-11
+								.visible-xl-block .col-lg-11
+								.visible-lg-block .col-lg-11
+								.visible-md-block .col-md-11
+								.visible-sm-block .col-sm-11
+								.visible-xs-block .col-xs-11
+
+						.row
+							.col-lg-2.col-md-2.col-sm-2.col-xs-2
+								.visible-xl-block .col-lg-2
+								.visible-lg-block .col-lg-2
+								.visible-md-block .col-md-2
+								.visible-sm-block .col-sm-2
+								.visible-xs-block .col-xs-2
+
+							.col-lg-10.col-md-10.col-sm-10.col-xs-10
+								.visible-xl-block .col-lg-10
+								.visible-lg-block .col-lg-10
+								.visible-md-block .col-md-10
+								.visible-sm-block .col-sm-10
+								.visible-xs-block .col-xs-10
+
+						.row
+							.col-lg-3.col-md-3.col-sm-3.col-xs-3
+								.visible-xl-block .col-lg-3
+								.visible-lg-block .col-lg-3
+								.visible-md-block .col-md-3
+								.visible-sm-block .col-sm-3
+								.visible-xs-block .col-xs-3
+
+							.col-lg-9.col-md-9.col-sm-9.col-xs-9
+								.visible-xl-block .col-lg-9
+								.visible-lg-block .col-lg-9
+								.visible-md-block .col-md-9
+								.visible-sm-block .col-sm-9
+								.visible-xs-block .col-xs-9
+
+						.row
+							.col-lg-4.col-md-4.col-sm-4.col-xs-4
+								.visible-xl-block .col-lg-4
+								.visible-lg-block .col-lg-4
+								.visible-md-block .col-md-4
+								.visible-sm-block .col-sm-4
+								.visible-xs-block .col-xs-4
+
+							.col-lg-8.col-md-8.col-sm-8.col-xs-8
+								.visible-xl-block .col-lg-8
+								.visible-lg-block .col-lg-8
+								.visible-md-block .col-md-8
+								.visible-sm-block .col-sm-8
+								.visible-xs-block .col-xs-8
+
+						.row
+							.col-lg-5.col-md-5.col-sm-5.col-xs-5
+								.visible-xl-block .col-lg-5
+								.visible-lg-block .col-lg-5
+								.visible-md-block .col-md-5
+								.visible-sm-block .col-sm-5
+								.visible-xs-block .col-xs-5
+
+							.col-lg-7.col-md-7.col-sm-7.col-xs-7
+								.visible-xl-block .col-lg-7
+								.visible-lg-block .col-lg-7
+								.visible-md-block .col-md-7
+								.visible-sm-block .col-sm-7
+								.visible-xs-block .col-xs-7
+
+						.row
+							.col-lg-6.col-md-6.col-sm-6.col-xs-6
+								.visible-xl-block .col-lg-6
+								.visible-lg-block .col-lg-6
+								.visible-md-block .col-md-6
+								.visible-sm-block .col-sm-6
+								.visible-xs-block .col-xs-6
+
+							.col-lg-6.col-md-6.col-sm-6.col-xs-6
+								.visible-xl-block .col-lg-6
+								.visible-lg-block .col-lg-6
+								.visible-md-block .col-md-6
+								.visible-sm-block .col-sm-6
+								.visible-xs-block .col-xs-6
+
+						h4.sep-bottom.bs-sep 2 Column Example
+
+						.row.t-col-2-example
+							.col-xl-6.col-lg-7.col-md-6.col-sm-8.col-xs-3
+								.visible-xl-block  No .col-xl-... column
+								.visible-lg-block .col-lg-7
+								.visible-md-block .col-md-6
+								.visible-sm-block .col-sm-8
+								.visible-xs-block .col-xs-3
+							.col-xl-6.col-lg-5.col-md-6.col-sm-4.col-xs-9
+								.visible-xl-block in Bootstrap
+								.visible-lg-block .col-lg-5
+								.visible-md-block .col-md-6
+								.visible-sm-block .col-sm-4
+								.visible-xs-block .col-xs-9
+
+						h4.sep-bottom.bs-sep 3 Column Examples
+						.row.t-col-3-example
+							.col-lg-2.col-md-5.col-sm-6.col-xs-3
+								.visible-xl-block .col-lg-2
+								.visible-lg-block .col-lg-2
+								.visible-md-block .col-md-5
+								.visible-sm-block .col-sm-6
+								.visible-xs-block .col-xs-3
+							.col-lg-5.col-md-6.col-sm-4.col-xs-5
+								.visible-xl-block .col-lg-5
+								.visible-lg-block .col-lg-5
+								.visible-md-block .col-md-6
+								.visible-sm-block .col-sm-4
+								.visible-xs-block .col-xs-5
+							.col-lg-5.col-md-1.col-sm-2.col-xs-4
+								.visible-xl-block .col-lg-5
+								.visible-lg-block .col-lg-5
+								.visible-md-block .col-md-1
+								.visible-sm-block .col-sm-2
+								.visible-xs-block .col-xs-4
+
+						hr.mb.mt-0
+						.row.t-col-3-example
+							.col-lg-6.col-md-12.col-sm-6.col-xs-12
+								.visible-xl-block .col-lg-6
+								.visible-lg-block .col-lg-6
+								.visible-md-block .col-md-12
+								.visible-sm-block .col-sm-6
+								.visible-xs-block .col-xs-12
+							.col-lg-6.col-md-6.col-sm-6.col-xs-12
+								.visible-xl-block .col-lg-6
+								.visible-lg-block .col-lg-6
+								.visible-md-block .col-md-6
+								.visible-sm-block .col-sm-6
+								.visible-xs-block .col-xs-12
+							.col-lg-12.col-md-6.col-sm-12.col-xs-12
+								.visible-xl-block .col-lg-12
+								.visible-lg-block .col-lg-12
+								.visible-md-block .col-md-6
+								.visible-sm-block .col-sm-12
+								.visible-xs-block .col-xs-12
+
+						h4.sep-bottom.bs-sep 4 Column Example
+						.row.t-col-4-example
+							.col-lg-6.col-md-7.col-sm-6.col-xs-3
+								.visible-xl-block .col-lg-6
+								.visible-lg-block .col-lg-6
+								.visible-md-block .col-md-7
+								.visible-sm-block .col-sm-6
+								.visible-xs-block .col-xs-3
+							.col-lg-6.col-md-5.col-sm-6.col-xs-3
+								.visible-xl-block .col-lg-6
+								.visible-lg-block .col-lg-6
+								.visible-md-block .col-md-5
+								.visible-sm-block .col-sm-6
+								.visible-xs-block .col-xs-3
+							.col-lg-6.col-md-8.col-sm-12.col-xs-6
+								.visible-xl-block .col-lg-6
+								.visible-lg-block .col-lg-6
+								.visible-md-block .col-md-8
+								.visible-sm-block .col-sm-12
+								.visible-xs-block .col-xs-6
+							.col-lg-6.col-md-4.col-sm-12.col-xs-12
+								.visible-xl-block .col-lg-6
+								.visible-lg-block .col-lg-6
+								.visible-md-block .col-md-4
+								.visible-sm-block .col-sm-12
+								.visible-xs-block .col-xs-12
+
+
+				.l-box.l-spaced-bottom
+					.l-box-header
+						h2.l-box-title <span>Ason</span> Grid System <span>with Gutter</span>
+						+box-options
+
+					.l-box-body.l-spaced-horizontal
+						h4.sep-bottom Basic Layout
+						.l-row
+							.l-col-lg-1.l-col-md-1.l-col-sm-1.l-col-xs-1
+								.visible-xl-block .l-col-xl-1
+								.visible-lg-block .l-col-lg-1
+								.visible-md-block .l-col-md-1
+								.visible-sm-block .l-col-sm-1
+								.visible-xs-block .l-col-xs-1
+
+							.l-col-lg-11.l-col-md-11.l-col-sm-11.l-col-xs-11
+								.visible-xl-block .l-col-xl-11
+								.visible-lg-block .l-col-lg-11
+								.visible-md-block .l-col-md-11
+								.visible-sm-block .l-col-sm-11
+								.visible-xs-block .l-col-xs-11
+
+						.l-row
+							.l-col-lg-2.l-col-md-2.l-col-sm-2.l-col-xs-2
+								.visible-xl-block .l-col-xl-2
+								.visible-lg-block .l-col-lg-2
+								.visible-md-block .l-col-md-2
+								.visible-sm-block .l-col-sm-2
+								.visible-xs-block .l-col-xs-2
+
+							.l-col-lg-10.l-col-md-10.l-col-sm-10.l-col-xs-10
+								.visible-xl-block .l-col-xl-10
+								.visible-lg-block .l-col-lg-10
+								.visible-md-block .l-col-md-10
+								.visible-sm-block .l-col-sm-10
+								.visible-xs-block .l-col-xs-10
+
+						.l-row
+							.l-col-lg-3.l-col-md-3.l-col-sm-3.l-col-xs-3
+								.visible-xl-block .l-col-xl-3
+								.visible-lg-block .l-col-lg-3
+								.visible-md-block .l-col-md-3
+								.visible-sm-block .l-col-sm-3
+								.visible-xs-block .l-col-xs-3
+
+							.l-col-lg-9.l-col-md-9.l-col-sm-9.l-col-xs-9
+								.visible-xl-block .l-col-xl-9
+								.visible-lg-block .l-col-lg-9
+								.visible-md-block .l-col-md-9
+								.visible-sm-block .l-col-sm-9
+								.visible-xs-block .l-col-xs-9
+
+						.l-row
+							.l-col-lg-4.l-col-md-4.l-col-sm-4.l-col-xs-4
+								.visible-xl-block .l-col-xl-4
+								.visible-lg-block .l-col-lg-4
+								.visible-md-block .l-col-md-4
+								.visible-sm-block .l-col-sm-4
+								.visible-xs-block .l-col-xs-4
+
+							.l-col-lg-8.l-col-md-8.l-col-sm-8.l-col-xs-8
+								.visible-xl-block .l-col-xl-8
+								.visible-lg-block .l-col-lg-8
+								.visible-md-block .l-col-md-8
+								.visible-sm-block .l-col-sm-8
+								.visible-xs-block .l-col-xs-8
+
+						.l-row
+							.l-col-lg-5.l-col-md-5.l-col-sm-5.l-col-xs-5
+								.visible-xl-block .l-col-xl-5
+								.visible-lg-block .l-col-lg-5
+								.visible-md-block .l-col-md-5
+								.visible-sm-block .l-col-sm-5
+								.visible-xs-block .l-col-xs-5
+
+							.l-col-lg-7.l-col-md-7.l-col-sm-7.l-col-xs-7
+								.visible-xl-block .l-col-xl-7
+								.visible-lg-block .l-col-lg-7
+								.visible-md-block .l-col-md-7
+								.visible-sm-block .l-col-sm-7
+								.visible-xs-block .l-col-xs-7
+
+						.l-row
+							.l-col-lg-6.l-col-md-6.l-col-sm-6.l-col-xs-6
+								.visible-xl-block .l-col-xl-6
+								.visible-lg-block .l-col-lg-6
+								.visible-md-block .l-col-md-6
+								.visible-sm-block .l-col-sm-6
+								.visible-xs-block .l-col-xs-6
+
+							.l-col-lg-6.l-col-md-6.l-col-sm-6.l-col-xs-6
+								.visible-xl-block .l-col-xl-6
+								.visible-lg-block .l-col-lg-6
+								.visible-md-block .l-col-md-6
+								.visible-sm-block .l-col-sm-6
+								.visible-xs-block .l-col-xs-6
+
+						h4.sep-bottom 2 Column Example
+						.l-row.t-col-2-example
+							.l-col-xl-2.l-col-lg-7.l-col-md-6.l-col-sm-8.l-col-xs-3
+								.visible-xl-block .l-col-xl-2
+								.visible-lg-block .l-col-lg-7
+								.visible-md-block .l-col-md-6
+								.visible-sm-block .l-col-sm-8
+								.visible-xs-block .l-col-xs-3
+							.l-col-xl-10.l-col-lg-5.l-col-md-6.l-col-sm-4.l-col-xs-9
+								.visible-xl-block .l-col-xl-10
+								.visible-lg-block .l-col-lg-5
+								.visible-md-block .l-col-md-6
+								.visible-sm-block .l-col-sm-4
+								.visible-xs-block .l-col-xs-9
+
+
+						h4.sep-bottom 3 Column Examples
+						.l-row.t-col-3-example
+							.l-col-xl-2.l-col-lg-2.l-col-md-5.l-col-sm-6.l-col-xs-3
+								.visible-xl-block .l-col-xl-2
+								.visible-lg-block .l-col-lg-2
+								.visible-md-block .l-col-md-5
+								.visible-sm-block .l-col-sm-6
+								.visible-xs-block .l-col-xs-3
+							.l-col-xl-8.l-col-lg-5.l-col-md-6.l-col-sm-4.l-col-xs-5
+								.visible-xl-block .l-col-xl-8
+								.visible-lg-block .l-col-lg-5
+								.visible-md-block .l-col-md-6
+								.visible-sm-block .l-col-sm-4
+								.visible-xs-block .l-col-xs-5
+							.l-col-xl-2.l-col-lg-5.l-col-md-1.l-col-sm-2.l-col-xs-4
+								.visible-xl-block .l-col-xl-2
+								.visible-lg-block .l-col-lg-5
+								.visible-md-block .l-col-md-1
+								.visible-sm-block .l-col-sm-2
+								.visible-xs-block .l-col-xs-4
+
+						hr.mb.mt-0
+						.l-row.t-col-3-example
+							.l-col-xl-6.l-col-lg-6.l-col-md-12.l-col-sm-6.l-col-xs-12
+								.visible-xl-block .l-col-xl-6
+								.visible-lg-block .l-col-lg-6
+								.visible-md-block .l-col-md-12
+								.visible-sm-block .l-col-sm-6
+								.visible-xs-block .l-col-xs-12
+							.l-col-xl-3.l-col-lg-6.l-col-md-6.l-col-sm-6.l-col-xs-12.l-clear-lg.l-clear-sm
+								.visible-xl-block .l-col-xl-3
+								.visible-lg-block .l-col-lg-6
+								.visible-md-block .l-col-md-6
+								.visible-sm-block .l-col-sm-6
+								.visible-xs-block .l-col-xs-12
+							.l-col-xl-3.l-col-lg-12.l-col-md-6.l-col-sm-12.l-col-xs-12
+								.visible-xl-block .l-col-xl-3
+								.visible-lg-block .l-col-lg-12
+								.visible-md-block .l-col-md-6
+								.visible-sm-block .l-col-sm-12
+								.visible-xs-block .l-col-xs-12
+
+						h4.sep-bottom 4 Column Example
+						.l-row.t-col-4-example
+							.l-col-xl-3.l-col-lg-6.l-col-md-7.l-col-sm-6.l-col-xs-3
+								.visible-xl-block .l-col-xl-3
+								.visible-lg-block .l-col-lg-6
+								.visible-md-block .l-col-md-7
+								.visible-sm-block .l-col-sm-6
+								.visible-xs-block .l-col-xs-3
+							.l-col-xl-3.l-col-lg-6.l-col-md-5.l-col-sm-6.l-col-xs-3.l-clear-md.l-clear-lg.l-clear-sm
+								.visible-xl-block .l-col-xl-3
+								.visible-lg-block .l-col-lg-6
+								.visible-md-block .l-col-md-5
+								.visible-sm-block .l-col-sm-6
+								.visible-xs-block .l-col-xs-3
+							.l-col-xl-3.l-col-lg-6.l-col-md-8.l-col-sm-12.l-col-xs-6.l-clear-xs
+								.visible-xl-block .l-col-xl-3
+								.visible-lg-block .l-col-lg-6
+								.visible-md-block .l-col-md-8
+								.visible-sm-block .l-col-sm-12
+								.visible-xs-block .l-col-xs-6
+							.l-col-xl-3.l-col-lg-6.l-col-md-4.l-col-sm-12.l-col-xs-12
+								.visible-xl-block .l-col-xl-3
+								.visible-lg-block .l-col-lg-6
+								.visible-md-block .l-col-md-4
+								.visible-sm-block .l-col-sm-12
+								.visible-xs-block .l-col-xs-12
+
+				.l-box.l-spaced-bottom
+					.l-box-header
+						h2.l-box-title <span>Ason</span> Grid System <span> without Gutter</span>
+						+box-options
+
+					.l-box-body.l-spaced-horizontal
+
+						h4.sep-bottom Basic Layout
+						.l-row
+							.l-span-lg-1.l-span-md-1.l-span-sm-1.l-span-xs-1
+								.visible-xl-block .l-span-xl-1
+								.visible-lg-block .l-span-lg-1
+								.visible-md-block .l-span-md-1
+								.visible-sm-block .l-span-sm-1
+								.visible-xs-block .l-span-xs-1
+
+							.l-span-lg-11.l-span-md-11.l-span-sm-11.l-span-xs-11
+								.visible-xl-block .l-span-xl-11
+								.visible-lg-block .l-span-lg-11
+								.visible-md-block .l-span-md-11
+								.visible-sm-block .l-span-sm-11
+								.visible-xs-block .l-span-xs-11
+
+						.l-row
+							.l-span-lg-2.l-span-md-2.l-span-sm-2.l-span-xs-2
+								.visible-xl-block .l-span-xl-2
+								.visible-lg-block .l-span-lg-2
+								.visible-md-block .l-span-md-2
+								.visible-sm-block .l-span-sm-2
+								.visible-xs-block .l-span-xs-2
+
+							.l-span-lg-10.l-span-md-10.l-span-sm-10.l-span-xs-10
+								.visible-xl-block .l-span-xl-10
+								.visible-lg-block .l-span-lg-10
+								.visible-md-block .l-span-md-10
+								.visible-sm-block .l-span-sm-10
+								.visible-xs-block .l-span-xs-10
+
+						.l-row
+							.l-span-lg-3.l-span-md-3.l-span-sm-3.l-span-xs-3
+								.visible-xl-block .l-span-xl-3
+								.visible-lg-block .l-span-lg-3
+								.visible-md-block .l-span-md-3
+								.visible-sm-block .l-span-sm-3
+								.visible-xs-block .l-span-xs-3
+
+							.l-span-lg-9.l-span-md-9.l-span-sm-9.l-span-xs-9
+								.visible-xl-block .l-span-xl-9
+								.visible-lg-block .l-span-lg-9
+								.visible-md-block .l-span-md-9
+								.visible-sm-block .l-span-sm-9
+								.visible-xs-block .l-span-xs-9
+
+						.l-row
+							.l-span-lg-4.l-span-md-4.l-span-sm-4.l-span-xs-4
+								.visible-xl-block .l-span-xl-4
+								.visible-lg-block .l-span-lg-4
+								.visible-md-block .l-span-md-4
+								.visible-sm-block .l-span-sm-4
+								.visible-xs-block .l-span-xs-4
+
+							.l-span-lg-8.l-span-md-8.l-span-sm-8.l-span-xs-8
+								.visible-xl-block .l-span-xl-8
+								.visible-lg-block .l-span-lg-8
+								.visible-md-block .l-span-md-8
+								.visible-sm-block .l-span-sm-8
+								.visible-xs-block .l-span-xs-8
+
+						.l-row
+							.l-span-lg-5.l-span-md-5.l-span-sm-5.l-span-xs-5
+								.visible-xl-block .l-span-xl-5
+								.visible-lg-block .l-span-lg-5
+								.visible-md-block .l-span-md-5
+								.visible-sm-block .l-span-sm-5
+								.visible-xs-block .l-span-xs-5
+
+							.l-span-lg-7.l-span-md-7.l-span-sm-7.l-span-xs-7
+								.visible-xl-block .l-span-xl-7
+								.visible-lg-block .l-span-lg-7
+								.visible-md-block .l-span-md-7
+								.visible-sm-block .l-span-sm-7
+								.visible-xs-block .l-span-xs-7
+
+						.l-row
+							.l-span-lg-6.l-span-md-6.l-span-sm-6.l-span-xs-6
+								.visible-xl-block .l-span-xl-6
+								.visible-lg-block .l-span-lg-6
+								.visible-md-block .l-span-md-6
+								.visible-sm-block .l-span-sm-6
+								.visible-xs-block .l-span-xs-6
+
+							.l-span-lg-6.l-span-md-6.l-span-sm-6.l-span-xs-6
+								.visible-xl-block .l-span-xl-6
+								.visible-lg-block .l-span-lg-6
+								.visible-md-block .l-span-md-6
+								.visible-sm-block .l-span-sm-6
+								.visible-xs-block .l-span-xs-6
+
+						h4.sep-bottom 2 Column Example
+						.l-row.t-col-2-example
+							.l-span-xl-2.l-span-lg-7.l-span-md-6.l-span-sm-8.l-span-xs-3
+								.visible-xl-block .l-span-xl-2
+								.visible-lg-block .l-span-lg-7
+								.visible-md-block .l-span-md-6
+								.visible-sm-block .l-span-sm-8
+								.visible-xs-block .l-span-xs-3
+							.l-span-xl-10.l-span-lg-5.l-span-md-6.l-span-sm-4.l-span-xs-9
+								.visible-xl-block .l-span-xl-10
+								.visible-lg-block .l-span-lg-5
+								.visible-md-block .l-span-md-6
+								.visible-sm-block .l-span-sm-4
+								.visible-xs-block .l-span-xs-9
+
+						h4.sep-bottom 3 Column Examples
+						.l-row.t-col-3-example
+							.l-span-xl-2.l-span-lg-2.l-span-md-5.l-span-sm-6.l-span-xs-3
+								.visible-xl-block .l-span-xl-2
+								.visible-lg-block .l-span-lg-2
+								.visible-md-block .l-span-md-5
+								.visible-sm-block .l-span-sm-6
+								.visible-xs-block .l-span-xs-3
+							.l-span-xl-8.l-span-lg-5.l-span-md-6.l-span-sm-4.l-span-xs-5
+								.visible-xl-block .l-span-xl-8
+								.visible-lg-block .l-span-lg-5
+								.visible-md-block .l-span-md-6
+								.visible-sm-block .l-span-sm-4
+								.visible-xs-block .l-span-xs-5
+							.l-span-xl-2.l-span-lg-5.l-span-md-1.l-span-sm-2.l-span-xs-4
+								.visible-xl-block .l-span-xl-2
+								.visible-lg-block .l-span-lg-5
+								.visible-md-block .l-span-md-1
+								.visible-sm-block .l-span-sm-2
+								.visible-xs-block .l-span-xs-4
+
+						hr.mb.mt-0
+						.l-row.t-col-3-example
+							.l-span-xl-6.l-span-lg-6.l-span-md-12.l-span-sm-6.l-span-xs-12
+								.visible-xl-block .l-span-xl-6
+								.visible-lg-block .l-span-lg-6
+								.visible-md-block .l-span-md-12
+								.visible-sm-block .l-span-sm-6
+								.visible-xs-block .l-span-xs-12
+							.l-span-xl-3.l-span-lg-6.l-span-md-6.l-span-sm-6.l-span-xs-12
+								.visible-xl-block .l-span-xl-3
+								.visible-lg-block .l-span-lg-6
+								.visible-md-block .l-span-md-6
+								.visible-sm-block .l-span-sm-6
+								.visible-xs-block .l-span-xs-12
+							.l-span-xl-3.l-span-lg-12.l-span-md-6.l-span-sm-12.l-span-xs-12
+								.visible-xl-block .l-span-xl-3
+								.visible-lg-block .l-span-lg-12
+								.visible-md-block .l-span-md-6
+								.visible-sm-block .l-span-sm-12
+								.visible-xs-block .l-span-xs-12
+
+						h4.sep-bottom 4 Column Example
+						.l-row.t-col-4-example
+							.l-span-xl-3.l-span-lg-6.l-span-md-7.l-span-sm-6.l-span-xs-3
+								.visible-xl-block .l-span-xl-3
+								.visible-lg-block .l-span-lg-6
+								.visible-md-block .l-span-md-7
+								.visible-sm-block .l-span-sm-6
+								.visible-xs-block .l-span-xs-3
+							.l-span-xl-3.l-span-lg-6.l-span-md-5.l-span-sm-6.l-span-xs-3
+								.visible-xl-block .l-span-xl-3
+								.visible-lg-block .l-span-lg-6
+								.visible-md-block .l-span-md-5
+								.visible-sm-block .l-span-sm-6
+								.visible-xs-block .l-span-xs-3
+							.l-span-xl-3.l-span-lg-6.l-span-md-8.l-span-sm-12.l-span-xs-6
+								.visible-xl-block .l-span-xl-3
+								.visible-lg-block .l-span-lg-6
+								.visible-md-block .l-span-md-8
+								.visible-sm-block .l-span-sm-12
+								.visible-xs-block .l-span-xs-6
+							.l-span-xl-3.l-span-lg-6.l-span-md-4.l-span-sm-12.l-span-xs-12
+								.visible-xl-block .l-span-xl-3
+								.visible-lg-block .l-span-lg-6
+								.visible-md-block .l-span-md-4
+								.visible-sm-block .l-span-sm-12
+								.visible-xs-block .l-span-xs-12
+
+			include components/layout/footer/footer_1/footer_1__t_1
+
+		include components/layout/sidebar/sidebar_2/sidebar_2__t_2__right

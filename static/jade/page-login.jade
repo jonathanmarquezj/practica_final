@@ -1,0 +1,69 @@
+//- ------------------------------------
+//- BASE LAYOUT
+//- ------------------------------------
+extends aaa-master-layout
+
+
+//- ------------------------------------
+//- PAGE CONFIGURATION
+//- ------------------------------------
+prepend config
+	- var link = "page-login.html"
+	- var page = "page.p-login"
+	- var pageSubTitle = " - Page - Login"
+	- var scripts = [ 'form.validate', 'form.validate.additional', 'x.call.page.login' ]
+	- var hideThemeSettings = true
+
+append config
+	- var pageBodyClasses = bodyClasses.push('login-bg')
+
+
+//- ------------------------------------
+//- PAGE CONTENT
+//- ------------------------------------
+block content
+
+	//SECTION
+	section.l-main-container
+
+		//Main Content
+		.login-wrapper
+
+			.login-container
+
+				//Logo
+				h1.login-logo
+					img(src = 'img/logo.png', alt = 'Proteus')
+
+				//Login Form
+				form#loginForm.login-form(role='form', action='index.html')
+
+					.form-group
+						input#loginEmail.form-control(type='email', name='loginEmail', placeholder='Email')
+
+					.form-group
+						input#loginPassword.form-control(type='password', name='loginPassword', placeholder='Password')
+
+					button.btn.btn-dark.btn-block.btn-login(type='submit') Sign In
+
+					.login-social
+
+						.l-span-md-12
+							.or
+								span - OR -
+
+						.l-col-sm-6
+							a(href="#").btn.btn-facebook.btn-block
+								i.fa.fa-facebook
+								| Sign In with Facebook
+
+						.l-col-sm-6
+							a(href="#").btn.btn-twitter.btn-block
+								i.fa.fa-twitter
+								| Sign In with Twitter
+
+					.login-options
+						a.fl(href = 'page-forgot-password.html') FORGOT PASSWORD ?
+
+
+						a.fr(href = 'page-register.html') SIGN UP

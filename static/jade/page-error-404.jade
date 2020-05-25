@@ -1,0 +1,50 @@
+//- ------------------------------------
+//- BASE LAYOUT
+//- ------------------------------------
+extends aaa-master-layout
+
+
+//- ------------------------------------
+//- PAGE CONFIGURATION
+//- ------------------------------------
+prepend config
+	- var link = "page-error-404.html"
+	- var page = "page.error.e-404"
+	- var pageSubTitle = " - Pages - Error - 404"
+	- var styles = [ 'jasny.bootstrap' ]
+	- var scripts = [ 'page.particleground', 'x.call.page.error' ]
+	- var hideThemeSettings = true
+
+//- ------------------------------------
+//- PAGE CONTENT
+//- ------------------------------------
+block content
+
+	//Main Content
+	section#error-bg.error-container
+		#error-particle.hide
+		.error-404
+			.center-outer
+				.center-inner
+					.center-content.error-404-content
+						i.error-icon.fa.fa-exclamation-circle
+						h1.font-light
+							| Error <span>404</span>
+						h3.font-extralight
+							| #{''}
+							| Page not found !
+
+						.info
+							p Sorry, the page you are looking for doesn't exist !
+							p Please check out one of the options below
+
+
+						a.btn.btn-labeled.btn-dark.mr(href = 'index.html')
+							span.btn-label
+								i.fa.fa-chevron-left.vam
+							| Go back
+
+						a.btn.btn-labeled.btn-dark(href = 'index.html')
+							| Dashboard
+							span.btn-label.btn-label-right
+								i.fa.fa-dashboard.vam

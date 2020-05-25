@@ -1,0 +1,47 @@
+// Task Widget
+ul.widget-task.task-in-box
+	li.dropdown-menu-header
+		| Tasks
+		span.label.label-danger 4
+						li
+		.l-row
+			.l-col-sm-8 Project Overview
+			.l-col-sm-4.tar 68%
+		.progress.progress-no-border.progress-mini
+			.progress-bar.progress-bar-info(style='width: 25%')
+				span.sr-only 25% Complete (success)
+			.progress-bar.progress-bar-success(style='width: 18%')
+				span.sr-only 18% Complete (success)
+			.progress-bar.progress-bar-danger(style='width: 12%')
+				span.sr-only 12% Complete (warning)
+			.progress-bar.progress-bar-warning(style='width: 16%')
+				span.sr-only 16% Complete (danger)
+	li.divider
+	li
+		.l-row
+			.l-col-sm-8 Page Design
+			.l-col-sm-4.tar 75%
+		.progress.progress-no-border.progress-mini
+			.progress-bar.progress-bar-info(role='progressbar', aria-valuenow='75', aria-valuemin='0', aria-valuemax='100', style='width: 75%;')
+				span.sr-only 75% Complete
+	li
+		.l-row
+			.l-col-sm-8 Front-End development
+			.l-col-sm-4.tar 50%
+		.progress.progress-no-border.progress-mini
+			.progress-bar.progress-bar-success(role='progressbar', aria-valuenow='50', aria-valuemin='0', aria-valuemax='100', style='width: 50%;')
+				span.sr-only 50% Complete
+	li
+		.l-row
+			.l-col-sm-8 Back-End development
+			.l-col-sm-4.tar 35%
+		.progress.progress-no-border.progress-mini
+			.progress-bar.progress-bar-danger(role='progressbar', aria-valuenow='35', aria-valuemin='0', aria-valuemax='100', style='width: 35%;')
+				span.sr-only 35% Complete
+	li
+		.l-row
+			.l-col-sm-8 Database design
+			.l-col-sm-4.tar 40%
+		.progress.progress-no-border.progress-mini
+			.progress-bar.progress-bar-warning(role='progressbar', aria-valuenow='40', aria-valuemin='0', aria-valuemax='100', style='width: 40%;')
+				span.sr-only 40% Complete

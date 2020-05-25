@@ -1,0 +1,78 @@
+// Page Summary Widget
+.widget-page-summary
+	.l-col-lg-4
+		h2.page-title Welcome to <span>Proteus</span>.
+		h4.page-sub-title Your <span id="rotating-text">Responsive, REM font based, Clean, HTML5 and CSS3 based, Compiled with Jade, SMACSS based, Modern, Bootstrap based </span> Admin Web App.
+		a.page-summary-info-switcher(href = '#')
+			i.fa.fa-bars
+	.l-col-lg-8.page-summary-info
+
+		// Page Summary Settings
+		.page-summary-settings
+			ul.update-status-settings
+				li
+					a.chart-toggle.tt-bottom(href="#", title="Update charts"): i.fa.fa-refresh
+
+				li
+					ul.time-status-toggle
+						li.tt-bottom(title="Toggle unit")
+							.hide.switcheryUnits
+							input#switcheryUnits(type='checkbox')
+						li.last-status
+							a.current-weather-location.tt-bottom(href="#", title="Use your location"): i.fa.fa-compass
+				li.last
+					.hide.switcherySettings
+					input#switcherySettings(type='checkbox')
+
+		.l-row
+			// Page Summary Charts
+			.summary-chart.chart-views.l-col-md-4
+				.l-row
+					.l-col-xl-5.l-col-md-6.l-col-sm-5
+						.chart-info
+							a.update-chart-views.tt-top(href="#", title="Update total views"): i.fa.fa-eye
+							span 2,453
+							p Total Views
+					.l-col-xl-7.l-col-md-6.l-col-sm-7
+						.hide.rickshaw-views
+						#rickshawViews
+
+			.summary-chart.chart-followers.l-col-md-4
+				.l-row
+					.l-col-sm-5
+						.chart-info
+							a.update-chart-followers.tt-top(href="#", title="Update followers"): i.fa.fa-users
+							span 473
+							p Followers
+					.l-col-sm-7
+						.hide.rickshaw-followers
+						#rickshawFollowers
+
+			.summary-chart.chart-comments.l-col-md-4
+				.l-row
+					.l-col-sm-5
+						.chart-info
+							a.update-chart-comments.tt-top(href="#", title="Update comments"): i.fa.fa-comments
+							span 695
+							p Comments
+					.l-col-sm-7
+						.hide.rickshaw-comments
+						#rickshawComments
+
+		.l-row
+			// Page Summary Clock
+			.summary-time-status.clock-wrapper.l-col-md-8.l-col-sm-6
+				#clock
+
+			// Page Summary Weather
+			.summary-time-status.weather-wrapper.l-col-md-4.l-col-sm-6
+				#weather
+					.l-span-sm-6.l-span-xs-12
+						.weather-location Austin, Tx
+						.weather-description Scattered Thunderstorms
+					.l-span-sm-3.l-span-xs-9
+						.weather-temp 65°F
+					.l-span-sm-3.l-span-xs-3
+						.weather-icon
+							i.ac.ac-0
+

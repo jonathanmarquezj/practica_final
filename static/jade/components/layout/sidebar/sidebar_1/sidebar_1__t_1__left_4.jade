@@ -1,0 +1,75 @@
+
+//Left Sidebar Content
+aside#sb-left.l-sidebar.l-sidebar-1.t-sidebar-1
+
+	//Switcher
+	.l-side-box
+		a.sidebar-switcher.switcher.t-switcher-side(href = '#').ason-widget(
+			data-ason-type="sidebar",
+			data-ason-to-sm="sidebar",
+			data-ason-target="#sb-left")
+				i.fa.fa-bars
+
+
+	// Profile in sidebar
+	.widget-profile-2.profile-2-in-side-2.t-profile-2-3
+
+		a(href="#", title="Toggle Profile").tt-left.profile-2-toggle
+			i.fa.fa-angle-down
+
+		.profile-2-wrapper
+			.profile-2-details
+				.profile-2-img
+					a(href="page-profile.html"): img(src='img/profile/profile.jpg')
+
+				ul.profile-2-info
+					li: h3 William Jones
+					li Designer
+					li
+						.btn-group.btn-group-sm.btn-group-justified
+							a.toggle-stats.btn.btn-dark.tt-top(role='button', title="Social Stats")
+								i.fa.fa-rss
+							a.toggle-visitors.btn.btn-dark.tt-top(role='button', title="Visitor Stats")
+								i.fa.fa-area-chart
+							a.btn.btn-dark.tt-top(href="page-profile.html", title="Edit Profile")
+								i.fa.fa-cogs
+
+			.profile-2-social-stats
+				.l-span-xs-4
+					.profile-2-status-nr.text-danger 527
+					| Likes
+				.l-span-xs-4
+					.profile-2-status-nr.text-info 232
+					| Comments
+				.l-span-xs-4
+					.profile-2-status-nr.text-success 15
+					| Messages
+
+			.profile-2-chart
+				.hide.rickshaw-visitors
+				#rickshawVisitors
+				#rickshawVisitorsLegend.visitors_rickshaw_legend
+
+
+	// Logo in Sidebar
+	.l-side-box
+		include ../../../widgets/widget_logo/logo_in_side
+
+
+	//Search
+	.l-side-box.mt-5.mb-10
+		.widget-search.search-in-side.is-search-left.t-search-4
+			.search-toggle
+				i.fa.fa-search
+
+			.search-content
+				form(role='form', action="page-search.html")
+					input.form-control(type='text', placeholder='Search...')
+					button.btn(type='submit')
+						i.fa.fa-search
+
+
+	//Main Menu
+	.l-side-box
+
+		include ../../nav/nav

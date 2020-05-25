@@ -1,0 +1,246 @@
+//- ------------------------------------
+//- BASE LAYOUT
+//- ------------------------------------
+extends aaa-master-layout
+
+
+//- ------------------------------------
+//- PAGE CONFIGURATION
+//- ------------------------------------
+prepend config
+	- var link = "ui-accordion.html"
+	- var page = "ui.u-accordion"
+	- var pageSubTitle = " - UI Elements - Accordions"
+	- var scripts = [ 'a.shared.cookie', 'accordions.collapsible', 'accordions.collapse', 'x.call.ui.accordions' ]
+
+
+//- ------------------------------------
+//- PAGE CONTENT
+//- ------------------------------------
+block content
+
+	//SECTION
+	section.l-main-container
+
+		include components/layout/sidebar/sidebar_1/sidebar_1__t_1__left
+
+		//Main Content
+		section.l-container
+
+			include components/layout/header/header_1/header_1__t_1
+
+			.l-page-header
+				h2.l-page-title <span>Accordions</span>
+				+breadcrumb(bread_ui_accordions)
+
+			.l-spaced
+				//Accordion - bootstrap
+				.l-box.l-spaced-bottom
+					.l-box-header
+						h2.l-box-title <span>Bootstrap</span> Accordion
+						+box-options
+
+					.l-box-body.l-spaced
+						div#accordion.panel-group.bs-accordion
+							div.panel.panel-default
+								div.panel-heading
+									h4.panel-title
+										a(data-toggle='collapse', data-parent='#accordion', href='#collapseOne')
+											| Heading 1
+								div#collapseOne.panel-collapse.collapse.in
+									div.panel-body
+										| Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
+							div.panel.panel-default
+								div.panel-heading
+									h4.panel-title
+										a(data-toggle='collapse', data-parent='#accordion', href='#collapseTwo')
+											| Heading 2
+								div#collapseTwo.panel-collapse.collapse
+									div.panel-body
+										| Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
+							div.panel.panel-default
+								div.panel-heading
+									h4.panel-title
+										a(data-toggle='collapse', data-parent='#accordion', href='#collapseThree')
+											| Heading 3
+								div#collapseThree.panel-collapse.collapse
+									div.panel-body
+										| Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
+
+
+				//Accordion - default
+				.l-box.l-spaced-bottom
+					.l-box-header
+						h2.l-box-title <span>Default</span> Accordion
+						+box-options
+
+					.l-box-body.l-spaced
+						div.collapse-container(data-collapse='')
+							h3 Heading 1
+							div
+								div.content
+									ul
+										li  Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iusto, quas, maxime necessitatibus quaerat voluptatem in nemo sequi veniam eius quae. Doloremque, rem, quos sapiente quo facere nihil quia dicta ex!
+										li  Sequi, consequuntur, voluptatem dolores architecto similique natus aperiam nostrum mollitia corporis voluptatibus explicabo atque officia quos. Nobis, itaque, doloribus est eligendi veritatis ab sunt odit aspernatur delectus nisi saepe voluptatibus.
+										li  Fuga, nam, fugiat reprehenderit aspernatur impedit error nihil iusto ea beatae magnam magni quasi aperiam voluptas debitis ipsum laboriosam velit et. Illo, quod unde magni provident ut atque. Voluptate, ipsum.
+									ul
+										li  Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iusto, quas, maxime necessitatibus quaerat voluptatem in nemo sequi veniam eius quae. Doloremque, rem, quos sapiente quo facere nihil quia dicta ex!
+										li  Sequi, consequuntur, voluptatem dolores architecto similique natus aperiam nostrum mollitia corporis voluptatibus explicabo atque officia quos. Nobis, itaque, doloribus est eligendi veritatis ab sunt odit aspernatur delectus nisi saepe voluptatibus.
+										li  Fuga, nam, fugiat reprehenderit aspernatur impedit error nihil iusto ea beatae magnam magni quasi aperiam voluptas debitis ipsum laboriosam velit et. Illo, quod unde magni provident ut atque. Voluptate, ipsum.
+							h3 Heading 2
+							div
+								div.content
+									ul
+										li  Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iusto, quas, maxime necessitatibus quaerat voluptatem in nemo sequi veniam eius quae. Doloremque, rem, quos sapiente quo facere nihil quia dicta ex!
+										li  Sequi, consequuntur, voluptatem dolores architecto similique natus aperiam nostrum mollitia corporis voluptatibus explicabo atque officia quos. Nobis, itaque, doloribus est eligendi veritatis ab sunt odit aspernatur delectus nisi saepe voluptatibus.
+										li  Fuga, nam, fugiat reprehenderit aspernatur impedit error nihil iusto ea beatae magnam magni quasi aperiam voluptas debitis ipsum laboriosam velit et. Illo, quod unde magni provident ut atque. Voluptate, ipsum.
+							h3 Heading 3
+							div
+								div.content
+									ul
+										li  Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iusto, quas, maxime necessitatibus quaerat voluptatem in nemo sequi veniam eius quae. Doloremque, rem, quos sapiente quo facere nihil quia dicta ex!
+										li  Sequi, consequuntur, voluptatem dolores architecto similique natus aperiam nostrum mollitia corporis voluptatibus explicabo atque officia quos. Nobis, itaque, doloribus est eligendi veritatis ab sunt odit aspernatur delectus nisi saepe voluptatibus.
+										li  Fuga, nam, fugiat reprehenderit aspernatur impedit error nihil iusto ea beatae magnam magni quasi aperiam voluptas debitis ipsum laboriosam velit et. Illo, quod unde magni provident ut atque. Voluptate, ipsum.
+
+				//Accordion - Accordion
+				.l-box.l-spaced-bottom
+					.l-box-header
+						h2.l-box-title Accordion <span>with Accordion Style</span>
+						+box-options
+
+					.l-box-body.l-spaced
+						div.collapse-container(data-collapse='accordion')
+							h3 Heading 1
+							div
+								div.content
+									ul
+										li  Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iusto, quas, maxime necessitatibus quaerat voluptatem in nemo sequi veniam eius quae. Doloremque, rem, quos sapiente quo facere nihil quia dicta ex!
+										li  Sequi, consequuntur, voluptatem dolores architecto similique natus aperiam nostrum mollitia corporis voluptatibus explicabo atque officia quos. Nobis, itaque, doloribus est eligendi veritatis ab sunt odit aspernatur delectus nisi saepe voluptatibus.
+										li  Fuga, nam, fugiat reprehenderit aspernatur impedit error nihil iusto ea beatae magnam magni quasi aperiam voluptas debitis ipsum laboriosam velit et. Illo, quod unde magni provident ut atque. Voluptate, ipsum.
+									ul
+										li  Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iusto, quas, maxime necessitatibus quaerat voluptatem in nemo sequi veniam eius quae. Doloremque, rem, quos sapiente quo facere nihil quia dicta ex!
+										li  Sequi, consequuntur, voluptatem dolores architecto similique natus aperiam nostrum mollitia corporis voluptatibus explicabo atque officia quos. Nobis, itaque, doloribus est eligendi veritatis ab sunt odit aspernatur delectus nisi saepe voluptatibus.
+										li  Fuga, nam, fugiat reprehenderit aspernatur impedit error nihil iusto ea beatae magnam magni quasi aperiam voluptas debitis ipsum laboriosam velit et. Illo, quod unde magni provident ut atque. Voluptate, ipsum.
+							h3 Heading 2
+							div
+								div.content
+									ul
+										li  Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iusto, quas, maxime necessitatibus quaerat voluptatem in nemo sequi veniam eius quae. Doloremque, rem, quos sapiente quo facere nihil quia dicta ex!
+										li  Sequi, consequuntur, voluptatem dolores architecto similique natus aperiam nostrum mollitia corporis voluptatibus explicabo atque officia quos. Nobis, itaque, doloribus est eligendi veritatis ab sunt odit aspernatur delectus nisi saepe voluptatibus.
+										li  Fuga, nam, fugiat reprehenderit aspernatur impedit error nihil iusto ea beatae magnam magni quasi aperiam voluptas debitis ipsum laboriosam velit et. Illo, quod unde magni provident ut atque. Voluptate, ipsum.
+							h3 Heading 3
+							div
+								div.content
+									ul
+										li  Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iusto, quas, maxime necessitatibus quaerat voluptatem in nemo sequi veniam eius quae. Doloremque, rem, quos sapiente quo facere nihil quia dicta ex!
+										li  Sequi, consequuntur, voluptatem dolores architecto similique natus aperiam nostrum mollitia corporis voluptatibus explicabo atque officia quos. Nobis, itaque, doloribus est eligendi veritatis ab sunt odit aspernatur delectus nisi saepe voluptatibus.
+										li  Fuga, nam, fugiat reprehenderit aspernatur impedit error nihil iusto ea beatae magnam magni quasi aperiam voluptas debitis ipsum laboriosam velit et. Illo, quod unde magni provident ut atque. Voluptate, ipsum.
+
+
+				//Accordion - custom show & hide
+				.l-box.l-spaced-bottom
+					.l-box-header
+						h2.l-box-title Accordion <span>with Custom Show/Hide Effect</span>
+						+box-options
+
+					.l-box-body.l-spaced
+						div.collapse-container.custom-show-hide
+							h3 Heading 1
+							div
+								div.content
+									ul
+										li  Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iusto, quas, maxime necessitatibus quaerat voluptatem in nemo sequi veniam eius quae. Doloremque, rem, quos sapiente quo facere nihil quia dicta ex!
+										li  Sequi, consequuntur, voluptatem dolores architecto similique natus aperiam nostrum mollitia corporis voluptatibus explicabo atque officia quos. Nobis, itaque, doloribus est eligendi veritatis ab sunt odit aspernatur delectus nisi saepe voluptatibus.
+										li  Fuga, nam, fugiat reprehenderit aspernatur impedit error nihil iusto ea beatae magnam magni quasi aperiam voluptas debitis ipsum laboriosam velit et. Illo, quod unde magni provident ut atque. Voluptate, ipsum.
+									ul
+										li  Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iusto, quas, maxime necessitatibus quaerat voluptatem in nemo sequi veniam eius quae. Doloremque, rem, quos sapiente quo facere nihil quia dicta ex!
+										li  Sequi, consequuntur, voluptatem dolores architecto similique natus aperiam nostrum mollitia corporis voluptatibus explicabo atque officia quos. Nobis, itaque, doloribus est eligendi veritatis ab sunt odit aspernatur delectus nisi saepe voluptatibus.
+										li  Fuga, nam, fugiat reprehenderit aspernatur impedit error nihil iusto ea beatae magnam magni quasi aperiam voluptas debitis ipsum laboriosam velit et. Illo, quod unde magni provident ut atque. Voluptate, ipsum.
+							h3 Heading 2
+							div
+								div.content
+									ul
+										li  Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iusto, quas, maxime necessitatibus quaerat voluptatem in nemo sequi veniam eius quae. Doloremque, rem, quos sapiente quo facere nihil quia dicta ex!
+										li  Sequi, consequuntur, voluptatem dolores architecto similique natus aperiam nostrum mollitia corporis voluptatibus explicabo atque officia quos. Nobis, itaque, doloribus est eligendi veritatis ab sunt odit aspernatur delectus nisi saepe voluptatibus.
+										li  Fuga, nam, fugiat reprehenderit aspernatur impedit error nihil iusto ea beatae magnam magni quasi aperiam voluptas debitis ipsum laboriosam velit et. Illo, quod unde magni provident ut atque. Voluptate, ipsum.
+							h3 Heading 3
+							div
+								div.content
+									ul
+										li  Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iusto, quas, maxime necessitatibus quaerat voluptatem in nemo sequi veniam eius quae. Doloremque, rem, quos sapiente quo facere nihil quia dicta ex!
+										li  Sequi, consequuntur, voluptatem dolores architecto similique natus aperiam nostrum mollitia corporis voluptatibus explicabo atque officia quos. Nobis, itaque, doloribus est eligendi veritatis ab sunt odit aspernatur delectus nisi saepe voluptatibus.
+										li  Fuga, nam, fugiat reprehenderit aspernatur impedit error nihil iusto ea beatae magnam magni quasi aperiam voluptas debitis ipsum laboriosam velit et. Illo, quod unde magni provident ut atque. Voluptate, ipsum.
+
+				//Accordion - css3 animation
+				.l-box.l-spaced-bottom
+					.l-box-header
+						h2.l-box-title Accordion <span>with Css3 Animation</span>
+						+box-options
+
+					.l-box-body.l-spaced
+						div.collapse-container.animated-collapse
+							h3 Heading 1
+							div
+								div.content
+									ul
+										li  Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iusto, quas, maxime necessitatibus quaerat voluptatem in nemo sequi veniam eius quae. Doloremque, rem, quos sapiente quo facere nihil quia dicta ex!
+										li  Sequi, consequuntur, voluptatem dolores architecto similique natus aperiam nostrum mollitia corporis voluptatibus explicabo atque officia quos. Nobis, itaque, doloribus est eligendi veritatis ab sunt odit aspernatur delectus nisi saepe voluptatibus.
+										li  Fuga, nam, fugiat reprehenderit aspernatur impedit error nihil iusto ea beatae magnam magni quasi aperiam voluptas debitis ipsum laboriosam velit et. Illo, quod unde magni provident ut atque. Voluptate, ipsum.
+									ul
+										li  Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iusto, quas, maxime necessitatibus quaerat voluptatem in nemo sequi veniam eius quae. Doloremque, rem, quos sapiente quo facere nihil quia dicta ex!
+										li  Sequi, consequuntur, voluptatem dolores architecto similique natus aperiam nostrum mollitia corporis voluptatibus explicabo atque officia quos. Nobis, itaque, doloribus est eligendi veritatis ab sunt odit aspernatur delectus nisi saepe voluptatibus.
+										li  Fuga, nam, fugiat reprehenderit aspernatur impedit error nihil iusto ea beatae magnam magni quasi aperiam voluptas debitis ipsum laboriosam velit et. Illo, quod unde magni provident ut atque. Voluptate, ipsum.
+							h3 Heading 2
+							div
+								div.content
+									ul
+										li  Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iusto, quas, maxime necessitatibus quaerat voluptatem in nemo sequi veniam eius quae. Doloremque, rem, quos sapiente quo facere nihil quia dicta ex!
+										li  Sequi, consequuntur, voluptatem dolores architecto similique natus aperiam nostrum mollitia corporis voluptatibus explicabo atque officia quos. Nobis, itaque, doloribus est eligendi veritatis ab sunt odit aspernatur delectus nisi saepe voluptatibus.
+										li  Fuga, nam, fugiat reprehenderit aspernatur impedit error nihil iusto ea beatae magnam magni quasi aperiam voluptas debitis ipsum laboriosam velit et. Illo, quod unde magni provident ut atque. Voluptate, ipsum.
+							h3 Heading 3
+							div
+								div.content
+									ul
+										li  Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iusto, quas, maxime necessitatibus quaerat voluptatem in nemo sequi veniam eius quae. Doloremque, rem, quos sapiente quo facere nihil quia dicta ex!
+										li  Sequi, consequuntur, voluptatem dolores architecto similique natus aperiam nostrum mollitia corporis voluptatibus explicabo atque officia quos. Nobis, itaque, doloribus est eligendi veritatis ab sunt odit aspernatur delectus nisi saepe voluptatibus.
+										li  Fuga, nam, fugiat reprehenderit aspernatur impedit error nihil iusto ea beatae magnam magni quasi aperiam voluptas debitis ipsum laboriosam velit et. Illo, quod unde magni provident ut atque. Voluptate, ipsum.
+
+				//Accordion - with cookie
+				.l-box.l-spaced-bottom
+					.l-box-header
+						h2.l-box-title Accordion <span>with Cookies</span>
+						+box-options
+
+					.l-box-body.l-spaced
+
+						.collapsible-cointainer
+							#section1.collapsible
+								| Heading 1
+								span
+							div
+								.cont
+									.content
+										| Lorem ipsum dolor sit amet, consectetur adipisicing elit. Facere, libero, ullam quo aperiam blanditiis eligendi culpa fugiat voluptatem reiciendis accusamus vero consequuntur quas! Voluptatum, itaque velit delectus voluptate quibusdam rem!
+										ul
+											li  Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iusto, quas, maxime necessitatibus quaerat voluptatem in nemo sequi veniam eius quae. Doloremque, rem, quos sapiente quo facere nihil quia dicta ex!
+											li  Sequi, consequuntur, voluptatem dolores architecto similique natus aperiam nostrum mollitia corporis voluptatibus explicabo atque officia quos. Nobis, itaque, doloribus est eligendi veritatis ab sunt odit aspernatur delectus nisi saepe voluptatibus.
+											li  Fuga, nam, fugiat reprehenderit aspernatur impedit error nihil iusto ea beatae magnam magni quasi aperiam voluptas debitis ipsum laboriosam velit et. Illo, quod unde magni provident ut atque. Voluptate, ipsum.
+							#section2.collapsible
+								| Heading 2
+								span
+							div
+								.cont
+									.content
+										| Vero, ea quis aspernatur distinctio possimus repudiandae omnis earum dolorem a laboriosam inventore debitis fuga. Vitae, ex expedita laboriosam illum sequi aperiam.
+
+							#section3.collapsible
+								| Heading 3
+								span
+							div
+								.cont
+									.content
+										| Saepe, expedita qui fugit commodi ut ratione hic soluta consequuntur suscipit! Asperiores, rerum, esse vel quam vitae ipsam ipsum doloribus dicta quaerat.
+
+			include components/layout/footer/footer_1/footer_1__t_1
+
+		include components/layout/sidebar/sidebar_2/sidebar_2__t_2__right

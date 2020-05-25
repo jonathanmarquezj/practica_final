@@ -1,0 +1,54 @@
+//- Component Configuration
+
+- var scripts_header_1 = [ 'x.call.part.header.1' ]
+
+//- ------------------------------------
+
+//HEADER
+
+header.l-header.l-header-1.t-header-1
+
+	.navbar.navbar-ason
+		.container-fluid
+			include ../../../modules/navbar/navbar_header
+
+			#ason-navbar-collapse.collapse.navbar-collapse
+				ul.nav.navbar-nav
+					li.visible-sm-block.visible-xs-block
+						// Right Sidebar Switcher
+						a.switcher.t-switcher-header(href = '#').ason-widget(
+							data-ason-type="sidebar"
+							data-ason-to-full="sidebar",
+							data-ason-to-xl="sidebar",
+							data-ason-to-lg="sidebar",
+							data-ason-on-md="hidden",
+							data-ason-to-md="sidebar",
+							data-ason-on-sm="hidden",
+							data-ason-to-sm="sidebar",
+							data-ason-anim-md=['velocity', 'transition.slideLeftIn'],
+							data-ason-target="#slide-left")
+								i.fa.fa-bars
+					li
+						include ../../../widgets/widget_search/search_in_header__is_right__t_1
+
+				ul.nav.navbar-nav.navbar-right
+					li
+						include ../../../widgets/widget_notification/notification_in_header
+					li
+						// Right Sidebar Switcher
+						a.switcher.t-switcher-header(href = '#').ason-widget(
+							data-ason-type="sidebar"
+							data-ason-on-all="slidebar-right",
+							data-ason-anim-all=['velocity', 'transition.slideRightBigIn', 'transition.slideRightBigOut'],
+							data-ason-target="#slide-right")
+								i.fa.fa-bars
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,86 @@
+//- ==========================================================================
+//- Styles
+//- ==========================================================================
+
+//- ==========================================================================
+//- Register and Include Additional Styles
+//- ==========================================================================
+mixin styles()
+
+	- var final_styles = []
+
+	//- ----------------------------------------------------------------------
+	//- Page styles
+	- if(styles)
+		// Specific
+		- final_styles = styles
+
+	//- Left outer sidebar styles
+	//- - if(styles_sidebar_left_outer)
+	//-     - final_styles = mergeArrays(final_styles,styles_sidebar_left_outer)
+
+	//- Right outer sidebar styles
+	//- - if(styles_sidebar_right_outer)
+	//-     - final_styles = mergeArrays(final_styles,styles_sidebar_right_outer)
+
+	//- ----------------------------------------------------------------------
+	//- Eliminate duplicate items
+	//- - final_styles = eliminateDuplicate(final_styles)
+
+	//- Sort styles list
+	- final_styles = final_styles.sort()
+
+
+	//- ----------------------------------------------------------------------
+	//- List the styles
+	-each style in final_styles
+		+styleListing(style)
+
+
+
+//- List the javastyle files
+//- ==========================================================================
+mixin styleListing(lib)
+
+	case lib
+
+		when 'font.font-awesome'
+			link(rel="stylesheet", href="css/addons/fonts/font-awesome.css")
+
+		when 'font.icomoon'
+			link(rel="stylesheet", href="css/addons/fonts/icomoon.css")
+
+		when 'font.stroke-gap'
+			link(rel="stylesheet", href="css/addons/fonts/stroke-gap.css")
+
+		when 'font.simple-line'
+			link(rel="stylesheet", href="css/addons/fonts/simple-line.css")
+
+		when 'font.artill-weather'
+			link(rel="stylesheet", href="css/addons/fonts/artill-clean-icons.css")
+
+		when 'font.icons-material-design'
+			link(rel="stylesheet", href="css/addons/fonts/icons-material-design.css")
+
+
+		when 'animate'
+			link(rel="stylesheet", href="css/addons/animate.min.css")
+
+
+		when 'select2'
+			link(class="style-theme-addon", rel="stylesheet", href="css/addons/theme/select2.css")
+
+		when 'syntaxhighlighter'
+			link(class="style-theme-addon", rel="stylesheet", href="css/addons/theme/syntaxhighlighter.css")
+
+		when 'summernote'
+			link(class="style-theme-addon", rel="stylesheet", href="css/addons/theme/summernote.css")
+
+		when 'jquery.ui'
+			link(class="style-theme-addon", rel="stylesheet", href="css/addons/theme/jquery-ui.css")
+
+		when 'jasny.bootstrap'
+			link(class="style-theme-addon", rel="stylesheet", href="css/addons/theme/jasny-bootstrap.css")
+
+		when 'patternbolt'
+			link(class="style-theme-addon", rel="stylesheet", href="css/addons/theme/patternbolt.css")

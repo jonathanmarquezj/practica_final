@@ -1,0 +1,119 @@
+//- ------------------------------------
+//- BASE LAYOUT
+//- ------------------------------------
+extends aaa-master-layout
+
+
+//- ------------------------------------
+//- PAGE CONFIGURATION
+//- ------------------------------------
+prepend config
+	- var link = "chart-c3.html"
+	- var page = "chart.ch-c3"
+	- var pageSubTitle = " - Charts - C3"
+	- var scripts = [ 'charts.d3', 'charts.c3', 'x.call.chart.c3' ]
+
+
+
+//- ------------------------------------
+//- PAGE CONTENT
+//- ------------------------------------
+block content
+
+	//SECTION
+	section.l-main-container
+
+		include components/layout/sidebar/sidebar_1/sidebar_1__t_1__left
+
+		//Main Content
+		section.l-container
+
+			include components/layout/header/header_1/header_1__t_1
+
+			.l-page-header
+				h2.l-page-title <span>C3</span> Charts
+				+breadcrumb(bread_chart_c3)
+
+			.l-spaced
+
+				.l-box.l-spaced-bottom
+					.l-box-header
+						h2.l-box-title <span>Line</span> C3 Chart
+						+box-options
+
+					.l-box-body.l-spaced
+						.hide.c3-line-1
+						.hide.c3-line-2
+						.hide.c3-line-3
+						#c3Line
+
+				.l-box.l-spaced-bottom
+					.l-box-header
+						h2.l-box-title <span>Area</span> C3 Chart
+						+box-options
+
+					.l-box-body.l-spaced
+						.hide.c3-area-1
+						.hide.c3-area-2
+						#c3Area
+
+				.l-box.l-spaced-bottom
+					.l-box-header
+						h2.l-box-title <span>Spline</span> C3 Chart
+						+box-options
+
+					.l-box-body.l-spaced
+						.hide.c3-spline-1
+						.hide.c3-spline-2
+						.hide.c3-spline-3
+						#c3Spline
+
+				.l-box.l-spaced-bottom
+					.l-box-header
+						h2.l-box-title <span>Mixed</span> C3 Chart <span>with rotated axis</span>
+						+box-options
+
+					.l-box-body.l-spaced
+						.hide.c3-mixed-1
+						.hide.c3-mixed-2
+						.hide.c3-mixed-3
+						#c3Mixed
+
+				.l-row
+					.l-box.l-col-md-6
+						.l-box-header
+							h2.l-box-title <span>Pie</span> C3 Chart
+							+box-options
+
+						.l-box-body.l-spaced
+							.hide.c3-pie-1
+							.hide.c3-pie-2
+							.hide.c3-pie-3
+							.hide.c3-pie-4
+							.hide.c3-pie-5
+							#c3Pie
+
+					.l-box.l-col-md-6
+						.l-box-header
+							h2.l-box-title <span>Donut</span> C3 Chart
+							+box-options
+
+						.l-box-body.l-spaced
+							.hide.c3-donut-1
+							.hide.c3-donut-2
+							.hide.c3-donut-3
+							.hide.c3-donut-4
+							.hide.c3-donut-5
+							#c3Donut
+
+			include components/layout/footer/footer_1/footer_1__t_1
+
+		include components/layout/sidebar/sidebar_2/sidebar_2__t_2__right
+
+
+
+
+
+
+
+

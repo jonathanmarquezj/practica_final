@@ -1,0 +1,166 @@
+//- ------------------------------------
+//- BASE LAYOUT
+//- ------------------------------------
+extends aaa-master-layout
+
+
+//- ------------------------------------
+//- PAGE CONFIGURATION
+//- ------------------------------------
+prepend config
+	- var link = "chart-rickshaw.html"
+	- var page = "chart.ch-rickshaw"
+	- var pageSubTitle = " - Charts - Rickshaw"
+	- var scripts = [ 'charts.d3', 'charts.rickshaw', 'x.call.chart.rickshaw' ]
+
+
+//- ------------------------------------
+//- PAGE CONTENT
+//- ------------------------------------
+block content
+
+	//SECTION
+	section.l-main-container
+
+
+		include components/layout/sidebar/sidebar_1/sidebar_1__t_1__left
+
+		//Main Content
+		section.l-container
+
+			include components/layout/header/header_1/header_1__t_1
+
+			.l-page-header
+				h2.l-page-title <span>Rickshaw</span> Charts
+				+breadcrumb(bread_chart_rickshaw)
+
+			.l-spaced
+
+				// Area Charts
+				.l-box.widget.widget-basic-tabs
+					.l-box-header
+						h2.l-box-title <span>Area</span> Rickshaw Chart
+						.widget-opt.fr
+							ul#areaTabs.nav.nav-tabs(role='tablist')
+								li.active
+									a(href='#tab_area_1') Stack
+								li
+									a(href='#tab_area_2') Stream
+								li
+									a(href='#tab_area_3') Pct
+								li
+									a(href='#tab_area_4') Value
+
+					.l-box-body.l-spaced-top
+						.tab-content
+							.hide.rickshaw-area-1
+							.hide.rickshaw-area-2
+							.hide.rickshaw-area-3
+							#tab_area_1.tab-pane.active
+								#rickshawStackArea.of-h
+								#rickshawStackAreaLegend.custom_rickshaw_legend
+							#tab_area_2.tab-pane
+								#rickshawStreamArea.of-h
+								#rickshawStreamAreaLegend.custom_rickshaw_legend
+							#tab_area_3.tab-pane
+								#rickshawPctArea.of-h
+								#rickshawPctAreaLegend.custom_rickshaw_legend
+							#tab_area_4.tab-pane
+								#rickshawValueArea.of-h
+								#rickshawValueAreaLegend.custom_rickshaw_legend
+
+
+				// Bar Charts
+				.l-box.widget.widget-basic-tabs
+					.l-box-header
+						h2.l-box-title <span>Bar</span> Rickshaw Chart
+						.widget-opt.fr
+							ul#barTabs.nav.nav-tabs(role='tablist')
+								li.active
+									a(href='#tab_bar_1') Stack
+								li
+									a(href='#tab_bar_2') Stream
+								li
+									a(href='#tab_bar_3') Pct
+								li
+									a(href='#tab_bar_4') Value
+
+					.l-box-body.l-spaced-top
+						.tab-content
+							.hide.rickshaw-bar-1
+							.hide.rickshaw-bar-2
+							.hide.rickshaw-bar-3
+							#tab_bar_1.tab-pane.active
+								#rickshawStackBar.of-h
+								#rickshawStackBarLegend.custom_rickshaw_legend
+							#tab_bar_2.tab-pane
+								#rickshawStreamBar.of-h
+								#rickshawStreamBarLegend.custom_rickshaw_legend
+							#tab_bar_3.tab-pane
+								#rickshawPctBar.of-h
+								#rickshawPctBarLegend.custom_rickshaw_legend
+							#tab_bar_4.tab-pane
+								#rickshawValueBar.of-h
+								#rickshawValueBarLegend.custom_rickshaw_legend
+
+				// Line Charts
+				.l-box.widget.widget-basic-tabs
+					.l-box-header
+						h2.l-box-title <span>Line</span> Rickshaw Chart
+						.widget-opt.fr
+							ul#lineTabs.nav.nav-tabs(role='tablist')
+								li.active
+									a(href='#tab_line_1') Pct
+								li
+									a(href='#tab_line_2') Value
+
+					.l-box-body.l-spaced-top
+						.tab-content
+							.hide.rickshaw-line-1
+							.hide.rickshaw-line-2
+							.hide.rickshaw-line-3
+							#tab_line_1.tab-pane.active
+								#rickshawPctLine.of-h
+								#rickshawPctLineLegend.custom_rickshaw_legend
+							#tab_line_2.tab-pane
+								#rickshawValueLine.of-h
+								#rickshawValueLineLegend.custom_rickshaw_legend
+
+
+				.l-box
+					.l-box-header
+						h2.l-box-title <span>Scatter</span> Rickshaw Chart
+
+
+					.l-box-body.l-spaced
+						.hide.rickshaw-scatter-1
+						.hide.rickshaw-scatter-2
+						.hide.rickshaw-scatter-3
+						.hide.rickshaw-scatter-4
+						#rickshawValueScatter.of-h
+						#rickshawValueScatterLegend.custom_rickshaw_legend
+
+
+
+			include components/layout/footer/footer_1/footer_1__t_1
+
+		include components/layout/sidebar/sidebar_2/sidebar_2__t_2__right
+
+//- ------------------------------------
+//- FOOT SCRIPTS JQUERY
+//- ------------------------------------
+append foot-scripts-jquery
+	script(src="js/shared/jquery-ui.min.js")
+	script(src="js/shared/jquery.ui.touch-punch.min.js")
+	script(type='text/javascript').
+		// jQuery Ui and Bootstrap conflict workaround
+		$.widget.bridge('uitooltip', $.ui.tooltip);
+		$.widget.bridge('uibutton', $.ui.button);
+
+
+
+
+
+
+
+

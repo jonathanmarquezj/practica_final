@@ -1,0 +1,87 @@
+//- ------------------------------------
+//- BASE LAYOUT
+//- ------------------------------------
+extends aaa-master-layout
+
+
+//- ------------------------------------
+//- PAGE CONFIGURATION
+//- ------------------------------------
+prepend config
+	- var link = "ui-tag.html"
+	- var page = "ui.u-tag"
+	- var pageSubTitle = " - UI Elements - Tags"
+	- var scripts = [ 'a.shared.jquery.ui.autocomplete.html', 'tags.tagEditor', 'tags.tagging', 'tags.masterblaster', 'x.call.ui.tags' ]
+
+append config
+	- var pageBodyClasses = bodyClasses.push('tags-autocomplete')
+
+
+
+//- ------------------------------------
+//- PAGE CONTENT
+//- ------------------------------------
+block content
+
+	//SECTION
+	section.l-main-container
+
+		include components/layout/sidebar/sidebar_1/sidebar_1__t_1__left
+
+		//Main Content
+		section.l-container
+
+			include components/layout/header/header_1/header_1__t_1
+
+			.l-page-header
+				h2.l-page-title <span>Tags</span>
+				+breadcrumb(bread_ui_tags)
+
+			.l-spaced
+				.l-box.l-spaced-bottom
+					.l-box-header
+						h2.l-box-title Tags <span> with Autocomplete </span>
+						+box-options
+
+					.l-box-body.l-spaced
+						textarea#tagEditorDefault
+							| example tags, sortable, autocomplete, edit in place, tab/cursor navigation, duplicate check, callbacks, copy-paste, placeholder, public methods, custom delimiter, graceful degradation
+
+				.l-box.l-spaced-bottom
+					.l-box-header
+						h2.l-box-title Tags <span> with Custom Style and Deletable </span>
+						+box-options
+
+					.l-box-body.l-spaced
+						textarea#tagEditorSkin.tag-skin-1
+
+				.l-box.l-spaced-bottom
+					.l-box-header
+						h2.l-box-title Tags <span>Different Style </span>
+						+box-options
+
+					.l-box-body.l-spaced
+						div#taggingDefault(data-tags-input-name='tag') different, tag, style
+
+				.l-box.l-spaced-bottom
+					.l-box-header
+						h2.l-box-title Tags <span>with Fade Effect </span>
+						+box-options
+
+					.l-box-body.l-spaced
+						input#masterBlasterDefault(placeholder='Enter tags here')
+
+			include components/layout/footer/footer_1/footer_1__t_1
+
+		include components/layout/sidebar/sidebar_2/sidebar_2__t_2__right
+
+//- ------------------------------------
+//- FOOT SCRIPTS JQUERY
+//- ------------------------------------
+append foot-scripts-jquery
+	script(src="js/shared/jquery-ui.min.js")
+	script(src="js/shared/jquery.ui.touch-punch.min.js")
+	script(type='text/javascript').
+		// jQuery Ui and Bootstrap conflict workaround
+		$.widget.bridge('uitooltip', $.ui.tooltip);
+		$.widget.bridge('uibutton', $.ui.button);

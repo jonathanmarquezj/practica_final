@@ -1,0 +1,69 @@
+//- ------------------------------------
+//- BASE LAYOUT
+//- ------------------------------------
+extends aaa-master-layout
+
+
+//- ------------------------------------
+//- PAGE CONFIGURATION
+//- ------------------------------------
+prepend config
+	- var link = "layout-header-fixed-boxed.html"
+	- var page = "layout.header.h-fixed-boxed"
+	- var pageSubTitle = " - Fixed Header in Boxed Layout"
+	- var styles = [ 'syntaxhighlighter']
+	- var scripts = [ 'a.syntaxhighlighter' ]
+	- var hideThemeSettingsFooter = true
+
+append config
+	- var pageBodyClasses = bodyClasses.push('l-boxed','l-header-fixed-1')
+
+
+//- ------------------------------------
+//- PAGE CONTENT
+//- ------------------------------------
+block content
+
+	//SECTION
+	section.l-main-container.t-boxed.has-header-1
+
+
+		include components/layout/sidebar/sidebar_1/sidebar_1__t_1__left
+
+		//Main Content
+		section.l-container
+
+			include components/layout/header/header_1/header_1__t_1__no_sb
+
+			.l-page-header
+				h2.l-page-title <span>Fixed</span> Header in <span>Boxed</span> layout
+				+breadcrumb(bread_layout_header_fixed_boxed)
+
+			.min-height-900
+				.l-spaced-top
+					.l-box.no-border
+						.l-spaced
+
+							.syntax-wrapper
+								.syntax-info
+									p.mv
+										| <strong>Fixed header</strong> in a <strong>boxed</strong> layout.
+
+								.table-responsive
+									pre(class="brush:xml;")
+										|&lt;body class="l-boxed l-header-fixed-1" &gt;
+										|	&nbsp;
+										|	<section class="l-main-container has-header-1">
+										|	&nbsp;
+										|		<section class="l-container">
+										|	&nbsp;
+										|			<header class="l-header l-header-1">
+										|				Header content...
+										|       		</header>
+										|	&nbsp;
+										|   		</section>
+										|	&nbsp;
+										|		Page content...
+										|   	</section>
+										|	&nbsp;
+										|&lt;/body&gt;

@@ -1,0 +1,123 @@
+//- Component Configuration
+
+- var scripts_sidebar_3 = [ 'form.checkBo', 'form.switchery', 'x.call.part.sidebar.3' ]
+
+//- ------------------------------------
+
+//Right Sidebar Content
+aside#sb-right.l-sidebar.l-sidebar-hidden.t-sidebar-2
+
+
+	//Settings
+	.l-side-box
+		.widget-settings.settings-in-side
+			form.form-horizontal(role='form')
+				h4.settings-title General Settings
+				.hide.switchery-default
+				.hide.switchery-primary
+				.hide.switchery-success
+				.hide.switchery-info
+				.hide.switchery-warning
+				.hide.switchery-danger
+				.hide.switchery-dark
+
+				.l-row.settings-row
+					.l-span-lg-7
+						label.input-label(for='siteTitle') Site title
+					.l-span-lg-5.settings-input
+						input#siteTitle(type='text', value="PROTEUS").form-control.input-sm
+
+				.l-row.settings-row
+					.l-span-lg-7
+						label(for='maintenance') Maintenance
+					.l-span-lg-5.settings-input
+						input#maintenance.switcheryDefault(type='checkbox')
+
+				.l-row.settings-row
+					.l-span-lg-7
+						label(for='backups') Create backups
+					.l-span-lg-5.settings-input
+						input#backups.switcheryDefault(type='checkbox', checked="checked")
+
+				.l-row.settings-row
+					.l-span-lg-7
+						label.input-label(for='itemsPerPage') Items per page
+					.l-span-lg-5.settings-input
+						input#itemsPerPage(type='text', value="20").form-control.input-sm
+
+				.l-row.settings-row
+					.l-span-lg-7
+						label.input-label(for='displayStyle') Display style
+					.l-span-lg-5.settings-input
+						select#displayStyle.form-control.input-sm
+							option(value='grid') Grid
+							option(value='list') List
+
+				h4.settings-title Profile Settings
+
+
+				.l-row.settings-row
+					.l-span-lg-7
+						label.input-label(for='firstName') First name
+					.l-span-lg-5.settings-input
+						input#firstName(type='text', value="William").form-control.input-sm
+
+				.l-row.settings-row
+					.l-span-lg-7
+						label.input-label(for='lastName') Last name
+					.l-span-lg-5.settings-input
+						input#lastName(type='text', value="Jones").form-control.input-sm
+
+				.l-row.settings-row
+					.l-span-lg-7
+						label.input-label(for='lastName') Status
+					.l-span-lg-5.settings-input
+						select#displayStyle.form-control.input-sm
+							option(value='online') Online
+							option(value='away') Away
+							option(value='busy') Busy
+							option(value='invisible') Invisible
+							option(value='offline') Offline
+
+				.l-row.settings-row
+					.l-span-lg-7
+						label(for='picture') Display picture
+					.l-span-lg-5.settings-input
+						input#picture.switcherySuccess(type='checkbox', checked="checked")
+
+				.l-row.settings-row
+					.l-span-lg-7
+						label(for='name') Display name
+					.l-span-lg-5.settings-input
+						input#name.switcheryDark(type='checkbox', checked="checked")
+
+				.l-row.settings-row
+					.l-span-lg-7
+						label(for='status') Display status
+					.l-span-lg-5.settings-input
+						input#status.switcheryWarning(type='checkbox')
+
+				h4.settings-title Social Settings
+
+				.l-row.settings-row
+					.l-span-lg-7
+						label(for='facebook') Facebook
+					.l-span-lg-5.settings-input
+						input#facebook.switcheryInfo-1(type='checkbox', checked="checked")
+
+				.l-row.settings-row
+					.l-span-lg-7
+						label(for='twitter') Twitter
+					.l-span-lg-5.settings-input
+						input#twitter.switcheryInfo-2(type='checkbox', checked="checked")
+
+				.l-row.settings-row
+					.l-span-lg-7
+						label(for='google') Google plus
+					.l-span-lg-5.settings-input
+						input#google.switcheryDanger(type='checkbox', checked="checked")
+
+				hr.mt-20.mb-20
+
+				.l-row.settings-row
+					a(href="#").btn.btn-block.btn-primary Save Changes

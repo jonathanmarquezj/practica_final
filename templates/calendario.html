@@ -1,0 +1,87 @@
+{% extends "base.html" %}
+{% block title %}CALENDARIO{% endblock %}
+{% block contenido %}
+<div class="l-row l-spaced-horizontal l-spaced-top">
+  <!-- ENTRADAS RECIENTES -->
+  <div class="l-box l-col-md-12 l-spaced-bottom">
+    <div class="l-box-header">
+      <h2 class="l-box-title"><span>CALENDARIO</span></h2>
+    </div>
+    <div class="l-box-body l-spaced group">
+
+      {% if mensaje %}
+        <div class="doc doc-info doc-border doc-left l-spaced-bottom"><strong><span class="doc-text">MENSAJE:</span></strong> {{ mensaje }}.</div>
+      {% endif -%}
+      
+      <div class="doc doc-primary doc-border doc-left l-spaced-bottom"><strong><span class="doc-text">NOTA:</span></strong> En caso de que no salgan algunos eventos o modificase algún evento y no se realicen los cambios o elimine algún evento, pulse F5 y dale Reenviar al mensaje si te sale.</div>
+      <div class="l-col-md-1">
+        <a href="/anadirEvento/{{ calendar_id }}" class="btn btn-success l-spaced">Añadir Evento</a>
+        <a href="/seleccionarCalendario" class="btn btn-primary l-spaced">Calendarios</a>
+        <a href="/eliminarToken" class="btn btn-danger l-spaced">Eliminar Token</a>
+      </div>
+      <div class="l-col-md-10">
+        <div id="calendar"></div>
+      </div>
+    </div>
+  </div>
+  <!-- FIN ENTRADAS RECIENTES -->
+</div>
+{% endblock %}
+
+
+
+{% block script %}
+    <!-- Specific-->
+    <script src="{{url_for('static', filename = 'js/shared/classie.js')}}"></script>
+    <script src="{{url_for('static', filename = 'js/shared/jquery.cookie.min.js')}}"></script>
+    <script src="{{url_for('static', filename = 'js/shared/moment.min.js')}}"></script>
+    <script src="{{url_for('static', filename = 'js/shared/perfect-scrollbar.min.js')}}"></script>
+    <script src="{{url_for('static', filename = 'js/plugins/accordions/jquery.collapsible.min.js')}}"></script>
+    <script src="{{url_for('static', filename = 'js/plugins/calendar/fullcalendar.min.js')}}"></script>
+    <script src="{{url_for('static', filename = 'js/plugins/forms/elements/jquery.bootstrap-touchspin.min.js')}}"></script>
+    <script src="{{url_for('static', filename = 'js/plugins/forms/elements/jquery.checkBo.min.js')}}"></script>
+    <script src="{{url_for('static', filename = 'js/plugins/forms/elements/jquery.switchery.min.js')}}"></script>
+    <script src="{{url_for('static', filename = 'js/plugins/tooltip/jquery.tooltipster.min.js')}}"></script>
+    <script src="{{url_for('static', filename = 'js/calls/part.header.1.js')}}"></script>
+    <script src="{{url_for('static', filename = 'js/calls/part.sidebar.2.js')}}"></script>
+    <script src="{{url_for('static', filename = 'js/calls/part.theme.setting.js')}}"></script>
+  
+    <link href="{{url_for('static', filename = 'packages/core/main.css')}}" rel='stylesheet' />
+    <link href="{{url_for('static', filename = 'packages/daygrid/main.css')}}" rel='stylesheet' />
+    <link src="{{url_for('static', filename = 'packages/core/main.css')}}" rel='stylesheet'/>
+    <link src="{{url_for('static', filename = 'packages/daygrid/main.css')}}" rel='stylesheet'/>
+    <script src="{{url_for('static', filename = 'packages/core/main.js')}}"></script>
+    <script src="{{url_for('static', filename = 'packages/interaction/main.js')}}"></script>
+    <script src="{{url_for('static', filename = 'packages/daygrid/main.js')}}"></script>
+
+    <script src="{{url_for('static', filename = 'packages/core/locales-all.js')}}"></script>
+
+    <script>
+      document.addEventListener('DOMContentLoaded', function() {
+        var calendarEl = document.getElementById('calendar');
+
+        var calendar = new FullCalendar.Calendar(calendarEl, {
+          locale: 'es', // Idioma del calendario
+          plugins: [ 'interaction', 'dayGrid' ],
+          header: {
+            left: 'prev,next today',
+            center: 'title',
+            right: 'dayGridMonth,dayGridWeek'
+          },
+          //defaultDate: '2020-02-12', // Para poner un dia predeterminado
+          navLinks: true, 
+          editable: false,
+          eventLimit: true, 
+          events: {
+            url: "{{url_for('static', filename = 'eventos.json')}}",
+            cache: false,
+            lazyFetching: false,
+          }
+        });
+
+        calendar.render();
+      });
+
+    </script>
+{% endblock %}
+

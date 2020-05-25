@@ -1,0 +1,39 @@
+//- ------------------------------------
+//- BASE LAYOUT
+//- ------------------------------------
+extends aaa-master-layout
+
+
+//- ------------------------------------
+//- PAGE CONFIGURATION
+//- ------------------------------------
+prepend config
+	- var link = "page-error-405.html"
+	- var page = "page.error.e-405"
+	- var pageSubTitle = " - Pages - Error - 405"
+	- var styles = [ 'patternbolt' ]
+	- var hideThemeSettings = true
+
+//- ------------------------------------
+//- PAGE CONTENT
+//- ------------------------------------
+block content
+
+	//Main Content
+	section.error-container.error-405-container.pb-pattern.o-lines-light
+		.error-405
+			.center-outer
+				.center-inner
+					.center-content.error-405-content
+						h1.font-bold Error <span>405</span>
+						hr
+						h2 Method not found !
+						hr
+						.info
+							p Something went wrong with the page request.
+							p Don't panic, you can always go back to the:
+
+
+						a.btn.btn-lg.btn-primary.mr(href = 'index.html')
+							i.fa.fa-home.mr-5
+							| Home page

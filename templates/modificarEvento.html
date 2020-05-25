@@ -1,0 +1,60 @@
+{% extends "base.html" %}
+{% block title %}CALENDARIO{% endblock %}
+{% block contenido %}
+<div class="l-row l-spaced-horizontal l-spaced-top">
+  <!-- ENTRADAS RECIENTES -->
+  <div class="l-box l-col-md-12 l-spaced-bottom">
+    <div class="l-box-header">
+      <h2 class="l-box-title"><span>CALENDARIO</span></h2>
+    </div>
+    <div class="l-box-body l-spaced group">
+      {% if mensaje %}
+        <div class="doc doc-info doc-border doc-left l-spaced-bottom"><strong><span class="doc-text">MENSAJE:</span></strong> {{ mensaje }}.</div>
+      {% endif -%}
+      <form id="validateDefault" role="form" class="form-horizontal"  method="post" action="anadirEvento" data-parsley-validate>
+        <input type="hidden" name="id_evento" id="id_evento" value="{{ id_evento }}" />
+        <input type="hidden" name="calendar_id" id="calendar_id" value="{{ calendar_id }}" />
+        <div class="form-group">
+          <label for="titulo" class="col-sm-2 control-label">Titulo* {{ aux }}</label>
+          <div class="col-sm-8">
+              <input id="titulo" name="titulo" value="{{ titulo }}" type="text" placeholder="Titulo" class="form-control" required>
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="fechaInicio" class="col-sm-2 control-label">Fecha Inicio*</label>
+          <div class="col-sm-3">
+              <input id="fechaInicio" name="fechaInicio" value="{{ fechaInicio }}" type="date" placeholder="Icono" class="form-control" required>
+          </div>
+          <label for="horaInicio" class="col-sm-2 control-label">Hora Inicio*</label>
+          <div class="col-sm-3">
+              <input id="horaInicio" name="horaInicio" value="{{ horaInicio }}" type="time" placeholder="Icono" class="form-control" required>
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="fechaFin" class="col-sm-2 control-label">Fecha Fin*</label>
+          <div class="col-sm-3">
+              <input id="fechaFin" name="fechaFin" value="{{ fechaFin }}" type="date" placeholder="Icono" class="form-control" required>
+          </div>
+          <label for="horaFin" class="col-sm-2 control-label">Hora Fin*</label>
+          <div class="col-sm-3">
+              <input id="horaFin" name="horaFin" value="{{ horaFin }}" type="time" placeholder="Icono" class="form-control" required>
+          </div>
+        </div>
+          <div class="col-sm-offset-7 col-sm-9">
+              <a href="/eliminarEvento/{{ calendar_id }}/{{ id_evento }}" class="btn btn-danger">Eliminar</a>
+              <a href="/calendario/Evento no modificado/{{ calendar_id }}" class="btn btn-dark">Atras</a>
+              <button type="submit" class="btn btn-dark">Guardar</button>
+          </div>
+      </form>
+    </div>
+  </div>
+  <!-- FIN ENTRADAS RECIENTES -->
+</div>
+{% endblock %}
+
+
+
+{% block script %}
+    
+{% endblock %}
+

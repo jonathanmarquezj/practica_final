@@ -1,0 +1,21 @@
+
+//Left Sidebar Content
+aside#sb-left.l-sidebar.l-sidebar-collapsed-left.t-sidebar-1
+
+	.l-side-box
+		a.switcher.t-switcher-side(href = '#').ason-widget(
+		data-ason-type="sidebar",
+		data-ason-on-all="collapsed",
+		data-ason-to-all="sidebar",
+		data-ason-target="#sb-left")
+			i.fa.fa-bars
+
+
+	.l-side-box
+		include ../../../widgets/widget_logo/logo_in_side
+
+
+	//Main Menu
+	.l-side-box
+
+		include ../../nav/nav

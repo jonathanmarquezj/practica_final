@@ -1,0 +1,234 @@
+//MAIN NAVIGATION MENU
++nav-menu([
+	{'title': 'Dashboard', 'link': '#', 'icon': 'fa-dashboard', 'item': '2', 'page': 'dashboard',
+		'child': [
+			{'title': 'Dashboard 1',  'link': 'index.html',  	  'page': 'dashboard-1'},
+			{'title': 'Dashboard 2',  'link': 'dashboard-2.html', 'page': 'dashboard-2'}
+		]
+	},
+	{
+		'title': 'Layouts', 'link': '#', 'icon': 'fa-pause', 'page': 'layout',
+		'child': [
+			{'title': 'Menu', 'link': 'layout-menu.html', 'page': 'menu'},
+			{
+				'title': 'Page', 'link': '#', 'item': '2', 'page': 'l-page',
+				'child': [
+					{'title': 'Full Width', 'link': 'layout-page-full.html',  'page': 'pa-full'},
+					{'title': 'Boxed', 		'link': 'layout-page-boxed.html', 'page': 'pa-boxed'}
+				]
+			},
+			{
+				'title': 'Sidebar', 'link': '#', 'item': '6', 'page': 'sidebar',
+				'child': [
+					{
+						'title': 'Compact', 'link': '#', 'item': '2', 'page': 'compact',
+						'child': [
+							{'title': 'Left',  'link': 'layout-sidebar-compact-left.html',  'page': 'si-compact-left'},
+							{'title': 'Right', 'link': 'layout-sidebar-compact-right.html', 'page': 'si-compact-right'}
+						]
+					},
+					{
+						'title': 'Collapsed', 'link': '#', 'item': '2', 'page': 'collapsed',
+						'child': [
+							{'title': 'Left',  'link': 'layout-sidebar-collapsed-left.html',  'page': 'si-collapsed-left'},
+							{'title': 'Right', 'link': 'layout-sidebar-collapsed-right.html', 'page': 'si-collapsed-right'}
+						]
+					},
+					{
+						'title': 'Pixel Based', 'link': '#', 'item': '8', 'page': 'pixel',
+						'child': [
+							{'title': 'Left', 				'link': 'layout-sidebar-left.html', 		  'page': 'si-left'},
+							{'title': 'Right', 				'link': 'layout-sidebar-right.html', 		  'page': 'si-right'},
+							{'title': '2 Left', 			'link': 'layout-sidebar-2-left.html', 		  'page': 'si-2-left'},
+							{'title': '2 Right', 			'link': 'layout-sidebar-2-right.html', 		  'page': 'si-2-right'},
+							{'title': 'Left and Right', 	'link': 'layout-sidebar-left-right.html', 	  'page': 'si-left-right' },
+							{'title': '1 Left and 2 Right',	'link': 'layout-sidebar-1-left-2-right.html', 'page': 'si-1-left-2-right'},
+							{'title': '1 Right and 2 Left',	'link': 'layout-sidebar-1-right-2-left.html', 'page': 'si-1-right-2-left'},
+							{'title': '2 Left and 2 Right',	'link': 'layout-sidebar-2-left-2-right.html', 'page': 'si-2-left-2-right'}
+						]
+					},
+					{
+						'title': 'Percentage Based', 'link': '#', 'item': '3', 'page': 'percent',
+						'child': [
+							{'title': 'Left', 			'link': 'layout-sidebar-percent-left.html', 	  'page': 'si-p-left'},
+							{'title': 'Right',			'link': 'layout-sidebar-percent-right.html', 	  'page': 'si-p-right'},
+							{'title': 'Left and Right', 'link': 'layout-sidebar-percent-left-right.html', 'page': 'si-p-left-right'}
+						]
+					},
+					{
+						'title': 'Slide', 'link': '#', 'item': '2', 'page': 'slide',
+						'child': [
+							{'title': 'Default',  'link': 'layout-sidebar-slide-default.html',  'page': 'si-slide-default'},
+							{'title': 'Static',   'link': 'layout-sidebar-slide-static.html',   'page': 'si-slide-static'}
+						]
+					},
+					{
+						'title': 'Slide and Push', 'link': '#', 'item': '2', 'page': 'slide-push',
+						'child': [
+							{'title': 'Default',  'link': 'layout-sidebar-slide-push-default.html',  'page': 'si-slide-push-default'},
+							{'title': 'Static',   'link': 'layout-sidebar-slide-push-static.html',   'page': 'si-slide-push-static'}
+						]
+					}
+				]
+			},
+			{
+				'title': 'Header', 'link': '#', 'item': '9', 'page': 'header',
+				'child': [
+					{'title': 'Default 1', 		  'link': 'layout-header-default.html', 	 'page': 'h-default'},
+					{'title': 'Default 2', 		  'link': 'layout-header-default-2.html', 	 'page': 'h-default-2'},
+					{'title': 'Fixed',		 	  'link': 'layout-header-fixed.html', 		 'page': 'h-fixed'},
+					{'title': 'Fixed and Boxed',  'link': 'layout-header-fixed-boxed.html',  'page': 'h-fixed-boxed'},
+					{'title': 'Sticky', 		  'link': 'layout-header-sticky.html', 		 'page': 'h-sticky'},
+					{'title': 'Sticky and Boxed', 'link': 'layout-header-sticky-boxed.html', 'page': 'h-sticky-boxed'},
+					{'title': 'Slide', 		  	  'link': 'layout-header-slide.html', 	 	 'page': 'h-slide'},
+					{'title': 'Slide and Push',   'link': 'layout-header-slide-push.html', 	 'page': 'h-slide-push'},
+					{'title': 'Multiple', 		  'link': 'layout-header-multiple.html', 	 'page': 'h-multiple'}
+				]
+			},
+			{
+				'title': 'Footer', 'link': '#', 'item': '9', 'page': 'footer',
+				'child': [
+					{'title': 'Default 1', 		  'link': 'layout-footer-default.html', 	 'page': 'f-default'},
+					{'title': 'Default 2', 		  'link': 'layout-footer-default-2.html', 	 'page': 'f-default-2'},
+					{'title': 'Fixed', 			  'link': 'layout-footer-fixed.html', 		 'page': 'f-fixed'},
+					{'title': 'Fixed and Boxed',  'link': 'layout-footer-fixed-boxed.html',  'page': 'f-fixed-boxed'},
+					{'title': 'Sticky', 		  'link': 'layout-footer-sticky.html', 		 'page': 'f-sticky'},
+					{'title': 'Sticky and Boxed', 'link': 'layout-footer-sticky-boxed.html', 'page': 'f-sticky-boxed'},
+					{'title': 'Slide', 		  	  'link': 'layout-footer-slide.html', 	 	 'page': 'f-slide'},
+					{'title': 'Slide and Push',   'link': 'layout-footer-slide-push.html', 	 'page': 'f-slide-push'},
+					{'title': 'Multiple', 		  'link': 'layout-footer-multiple.html', 	 'page': 'f-multiple'}
+				]
+			}
+		]
+	},
+	{
+		'title': 'Forms', 'link': '#', 'icon': 'fa-tasks', 'page': 'form',
+		'child': [
+			{'title': 'Layout', 				 'link': 'form-layout.html', 	 'page': 'fo-layout'},
+			{'title': 'Elements', 				 'link': 'form-elements.html', 	 'page': 'fo-elements'},
+			{'title': 'Validation', 			 'link': 'form-validation.html', 'page': 'fo-validation'},
+			{'title': 'Wizard', 				 'link': 'form-wizard.html', 	 'page': 'fo-wizard'},
+			{'title': 'File upload and WYSIWYG', 'link': 'form-upload.html', 	 'page': 'fo-upload'}
+		]
+	},
+	{
+		'title': 'Tables', 'link': '#', 'icon': 'fa-table', 'page': 'table',
+		'child': [
+			{'title': 'Basic Table', 'link': 'table-basic.html', 	 'page': 't-basic'},
+			{'title': 'Data Table',  'link': 'table-datatable.html', 'page': 't-datatable'},
+			{'title': 'Foo Table',   'link': 'table-footable.html',  'page': 't-footable'}
+		]
+	},
+	{
+		'title': 'Charts', 'link': '#', 'icon': 'fa-bar-chart-o', 'page': 'chart',
+		'child': [
+			{'title': 'Flot', 	  'link': 'chart-flot.html',     'page': 'ch-flot'},
+			{'title': 'C3', 	  'link': 'chart-c3.html', 	     'page': 'ch-c3'},
+			{'title': 'Morris',   'link': 'chart-morris.html',   'page': 'ch-morris'},
+			{'title': 'Rickshaw', 'link': 'chart-rickshaw.html', 'page': 'ch-rickshaw'},
+			{'title': 'Other', 	  'link': 'chart-other.html',    'page': 'ch-other'}
+		]
+	},
+	{
+		'title': 'UI Elements', 'link': '#', 'icon': 'fa-tasks', 'item': '24', 'page': 'ui',
+		'child': [
+			{'title': 'Grids', 				   'link': 'ui-grid.html', 			   'page': 'u-grid'},
+			{'title': 'Boxes and Panels', 	   'link': 'ui-box.html', 			   'page': 'u-box'},
+			{'title': 'Draggables', 		   'link': 'ui-draggable.html', 	   'page': 'u-draggable'},
+			{'type': 'divider'},
+			{'title': 'Documentation', 		   'link': 'ui-doc.html', 			   'page': 'u-doc'},
+			{'title': 'Typography', 		   'link': 'ui-typography.html', 	   'page': 'u-typography'},
+			{'type': 'divider'},
+			{'title': 'Buttons', 			   'link': 'ui-button.html', 		   'page': 'u-button'},
+			{'title': 'Icons', 				   'link': 'ui-icons.html', 		   'page': 'u-icons'},
+			{'type': 'divider'},
+			{'title': 'Accordions', 		   'link': 'ui-accordion.html', 	   'page': 'u-accordion'},
+			{'title': 'Breadcrumbs', 		   'link': 'ui-breadcrumb.html', 	   'page': 'u-breadcrumb'},
+			{'title': 'Pagination', 		   'link': 'ui-pagination.html', 	   'page': 'u-pagination'},
+			{'title': 'Progressbars', 		   'link': 'ui-progressbar.html', 	   'page': 'u-progressbar'},
+			{'title': 'Page Progressbars', 	   'link': 'ui-page-progressbar.html', 'page': 'u-page-progressbar'},
+			{'title': 'Spinners', 		   	   'link': 'ui-spinner.html', 		   'page': 'u-spinner'},
+			{'title': 'Sliders', 			   'link': 'ui-slider.html', 		   'page': 'u-slider'},
+			{'title': 'Tabs', 				   'link': 'ui-tab.html', 			   'page': 'u-tab'},
+			{'title': 'Tags', 				   'link': 'ui-tag.html', 			   'page': 'u-tag'},
+			{'title': 'Pricing Tables', 	   'link': 'ui-pricing-table.html',    'page': 'u-pricing-table'},
+			{'type': 'divider'},
+			{'title': 'Tooltips and Popovers', 'link': 'ui-tooltip.html', 		   'page': 'u-tooltip'},
+			{'title': 'Modals', 			   'link': 'ui-modal.html', 		   'page': 'u-modal'},
+			{'title': 'Notifications', 		   'link': 'ui-notification.html', 	   'page': 'u-notification'},
+			{'type': 'divider'},
+			{'title': 'Calendar', 			   'link': 'ui-calendar.html', 		   'page': 'u-calendar'},
+			{'title': 'Date and Timepicker',   'link': 'ui-date-time.html', 	   'page': 'u-date-time'},
+			{'type': 'divider'},
+			{'title': 'Colorpickers', 		   'link': 'ui-colorpicker.html', 	   'page': 'u-colorpicker'},
+			{'title': 'Maps', 				   'link': 'ui-map.html', 			   'page': 'u-map'}
+		]
+	},
+	{'title': 'Widgets', 'link': 'widget.html', 'icon': 'fa-cogs', 'page': 'widget'},
+	{
+		'title': 'Pages', 'link': '#', 'icon': 'fa-file-text-o', 'item': '11', 'page': 'page',
+		'child': [
+			{'title': 'Register', 			  'link': 'page-register.html', 		'page': 'p-register'},
+			{'title': 'Login', 				  'link': 'page-login.html', 		   	'page': 'p-login'},
+			{'title': 'Forgot Password', 	  'link': 'page-forgot-password.html', 	'page': 'p-forgot-password'},
+			{'title': 'Change Password', 	  'link': 'page-change-password.html', 	'page': 'p-change-password'},
+			{'title': 'Lock Screen', 		  'link': 'page-lock-screen.html', 		'page': 'p-lock-screen'},
+			{'title': 'Search', 			  'link': 'page-search.html', 			'page': 'p-search'},
+			{'title': 'Profile', 			  'link': 'page-profile.html', 			'page': 'p-profile'},
+			{'title': 'Invoice', 			  'link': 'page-invoice.html', 			'page': 'p-invoice'},
+			{'title': 'Faqs', 				  'link': 'page-faqs.html', 			'page': 'p-faqs'},
+			{'title': 'Blank', 				  'link': 'page-blank.html', 			'page': 'p-blank'},
+			{
+				'title': 'Error', 'link': '#', 'item': '5', 'page': 'error',
+				'child': [
+					{'title': '403', 'link': 'page-error-403.html', 'page': 'e-403'},
+					{'title': '404', 'link': 'page-error-404.html', 'page': 'e-404'},
+					{'title': '405', 'link': 'page-error-405.html', 'page': 'e-405'},
+					{'title': '500', 'link': 'page-error-500.html', 'page': 'e-500'},
+					{'title': '503', 'link': 'page-error-503.html', 'page': 'e-405'}
+				]
+			}
+		]
+	},
+	{
+		'title': 'Apps', 'link': '#', 'icon': 'fa-puzzle-piece', 'page': 'app',
+		'child': [
+			{'title': 'Mail App', 		  'link': 'app-mail.html', 'page': 'ap-mail'},
+			{'title': 'Music Player App', 'link': '#', 'page': '', 'soon_last': true},
+			{'title': 'Movie App', 		  'link': '#', 'page': '', 'soon_last': true},
+			{'title': 'Task Manager', 	  'link': '#', 'page': '', 'soon_last': true}
+		]
+	},
+	{
+		'title': 'Menu Levels', 'link': '#', 'icon': 'fa-sitemap', 'page': 'multi',
+		'child': [
+			{'title': 'Menu Level 1.1', 'link': '#', 'page': ''},
+			{
+				'title': 'Menu Level 1.2', 'link': '#', 'page': '', 'item': '3',
+				'child': [
+					{'title': 'Menu Level 2.1', 'link': '#', 'page': ''},
+					{
+						'title': 'Menu Level 2.2', 'link': '#', 'page': '', 'item': '3',
+						'child': [
+							{'title': 'Menu Level 3.1', 'link': '#', 'page': ''},
+							{'title': 'Menu Level 3.2', 'link': '#', 'page': ''},
+							{
+								'title': 'Menu Level 3.3', 'link': '#', 'page': '', 'item': '4',
+								'child': [
+									{'title': 'Menu Level 4.1', 'link': '#', 'page': ''},
+									{'title': 'Menu Level 4.2', 'link': '#', 'page': ''},
+									{'title': 'Menu Level 4.3', 'link': '#', 'page': ''},
+									{'title': 'Menu Level 4.4', 'link': '#', 'page': ''}
+								]
+							}
+						]
+					},
+					{'title': 'Menu Level 2.3', 'link': '#', 'page': ''}
+				]
+			},
+			{'title': 'Menu Level 1.3', 'link': '#', 'page': ''},
+			{'title': 'Menu Level 1.4', 'link': '#', 'page': ''}
+		]
+	},
+	{'title': 'No Menu Levels', 'link': '#', 'icon': 'fa-file-o', 'page': 'no-menu'}
+],false,page)

@@ -1,0 +1,77 @@
+//- Component Configuration
+
+- var scripts_header_1 = [ 'a.shared.classie', 'a.shared.perfectScrollbar', 'tooltips.tooltipster', 'x.call.part.header.1' ]
+
+//- ------------------------------------
+
+//HEADER
+
+header.l-header.l-header-1.t-header-1
+
+	.navbar.navbar-ason
+		.container-fluid
+			include ../../../modules/navbar/navbar_header
+
+			#ason-navbar-collapse.collapse.navbar-collapse
+				ul.nav.navbar-nav
+					li
+						// Left Sidebar Switcher
+						a.switcher.t-switcher-header(href = '#').ason-widget(
+							data-ason-type="sidebar",
+							data-ason-sidebar="sidebar-3",
+							data-ason-on-all="hidden",
+							data-ason-to-all="compact",
+							data-ason-anim-all=['velocity', null, 'transition.slideUpBigIn'],
+							data-ason-target="#sb-left-2")
+								i.fa.fa-server
+					li
+						include ../../../widgets/widget_notification/notification_in_header
+					li
+						include ../../../widgets/widget_message/message_in_header
+					li
+						include ../../../widgets/widget_task/task_in_header
+
+
+				ul.nav.navbar-nav.navbar-right
+					li
+						//Right Sidebar Switcher
+						a.switcher.t-switcher-header(href = '#').ason-widget(
+							data-ason-type="sidebar",
+							data-ason-sidebar="l-sidebar-3",
+							data-ason-is-right="true",
+							data-ason-on-lg="compact",
+							data-ason-anim-all=['velocity', 'transition.fadeIn', 'transition.fadeIn'],
+							data-ason-target="#sb-right")
+								i.fa.fa-users
+
+					li
+						// Right 2 Sidebar Switcher
+						a.switcher.t-switcher-header(href = '#').ason-widget(
+							data-ason-type="sidebar",
+							data-ason-is-right="true",
+							data-ason-sidebar="l-sidebar-3",
+
+							data-ason-on-xl="collapsed",
+							data-ason-on-lg="collapsed",
+
+							data-ason-on-md="hidden",
+							data-ason-to-md="compact",
+
+							data-ason-on-sm="hidden",
+							data-ason-to-sm="compact",
+
+							data-ason-anim-full=['velocity', 'transition.slideRightIn', 'transition.slideLeftIn'],
+							data-ason-anim-xl=['velocity', 'transition.slideRightIn', 'transition.slideLeftIn'],
+							data-ason-anim-lg=['velocity', 'transition.slideRightIn', 'transition.slideLeftIn'],
+
+							data-ason-target="#sb-right-2")
+								i.fa.fa-th-list
+
+
+
+
+
+
+
+
+

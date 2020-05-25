@@ -1,0 +1,75 @@
+//- Component Configuration
+
+- var scripts_sidebar_1 = [ 'a.shared.cookie', 'accordions.collapsible', 'x.call.part.sidebar.1' ]
+
+//- ------------------------------------
+
+//Sidebar Content
+aside.l-sidebar.l-sidebar-1.t-sidebar-2.ason-widget(
+	data-ason-type="sidebar",
+	data-ason-on-sm="hidden",
+	data-ason-on-md="hidden")
+
+	.widget-latest-news.latest-news-in-side
+		h4.latest-news-main-title Latest News
+			.label.label-dark.pull-right 5
+
+		.collapsible-cointainer
+			#news1.collapsible
+				.latest-news-title Holiday destinations 2015
+				span
+			div
+				.cont
+					.content
+						a(href="#").latest-news-img
+							img(src='img/search/search_grid_2.jpg', alt='Holiday')
+
+						.latest-news-date April 20 2015
+
+						.latest-news-description Lorem ipsum dolor sit amet, consectetur adipisicing elit. Facere, libero, ullam quo aperiam blanditiis eligendi culpa fugiat voluptatem reiciendis accusamus vero consequuntur quas! Voluptatum, itaque velit delectus voluptate quibusdam rem!
+
+						.latest-news-btn
+							a(href="#")
+								i.fa.fa-chevron-circle-right
+								= ' '
+								| Find out more
+
+
+			#news2.collapsible
+				.latest-news-title Home improvement made easy for families
+				span
+			div
+				.cont
+					.content
+						a(href="#").latest-news-img
+							img(src='img/search/search_grid_1.jpg', alt='Home improvement')
+
+						.latest-news-date March 02 2015
+
+						.latest-news-description Lorem ipsum dolor sit amet, consectetur adipisicing elit. Facere, libero, ullam quo aperiam blanditiis eligendi culpa fugiat voluptatem reiciendis accusamus vero consequuntur quas! Voluptatum, itaque velit delectus voluptate quibusdam rem!
+
+						.latest-news-btn
+							a(href="#")
+								i.fa.fa-chevron-circle-right
+							= ' '
+								| Find out more
+
+
+			#news3.collapsible.last
+				.latest-news-title Best ideas to start a new business
+				span
+			div
+				.cont
+					.content.last
+						a(href="#").latest-news-img
+							img(src='img/search/search_grid_8.jpg', alt='Best ideas')
+
+						.latest-news-date January 15 2015
+
+						.latest-news-description Lorem ipsum dolor sit amet, consectetur adipisicing elit. Facere, libero, ullam quo aperiam blanditiis eligendi culpa fugiat voluptatem reiciendis accusamus vero consequuntur quas! Voluptatum, itaque velit delectus voluptate quibusdam rem!
+
+						.latest-news-btn
+							a(href="#")
+								i.fa.fa-chevron-circle-right
+							= ' '
+								| Find out more

@@ -1,0 +1,1237 @@
+//- ------------------------------------
+//- BASE LAYOUT
+//- ------------------------------------
+extends aaa-master-layout
+
+
+//- ------------------------------------
+//- PAGE CONFIGURATION
+//- ------------------------------------
+prepend config
+	- var link = "form-elements.html"
+	-var page = "form.fo-elements"
+	-var pageSubTitle = " - Form - Elements"
+	-var styles = [ 'select2' ]
+	-var scripts = [ 'form.maskedInput', 'form.autogrow', 'form.textareaCounter', 'form.bootstrapTouchspin', 'form.switchery', 'form.onoff', 'form.fancySelect', 'form.select2', 'form.checkradios', 'form.checkBo', 'x.call.form.elements' ]
+
+
+//- ------------------------------------
+//- PAGE CONTENT
+//- ------------------------------------
+block content
+
+	//SECTION
+	section.l-main-container
+
+
+		include components/layout/sidebar/sidebar_1/sidebar_1__t_1__left
+
+		//Main Content
+		section.l-container
+
+			include components/layout/header/header_1/header_1__t_1
+
+			.l-page-header
+				h2.l-page-title Form <span>Elements</span>
+				+breadcrumb(bread_form_elements)
+
+			.l-spaced
+				//Basic Elements
+				.l-box.l-spaced-bottom
+					.l-box-header
+						h2.l-box-title <span>Basic</span> Elements
+						+box-options
+
+					.l-box-body.l-spaced
+						form.form-horizontal(role='form')
+
+
+							.form-group
+								label.col-sm-3.control-label(for='basicText') Text
+								.col-sm-9
+									input#basicText.form-control(type='text', placeholder='Text')
+
+							.form-group
+								label.col-sm-3.control-label(for='basicEmail') Email
+								.col-sm-9
+									input#basicEmail.form-control(type='email', placeholder='Email')
+
+							.form-group
+								label.col-sm-3.control-label(for='basicPassword') Password
+								.col-sm-9
+									input#basicPassword.form-control(type='password', placeholder='Password')
+
+							.form-group
+								label.col-sm-3.control-label(for='disabledInput') Disabled Text
+								.col-sm-9
+									input#disabledInput.form-control(type='text', placeholder='Disabled input here...', disabled='')
+
+							.form-group
+								label.col-sm-3.control-label(for='basicSelect') Select
+								.col-sm-9
+									select#basicSelect.form-control
+										option 1
+										option 2
+										option 3
+										option 4
+										option 5
+
+							.form-group
+								label.col-sm-3.control-label(for='disabledSelect') Disabled Select
+								.col-sm-9
+									select#disabledSelect.form-control(disabled='')
+										option Disabled select
+
+							.form-group
+								label.col-sm-3.control-label(for='basicMultiSelect') Multi Select
+								.col-sm-9
+									select#basicMultiSelect.form-control(multiple='')
+										option 1
+										option 2
+										option 3
+										option 4
+										option 5
+
+							.form-group
+								label.col-sm-3.control-label Static Text
+								.col-sm-9
+									p.form-control-static info@emailexample.com
+
+							.form-group
+								label.col-sm-3.control-label Checkboxes
+								.col-sm-9
+									.checkbox
+										label
+											input(type='checkbox', value='')
+											| Default Checkbox 1
+									.checkbox
+										label
+											input(type='checkbox', value='')
+											| Default Checkbox 2
+									.checkbox.disabled
+										label
+											input(type='checkbox', value='', disabled='')
+											| Disabled Checkbox
+
+							.form-group
+								label.col-sm-3.control-label Inline Checkboxes
+								.col-sm-9
+									label.checkbox-inline
+										input#inlineCheckbox1(type='checkbox', value='option1')
+										| 1
+									label.checkbox-inline
+										input#inlineCheckbox2(type='checkbox', value='option2')
+										| 2
+									label.checkbox-inline
+										input#inlineCheckbox3(type='checkbox', value='option3')
+										| 3
+
+
+							.form-group
+								label.col-sm-3.control-label Radios
+								.col-sm-9
+									.radio
+										label
+											input#optionsRadios1(type='radio', name='optionsRadios', value='option1', checked='')
+											| Default Radio 1
+									.radio
+										label
+											input#optionsRadios2(type='radio', name='optionsRadios', value='option2')
+											| Default Radio 2
+									.radio.disabled
+										label
+											input#optionsRadios3(type='radio', name='optionsRadios', value='option3', disabled='')
+											| Disabled Radio
+
+
+							.form-group
+								label.col-sm-3.control-label Inline Radios
+								.col-sm-9
+									label.radio-inline
+										input#inlineRadio1(type='radio', name='inlineRadioOptions', value='option1')
+										| 1
+									label.radio-inline
+										input#inlineRadio2(type='radio', name='inlineRadioOptions', value='option2')
+										| 2
+									label.radio-inline
+										input#inlineRadio3(type='radio', name='inlineRadioOptions', value='option3')
+										| 3
+
+
+							.form-group
+								.col-sm-offset-3.col-sm-9
+									button.btn.btn-default(type='reset') Reset
+									button.btn.btn-dark(type='submit') Submit
+
+				//Textareas
+				.l-box.l-spaced-bottom
+					.l-box-header
+						h2.l-box-title <span>Textareas</span>
+						+box-options
+
+					.l-box-body.l-spaced
+						.form-horizontal
+							.form-group
+								label.col-sm-3.control-label(for='basicTextarea') Textarea
+								.col-sm-9
+									textarea#basicTextarea.form-control(rows='3', placeholder='Textarea')
+
+							.form-group
+								label.col-sm-3.control-label(for='autogrowTextarea') Autogrow Textarea
+								.col-sm-9
+									textarea#autogrowTextarea.form-control(rows='3', placeholder='Autogrow Textarea')
+
+							.form-group
+								label.col-sm-3.control-label(for='counterTextarea') Textarea with counters
+								.col-sm-9
+									textarea#counterTextarea.form-control(rows='3', placeholder='Textarea with counters')
+
+				//Control States
+				.l-box.l-spaced-bottom
+					.l-box-header
+						h2.l-box-title <span>Control States</span>
+						+box-options
+
+					.l-box-body.l-spaced
+
+						.l-row
+							.l-col-md-6
+								.form-group.has-success
+									label.control-label(for='inputSuccess1') Input with success
+									input#inputSuccess1.form-control(type='text')
+								.form-group.has-info
+									label.control-label(for='inputInfo1') Input with info
+									input#inputInfo1.form-control(type='text')
+								.form-group.has-warning
+									label.control-label(for='inputWarning1') Input with warning
+									input#inputWarning1.form-control(type='text')
+								.form-group.has-error
+									label.control-label(for='inputError1') Input with error
+									input#inputError1.form-control(type='text')
+								.form-group.has-dark
+									label.control-label(for='inputDark1') Dark input
+									input#inputDark1.form-control(type='text')
+							.l-col-md-6
+								.form-group.has-success.has-feedback
+									label.control-label(for='inputSuccess2') Input with success and icon
+									input#inputSuccess2.form-control(type='text')
+									span.glyphicon.glyphicon-ok.form-control-feedback
+
+								.form-group.has-info.has-feedback
+									label.control-label(for='inputInfo2') Input with info and icon
+									input#inputInfo2.form-control(type='text')
+									span.glyphicon.glyphicon-exclamation-sign.form-control-feedback
+
+								.form-group.has-warning.has-feedback
+									label.control-label(for='inputWarning2') Input with warning and icon
+									input#inputWarning2.form-control(type='text')
+									span.glyphicon.glyphicon-warning-sign.form-control-feedback
+
+								.form-group.has-error.has-feedback
+									label.control-label(for='inputError2') Input with error and icon
+									input#inputError2.form-control(type='text')
+									span.glyphicon.glyphicon-remove.form-control-feedback
+
+								.form-group.has-dark.has-feedback
+									label.control-label(for='inputDark2') Dark input with icon
+									input#inputDark2.form-control(type='text')
+									span.glyphicon.glyphicon-envelope.form-control-feedback
+
+						hr
+						.l-row
+							.l-col-md-6
+								.has-success
+									.checkbox
+										input.checkradios.checkradios-success-1#checkboxSuccess(type='checkbox', value='option1')
+										| Checkbox with success
+								.has-info
+									.checkbox
+										input.checkradios.checkradios-info-1#checkboxInfo(type='checkbox', value='option1')
+										| Checkbox with info
+								.has-warning
+									.checkbox
+										input.checkradios.checkradios-warning-1#checkboxWarning(type='checkbox', value='option1')
+										| Checkbox with warning
+								.has-error
+									.checkbox
+										input.checkradios.checkradios-danger-1#checkboxError(type='checkbox', value='option1')
+										| Checkbox with error
+								.has-dark
+									.checkbox
+										input.checkradios.checkradios-dark-1#checkboxDark(type='checkbox', value='option1')
+										| Dark checkbox
+
+							.l-col-md-6
+								.has-success
+									.checkbox
+										input.checkradios.checkradios-success-1#checkboxSuccess(type='radio', name='optionsRadios', value='option1', checked='')
+										| Radio with success
+								.has-info
+									.checkbox
+										input.checkradios.checkradios-info-1#checkboxInfo(type='radio', name='optionsRadios', value='option2')
+										| Radio with info
+								.has-warning
+									.checkbox
+										input.checkradios.checkradios-warning-1#checkboxWarning(type='radio', name='optionsRadios', value='option3')
+										| Radio with warning
+								.has-error
+									.checkbox
+										input.checkradios.checkradios-danger-1#checkboxError(type='radio', name='optionsRadios', value='option4')
+										| Radio with error
+								.has-dark
+									.checkbox
+										input.checkradios.checkradios-dark-1#checkboxDark(type='radio', name='optionsRadios', value='option5')
+										| Dark radio
+
+
+				//Control Sizing
+				.l-box.l-spaced-bottom
+					.l-box-header
+						h2.l-box-title <span>Control Sizing</span>
+						+box-options
+
+					.l-box-body.l-spaced
+						input.l-spaced-bottom.form-control.input-lg(type='text', placeholder='.input-lg')
+						input.l-spaced-bottom.form-control(type='text', placeholder='Default input')
+						input.l-spaced-bottom.form-control.input-sm(type='text', placeholder='.input-sm')
+						select.l-spaced-bottom.form-control.input-lg
+							option(value='') .input-lg
+						select.l-spaced-bottom.form-control
+							option(value='') Default select
+						select.form-control.input-sm
+							option(value='') .input-sm
+
+
+				//Input groups
+				.l-box.l-spaced-bottom
+					.l-box-header
+						h2.l-box-title <span>Input Groups</span> and <span>Addons</span>
+						+box-options
+
+					.l-box-body.l-spaced
+						.input-group.l-spaced-bottom
+							span.input-group-addon @
+							input.form-control(type='text', placeholder='Left Addon')
+						.input-group.l-spaced-bottom
+							input.form-control(type='text', placeholder='Right Addon')
+							span.input-group-addon .00
+						.input-group.l-spaced-bottom
+							span.input-group-addon $
+							input.form-control(type='text', placeholder='Left and Right Addon')
+							span.input-group-addon .00
+						.input-group.l-spaced-bottom
+							span.input-group-addon
+								input.checkradios(type='checkbox')
+							input.form-control(type='text', placeholder='Checkbox Addon')
+						.input-group.l-spaced-bottom
+							span.input-group-addon
+								input.checkradios(type='radio')
+							input.form-control(type='text', placeholder='Radio Addon')
+
+				//Button addons
+				.l-box.l-spaced-bottom
+					.l-box-header
+						h2.l-box-title <span>Button Addons</span>
+						+box-options
+
+					.l-box-body.l-spaced
+						.input-group.l-spaced-bottom
+							span.input-group-btn
+								button.btn.btn-default(type='button')
+									i.fa.fa-search
+							input.form-control(type='text', placeholder='Left Button Addon')
+
+						.input-group.l-spaced-bottom
+							input.form-control(type='text', placeholder='Right Button Addon')
+							span.input-group-btn
+								button.btn.btn-default(type='button') Search
+
+						.input-group.l-spaced-bottom
+							.input-group-btn
+								button.btn.btn-drop.btn-default.dropdown-toggle(type='button', data-toggle='dropdown')
+									| Action
+									span.caret
+								ul.dropdown-menu(role='menu')
+									li
+										a(href='#') Action
+									li
+										a(href='#') Another action
+									li
+										a(href='#') Something else here
+									li.divider
+									li
+										a(href='#') Separated link
+							input.form-control(type='text', placeholder='Left Dropdown')
+
+						.input-group.l-spaced-bottom
+							input.form-control(type='text', placeholder='Right Dropdown')
+							.input-group-btn
+								button.btn.btn-drop.btn-default.dropdown-toggle(type='button', data-toggle='dropdown')
+									| Action
+									span.caret
+								ul.dropdown-menu.dropdown-menu-right(role='menu')
+									li
+										a(href='#') Action
+									li
+										a(href='#') Another action
+									li
+										a(href='#') Something else here
+									li.divider
+									li
+										a(href='#') Separated link
+
+						.input-group.l-spaced-bottom
+							.input-group-btn
+								button.btn.btn-default(type='button', tabindex='-1') Action
+								button.btn.btn-default.dropdown-toggle(type='button', data-toggle='dropdown', tabindex='-1')
+									span.caret
+									span.sr-only Toggle Dropdown
+								ul.dropdown-menu(role='menu')
+									li
+										a(href='#') Action
+									li
+										a(href='#') Another action
+									li
+										a(href='#') Something else here
+									li.divider
+									li
+										a(href='#') Separated link
+							input.form-control(type='text', placeholder='Left Button with Dropdown')
+
+						.input-group.l-spaced-bottom
+							input.form-control(type='text', placeholder='Right Button with Dropdown')
+							.input-group-btn
+								button.btn.btn-default(type='button', tabindex='-1') Action
+								button.btn.btn-default.dropdown-toggle(type='button', data-toggle='dropdown', tabindex='-1')
+									span.caret
+									span.sr-only Toggle Dropdown
+								ul.dropdown-menu.dropdown-menu-right(role='menu')
+									li
+										a(href='#') Action
+									li
+										a(href='#') Another action
+									li
+										a(href='#') Something else here
+									li.divider
+									li
+										a(href='#') Separated link
+
+				//Masked Inputs
+				.l-box.l-spaced-bottom
+					.l-box-header
+						h2.l-box-title <span>Masked Inputs</span>
+						+box-options
+
+					.l-box-body.l-spaced.form-horizontal
+						.form-group
+							label.col-sm-3.control-label(for='maskedDate') Date
+							.col-sm-9
+								input#maskedDate.form-control(type='text', placeholder='99/99/9999')
+
+						.form-group
+							label.col-sm-3.control-label(for='maskedPhone') Phone
+							.col-sm-9
+								input#maskedPhone.form-control(type='text', placeholder='(999) 999-9999')
+
+						.form-group
+							label.col-sm-3.control-label(for='maskedTaxid') Tax ID
+							.col-sm-9
+								input#maskedTaxid.form-control(type='text', placeholder='99-9999999')
+
+						.form-group
+							label.col-sm-3.control-label(for='maskedSsn') SSN
+							.col-sm-9
+								input#maskedSsn.form-control(type='text', placeholder='999-99-9999')
+
+						.form-group
+							label.col-sm-3.control-label(for='maskedProduct') Product Key
+							.col-sm-9
+								input#maskedProduct.form-control(type='text', placeholder='a*-999-a999')
+
+						.form-group
+							label.col-sm-3.control-label(for='maskedEyescript') Eye Script
+							.col-sm-9
+								input#maskedEyescript.form-control(type='text', placeholder='~9.99 ~9.99 999')
+
+				//Spinners
+				.l-box.l-spaced-bottom
+					.l-box-header
+						h2.l-box-title <span>Spinners</span>
+						+box-options
+
+					.l-box-body.l-spaced
+						.form-group
+							label(for='spinnerPostfix') With postfix
+							input#spinnerPostfix(type='text', value='55', name='spinnerPostfix', placeholder='Spinner with postfix')
+
+						.form-group
+							label(for='spinnerPrefix') With prefix
+							input#spinnerPrefix(type='text', value='0', name='spinnerPrefix', placeholder='Spinner with prefix')
+
+						.form-group
+							label(for='spinnerVertical') Vertical buttons
+							input#spinnerVertical(type='text', value='0', name='spinnerVertical', placeholder='Spinner with vertical buttons')
+
+						.form-group
+							label(for='spinnerVerticalIcon') Vertical buttons with custom icons
+							input#spinnerVerticalIcon(type='text', value='0', name='spinnerVerticalIcon', placeholder='Spinner with vertical buttons and icons')
+
+						.form-group
+							label(for='spinnerEmpty') Empty Input
+							input#spinnerEmpty(type='text', name='spinnerEmpty', placeholder='Empty Input')
+
+						.form-group
+							label(for='spinnerButtonPostfix') Button postfix
+							input#spinnerButtonPostfix(type='text', name='spinnerButtonPostfix', placeholder='Button postfix')
+
+						.form-group
+							label(for='spinnerButtonGroup') Button group
+
+							.input-group
+								input#spinnerButtonGroup.form-control(type='text', value='50', name='spinnerButtonGroup', placeholder='Button group')
+								.input-group-btn
+									button.btn.btn-default(type='button') Action
+									button.btn.btn-default.dropdown-toggle(type='button', data-toggle='dropdown')
+										span.caret
+										span.sr-only Toggle Dropdown
+									ul.dropdown-menu.pull-right(role='menu')
+										li
+											a(href='#') Action
+										li
+											a(href='#') Another action
+										li
+											a(href='#') Something else here
+										li.divider
+										li
+											a(href='#') Separated link
+
+						.form-group
+							label(for='spinnerButtonClass') Custom button class
+							input#spinnerButtonClass.form-control(type='text', value='75', name='spinnerButtonClass', placeholder='Button custom class')
+
+				//Styled Checkboxes & Radio
+				.l-box.l-spaced-bottom
+					.l-box-header
+						h2.l-box-title <span>Styled Checkboxes</span> and <span>Radios</span>
+						+box-options
+
+					.l-box-body.l-spaced.form-horizontal
+						.form-group
+							label.col-sm-3.control-label Checkboxes
+							.col-sm-9
+								.l-col-md-12.l-spaced-bottom
+									.l-col-md-12
+										.checkbox
+											input.checkradios(type='checkbox', value='')
+											| Checkbox Default
+									.l-col-md-6
+										.checkbox
+											input.checkradios.checkradios-primary-1(type='checkbox', value='', checked='checked')
+											| Checkbox Primary
+
+										.checkbox
+											input.checkradios.checkradios-success-1(type='checkbox', value='', checked='checked')
+											| Checkbox Success
+
+										.checkbox
+											input.checkradios.checkradios-info-1(type='checkbox', value='', checked='checked')
+											| Checkbox Info
+
+										.checkbox
+											input.checkradios.checkradios-warning-1(type='checkbox', value='', checked='checked')
+											| Checkbox Warning
+
+										.checkbox
+											input.checkradios.checkradios-danger-1(type='checkbox', value='', checked='checked')
+											| Checkbox Danger
+
+										.checkbox
+											input.checkradios.checkradios-dark-1(type='checkbox', value='', checked='checked')
+											| Checkbox Dark
+
+										.checkbox
+											input.checkradios.checkradios-disabled-1(type='checkbox', value='', disabled='disabled')
+											| Checkbox Disabled
+
+									.l-col-md-6
+										.checkbox
+											input.checkradios.checkradios-primary-2(type='checkbox', value='', checked='checked')
+											| Checkbox Primary
+
+										.checkbox
+											input.checkradios.checkradios-success-2(type='checkbox', value='', checked='checked')
+											| Checkbox Success
+
+										.checkbox
+											input.checkradios.checkradios-info-2(type='checkbox', value='', checked='checked')
+											| Checkbox Info
+
+										.checkbox
+											input.checkradios.checkradios-warning-2(type='checkbox', value='', checked='checked')
+											| Checkbox Warning
+
+										.checkbox
+											input.checkradios.checkradios-danger-2(type='checkbox', value='', checked='checked')
+											| Checkbox Danger
+
+										.checkbox
+											input.checkradios.checkradios-dark-2(type='checkbox', value='', checked='checked')
+											| Checkbox Dark
+
+										.checkbox
+											input.checkradios.checkradios-disabled-2(type='checkbox', value='', disabled='disabled')
+											| Checkbox Disabled
+
+
+							label.col-sm-3.control-label Radio buttons
+							.col-sm-9
+								.l-col-md-12.l-spaced-bottom
+									.l-col-md-12
+										.radio
+											input.checkradios(type='radio', name='optionsRadios', value='option1')
+											| Radio Default
+									.l-col-md-6
+										.radio
+											input.checkradios.checkradios-primary-1(type='radio', name='optionsRadios', value='option2', checked='checked')
+											| Radio Primary
+										.radio
+											input.checkradios.checkradios-success-1(type='radio', name='optionsRadios', value='option3')
+											| Radio Success
+										.radio
+											input.checkradios.checkradios-info-1(type='radio', name='optionsRadios', value='option4')
+											| Radio Info
+										.radio
+											input.checkradios.checkradios-warning-1(type='radio', name='optionsRadios', value='option5')
+											| Radio Warning
+										.radio
+											input.checkradios.checkradios-danger-1(type='radio', name='optionsRadios', value='option6')
+											| Radio Danger
+										.radio
+											input.checkradios.checkradios-dark-1(type='radio', name='optionsRadios', value='option7')
+											| Radio Dark
+										.radio
+											input.checkradios.checkradios-disabled-1(type='radio', name='optionsRadios', value='option8', disabled='disabled')
+											| Radio Disabled
+
+									.l-col-md-6
+										.radio
+											input.checkradios.checkradios-primary-2(type='radio', name='optionsRadios_1', value='option2', checked='checked')
+											| Radio Primary
+										.radio
+											input.checkradios.checkradios-success-2(type='radio', name='optionsRadios_1', value='option3')
+											| Radio Success
+										.radio
+											input.checkradios.checkradios-info-2(type='radio', name='optionsRadios_1', value='option4')
+											| Radio Info
+										.radio
+											input.checkradios.checkradios-warning-2(type='radio', name='optionsRadios_1', value='option5')
+											| Radio Warning
+										.radio
+											input.checkradios.checkradios-danger-2(type='radio', name='optionsRadios_1', value='option6')
+											| Radio Danger
+										.radio
+											input.checkradios.checkradios-dark-2(type='radio', name='optionsRadios_1', value='option7')
+											| Radio Dark
+										.radio
+											input.checkradios.checkradios-disabled-2(type='radio', name='optionsRadios_1', value='option8', disabled='disabled')
+											| Radio Disabled
+
+
+				//Styled Checkboxes & Radio
+				.l-box.l-spaced-bottom
+					.l-box-header
+						h2.l-box-title <span>Styled Checkboxes</span> and <span>Radios</span> v2
+						+box-options
+
+					.l-box-body.l-spaced.form-horizontal
+						h3.sep-bottom States and Colors
+						.form-group
+							label.col-sm-3.control-label Checkboxes
+							.col-sm-9.checkbo
+								.l-col-md-12.l-spaced-bottom
+									.l-col-md-12
+										label.cb-checkbox
+											input(type='checkbox', value='')
+											| Checkbox Default
+									.l-col-md-6
+										div
+											label.cb-checkbox.cb-checkbox-primary-1
+												input(type='checkbox', value='', checked='checked')
+												| Checkbox Primary
+
+										div
+											label.cb-checkbox.cb-checkbox-success-1
+												input(type='checkbox', value='', checked='checked')
+												| Checkbox Success
+
+										div
+											label.cb-checkbox.cb-checkbox-info-1
+												input(type='checkbox', value='', checked='checked')
+												| Checkbox Info
+
+										div
+											label.cb-checkbox.cb-checkbox-warning-1
+												input(type='checkbox', value='', checked='checked')
+												| Checkbox Warning
+
+										div
+											label.cb-checkbox.cb-checkbox-danger-1
+												input(type='checkbox', value='', checked='checked')
+												| Checkbox Danger
+
+										div
+											label.cb-checkbox.cb-checkbox-dark-1
+												input(type='checkbox', value='', checked='checked')
+												| Checkbox Dark
+
+										div
+											label.cb-checkbox
+												input(type='checkbox', value='', disabled='disabled')
+												| Checkbox Disabled
+
+									.l-col-md-6
+										div
+											label.cb-checkbox.cb-checkbox-primary-2
+												input(type='checkbox', value='', checked='checked')
+												| Checkbox Primary
+
+										div
+											label.cb-checkbox.cb-checkbox-success-2
+												input(type='checkbox', value='', checked='checked')
+												| Checkbox Success
+
+										div
+											label.cb-checkbox.cb-checkbox-info-2
+												input(type='checkbox', value='', checked='checked')
+												| Checkbox Info
+
+										div
+											label.cb-checkbox.cb-checkbox-warning-2
+												input(type='checkbox', value='', checked='checked')
+												| Checkbox Warning
+
+										div
+											label.cb-checkbox.cb-checkbox-danger-2
+												input(type='checkbox', value='', checked='checked')
+												| Checkbox Danger
+
+										div
+											label.cb-checkbox.cb-checkbox-dark-2
+												input(type='checkbox', value='', checked='checked')
+												| Checkbox Dark
+
+										div
+											label.cb-checkbox
+												input(type='checkbox', value='', disabled='disabled')
+												| Checkbox Disabled
+
+
+							label.col-sm-3.control-label Radio buttons
+							.col-sm-9.checkbo
+								.l-col-md-12.l-spaced-bottom
+									.l-col-md-12
+										label.cb-radio
+											input(type='radio', name='optionsRadios', value='option1')
+											| Radio Default
+									.l-col-md-6
+										div
+											label.cb-radio.cb-radio-primary-1
+												input(type='radio', name='optionsRadios', value='option2', checked='checked')
+												| Radio Primary
+										div
+											label.cb-radio.cb-radio-success-1
+												input(type='radio', name='optionsRadios', value='option3')
+												| Radio Success
+										div
+											label.cb-radio.cb-radio-info-1
+												input(type='radio', name='optionsRadios', value='option4')
+												| Radio Info
+										div
+											label.cb-radio.cb-radio-warning-1
+												input(type='radio', name='optionsRadios', value='option5')
+												| Radio Warning
+										div
+											label.cb-radio.cb-radio-danger-1
+												input(type='radio', name='optionsRadios', value='option6')
+												| Radio Danger
+										div
+											label.cb-radio.cb-radio-dark-1
+												input(type='radio', name='optionsRadios', value='option7')
+												| Radio Dark
+										div
+											label.cb-radio
+												input(type='radio', name='optionsRadios', value='option8', disabled='disabled')
+												| Radio Disabled
+
+									.l-col-md-6
+										div
+											label.cb-radio.cb-radio-primary-2
+												input(type='radio', name='optionsRadios_1', value='option2', checked='checked')
+												| Radio Primary
+										div
+											label.cb-radio.cb-radio-success-2
+												input(type='radio', name='optionsRadios_1', value='option3')
+												| Radio Success
+										div
+											label.cb-radio.cb-radio-info-2
+												input(type='radio', name='optionsRadios_1', value='option4')
+												| Radio Info
+										div
+											label.cb-radio.cb-radio-warning-2
+												input(type='radio', name='optionsRadios_1', value='option5')
+												| Radio Warning
+										div
+											label.cb-radio.cb-radio-danger-2
+												input(type='radio', name='optionsRadios_1', value='option6')
+												| Radio Danger
+										div
+											label.cb-radio.cb-radio-dark-2
+												input(type='radio', name='optionsRadios_1', value='option7')
+												| Radio Dark
+										div
+											label.cb-radio
+												input(type='radio', name='optionsRadios_1', value='option8', disabled='disabled')
+												| Radio Disabled
+
+						h3.sep-bottom Sizes
+						.form-group
+							label.col-sm-3.control-label Checkboxes
+							.col-sm-9.checkbo
+								.l-row.l-spaced-bottom
+									.l-col-md-6
+										div
+											label.cb-checkbox.cb-sm
+												input.checkboPrimary-1(type='checkbox', value='option1', checked='checked')
+												| Small Checkbox
+
+										div
+											label.cb-checkbox
+												input.checkboSuccess-1(type='checkbox', value='option2', checked='checked')
+												| Default Checkbox
+
+										div
+											label.cb-checkbox.cb-md
+												input.checkboInfo-1(type='checkbox', value='option3', checked='checked')
+												| Medium Checkbox
+
+										div
+											label.cb-checkbox.cb-lg
+												input.checkboWarning-1(type='checkbox', value='option4', checked='checked')
+												| Large Checkbox
+
+									.l-col-md-6
+										div
+											label.cb-radio.cb-sm
+												input.checkboPrimary-1(type='radio', name='optionsRadios_2', value='option1', checked='checked')
+												| Small Radio
+										div
+											label.cb-radio
+												input.checkboSuccess-1(type='radio', name='optionsRadios_2', value='option2')
+												| Default Radio
+										div
+											label.cb-radio.cb-md
+												input.checkboInfo-1(type='radio', name='optionsRadios_2', value='option3')
+												| Medium Radio
+										div
+											label.cb-radio.cb-lg
+												input.checkboWarning-1(type='radio', name='optionsRadios_2', value='option4')
+												| Large Radio
+
+
+				//Selects
+				.l-box.l-spaced-bottom
+					.l-box-header
+						h2.l-box-title <span>Selects</span>
+						+box-options
+
+					.l-box-body.l-spaced.form-horizontal
+						.form-group
+							label.col-sm-3.control-label(for='fancySelect') Fancy Select
+							.col-sm-9
+								select#fancySelect
+									option(value='') Select an option…
+									option Lorem Ipsum
+									option Dolor Sit
+									option Vehicula Ornare
+									option Foo
+									option Bar
+									option Baz
+									option Qux
+									option Zoobie
+									option Frang
+
+						.form-group
+							label.col-sm-3.control-label(for='select2Default') Select2
+							.col-sm-9
+								select#select2Default(style='width:200px')
+									optgroup(label='Alaskan/Hawaiian Time Zone')
+										option(value='AK') Alaska
+										option(value='HI') Hawaii
+									optgroup(label='Pacific Time Zone')
+										option(value='CA') California
+										option(value='NV') Nevada
+										option(value='OR') Oregon
+										option(value='WA') Washington
+									optgroup(label='Mountain Time Zone')
+										option(value='AZ') Arizona
+										option(value='CO') Colorado
+										option(value='ID') Idaho
+										option(value='MT') Montana
+										option(value='NE') Nebraska
+										option(value='NM') New Mexico
+										option(value='ND') North Dakota
+										option(value='UT') Utah
+										option(value='WY') Wyoming
+									optgroup(label='Central Time Zone')
+										option(value='AL') Alabama
+										option(value='AR') Arkansas
+										option(value='IL') Illinois
+										option(value='IA') Iowa
+										option(value='KS') Kansas
+										option(value='KY') Kentucky
+										option(value='LA') Louisiana
+										option(value='MN') Minnesota
+										option(value='MS') Mississippi
+										option(value='MO') Missouri
+										option(value='OK') Oklahoma
+										option(value='SD') South Dakota
+										option(value='TX') Texas
+										option(value='TN') Tennessee
+										option(value='WI') Wisconsin
+									optgroup(label='Eastern Time Zone')
+										option(value='CT') Connecticut
+										option(value='DE') Delaware
+										option(value='FL') Florida
+										option(value='GA') Georgia
+										option(value='IN') Indiana
+										option(value='ME') Maine
+										option(value='MD') Maryland
+										option(value='MA') Massachusetts
+										option(value='MI') Michigan
+										option(value='NH') New Hampshire
+										option(value='NJ') New Jersey
+										option(value='NY') New York
+										option(value='NC') North Carolina
+										option(value='OH') Ohio
+										option(value='PA') Pennsylvania
+										option(value='RI') Rhode Island
+										option(value='SC') South Carolina
+										option(value='VT') Vermont
+										option(value='VA') Virginia
+										option(value='WV') West Virginia
+
+						.form-group
+							label.col-sm-3.control-label(for='select2Multi') Multi Select2
+							.col-sm-9
+								select#select2Multi(style='width:200px', multiple='')
+									optgroup(label='Alaskan/Hawaiian Time Zone')
+										option(value='00') Select an value...
+										option(value='AK') Alaska
+										option(value='HI') Hawaii
+									optgroup(label='Pacific Time Zone')
+										option(value='CA') California
+										option(value='NV') Nevada
+										option(value='OR') Oregon
+										option(value='WA') Washington
+									optgroup(label='Mountain Time Zone')
+										option(value='AZ') Arizona
+										option(value='CO') Colorado
+										option(value='ID') Idaho
+										option(value='MT') Montana
+										option(value='NE') Nebraska
+										option(value='NM') New Mexico
+										option(value='ND') North Dakota
+										option(value='UT') Utah
+										option(value='WY') Wyoming
+									optgroup(label='Central Time Zone')
+										option(value='AL') Alabama
+										option(value='AR') Arkansas
+										option(value='IL') Illinois
+										option(value='IA') Iowa
+										option(value='KS') Kansas
+										option(value='KY') Kentucky
+										option(value='LA') Louisiana
+										option(value='MN') Minnesota
+										option(value='MS') Mississippi
+										option(value='MO') Missouri
+										option(value='OK') Oklahoma
+										option(value='SD') South Dakota
+										option(value='TX') Texas
+										option(value='TN') Tennessee
+										option(value='WI') Wisconsin
+									optgroup(label='Eastern Time Zone')
+										option(value='CT') Connecticut
+										option(value='DE') Delaware
+										option(value='FL') Florida
+										option(value='GA') Georgia
+										option(value='IN') Indiana
+										option(value='ME') Maine
+										option(value='MD') Maryland
+										option(value='MA') Massachusetts
+										option(value='MI') Michigan
+										option(value='NH') New Hampshire
+										option(value='NJ') New Jersey
+										option(value='NY') New York
+										option(value='NC') North Carolina
+										option(value='OH') Ohio
+										option(value='PA') Pennsylvania
+										option(value='RI') Rhode Island
+										option(value='SC') South Carolina
+										option(value='VT') Vermont
+										option(value='VA') Virginia
+										option(value='WV') West Virginia
+
+
+				//Switches
+				.l-box.l-spaced-bottom
+					.l-box-header
+						h2.l-box-title <span>Switches</span>
+						+box-options
+
+					.l-box-body
+						.l-row
+							.l-col-md-8
+								.l-spaced.form-horizontal
+									h3.sep-bottom States and Colors
+									.hide.switchery-default
+									.form-group
+										label.col-sm-4.control-label(for='switcheryDefault') Default
+										.col-sm-8
+											input#switcheryDefault(type='checkbox')
+
+									.form-group
+										label.col-sm-4.control-label(for='switcheryChecked') Checked
+										.col-sm-8
+											input#switcheryChecked(type='checkbox', checked='')
+
+									.form-group
+										label.col-sm-4.control-label(for='switcheryDisabled') Disabled
+										.col-sm-8
+											input#switcheryDisabled(type='checkbox', checked='')
+
+									.form-group
+										label.col-sm-4.control-label Colored
+										.col-sm-8
+											.hide.switchery-primary
+											.hide.switchery-success
+											.hide.switchery-info
+											.hide.switchery-warning
+											.hide.switchery-danger
+											.hide.switchery-dark
+											input#switcheryColor1(type='checkbox', checked='')
+											input#switcheryColor2(type='checkbox', checked='')
+											input#switcheryColor3(type='checkbox', checked='')
+											input#switcheryColor4(type='checkbox', checked='')
+											input#switcheryColor5(type='checkbox', checked='')
+											input#switcheryColor6(type='checkbox', checked='')
+
+							.l-col-md-4
+								.l-spaced.form-horizontal
+									h3.sep-bottom Sizes
+									.form-group
+										label.col-sm-3.control-label(for='switcheryExtraSmallSize') Extra Small
+										.col-sm-9
+											input#switcheryExtraSmallSize(type='checkbox', checked='')
+
+									.form-group
+										label.col-sm-3.control-label(for='switcherySmallSize') Small
+										.col-sm-9
+											input#switcherySmallSize(type='checkbox', checked='')
+
+									.form-group
+										label.col-sm-3.control-label(for='switcheryDefaultSize') Default
+										.col-sm-9
+											input#switcheryDefaultSize(type='checkbox', checked='')
+
+									.form-group
+										label.col-sm-3.control-label(for='switcheryLargeSize') Large
+										.col-sm-9
+											input#switcheryLargeSize(type='checkbox', checked='')
+
+				//More Switches
+				.l-box.l-spaced-bottom
+					.l-box-header
+						h2.l-box-title <span>More Switches</span>
+						+box-options
+
+					.l-box-body.l-spaced.form-horizontal
+						.form-group
+							label.col-sm-3.control-label(for='onoffDefault') Default
+							.col-sm-9
+								.l-col-md-2
+									div.onoffswitch.onoffDefault
+										input#onoffDefault1.onoffswitch-checkbox(type='checkbox', checked='')
+										label.onoffswitch-label(for='onoffDefault1')
+											div.onoffswitch-inner
+											div.onoffswitch-switch
+
+								.l-col-md-2
+									div.onoffswitch.onoffDefault.onoffPrimary
+										input#onoffDefault2.onoffswitch-checkbox(type='checkbox', checked='')
+										label.onoffswitch-label(for='onoffDefault2')
+											div.onoffswitch-inner
+											div.onoffswitch-switch
+
+								.l-col-md-2
+									div.onoffswitch.onoffDefault.onoffSuccess
+										input#onoffDefault3.onoffswitch-checkbox(type='checkbox', checked='')
+										label.onoffswitch-label(for='onoffDefault3')
+											div.onoffswitch-inner
+											div.onoffswitch-switch
+
+								.l-col-md-2
+									div.onoffswitch.onoffDefault.onoffInfo
+										input#onoffDefault4.onoffswitch-checkbox(type='checkbox', checked='')
+										label.onoffswitch-label(for='onoffDefault4')
+											div.onoffswitch-inner
+											div.onoffswitch-switch
+
+								.l-col-md-2
+									div.onoffswitch.onoffDefault.onoffWarning
+										input#onoffDefault5.onoffswitch-checkbox(type='checkbox', checked='')
+										label.onoffswitch-label(for='onoffDefault5')
+											div.onoffswitch-inner
+											div.onoffswitch-switch
+
+								.l-col-md-2
+									div.onoffswitch.onoffDefault.onoffDanger
+										input#onoffDefault6.onoffswitch-checkbox(type='checkbox', checked='')
+										label.onoffswitch-label(for='onoffDefault6')
+											div.onoffswitch-inner
+											div.onoffswitch-switch
+
+						.form-group
+							label.col-sm-3.control-label(for='onoffiOS') iOS Style
+							.col-sm-9
+								.l-col-md-2
+									div.onoffswitch.onoffiOS
+										input#onoffiOS1.onoffswitch-checkbox(type='checkbox', checked='')
+										label.onoffswitch-label(for='onoffiOS1')
+											div.onoffswitch-inner
+											div.onoffswitch-switch
+
+								.l-col-md-2
+									div.onoffswitch.onoffiOS.onoffPrimary
+										input#onoffiOS2.onoffswitch-checkbox(type='checkbox', checked='')
+										label.onoffswitch-label(for='onoffiOS2')
+											div.onoffswitch-inner
+											div.onoffswitch-switch
+
+								.l-col-md-2
+									div.onoffswitch.onoffiOS.onoffSuccess
+										input#onoffiOS3.onoffswitch-checkbox(type='checkbox', checked='')
+										label.onoffswitch-label(for='onoffiOS3')
+											div.onoffswitch-inner
+											div.onoffswitch-switch
+
+								.l-col-md-2
+									div.onoffswitch.onoffiOS.onoffInfo
+										input#onoffiOS4.onoffswitch-checkbox(type='checkbox', checked='')
+										label.onoffswitch-label(for='onoffiOS4')
+											div.onoffswitch-inner
+											div.onoffswitch-switch
+
+								.l-col-md-2
+									div.onoffswitch.onoffiOS.onoffWarning
+										input#onoffiOS5.onoffswitch-checkbox(type='checkbox', checked='')
+										label.onoffswitch-label(for='onoffiOS5')
+											div.onoffswitch-inner
+											div.onoffswitch-switch
+
+								.l-col-md-2
+									div.onoffswitch.onoffiOS.onoffDanger
+										input#onoffiOS6.onoffswitch-checkbox(type='checkbox', checked='')
+										label.onoffswitch-label(for='onoffiOS6')
+											div.onoffswitch-inner
+											div.onoffswitch-switch
+
+						.form-group
+							label.col-sm-3.control-label(for='onoffWindows1') Windows Style
+							.col-sm-9
+								.l-col-md-2
+									div.onoffswitch.onoffWindows
+										input#onoffWindows1.onoffswitch-checkbox(type='checkbox', checked='')
+										label.onoffswitch-label(for='onoffWindows1')
+											div.onoffswitch-inner
+											div.onoffswitch-switch
+
+								.l-col-md-2
+									div.onoffswitch.onoffWindows.onoffPrimary
+										input#onoffWindows2.onoffswitch-checkbox(type='checkbox', checked='')
+										label.onoffswitch-label(for='onoffWindows2')
+											div.onoffswitch-inner
+											div.onoffswitch-switch
+
+								.l-col-md-2
+									div.onoffswitch.onoffWindows.onoffSuccess
+										input#onoffWindows3.onoffswitch-checkbox(type='checkbox', checked='')
+										label.onoffswitch-label(for='onoffWindows3')
+											div.onoffswitch-inner
+											div.onoffswitch-switch
+
+								.l-col-md-2
+									div.onoffswitch.onoffWindows.onoffInfo
+										input#onoffWindows4.onoffswitch-checkbox(type='checkbox', checked='')
+										label.onoffswitch-label(for='onoffWindows4')
+											div.onoffswitch-inner
+											div.onoffswitch-switch
+
+								.l-col-md-2
+									div.onoffswitch.onoffWindows.onoffWarning
+										input#onoffWindows5.onoffswitch-checkbox(type='checkbox', checked='')
+										label.onoffswitch-label(for='onoffWindows5')
+											div.onoffswitch-inner
+											div.onoffswitch-switch
+
+								.l-col-md-2
+									div.onoffswitch.onoffWindows.onoffDanger
+										input#onoffWindows6.onoffswitch-checkbox(type='checkbox', checked='')
+										label.onoffswitch-label(for='onoffWindows6')
+											div.onoffswitch-inner
+											div.onoffswitch-switch
+
+				//Even More Switches
+				.l-box.l-spaced-bottom
+					.l-box-header
+						h2.l-box-title <span>Even More Switches</span>
+						+box-options
+
+					.l-box-body.l-spaced.form-horizontal.checkbo
+
+						.form-group
+							label.col-sm-3.control-label Switcher Group
+							.col-sm-9
+								.l-col-md-2
+									.cb-switcher-group
+										span.cb-state OFF
+										.cb-switcher
+											label.inner-switcher
+												input(type='checkbox')
+										span.cb-state ON
+
+						.form-group
+							label.col-sm-3.control-label Switcher Off/Default State
+							.col-sm-9
+								.l-col-md-2
+									.cb-switcher
+										label.inner-switcher
+											input(type='checkbox', data-state-on='ON', data-state-off='OFF')
+										span.cb-state ON
+
+						.form-group
+							label.col-sm-3.control-label Switcher On/Checked State
+							.col-sm-9
+								.l-col-md-2
+									.cb-switcher
+										label.inner-switcher
+											input(type='checkbox', checked='', data-state-on='ON', data-state-off='OFF')
+										span.cb-state ON
+
+
+
+
+			include components/layout/footer/footer_1/footer_1__t_1
+
+		include components/layout/sidebar/sidebar_2/sidebar_2__t_2__right
+
+

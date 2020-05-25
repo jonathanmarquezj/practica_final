@@ -1,0 +1,91 @@
+//- ==========================================================================
+//- Mixins
+//- ==========================================================================
+
+//- ==========================================================================
+//- Breadcrumb
+//- ==========================================================================
+
+//- breadcrumb - v1
+//- ==========================================================================
+mixin breadcrumb(items)
+	if items
+		//BREADCRUMB
+		ul.breadcrumb.t-breadcrumb-page
+			li
+				a(href = 'index.html') Home
+
+			- each item in items
+
+				//- Item Type 1
+				if item.type == 'link'
+					li
+						a(href = item.url) #{item.name}
+				//- Item Type 2
+				if item.type == 'text'
+					li #{item.name}
+
+				//- Item Type 3
+				if item.type == 'active'
+					li.active #{item.name}
+
+//- ==========================================================================
+//- Box
+//- ==========================================================================
+mixin box-options()
+	ul.l-box-options
+		li
+			a(href = '#')
+				i.fa.fa-cogs
+
+		li
+			a.ason-widget(href='#', data-ason-type="fullscreen", data-ason-target=".l-box", data-ason-content="true")
+
+		li
+			a.ason-widget(href='#', data-ason-type="refresh", data-ason-target=".l-box", data-ason-duration="1000")
+				i.fa.fa-rotate-right
+		li
+			a.ason-widget(href = '#', data-ason-type="toggle", data-ason-find=".l-box", data-ason-target=".l-box-body", data-ason-content="true", data-ason-duration="200")
+
+		li
+			a.ason-widget(href='#', data-ason-type="delete", data-ason-target=".l-box", data-ason-content="true", data-ason-animation="fadeOut")
+
+
+
+//- ==========================================================================
+//- Functions
+//- ==========================================================================
+
+//- Merge arrays
+//- ==========================================================================
+- function mergeArrays(arr_1, arr_2)
+	-each item in arr_2
+		- arr_1.push(item)
+
+	- return arr_1
+
+
+//- Eliminate duplicates
+//- ==========================================================================
+- function eliminateDuplicate(arr)
+	- var i, len=arr.length, result=[], obj={};
+
+	- for (i=0; i<len; i++)
+		- obj[arr[i]]=0
+
+	- for (i in obj)
+		- result.push(i)
+
+	- return result
+
+
+//- Check if is active nav item
+//- ==========================================================================
+- function navActiveLi(active_page, active_item)
+	- var res=false, active_page_array;
+	- if (active_page)
+		- active_page_array = active_page.split(".");
+		- each item in active_page_array
+			- if(active_item == item)
+				- res = true
+	- return res

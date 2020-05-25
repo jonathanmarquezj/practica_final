@@ -1,0 +1,79 @@
+//- ==========================================================================
+//- Main Menu
+//- ==========================================================================
+
+mixin nav-menu(menu_items,is_widget,active_page)
+
+	nav.navigation
+
+		case is_widget
+			when true
+				ul.ason-widget(data-ason-type="menu")
+					+nav-listing(menu_items, active_page)
+			when false
+				ul#mainMenu
+					+nav-listing(menu_items, active_page)
+
+
+
+mixin nav-listing(menu_items, active_page)
+
+	each act_item in menu_items
+		- var active_li = { 'class': navActiveLi(active_page, act_item.page) ? 'active' : undefined }
+		li()&attributes(active_li)
+			+nav-item(act_item)
+			+nav-cycle(act_item, active_page)
+
+
+
+mixin nav-cycle(menu_item, active_page)
+
+	if menu_item.child
+		ul
+			each act_item in menu_item.child
+				- var active_li = { 'class': navActiveLi(active_page, act_item.page) ? 'active' : undefined }
+				li()&attributes(active_li)
+					+nav-item(act_item)
+					+nav-cycle(act_item, active_page)
+
+
+mixin nav-item(item)
+
+	if item.type == 'divider'
+		.divider
+
+	else
+		- var link_attr = { 'href': item.link }
+		a()&attributes(link_attr)
+
+			if item.icon
+				i(class = 'icon fa '+item.icon)
+
+			if item.title_first
+				span.title.first #{item.title_first}
+
+			if item.title
+				span.title #{item.title}
+
+			if item.child
+				span.arrow
+					i.fa.fa-angle-left
+
+			if item.item
+				span.info #{item.item}
+
+			if item.item_last
+				span.info.last #{item.item_last}
+
+			if item.new
+				span.new NEW
+
+			if item.new_last
+				span.new.last NEW
+
+			if item.soon
+				span.soon SOON
+
+			if item.soon_last
+				span.soon.last SOON
+

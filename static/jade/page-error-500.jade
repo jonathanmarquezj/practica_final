@@ -1,0 +1,69 @@
+//- ------------------------------------
+//- BASE LAYOUT
+//- ------------------------------------
+extends aaa-master-layout
+
+
+//- ------------------------------------
+//- PAGE CONFIGURATION
+//- ------------------------------------
+prepend config
+	- var link = "page-error-500.html"
+	- var page = "page.error.e-500"
+	- var pageSubTitle = " - Pages - Error - 500"
+
+//- ------------------------------------
+//- PAGE CONTENT
+//- ------------------------------------
+block content
+
+		//SECTION
+		section.l-main-container
+
+			include components/layout/sidebar/sidebar_1/sidebar_1__t_1__left
+
+			//Main Content
+			section.l-container
+
+				include components/layout/header/header_1/header_1__t_1__no_sb
+
+				.l-page-header
+					h2.l-page-title Error Page <span>500</span>
+					+breadcrumb(bread_page_error_500)
+
+				.l-spaced-vertical
+					.l-box.no-border
+						.l-spaced.error-500
+
+							h3.font-bold  Server error !
+
+							p  If you find an error don't hesitate to contact us!
+
+							p  You can also choose from the following options:
+
+							ul.list-styled
+								li Check if you signed up correctly
+								li Try to find the page you are looking for from the Main Menu
+								li
+									a(href = 'page-faqs.html').font-semibold  Check out our FAQs page.
+
+								li
+									a(href = 'index.html').font-semibold Go back to the dashboard.
+							hr
+
+							ul.list-search
+								li  You could also do a new search :
+								li
+									form.form-inline(action = 'page-search.html', method="get")
+										div
+											input.form-control(type = 'text', name="search_terms", placeholder="New search...")
+											button.btn.btn-primary(type="submit")
+												i.fa.fa-search
+
+							hr
+							p Thanks
+
+				include components/layout/footer/footer_1/footer_1__t_1
+
+
+

@@ -1,0 +1,119 @@
+//- ------------------------------------
+//- BASE LAYOUT
+//- ------------------------------------
+extends aaa-master-layout
+
+
+//- ------------------------------------
+//- PAGE CONFIGURATION
+//- ------------------------------------
+prepend config
+	- var link = "ui-calendar.html"
+	- var page = "ui.u-calendar"
+	- var pageSubTitle = " - UI Elements - Calendar"
+	- var scripts = [ 'a.shared.moment', 'calendar.fullcalendar', 'x.call.ui.calendar' ]
+
+
+//- ------------------------------------
+//- HEAD STYLES GENERAL
+//- ------------------------------------
+append  head-styles-general
+	link(rel="stylesheet", href="css/addons/fullcalendar.print.css" media="print")
+
+//- ------------------------------------
+//- PAGE CONTENT
+//- ------------------------------------
+block content
+
+	//SECTION
+	section.l-main-container
+
+		include components/layout/sidebar/sidebar_1/sidebar_1__t_1__left
+
+		//Main Content
+		section.l-container
+
+			include components/layout/header/header_1/header_1__t_1
+
+			.l-page-header
+				h2.l-page-title <span>Calendars</span>
+				+breadcrumb(bread_ui_calendar)
+
+			.l-spaced
+				.l-box.l-spaced-bottom
+					.l-box-header
+						h2.l-box-title <span>Calendar</span>
+						+box-options
+
+					.l-box-body.l-spaced.group
+						.l-col-md-3
+							#external-events
+								h4.sep-bottom Draggable Events
+								.external-event.ev-info(data-calendar-class="ev-info")
+									i.fa.fa-arrows
+									| Meeting with Leonardo
+								.external-event.ev-warning(data-calendar-class="ev-warning")
+									i.fa.fa-arrows
+									| Weekend Party
+								.external-event.ev-danger(data-calendar-class="ev-danger")
+									i.fa.fa-arrows
+									| Finish Proteus Html 5
+								.external-event.ev-success(data-calendar-class="ev-success")
+									i.fa.fa-arrows
+									| Movie Night
+								.external-event.ev-dark(data-calendar-class="ev-dark")
+									i.fa.fa-arrows
+									| Go to Gym
+								.external-remove
+									input#drop-remove(type='checkbox')
+									label(for='drop-remove') Remove after drop
+
+						.l-col-md-9
+							#calendar
+
+
+			include components/layout/footer/footer_1/footer_1__t_1
+
+		include components/layout/sidebar/sidebar_2/sidebar_2__t_2__right
+
+	// New Event
+	#newEventModal.modal.fade(tabindex='-1', role='dialog', aria-labelledby='newEventModal', aria-hidden='true')
+		.modal-dialog
+			.modal-content
+				.modal-header
+					button.close(type='button', data-dismiss='modal', aria-label='Close')
+						span(aria-hidden='true') ×
+					h4#newEventModal.modal-title Add New Event
+				.modal-body
+					.group
+						input#newEventTitle.form-control(type='text', placeholder='Event Title')
+				.modal-footer
+					button.btn.btn-dark(type='button', data-dismiss='modal') Close
+					button.btn.btn-success(type='button')#saveEvent Save Event
+
+	// New Event
+	#updateEventModal.modal.fade(tabindex='-1', role='dialog', aria-labelledby='updateEventModal', aria-hidden='true')
+		.modal-dialog
+			.modal-content
+				.modal-header
+					button.close(type='button', data-dismiss='modal', aria-label='Close')
+						span(aria-hidden='true') ×
+					h4#updateEventModal.modal-title Update Event
+				.modal-body
+					.group
+						input#updateEventTitle.form-control(type='text', placeholder='Event Title')
+				.modal-footer
+					button.btn.btn-danger.pull-left(type='button', data-dismiss='modal')#deleteEvent Delete
+					button.btn.btn-dark(type='button', data-dismiss='modal') Close
+					button.btn.btn-success(type='button')#updateEvent Update Event
+
+//- ------------------------------------
+//- FOOT SCRIPTS JQUERY
+//- ------------------------------------
+append foot-scripts-jquery
+	script(src="js/shared/jquery-ui.min.js")
+	script(src="js/shared/jquery.ui.touch-punch.min.js")
+	script(type='text/javascript').
+		// jQuery Ui and Bootstrap conflict workaround
+		$.widget.bridge('uitooltip', $.ui.tooltip);
+		$.widget.bridge('uibutton

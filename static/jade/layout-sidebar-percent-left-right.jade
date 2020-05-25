@@ -1,0 +1,91 @@
+//- ------------------------------------
+//- BASE LAYOUT
+//- ------------------------------------
+extends aaa-master-layout
+
+
+//- ------------------------------------
+//- PAGE CONFIGURATION
+//- ------------------------------------
+prepend config
+	- var link = "layout-sidebar-percent-left-right.html"
+	- var page = "layout.sidebar.percent.si-p-left-right"
+	- var pageSubTitle = " - Left and Right Sidebars Percentage Based"
+	- var styles = [ 'syntaxhighlighter']
+	- var scripts = [ 'a.syntaxhighlighter' ]
+
+//- ------------------------------------
+//- PAGE CONTENT
+//- ------------------------------------
+block content
+
+	//SECTION
+	section.l-main-container
+
+		include components/layout/sidebar/sidebar_4/sidebar_4__t_1_left
+
+		//Main Content
+		section.l-container
+
+			include components/layout/header/header_1/header_1__t_1__sb_right_2
+
+			.l-page-header
+				h2.l-page-title <span>Left</span> and <span>Right</span> Sidebars
+				+breadcrumb(bread_layout_sidebar_percent_left_right)
+
+			.l-spaced-vertical
+				.l-box.no-border
+					.l-spaced
+
+						.syntax-wrapper
+							.syntax-info
+								.mv
+									p This example has <strong>1 left sidebar</strong> and <strong>1 right sidebar</strong> and they are setup in different ways.
+									p The functionality of the <strong>left sidebar</strong> we already covered <strong><a href="layout-sidebar-percent-left.html">here</a></strong>.
+									p The <strong>right sidebar</strong> has a different setup. It's intended to show us the latest news and updates.
+									p For more information please check out the <strong>documentation!</strong>
+
+							.table-responsive
+								pre(class="brush:xml;")
+									|&lt;body&gt;
+									|	&nbsp;
+									|	<section class="l-main-container">
+									|	&nbsp;
+									|		<aside id="sb-left-id" class="l-sidebar l-sidebar-4">
+									|	&nbsp;
+									|			<a href="#" class="ason-widget" data-ason-type="sidebar" data-ason-sidebar="l-sidebar-4" data-ason-on-md="sidebar" data-ason-to-md="compact" data-ason-to-sm="compact" data-ason-target="#sb-left-id" >
+									|				<i class="fa fa-bars"> </i>
+									|			</a>
+									|	&nbsp;
+									|   		</aside>
+									|	&nbsp;
+									|		<section class="l-container">
+									|	&nbsp;
+									|			<header class="l-header l-header-1">
+									|				Header content...
+									|	&nbsp;
+									|				<a href="#" class="ason-widget" data-ason-type="sidebar" data-ason-sidebar="l-sidebar-5" data-ason-is-right="true" data-ason-on-md="sidebar" data-ason-to-md="compact" data-ason-to-sm="compact" data-ason-target="#sb-right-id" >
+									|					<i class="fa fa-bell"> </i>
+									|				</a>
+									|	&nbsp;
+									|       		</header>
+									|	&nbsp;
+									| 			Page content...
+									|	&nbsp;
+									|   		</section>
+									|	&nbsp;
+									|		<aside id="sb-right-id" class="l-sidebar l-sidebar-5">
+									|	&nbsp;
+									|			Sidebar content...
+									|	&nbsp;
+									|   		</aside>
+									|	&nbsp;
+									|		Page content...
+									|   	</section>
+									|	&nbsp;
+									|&lt;/body&gt;
+
+			include components/layout/footer/footer_1/footer_1__t_1
+
+		include components/layout/sidebar/sidebar_5/sidebar_5__t_2_right
+

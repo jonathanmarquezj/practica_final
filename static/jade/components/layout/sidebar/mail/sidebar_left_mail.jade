@@ -1,0 +1,68 @@
+//Left Sidebar Content
+aside#slide-left.l-sidebar.l-sidebar-1.t-sidebar-1
+
+	//User Profile
+	.l-side-box.mt-10
+		.widget-profile-2.profile-2-in-side.t-profile-2-1
+			.profile-2-img
+				a(href="page-profile.html")
+					img(src='img/profile/profile.jpg')
+
+					.profile-2-status
+
+						div#status.status(tabindex='1')
+							span
+								i.fa.fa-circle.label-color-1
+							ul.dropdown
+								li.tt-mail-right(title='Online')
+									i.fa.fa-circle.status-color-1
+								li.tt-mail-right(title='Away')
+									i.fa.fa-circle.status-color-2
+								li.tt-mail-right(title='Busy')
+									i.fa.fa-circle.status-color-3
+								li.tt-mail-right(title='Invisible')
+									i.fa.fa-circle.status-color-4
+
+			ul.profile-2-info
+				li: h3 William Jones
+
+	hr.mail-side-sep
+
+	//Mail Compose
+	.mail-compose
+		a.btn.btn-mail-compose(href='#') Compose
+
+	hr.mail-side-sep
+
+	//Mail Menu Box
+	.l-side-box
+		include ../../nav/mail/nav_mail
+
+	hr.mail-side-sep
+
+	//Mail Labels Box
+	.l-side-box.mail-labels
+		.mail-side-header
+			h4 Labels
+			a.btn-add-more(href='#').tt-mail-left(title='New Label')
+				i.fa.fa-plus-square-o
+
+		include ../../nav/mail/nav_mail_labels
+
+	hr.mail-side-sep
+
+	//Mail Folders Box
+	.l-side-box.mail-folders
+		.mail-side-header
+			h4
+				a.btn-toggle-folder(href='#')
+					span
+						i.fa.fa-caret-right
+					| Folders
+
+			a.btn-add-more(href='#').tt-mail-left(title='New Folder')
+				i.fa.fa-plus-square-o
+
+		.folders-list
+			include ../../nav/mail/nav_mail_folders
+

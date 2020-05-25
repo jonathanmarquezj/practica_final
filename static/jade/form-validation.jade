@@ -1,0 +1,208 @@
+//- ------------------------------------
+//- BASE LAYOUT
+//- ------------------------------------
+extends aaa-master-layout
+
+
+//- ------------------------------------
+//- PAGE CONFIGURATION
+//- ------------------------------------
+prepend config
+	- var link = "form-validation.html"
+	- var page = "form.fo-validation"
+	- var pageSubTitle = " - Form - Validation"
+	- var scripts = [ 'form.parsley', 'form.validate', 'form.checkradios', 'x.call.form.validation' ]
+
+
+//- ------------------------------------
+//- PAGE CONTENT
+//- ------------------------------------
+block content
+
+	//SECTION
+	section.l-main-container
+
+
+		include components/layout/sidebar/sidebar_1/sidebar_1__t_1__left
+
+		//Main Content
+		section.l-container
+
+			include components/layout/header/header_1/header_1__t_1
+
+			.l-page-header
+				h2.l-page-title Form <span>Validation</span>
+				+breadcrumb(bread_form_validation)
+
+			.l-spaced
+				.l-row
+					.l-box.l-spaced-bottom
+						.l-box-header
+							h2.l-box-title Form Validation <span>without JavaScript</span>
+							+box-options
+
+						.l-box-body.l-spaced
+							form.form-horizontal(role='form', data-parsley-validate)
+								.form-group
+									label.col-sm-3.control-label(for='inputAlphanum') Alphanumeric
+									.col-sm-9
+										input#inputAlphanum.form-control(type='text', data-parsley-type="alphanum", data-parsley-trigger="change", data-parsley-required, required='', placeholder='Alphanumeric')
+								.form-group
+									label.col-sm-3.control-label(for='inputDigits') Digits
+									.col-sm-9
+										input#inputDigits.form-control(type='text', data-parsley-type="digits", data-parsley-trigger="change", data-parsley-required, required='', placeholder='Digits')
+								.form-group
+									label.col-sm-3.control-label(for='inputUrl') Url
+									.col-sm-9
+										input#inputUrl.form-control(type='url', data-parsley-type="url", data-parsley-trigger="change", data-parsley-required, required='', placeholder='Url')
+								.form-group
+									label.col-sm-3.control-label(for='inputMinLength') Minimum Length
+									.col-sm-9
+										input#inputMinLength.form-control(type='text', data-parsley-minlength="6", data-parsley-trigger="change", data-parsley-required, required='', placeholder='Minimum Length')
+								.form-group
+									label.col-sm-3.control-label(for='inputMaxLength') Maximum Length
+									.col-sm-9
+										input#inputMaxLength.form-control(type='text', data-parsley-maxlength="10", data-parsley-trigger="change", data-parsley-required, required='', placeholder='Maximum Length')
+								.form-group
+									label.col-sm-3.control-label(for='inputEmail') Email
+									.col-sm-9
+										input#inputEmail.form-control(type='email', data-parsley-trigger="change", data-parsley-required, required='', placeholder='Email')
+								.form-group
+									label.col-sm-3.control-label(for='inputPassword') Password
+									.col-sm-9
+										input#inputPassword.form-control(type='password', data-parsley-trigger="change", data-parsley-required, data-parsley-length="[6, 10]", required='', placeholder='Password')
+								.form-group
+									label.col-sm-3.control-label Gender
+									.col-sm-9
+										p
+											| M:
+											input.checkradios#genderM(type='radio', name='gender', value='M', required='')
+											| F:
+											input.checkradios#genderF(type='radio', name='gender', value='F')
+
+								.form-group
+									label.col-sm-3.control-label Hobbies (2 minimum)
+									.col-sm-9
+										p
+											input.checkradios(type='checkbox', name='hobbies', value='ski', data-parsley-mincheck='2', required='')
+											| Skiing
+											br
+											input.checkradios(type='checkbox', name='hobbies', value='run')
+											| Running
+											br
+											input.checkradios(type='checkbox', name='hobbies', value='eat')
+											| Eating
+											br
+											input.checkradios(type='checkbox', name='hobbies', value='sleep')
+											| Sleeping
+											br
+											input.checkradios(type='checkbox', name='hobbies', value='read')
+											| Reading
+											br
+											input.checkradios(type='checkbox', name='hobbies', value='code')
+											| Coding
+
+								.form-group
+									label.col-sm-3.control-label(for='sel') Selects
+									.col-sm-9
+										select#sel.form-control(required='')
+											option(value='') Choose..
+											option(value='option_1') Option 1
+											option(value='option_2') Option 2
+											option(value='option_3') Option 3
+											option(value='option_4') Option 4
+
+
+								.form-group
+									label.col-sm-3.control-label(for='msg') Message (20 chars min, 100 max)
+									.col-sm-9
+										textarea#msg.form-control(name='message', required='', data-parsley-trigger='keyup', data-parsley-length='[20, 100]', data-parsley-validation-threshold='10', data-parsley-minlength-message='Come on! You need to enter at least a 20 caracters long comment..')
+
+
+
+								.form-group
+									.col-sm-offset-3.col-sm-9
+										button.btn.btn-dark(type='submit') Submit
+
+					.l-box
+						.l-box-header
+							h2.l-box-title Form Validation <span>with JavaScript</span>
+							+box-options
+
+						.l-box-body.l-spaced
+							form#validateDefault.form-horizontal.validate(role='form')
+								.form-group
+									label.col-sm-3.control-label(for='firstname') Firstname
+									.col-sm-9
+										input#firstname.form-control(type='text', name="firstname", placeholder='Firstname')
+								.form-group
+									label.col-sm-3.control-label(for='lastname') Lastname
+									.col-sm-9
+										input#lastname.form-control(type='text', name="lastname", placeholder='Lastname')
+								.form-group
+									label.col-sm-3.control-label(for='username') Username
+									.col-sm-9
+										input#username.form-control(type='text', name="username", placeholder='Username')
+								.form-group
+									label.col-sm-3.control-label(for='password') Password
+									.col-sm-9
+										input#password.form-control(type='password', name="password", placeholder='Password')
+								.form-group
+									label.col-sm-3.control-label(for='confirm_password') Confirm password
+									.col-sm-9
+										input#confirm_password.form-control(type='password', name="confirm_password", placeholder='Password')
+								.form-group
+									label.col-sm-3.control-label(for='email') Email
+									.col-sm-9
+										input#email.form-control(type='email', name="email", placeholder='Email')
+								.form-group
+									label.col-sm-3.control-label(for='sel') Favorite Color
+									.col-sm-9
+										select#fav.form-control(required='')
+											option(value='') Choose your favorite color..
+											option(value='orange') Orange
+											option(value='blue') Blue
+											option(value='red') Red
+											option(value='green') Green
+								.form-group
+									label.col-sm-3.control-label(for='msg') Message
+									.col-sm-9
+										textarea#msg.form-control(name='message', rows="5", required='')
+								.form-group
+									label.col-sm-3.control-label Gender
+									.col-sm-9
+
+										div
+											input.checkradios#genderM(type='radio', name='gender_v', value='M', required='')
+											| M
+										div
+											input.checkradios#genderF(type='radio', name='gender_v', value='F')
+											| F
+
+										label.error(for='gender_v')
+											| Please select your gender
+								.form-group
+									.col-sm-offset-3.col-sm-9
+										div
+											input.checkradios#agree(type='checkbox', name="agree")
+											| Please agree to our policy
+										label.error(for='agree')
+											| This field is required.
+
+
+								.form-group
+									.col-sm-offset-3.col-sm-9
+										button.btn.btn-dark(type='submit') Submit
+
+			include components/layout/footer/footer_1/footer_1__t_1
+
+		include components/layout/sidebar/sidebar_2/sidebar_2__t_2__right
+
+
+
+
+
+
+
+
+

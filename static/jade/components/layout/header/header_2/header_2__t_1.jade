@@ -1,0 +1,84 @@
+//- Component Configuration
+
+//- ------------------------------------
+
+//HEADER
+header#header.t-header-slide-1.l-header-slide.l-header-slide-2
+
+	.pull-left
+		.widget-nav.nav-in-header.t-nav-3
+			ul
+				li: a(href="page-profile.html")
+					.nav-icon
+						i.fa.fa-user
+					.nav-text Profile
+
+				li: a(href="app-mail.html")
+					.nav-icon
+						i.fa.fa-envelope
+
+						.nav-info
+							.badge.badge-danger 5
+
+					.nav-text Inbox
+
+				li: a(href="widget.html")
+					.nav-icon
+						i.fa.fa-cog
+					.nav-text Settings
+
+				li: a(href="page-lock-screen.html")
+					.nav-icon
+						i.fa.fa-lock
+					.nav-text Log Out
+
+				li: a(href="page-login.html")
+					.nav-icon
+						i.fa.fa-power-off
+					.nav-text Sign Out
+
+
+	.pull-right.hidden-xs
+		.widget-stats-2.stats-2-in-header.t-stats-2-1
+			.l-row.stats-2-header
+				.l-span-sm-8.stats-2-title
+					h4 Sales
+				.l-span-sm-4.stats-2-icon
+					i.fa.fa-money
+
+			.l-row.stats-2-body
+				.l-span-sm-8.stats-2-info $ 22,500
+				.l-span-sm-4.stats-2-change
+					i.fa.fa-angle-up
+					= ' '
+					span + 12%
+
+	.pull-right.hidden-xs.hidden-sm
+		.widget-stats-2.stats-2-in-header.t-stats-2-2
+			.l-row.stats-2-header
+				.l-span-sm-8.stats-2-title
+					h4 Visitors
+				.l-span-sm-4.stats-2-icon
+					i.fa.fa-users
+
+			.l-row.stats-2-body
+				.l-span-sm-8.stats-2-info 3,281
+				.l-span-sm-4.stats-2-change
+					i.fa.fa-angle-up
+					= ' '
+					span + 21%
+
+	.pull-right.hidden-xs.hidden-sm.hidden-md
+		.widget-stats-2.stats-2-in-header.t-stats-2-3
+			.l-row.stats-2-header
+				.l-span-sm-8.stats-2-title
+					h4 Pageviews
+				.l-span-sm-4.stats-2-icon
+					i.fa.fa-eye
+
+			.l-row.stats-2-body
+				.l-span-sm-8.stats-2-info 12,738
+				.l-span-sm-4.stats-2-change
+					i.fa.fa-angle-down
+					= ' '
+					span - 135

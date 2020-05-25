@@ -1,0 +1,22 @@
+
+//Right Slidebar Content
+aside#slide-right.l-slidebar.l-slidebar-right-1.t-sidebar-1
+
+	.ason-widget(data-ason-type="scrollbar", data-ason-max-height="100%")
+
+		// Right Sidebar Switcher
+		.l-side-box
+			a.switcher.t-switcher-side(href = '#').ason-widget(
+				data-ason-type="sidebar"
+				data-ason-on-all="slidebar-right",
+				data-ason-anim-all=['velocity', 'transition.slideRightBigIn', 'transition.slideRightBigOut'],
+				data-ason-target="#slide-right")
+					i.fa.fa-bars
+
+		.l-side-box
+			include ../../../widgets/widget_logo/logo_in_side
+
+		//Main Menu
+		.l-side-box
+
+			include ../../nav/nav

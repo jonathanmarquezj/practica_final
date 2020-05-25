@@ -1,0 +1,22 @@
+
+//Right Sidebar Content
+aside#sb-right.l-sidebar.l-sidebar-compact-right.t-sidebar-1
+
+	.l-side-box
+		a.switcher.t-switcher-side(href = '#').ason-widget(
+		data-ason-type="sidebar",
+		data-ason-is-right="true",
+		data-ason-on-all="compact",
+		data-ason-to-all="sidebar",
+		data-ason-target="#sb-right")
+			i.fa.fa-bars
+
+
+	.l-side-box
+		include ../../../widgets/widget_logo/logo_in_side
+
+
+	//Main Menu
+	.l-side-box
+
+		include ../../nav/nav

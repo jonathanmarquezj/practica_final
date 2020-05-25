@@ -1,0 +1,126 @@
+//- ------------------------------------
+//- BASE LAYOUT
+//- ------------------------------------
+extends aaa-master-layout
+
+
+//- ------------------------------------
+//- PAGE CONFIGURATION
+//- ------------------------------------
+prepend config
+	- var link = "chart-flot.html"
+	- var page = "chart.ch-flot"
+	- var pageSubTitle = " - Charts - Flot"
+	- var scripts = [ 'charts.flot', 'charts.flot.pie', 'charts.flot.stack', 'charts.flot.symbol', 'x.call.chart.flot' ]
+
+
+//- ------------------------------------
+//- PAGE CONTENT
+//- ------------------------------------
+block content
+
+	//SECTION
+	section.l-main-container
+
+		include components/layout/sidebar/sidebar_1/sidebar_1__t_1__left
+
+		//Main Content
+		section.l-container
+
+			include components/layout/header/header_1/header_1__t_1
+
+			.l-page-header
+				h2.l-page-title <span>Flot</span> Charts
+				+breadcrumb(bread_chart_flot)
+
+			.l-spaced
+
+				.l-box.l-spaced-bottom
+					.l-box-header
+						h2.l-box-title <span>Realtime</span> Flot Chart
+						+box-options
+
+					.l-box-body.l-spaced
+						.flot-container
+							.hide.flot-realtime
+							.flot-chart#flotRealtime
+
+				.l-box.l-spaced-bottom
+					.l-box-header
+						h2.l-box-title <span>Line</span> Flot Chart
+						+box-options
+
+					.l-box-body.l-spaced
+						.flot-container
+							.hide.flot-line-1
+							.hide.flot-line-2
+							.flot-chart#flotLine
+
+				div
+					.l-box.l-col-md-6.l-spaced-bottom
+						.l-box-header
+							h2.l-box-title <span>Pie</span> Flot Chart
+							+box-options
+
+						.l-box-body.l-spaced
+							.flot-container
+								.hide.flot-pie-1
+								.hide.flot-pie-2
+								.hide.flot-pie-3
+								.hide.flot-pie-4
+								.hide.flot-pie-5
+								.flot-chart#flotPie
+
+					.l-box.l-col-md-6.l-spaced-bottom
+						.l-box-header
+							h2.l-box-title <span>Donut</span> Flot Chart
+							+box-options
+
+						.l-box-body.l-spaced
+							.flot-container
+								.hide.flot-donut-1
+								.hide.flot-donut-2
+								.hide.flot-donut-3
+								.hide.flot-donut-4
+								.hide.flot-donut-5
+								.flot-chart#flotDonut
+
+				.l-row
+					.l-box.l-col-md-6
+						.l-box-header
+							h2.l-box-title <span>Stacked Bars</span> Flot Chart
+							+box-options
+
+						.l-box-body.l-spaced
+							.flot-container
+								.hide.flot-bars-1
+								.hide.flot-bars-2
+								.hide.flot-bars-3
+								.flot-chart#flotStackedBars
+
+					.l-box.l-col-md-6
+						.l-box-header
+							h2.l-box-title <span>Stacked Lines</span> Flot Chart
+							+box-options
+
+						.l-box-body.l-spaced
+							.flot-container
+								.hide.flot-lines-1
+								.hide.flot-lines-2
+								.hide.flot-lines-3
+								.flot-chart#flotStackedLines
+
+			include components/layout/footer/footer_1/footer_1__t_1
+
+		include components/layout/sidebar/sidebar_2/sidebar_2__t_2__right
+
+
+
+
+
+
+
+
+
+
+

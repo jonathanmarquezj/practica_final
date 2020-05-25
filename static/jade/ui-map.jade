@@ -1,0 +1,86 @@
+//- ------------------------------------
+//- BASE LAYOUT
+//- ------------------------------------
+extends aaa-master-layout
+
+
+//- ------------------------------------
+//- PAGE CONFIGURATION
+//- ------------------------------------
+prepend config
+	- var link = "ui-map.html"
+	- var page = "ui.u-map"
+	- var pageSubTitle = " - UI Elements - Maps"
+	- var scripts = [ 'maps.gmaps', 'x.call.ui.map' ]
+
+
+//- ------------------------------------
+//- FOOT SCRIPTS SEMI GENERAL
+//- ------------------------------------
+append   foot-scripts-semi-general
+	script(src="http://maps.google.com/maps/api/js?sensor=true")
+
+
+//- ------------------------------------
+//- PAGE CONTENT
+//- ------------------------------------
+block content
+
+	//SECTION
+	section.l-main-container
+
+		include components/layout/sidebar/sidebar_1/sidebar_1__t_1__left
+
+		//Main Content
+		section.l-container
+
+			include components/layout/header/header_1/header_1__t_1
+
+			.l-page-header
+				h2.l-page-title <span>Maps</span>
+				+breadcrumb(bread_ui_map)
+
+			.l-spaced
+
+				.l-row
+
+					.l-box.l-col-md-6.l-spaced-bottom
+						.l-box-header
+							h2.l-box-title <span>Basic</span> Google Map
+							+box-options
+
+						.l-box-body.l-spaced
+							#gmap_1.map-container
+
+					.l-box.l-col-md-6.l-spaced-bottom
+						.l-box-header
+							h2.l-box-title <span>Static</span> Google Map
+							+box-options
+
+						.l-box-body.l-spaced
+
+							#gmap_4.map-container
+
+				.l-row
+
+					.l-box.l-col-md-6.l-spaced-bottom
+						.l-box-header
+							h2.l-box-title Google Map <span>with Overlay</span>
+							+box-options
+
+						.l-box-body.l-spaced
+							#gmap_3.map-container
+
+					.l-box.l-col-md-6.l-spaced-bottom
+						.l-box-header
+							h2.l-box-title Google Map <span>with Marker</span>
+							+box-options
+
+						.l-box-body.l-spaced
+							#gmap_2.map-container
+
+
+
+			include components/layout/footer/footer_1/footer_1__t_1
+
+		include components/layout/sidebar/sidebar_2/sidebar_2__t_2__right

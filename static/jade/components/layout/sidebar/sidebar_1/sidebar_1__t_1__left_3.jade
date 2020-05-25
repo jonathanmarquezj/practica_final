@@ -1,0 +1,31 @@
+
+//Left Sidebar Content
+aside#sb-left.l-sidebar.l-sidebar-1.t-sidebar-1
+
+	//Switcher
+	.l-side-box
+		a.sidebar-switcher.switcher.t-switcher-side(href = '#').ason-widget(
+			data-ason-type="sidebar",
+			data-ason-to-sm="sidebar",
+			data-ason-target="#sb-left")
+				i.fa.fa-bars
+
+	.l-side-box
+		include ../../../widgets/widget_logo/logo_in_side
+
+	//Search
+	.l-side-box
+		.widget-search.search-in-side.is-search-left.t-search-4
+			.search-toggle
+				i.fa.fa-search
+
+			.search-content
+				form(role='form', action="page-search.html")
+					input.form-control(type='text', placeholder='Search...')
+					button.btn(type='submit')
+						i.fa.fa-search
+
+	//Main Menu
+	.l-side-box
+
+		include ../../nav/nav

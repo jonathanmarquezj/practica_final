@@ -1,0 +1,219 @@
+//- ------------------------------------
+//- BASE LAYOUT
+//- ------------------------------------
+extends aaa-master-layout
+
+
+//- ------------------------------------
+//- PAGE CONFIGURATION
+//- ------------------------------------
+prepend config
+	- var link = "form-layout.html"
+	- var page = "form.fo-layout"
+	- var pageSubTitle = " - Form - Layout"
+	- var scripts = [ 'form.checkradios', 'x.call.form.layout' ]
+
+
+//- ------------------------------------
+//- PAGE CONTENT
+//- ------------------------------------
+block content
+
+	//SECTION
+	section.l-main-container
+
+		include components/layout/sidebar/sidebar_1/sidebar_1__t_1__left
+
+		//Main Content
+		section.l-container
+
+			include components/layout/header/header_1/header_1__t_1
+
+			.l-page-header
+				h2.l-page-title Form <span>Layout</span>
+				+breadcrumb(bread_form_layout)
+
+			.l-spaced
+
+				.l-row
+					.l-box.l-col-md-6.l-spaced-bottom
+						.l-box-header
+							h2.l-box-title <span>Basic</span> Form
+							+box-options
+
+						.l-box-body.l-spaced
+							form(role='form')
+								.form-group
+									label(for='exampleInputEmail1') Email address
+									input#exampleInputEmail1.form-control(type='email', placeholder='Enter email')
+								.form-group
+									label(for='exampleInputPassword1') Password
+									input#exampleInputPassword1.form-control(type='password', placeholder='Password')
+								.checkbox
+									input.checkradios(type='checkbox')
+									| Check me out
+								button.btn.btn-default(type='submit') Submit
+
+
+					.l-box.l-col-md-6.l-spaced-bottom
+						.l-box-header
+							h2.l-box-title <span>Horizontal</span> Form
+							+box-options
+
+						.l-box-body.l-spaced
+							form.form-horizontal(role='form')
+								.form-group
+									label.col-md-3.control-label(for='inputEmail3') Email
+									.col-md-9
+										input#inputEmail3.form-control(type='email', placeholder='Email')
+								.form-group
+									label.col-md-3.control-label(for='inputPassword3') Password
+									.col-md-9
+										input#inputPassword3.form-control(type='password', placeholder='Password')
+										p.help-block Example block-level help text here.
+								.form-group
+									.col-md-offset-3.col-md-9
+										.checkbox
+											input.checkradios(type='checkbox')
+											| Remember me
+								.form-group
+									.col-md-offset-3.col-md-9
+										button.btn.btn-default(type='submit') Sign in
+
+				.l-box.l-spaced-bottom
+					.l-box-header
+						h2.l-box-title <span>Inline</span> Form
+						+box-options
+
+					.l-box-body.l-spaced
+						form.form-inline(role='form')
+							.form-group
+								label.sr-only(for='exampleInputEmail2') Email address
+								input#exampleInputEmail2.form-control(type='email', placeholder='Enter email')
+							.form-group
+								.input-group
+									.input-group-addon @
+									input.form-control(type='email', placeholder='Enter email')
+							.form-group
+								label.sr-only(for='exampleInputPassword2') Password
+								input#exampleInputPassword2.form-control(type='password', placeholder='Password')
+							.form-group
+								input.checkradios(type='checkbox')
+								| Remember me
+							button.btn.btn-default(type='submit') Sign in
+
+				.l-box.l-spaced-bottom
+					.l-box-header
+						h2.l-box-title <span>Column Sizing</span> with <span>Bootstrap Grids System</span>
+						+box-options
+
+					.l-box-body.l-spaced
+						.row.l-spaced-bottom
+							.col-md-1
+								input.form-control(type='text', placeholder='.col-md-1')
+							.col-md-11
+								input.form-control(type='text', placeholder='.col-md-11')
+						.row.l-spaced-bottom
+							.col-md-2
+								input.form-control(type='text', placeholder='.col-md-2')
+							.col-md-10
+								input.form-control(type='text', placeholder='.col-md-10')
+						.row.l-spaced-bottom
+							.col-md-3
+								input.form-control(type='text', placeholder='.col-md-3')
+							.col-md-9
+								input.form-control(type='text', placeholder='.col-md-9')
+						.row.l-spaced-bottom
+							.col-md-4
+								input.form-control(type='text', placeholder='.col-md-4')
+							.col-md-8
+								input.form-control(type='text', placeholder='.col-md-8')
+						.row.l-spaced-bottom
+							.col-md-5
+								input.form-control(type='text', placeholder='.col-md-5')
+							.col-md-7
+								input.form-control(type='text', placeholder='.col-md-7')
+						.row.l-spaced-bottom
+							.col-md-6
+								input.form-control(type='text', placeholder='.col-md-6')
+							.col-md-6
+								input.form-control(type='text', placeholder='.col-md-6')
+
+
+				.l-box.l-spaced-bottom
+					.l-box-header
+						h2.l-box-title <span>Column Sizing</span> with <span>Ason Grid System</span>
+						+box-options
+
+					.l-box-body.l-spaced
+						.l-row.l-spaced-bottom
+							.l-col-md-1
+								input.form-control(type='text', placeholder='.l-col-md-1')
+							.l-col-md-11
+								input.form-control(type='text', placeholder='.l-col-md-11')
+						.l-row.l-spaced-bottom
+							.l-col-md-2
+								input.form-control(type='text', placeholder='.l-col-md-2')
+							.l-col-md-10
+								input.form-control(type='text', placeholder='.l-col-md-10')
+						.l-row.l-spaced-bottom
+							.l-col-md-3
+								input.form-control(type='text', placeholder='.l-col-md-3')
+							.l-col-md-9
+								input.form-control(type='text', placeholder='.l-col-md-9')
+						.l-row.l-spaced-bottom
+							.l-col-md-4
+								input.form-control(type='text', placeholder='.l-col-md-4')
+							.l-col-md-8
+								input.form-control(type='text', placeholder='.l-col-md-8')
+						.l-row.l-spaced-bottom
+							.l-col-md-5
+								input.form-control(type='text', placeholder='.l-col-md-5')
+							.l-col-md-7
+								input.form-control(type='text', placeholder='.l-col-md-7')
+						.l-row.l-spaced-bottom
+							.l-col-md-6
+								input.form-control(type='text', placeholder='.l-col-md-6')
+							.l-col-md-6
+								input.form-control(type='text', placeholder='.l-col-md-6')
+
+				.l-box.l-spaced-bottom
+					.l-box-header
+						h2.l-box-title <span>Column Sizing</span> with <span>Ason Grid System</span> without <span>Gutter</span>
+						+box-options
+
+					.l-box-body.l-spaced
+						.l-row.l-spaced-bottom
+							.l-span-md-1
+								input.form-control(type='text', placeholder='.l-span-md-1')
+							.l-span-md-11
+								input.form-control(type='text', placeholder='.l-span-md-11')
+						.l-row.l-spaced-bottom
+							.l-span-md-2
+								input.form-control(type='text', placeholder='.l-span-md-2')
+							.l-span-md-10
+								input.form-control(type='text', placeholder='.l-span-md-10')
+						.l-row.l-spaced-bottom
+							.l-span-md-3
+								input.form-control(type='text', placeholder='.l-span-md-3')
+							.l-span-md-9
+								input.form-control(type='text', placeholder='.l-span-md-9')
+						.l-row.l-spaced-bottom
+							.l-span-md-4
+								input.form-control(type='text', placeholder='.l-span-md-4')
+							.l-span-md-8
+								input.form-control(type='text', placeholder='.l-span-md-8')
+						.l-row.l-spaced-bottom
+							.l-span-md-5
+								input.form-control(type='text', placeholder='.l-span-md-5')
+							.l-span-md-7
+								input.form-control(type='text', placeholder='.l-span-md-7')
+						.l-row.l-spaced-bottom
+							.l-span-md-6
+								input.form-control(type='text', placeholder='.l-span-md-6')
+							.l-span-md-6
+								input.form-control(type='text', placeholder='.l-span-md-6')
+
+			include components/layout/footer/footer_1/footer_1__t_1
+
+		include components/layout/sidebar/sidebar_2/sidebar_2__t_2__right

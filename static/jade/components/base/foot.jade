@@ -1,0 +1,53 @@
+//- ------------------------------------
+//- FOOT STYLES
+//- ------------------------------------
+block foot-styles
+
+
+// ===== JS =====
+
+//- ------------------------------------
+//- FOOT SCRIPTS JQUERY
+//- ------------------------------------
+block foot-scripts-jquery
+	// jQuery
+	script(src="js/basic/jquery.min.js")
+	script(src="js/basic/jquery-migrate.min.js")
+
+//- ------------------------------------
+//- FOOT SCRIPTS GENERAL
+//- ------------------------------------
+block foot-scripts-general
+	// General
+	script(src="js/basic/modernizr.min.js")
+	script(src="js/basic/bootstrap.min.js")
+	script(src="js/shared/jquery.asonWidget.js")
+
+	script(src="js/plugins/plugins.js")
+	script(src="js/general.js")
+
+
+//- ------------------------------------
+//- FOOT SCRIPTS SEMI GENERAL
+//- ------------------------------------
+block foot-scripts-semi-general
+	// Semi general
+	script(type='text/javascript').
+
+		var paceSemiGeneral = { restartOnPushState: false };
+		if (typeof paceSpecific != 'undefined'){
+			var paceOptions = $.extend( {}, paceSemiGeneral, paceSpecific );
+			paceOptions = paceOptions;
+		}else{
+			paceOptions = paceSemiGeneral;
+		}
+
+	script(src="js/plugins/pageprogressbar/pace.min.js")
+
+
+//- ------------------------------------
+//- FOOT SCRIPTS SPECIFIC
+//- ------------------------------------
+block foot-scripts-specific
+
+	+scripts

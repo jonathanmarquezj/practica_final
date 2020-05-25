@@ -1,0 +1,48 @@
+
+//Right Sidebar Content
+aside#sb-right-3.l-sidebar.l-sidebar-hidden.t-sidebar-2
+
+	// Sidebar Profile Widget
+	.l-side-box
+		.widget-profile.profile-in-side.pull-right
+			button.btn.dropdown-toggle(type='button', data-toggle='dropdown')
+				span.name William Jones
+				img(src='img/profile/profile.jpg')
+			ul.dropdown-menu(role='menu')
+				li
+					a(href='page-profile.html')
+						i.fa.fa-user
+						| Profile
+				li
+					a(href='app-mail.html')
+						i.fa.fa-envelope
+						| Inbox
+				li
+					a(href='#')
+						i.fa.fa-cog
+						| Settings
+				li.lock
+					a(href='page-lock-screen.html')
+						i.fa.fa-lock
+						| Log Out
+				li.power
+					a(href='page-login.html')
+						i.fa.fa-power-off
+						| Sign Out
+	.l-side-box
+		include ../../../widgets/widget_task/task_in_side
+
+	// Search Widget
+	.l-side-box
+		.widget-search.search-in-side.is-search-right.t-search-3
+			form(role='form', action="page-search.html")
+				input.form-control(type='text', placeholder='Search...')
+				button.btn(type='submit')
+					i.fa.fa-search
+
+	.l-side-box
+		include ../../../widgets/widget_message/message_in_side
+
+
+	.l-side-box
+		include ../../../widgets/widget_notification/notification_in_side

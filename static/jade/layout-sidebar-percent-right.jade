@@ -1,0 +1,73 @@
+//- ------------------------------------
+//- BASE LAYOUT
+//- ------------------------------------
+extends aaa-master-layout
+
+
+//- ------------------------------------
+//- PAGE CONFIGURATION
+//- ------------------------------------
+prepend config
+	- var link = "layout-sidebar-percent-right.html"
+	- var page = "layout.sidebar.percent.si-p-right"
+	- var pageSubTitle = " - Right Sidebar Percentage Based"
+	- var styles = [ 'syntaxhighlighter']
+	- var scripts = [ 'a.syntaxhighlighter' ]
+
+//- ------------------------------------
+//- PAGE CONTENT
+//- ------------------------------------
+block content
+
+	//SECTION
+	section.l-main-container
+
+		//Main Content
+		section.l-container
+
+			include components/layout/header/header_1/header_1__t_1__no_sb
+
+			.l-page-header
+				h2.l-page-title <span>Right</span> Sidebar
+				+breadcrumb(bread_layout_sidebar_percent_right)
+
+			.l-spaced-vertical
+				.l-box.no-border
+					.l-spaced
+
+						.syntax-wrapper
+							.syntax-info
+								.mv
+									p In this example we see the <strong>right sidebar</strong> which is percentage based and differs from the left sidebar by only 1 parameter. You just have to add an HTML data <strong>isRight="true"</strong> attribute to the sidebar.
+									p For more information please check out the <strong>documentation!</strong>
+
+							.table-responsive
+								pre(class="brush:xml;")
+									|&lt;body&gt;
+									|	&nbsp;
+									|	<section class="l-main-container">
+									|	&nbsp;
+									|		<section class="l-container">
+									|	&nbsp;
+									| 			Page content...
+									|	&nbsp;
+									|   		</section>
+									|	&nbsp;
+									|		Page content...
+									|	&nbsp;
+									|		<aside id="sb-right-id" class="l-sidebar l-sidebar-4">
+									|	&nbsp;
+									|			<a href="#" class="ason-widget" data-ason-type="sidebar" data-ason-sidebar="l-sidebar-4" data-ason-is-right="true" data-ason-on-md="sidebar" data-ason-to-md="compact" data-ason-to-sm="compact" data-ason-is-right="true" data-ason-target="#sb-right-id" >
+									|				<i class="fa fa-bars"> </i>
+									|			</a>
+									|	&nbsp;
+									|   		</aside>
+									|   	</section>
+									|	&nbsp;
+									|&lt;/body&gt;
+
+			include components/layout/footer/footer_1/footer_1__t_1
+
+		include components/layout/sidebar/sidebar_4/sidebar_4__t_1_right
+
+

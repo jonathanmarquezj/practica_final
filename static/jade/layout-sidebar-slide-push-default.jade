@@ -1,0 +1,113 @@
+//- ------------------------------------
+//- BASE LAYOUT
+//- ------------------------------------
+extends aaa-master-layout
+
+
+//- ------------------------------------
+//- PAGE CONFIGURATION
+//- ------------------------------------
+prepend config
+	- var link = "layout-sidebar-slide-push-default.html"
+	- var page = "layout.sidebar.slide-push.si-slide-push-default"
+	- var pageSubTitle = " - Default Push Slidebars"
+	- var styles = [ 'syntaxhighlighter']
+	- var scripts = [ 'a.syntaxhighlighter']
+
+//- ------------------------------------
+//- PAGE CONTENT
+//- ------------------------------------
+block content
+
+	//SECTION
+	section.l-main-container
+
+		include components/layout/sidebar/sidebar_1/slidebar_1__t_1__left
+
+		//Main Content
+		section.l-container
+
+			include components/layout/header/header_1/header_1__t_1__no_sb
+
+			.l-page-header
+				h2.l-page-title <span>Default Push</span> Slidebars
+				+breadcrumb(bread_layout_sidebar_slide_push_default)
+
+			.l-spaced-vertical
+				.l-box.no-border
+					.l-spaced
+						.l-row
+							.l-col-xs-6
+								.l-spaced-bottom.tar
+									button.btn.btn-primary.ason-widget.tt-left(data-ason-type="sidebar", title="Toggle Left Slidebar",
+										data-ason-on-all="slidebar-left",
+										data-ason-anim-full=['velocity', 'transition.slideDownBigIn', 'transition.slideDownOut'],
+										data-ason-anim-md=['velocity', 'transition.perspectiveLeftIn', 'transition.perspectiveLeftOut'],
+										data-ason-is-push="true",
+										data-ason-target="#slide-left")
+											i.fa.fa-align-right
+
+							.l-col-xs-6
+								.l-spaced-bottom
+									button.btn.btn-primary.ason-widget.tt-right(data-ason-type="sidebar", title="Toggle Right Slidebar",
+										data-ason-on-all="slidebar-right",
+										data-ason-anim-full=['velocity', 'transition.swoopIn', 'transition.whirlOut'],
+										data-ason-anim-lg=['velocity', 'transition.flipXIn', 'transition.flipXOut'],
+										data-ason-is-push="true",
+										data-ason-target="#slide-right")
+											i.fa.fa-align-left
+
+						.syntax-wrapper
+							.syntax-info
+								.mv
+									p In this example we see <strong>2 push slidebars</strong>, one on the <strong>left</strong> the other one on the <strong>right</strong>.
+									p Both of them having their own <strong><a href="http://velocityjs.org" target="_blank">Velocity.js</a></strong> animation on different screen sizes.
+									p The <strong>left slidebar</strong> comes with the browser deafult scrollbar. For the <strong>right slidebar</strong> we set up a custom scrollbar with the help of the <strong>Ason Widget</strong>.
+									p For more information please check out the <strong>documentation!</strong>
+
+							.table-responsive
+								pre(class="brush:xml;")
+									|&lt;body&gt;
+									|	&nbsp;
+									|	<section class="l-main-container">
+									|	&nbsp;
+									|		<aside id="slide-left-id" class="l-slidebar l-slidebar-left-1">
+									|	&nbsp;
+									| 			Left slidebar content...
+									|	&nbsp;
+									|   		</aside>
+									|	&nbsp;
+									|		<section class="l-container">
+									|	&nbsp;
+									|			<a href="#" class="ason-widget" data-ason-type="sidebar" data-ason-is-push="true" data-ason-on-all="slidebar-left" data-ason-anim-full="['velocity', 'transition.slideDownBigIn', 'transition.slideDownOut']" data-ason-anim-md="['velocity', 'transition.perspectiveLeftIn', 'transition.perspectiveLeftOut']" data-ason-target="#slide-left-id" >
+									|				<i class="fa fa-align-right"> </i>
+									|			</a>
+									|	&nbsp;
+									|			<a href="#" class="ason-widget" data-ason-type="sidebar" data-ason-is-push="true" data-ason-on-all="slidebar-right" data-ason-anim-full="['velocity', 'transition.swoopIn', 'transition.whirlOut']" data-ason-anim-lg="['velocity', 'transition.flipXIn', 'transition.flipXOut']" data-ason-target="#slide-right-id" >
+									|				<i class="fa fa-align-left"> </i>
+									|			</a>
+									|	&nbsp;
+									| 			Page content...
+									|	&nbsp;
+									|   		</section>
+									|	&nbsp;
+									|		Page content...
+									|	&nbsp;
+									|		<aside id="slide-right-id" class="l-slidebar l-slidebar-right-1">
+									|	&nbsp;
+									|   			<div class="ason-widgeet" data-ason-type="scrollbar" data-ason-max-height="100%" >
+									|	&nbsp;
+									| 				Right slidebar content...
+									|	&nbsp;
+									|			</div>
+									|	&nbsp;
+									|   		</aside>
+									|	&nbsp;
+									|   	</section>
+									|	&nbsp;
+									|&lt;/body&gt;
+
+
+			include components/layout/footer/footer_1/footer_1__t_1
+
+		include components/layout/sidebar/sidebar_1/slidebar_1__t_1__right

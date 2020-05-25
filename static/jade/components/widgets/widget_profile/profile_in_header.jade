@@ -1,0 +1,26 @@
+// Profile Widget
+.widget-profile.profile-in-header
+	button.btn.dropdown-toggle(type='button', data-toggle='dropdown')
+		span.name William Jones
+		img(src='img/profile/profile.jpg')
+	ul.dropdown-menu(role='menu')
+		li
+			a(href='page-profile.html')
+				i.fa.fa-user
+				| Profile
+		li
+			a(href='app-mail.html')
+				i.fa.fa-envelope
+				| Inbox
+		li
+			a(href='#')
+				i.fa.fa-cog
+				| Settings
+		li.lock
+			a(href='page-lock-screen.html')
+				i.fa.fa-lock
+				| Log Out
+		li.power
+			a(href='page-login.html')
+				i.fa.fa-power-off
+				| Sign Out

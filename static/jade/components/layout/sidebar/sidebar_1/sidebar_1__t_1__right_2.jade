@@ -1,0 +1,19 @@
+
+//Right Sidebar Content 2
+aside#sb-right-2.l-sidebar.l-sidebar-collapsed-right.t-sidebar-1
+
+	//Switcher
+	.l-side-box
+		a.switcher.t-switcher-side(href = '#').ason-widget(
+			data-ason-type="sidebar",
+			data-ason-sidebar="l-sidebar-3",
+			data-ason-on-all="hidden",
+			data-ason-to-all="sidebar",
+			data-ason-anim-all=['velocity', null, 'transition.slideRightBigIn'],
+			data-ason-target="#sb-right")
+				i.fa.fa-cog
+
+	// Stats
+	.l-side-box
+		include ../../../widgets/widget_stat_2/stat_2_in_side
+

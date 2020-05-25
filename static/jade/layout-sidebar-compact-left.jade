@@ -1,0 +1,74 @@
+//- ------------------------------------
+//- BASE LAYOUT
+//- ------------------------------------
+extends aaa-master-layout
+
+
+//- ------------------------------------
+//- PAGE CONFIGURATION
+//- ------------------------------------
+prepend config
+	- var link = "layout-sidebar-compact-left.html"
+	- var page = "layout.sidebar.compact.si-compact-left"
+	- var pageSubTitle = " - Compact Left Sidebar"
+	- var styles = [ 'syntaxhighlighter']
+	- var scripts = [ 'a.syntaxhighlighter' ]
+
+
+//- ------------------------------------
+//- PAGE CONTENT
+//- ------------------------------------
+block content
+
+	//SECTION
+	section.l-main-container
+
+		include components/layout/sidebar/compact/sidebar_compact__left
+
+		//Main Content
+		section.l-container
+
+			include components/layout/header/header_1/header_1__t_1__no_sb
+
+			.l-page-header
+				h2.l-page-title <span>Compact Left</span> Sidebar
+				+breadcrumb(bread_layout_sidebar_compact_left)
+
+			.l-spaced-vertical
+				.l-box.no-border
+					.l-spaced
+
+						.syntax-wrapper
+							.syntax-info
+								.mv
+									p With the powerful <strong>Ason Widget</strong> you are able to setup and configure in matter of second complex sidebar functionality.
+									p Below we can see how we setup with just one call a <strong>compact sidebar</strong> on the <strong>left</strong> side of the page which can be toggled between compact and normal state on all screen sizes.
+									p For more information please check out the <strong>documentation!</strong>
+
+							.table-responsive
+								pre(class="brush:xml;")
+									|&lt;body&gt;
+									|	&nbsp;
+									|	<section class="l-main-container">
+									|	&nbsp;
+									|		<aside id="sb-left-id" class="l-sidebar l-sidebar-compact-left">
+									|	&nbsp;
+									|			<a href="#" class="ason-widget" data-ason-type="sidebar" data-ason-on-all="compact" data-ason-to-all="sidebar" data-ason-target="#sb-left-id" >
+									|				<i class="fa fa-bars"> </i>
+									|			</a>
+									|	&nbsp;
+									|   		</aside>
+									|	&nbsp;
+									|		<section class="l-container">
+									|	&nbsp;
+									| 			Page content...
+									|	&nbsp;
+									|   		</section>
+									|	&nbsp;
+									|		Page content...
+									|   	</section>
+									|	&nbsp;
+									|&lt;/body&gt;
+
+
+			include components/layout/footer/footer_1/footer_1__t_1

@@ -1,0 +1,82 @@
+unless hideThemeSettings
+
+	//- Component Configuration
+
+	- var scripts_theme_setting = [ 'a.shared.cookie', 'form.switchery', 'form.bootstrapTouchspin', 'accordions.collapsible', 'x.call.part.theme.setting' ]
+
+	//- ------------------------------------
+
+	//THEME SETTINGS
+	.widget-theme-settings.t-theme-settings-1
+
+		a.theme-settings-toggle(href="#")
+			i.fa.fa-cog
+
+		.theme-settings-wrapper
+			h3 General Settings
+
+			.hide.switchery-success
+			.hide.switchery-info
+			.hide.switchery-warning
+
+			unless hideThemeSettingsBaseFont
+
+				.theme-settings-row
+					h4.theme-skin-title Base Font Size
+					input.tt-theme-settings#spinnerBaseFont(type='text', value='14',  name='spinnerBaseFont', placeholder='Html base font', title="REM based font sizing.")
+				hr
+
+			unless hideThemeSettingsBoxed
+
+				.l-row.theme-settings-row
+					.l-span-xs-7
+						label(for='boxedLayout') Boxed Layout
+					.l-span-xs-5.theme-settings-input
+						input#boxedLayout.switcheryBoxed(type='checkbox')
+
+				hr
+
+			unless hideThemeSettingsHeader
+				.l-row.theme-settings-row
+					.l-span-xs-7
+						label(for='fixedHeader') Fixed Header
+					.l-span-xs-5.theme-settings-input
+						input#fixedHeader.switcheryFixedHeader(type='checkbox')
+				.l-row.theme-settings-row
+					.l-span-xs-7
+						label(for='stickyHeader') Sticky Header
+					.l-span-xs-5.theme-settings-input
+						input#stickyHeader.switcheryStickyHeader(type='checkbox')
+
+				hr
+
+			unless hideThemeSettingsFooter
+
+				.l-row.theme-settings-row
+					.l-span-xs-7
+						label(for='fixedFooter') Fixed Footer
+					.l-span-xs-5.theme-settings-input
+						input#fixedFooter.switcheryFixedFooter(type='checkbox')
+				.l-row.theme-settings-row
+					.l-span-xs-7
+						label(for='stickyFooter') Sticky Footer
+					.l-span-xs-5.theme-settings-input
+						input#stickyFooter.switcheryStickyFooter(type='checkbox')
+
+				hr
+
+			.l-row.theme-settings-row
+				.l-span-xs-7
+					label Main Menu
+				.l-span-xs-5.theme-settings-input
+					a.theme-settings-info.tt-theme-settings(href="layout-menu.html", data-placement='left', title="For more Menu Options check out the documentation.")
+						i.fa.fa-info
+
+			hr
+
+			.l-row.theme-settings-row
+				.l-span-xs-7
+					label Sidebar
+				.l-span-xs-5.theme-settings-input
+					a.theme-settings-info.tt-theme-settings(href="layout-sidebar-left.html", data-placement='left', title="For more Sidebar Options check out the 'Layouts -> Sidebar' section.")
+						i.fa.fa-info

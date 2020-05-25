@@ -1,0 +1,285 @@
+//- BASE LAYOUT
+//- ------------------------------------
+extends aaa-master-layout
+
+
+//- ------------------------------------
+//- PAGE CONFIGURATION
+//- ------------------------------------
+prepend config
+	- var link = "ui-modal.html"
+	- var page = "ui.u-modal"
+	- var pageSubTitle = " - UI Elements - Modals"
+	- var scripts = [ 'modals.remodal', 'modals.magnificPopup', 'x.call.ui.modals' ]
+
+//- ------------------------------------
+//- PAGE CONTENT
+//- ------------------------------------
+block content
+
+	//SECTION
+	section.l-main-container
+
+		include components/layout/sidebar/sidebar_1/sidebar_1__t_1__left
+
+		//Main Content
+		section.l-container
+
+			include components/layout/header/header_1/header_1__t_1
+
+			.l-page-header
+				h2.l-page-title <span>Modals</span>
+				+breadcrumb(bread_ui_modals)
+
+			.l-spaced
+
+				//Modals - Basic
+				.l-box.l-spaced-bottom
+					.l-box-header
+						h2.l-box-title <span>Basic</span> Modals
+						+box-options
+
+					.l-box-body.l-spaced
+						table.table.table-bordered.table-striped.modal-container
+							tbody
+								tr
+									td.half-width.text-right Basic Setup
+									td.half-width
+										button.btn.btn-dark(data-toggle='modal', data-target='#basicModal') Open Modal
+
+								tr
+									td.text-right Small Modal
+									td
+										button.btn.btn-dark(data-toggle='modal', data-target='#smallModal') Open Modal
+
+								tr
+									td.text-right Large Modal
+									td
+										button.btn.btn-dark(data-toggle='modal', data-target='#largeModal') Open Modal
+
+								tr
+									td.text-right Full Width Modal
+									td
+										button.btn.btn-dark(data-toggle='modal', data-target='#fullModal') Open Modal
+
+								tr
+									td.text-right Half Width Modal
+									td
+										button.btn.btn-dark(data-toggle='modal', data-target='#halfModal') Open Modal
+
+								tr
+									td.text-right No Animation
+									td
+										button.btn.btn-dark(data-toggle='modal', data-target='#noeffectModal') Open Modal
+
+				//Modals - Advanced
+				.l-box.l-spaced-bottom
+					.l-box-header
+						h2.l-box-title <span>Advanced</span> Modals
+						+box-options
+
+					.l-box-body.l-spaced
+						table.table.table-bordered.table-striped.modal-container
+							tbody
+								tr
+									td.text-right.half-width Image Modal
+									td.half-width
+										a#imageMagnific.btn.btn-dark(href='img/plugins/modal/modal_1.jpg') Open Modal
+
+								tr
+									td.text-right Multiple Images
+									td
+										div#multiImageMagnific.btn-group
+											a.btn.btn-dark(href='img/plugins/modal/modal_2.jpg') Open Modal 1
+											a.btn.btn-dark(href='img/plugins/modal/modal_3.jpg') Open Modal 2
+											a.btn.btn-dark(href='img/plugins/modal/modal_4.jpg') Open Modal 3
+
+								tr
+									td.text-right Video
+									td
+										div.btn-group
+											a.iframeMagnific.btn.btn-dark(href='https://www.youtube.com/watch?v=qMvE3Jrqa2g') Open Youtube
+											a.iframeMagnific.btn.btn-dark(href='https://vimeo.com/45830194') Open Vimeo
+
+								tr
+									td.text-right Maps
+									td
+										a.iframeMagnific.btn.btn-dark(href='https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d193572.0037917104!2d-73.97800349999999!3d40.7056308!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sen!2ses!4v1411633408134') Open Modal 3
+
+								tr
+									td.text-right Form
+									td
+										a#formMagnific.btn.btn-dark(href='#form-magnific') Open form
+
+										form#form-magnific.sample-magnific-container.mfp-hide
+											h1 Form
+											fieldset(style='border:0;')
+												p
+													| Lightbox has an option to automatically focus on the first input. It's strongly recommended to use
+													code inline
+													| popup type for lightboxes with form instead of
+													code ajax
+													| (to keep entered data if the user accidentally refreshed the page).
+												ul
+													li.form-group
+														label(for='name') Name
+														input#name.form-control(name='name', type='text', placeholder='Name', required='')
+													li.form-group
+														label(for='email') Email
+														input#email.form-control(name='email', type='email', placeholder='example@domain.com', required='')
+													li.form-group
+														label(for='phone') Phone
+														input#phone.form-control(name='phone', type='tel', placeholder='Eg. +447500000000', required='')
+													li.form-group
+														label(for='textarea') Textarea
+														br
+														textarea#textarea.form-control Try to resize me to see how popup CSS-based resizing works.
+
+								tr
+									td.text-right Ajax Modal
+									td
+										div.btn-group
+											a#ajaxMagnific.btn.btn-dark(href='assets/ajax/modal-ajax.html') Normal
+											a#ajaxTopMagnific.btn.btn-dark(href='assets/ajax/modal-ajax-top.html') Top Aligned
+
+				//Modals - Effects
+				.l-box.l-spaced-bottom
+					.l-box-header
+						h2.l-box-title Modals <span>with Effects</span>
+						+box-options
+
+					.l-box-body.l-spaced
+						table.table.table-bordered.table-striped.modal-container
+							tbody
+
+								tr
+									td.text-right.half-width Soft Fade Effect
+									td
+										a.btn.btn-dark(data-remodal-target='reModal', href='#reModal') Open Modal
+
+								tr
+									td.text-right Fade Zoom Effect
+									td
+										a#zoomEffectMagnific.btn.btn-dark(href='#effect-dialog') Open Modal
+
+								tr
+									td.text-right Fade Slide Effect
+									td
+										a#slideEffectMagnific.btn.btn-dark(href='#effect-dialog') Open Modal
+
+			include components/layout/footer/footer_1/footer_1__t_1
+
+		include components/layout/sidebar/sidebar_2/sidebar_2__t_2__right
+
+	//Modals - Bootstrap
+
+	//Basic
+	#basicModal.modal.fade(tabindex='-1', role='dialog', aria-labelledby='basicModalLabel', aria-hidden='true')
+		.modal-dialog
+			.modal-content
+				.modal-header
+					button.close(type='button', data-dismiss='modal', aria-label='Close')
+						span(aria-hidden='true') ×
+					h4#basicModalLabel.modal-title Modal title
+				.modal-body
+					| Modal Body
+				.modal-footer
+					button.btn.btn-danger(type='button', data-dismiss='modal') Close
+					button.btn.btn-success(type='button') Save changes
+
+	//Small
+	#smallModal.modal.fade(tabindex='-1', role='dialog', aria-labelledby='smallModalLabel', aria-hidden='true')
+		.modal-dialog.modal-sm
+			.modal-content
+				.modal-header
+					button.close(type='button', data-dismiss='modal')
+						span(aria-hidden='true') ×
+						span.sr-only Close
+					h4#smallModalLabel.modal-title Modal title
+				.modal-body
+					| Modal Body
+				.modal-footer
+					button.btn.btn-danger(type='button', data-dismiss='modal') Close
+					button.btn.btn-success(type='button') Save changes
+
+	//Large
+	#largeModal.modal.fade(tabindex='-1', role='dialog', aria-labelledby='largeModalLabel', aria-hidden='true')
+		.modal-dialog.modal-lg
+			.modal-content
+				.modal-header
+					button.close(type='button', data-dismiss='modal')
+						span(aria-hidden='true') ×
+						span.sr-only Close
+					h4#largeModalLabel.modal-title Modal title
+				.modal-body
+					| Modal Body
+				.modal-footer
+					button.btn.btn-danger(type='button', data-dismiss='modal') Close
+					button.btn.btn-success(type='button') Save changes
+
+	//Full
+	#fullModal.modal.fade(tabindex='-1', role='dialog', aria-labelledby='fullModalLabel', aria-hidden='true')
+		.modal-dialog.modal-fw
+			.modal-content
+				.modal-header
+					button.close(type='button', data-dismiss='modal')
+						span(aria-hidden='true') ×
+						span.sr-only Close
+					h4#fullModalLabel.modal-title Modal title
+				.modal-body
+					| Modal Body
+				.modal-footer
+					button.btn.btn-danger(type='button', data-dismiss='modal') Close
+					button.btn.btn-success(type='button') Save changes
+
+	//Half
+	#halfModal.modal.fade(tabindex='-1', role='dialog', aria-labelledby='halfModalLabel', aria-hidden='true')
+		.modal-dialog.modal-hw
+			.modal-content
+				.modal-header
+					button.close(type='button', data-dismiss='modal')
+						span(aria-hidden='true') ×
+						span.sr-only Close
+					h4#halfModalLabel.modal-title Modal title
+				.modal-body
+					| Modal Body
+				.modal-footer
+					button.btn.btn-danger(type='button', data-dismiss='modal') Close
+					button.btn.btn-success(type='button') Save changes
+
+	//No effect
+	#noeffectModal.modal(tabindex='-1', role='dialog', aria-labelledby='noeffectModalLabel', aria-hidden='true')
+		.modal-dialog
+			.modal-content
+				.modal-header
+					button.close(type='button', data-dismiss='modal')
+						span(aria-hidden='true') ×
+						span.sr-only Close
+					h4#noeffectModalLabel.modal-title Modal title
+				.modal-body
+					| Modal Body
+				.modal-footer
+					button.btn.btn-danger(type='button', data-dismiss='modal') Close
+					button.btn.btn-success(type='button') Save changes
+
+
+	//Soft Fade effect
+	.remodal(data-remodal-id='reModal')
+		h1 Remodal
+		p
+			| Flat, responsive, lightweight, fast, easy customizable modal window plugin
+			| with declarative state notation and hash tracking.
+		br
+		a.btn.btn-danger.mr-10(href='#') Cancel
+		a.btn.btn-success(href='#') OK
+
+
+	//Fade Zoom and Fade Slide effect
+	div#effect-dialog.sample-magnific-container.mfp-hide
+		h1 Dialog example
+		p
+			| This is dummy copy. It is not meant to be read. It has been placed here solely to demonstrate the look and feel of finished, typeset text. Only for show. He who searches for meaning here will be sorely disappointed.
+
+
+
+

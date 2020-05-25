@@ -1,0 +1,394 @@
+//- Component Configuration
+
+- var scripts_sidebar_2 = [ 'form.checkBo', 'tooltips.tooltipster', 'x.call.part.sidebar.2' ]
+
+//- ------------------------------------
+
+
+//Right Sidebar Content
+aside#sb-right.l-sidebar.t-sidebar-2.l-sidebar-hidden
+
+	.widget-tabs
+		ul.nav.nav-tabs(role='tablist')
+			li.active
+				a(href='#sidebar-chat', role='tab', data-toggle='tab')
+					i.fa.fa-comments
+					| Chat
+			li
+				a(href='#sidebar-activity', role='tab', data-toggle='tab')
+					i.fa.fa-users
+					| Activity
+			li.last
+				a.sidebar-switcher.ason-widget(
+					href='#',
+					data-ason-type="sidebar",
+					data-ason-sidebar="l-sidebar-2",
+					data-ason-on-all="hidden",
+					data-ason-to-all="sidebar",
+					data-ason-target="#sb-right")
+						i.fa.fa-times
+
+		// Tab panes
+		.tab-content
+
+			// Tab Chat
+			#sidebar-chat.tab-pane.active.l-spaced-vertical
+
+				.l-side-box.m-15
+					// Chat options
+
+					// Status Widget
+					.widget-status.dropdown.pull-left
+						a.dropdown-toggle(href='#', data-toggle='dropdown')
+							i.fa.fa-circle-o.text-success
+							= ' '
+							| Online
+
+						ul.dropdown-menu(role='menu')
+							li
+								a(href="#")
+									i.fa.fa-circle-o.text-success
+									= ' '
+									| Online
+
+							li
+								a(href="#")
+									i.fa.fa-circle-o.text-warning
+									= ' '
+									| Away
+
+							li
+								a(href="#")
+									i.fa.fa-circle-o.text-danger
+									= ' '
+									| Busy
+
+							li
+								a(href="#")
+									i.fa.fa-circle-o.text-muted
+									= ' '
+									| Invisible
+
+							li
+								a(href="#")
+									i.fa.fa-circle-o.text-dark
+									= ' '
+									| Offline
+
+					// Chat Setting Widget
+					.widget-chat-setting.dropdown.pull-right
+						a.dropdown-toggle.tt-chat(href='#', data-toggle='dropdown', title='Settings')
+							i.fa.fa-sliders
+
+						ul.dropdown-menu.side-checkbo(role='menu')
+							li
+								a(href="#")
+									label.cb-checkbox
+										input(type='checkbox', value='')
+										= ' '
+										| Groups
+
+							li
+								a(href="#")
+									label.cb-checkbox
+										input(type='checkbox', value='')
+										= ' '
+										| Favorites
+
+							li
+								a(href="#")
+									label.cb-checkbox
+										input(type='checkbox', value='')
+										= ' '
+										| Online
+
+				// Search Widget
+				.l-side-box
+					.widget-search.search-in-side.is-search-left.t-search-3
+						form(role='form', action="page-search.html")
+							input.form-control(type='text', placeholder='Search...')
+							button.btn(type='submit')
+								i.fa.fa-search
+
+				// Group Widget
+				.l-side-box
+					.widget-group
+						.widget-group-header
+							h4.group-title.pull-left Groups
+							a(href='#', title='Add Group').tt-chat.btn.pull-right
+								i.fa.fa-plus
+
+
+						.widget-group-new
+
+						.widget-group-body
+							ul
+								li
+									a(href="#")
+										i.fa.fa-circle.text-success
+										= ' '
+										| Family
+								li
+									a(href="#")
+										i.fa.fa-circle.text-danger
+										= ' '
+										| Friends
+								li
+									a(href="#")
+										i.fa.fa-circle.text-info
+										= ' '
+										| Work
+
+				// Chat Widget
+				.l-side-box
+					.widget-chat
+						.widget-chat-header
+							h4.chat-title.pull-left Favorites
+							a(href='#', title='Sort - Asc').tt-chat.btn.pull-right
+								i.fa.fa-sort-amount-asc
+
+						.widget-chat-body
+							ul
+								li.chat-row.first-row
+									a(href="#").chat-user
+										.chat-img
+											i.fa.fa-circle.text-success
+											img(src='img/widgets/user_1.jpg', alt='User')
+										.chat-info
+											h5 Timothy Walker
+											div.mood I'm feeling good
+										ul.chat-status
+											li.tt-chat(title='Away')
+												i.fa.fa-circle-o.text-warning
+											li
+												span.label.label-danger 2
+
+									.chat-conversation.ason-widget(data-ason-type="scrollbar", data-ason-max-height="350")
+										.chat-date-start Yesterday 05:25pm
+
+										.chat-user.user-1
+											.chat-img
+												img(src='img/widgets/user_1.jpg', alt='User')
+											.chat-info-conv
+												.chat-message
+													.chat-text
+														h5 Jane Yang
+														div Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+													.chat-time
+														span 05:25
+
+												.chat-message.chat-more-message
+													.chat-text
+														div Sed et lectus congue
+													.chat-time
+														span 05:28
+
+										.chat-user.user-2
+											.chat-img
+												img(src='img/profile/profile.jpg', alt='User')
+											.chat-info-conv
+												.chat-message
+													.chat-text
+														h5 William Jones
+														div Sed et lectus congue, aliquet enim vitae, viverra magna
+
+													.chat-time
+														span 05:30
+
+										.chat-input
+											.input-group.l-spaced
+												span.input-group-btn
+													button.btn.btn-default(type='button')
+														i.fa.fa-paperclip
+												input.form-control(type='text', placeholder='Type a message here')
+												span.input-group-btn
+													button.btn.btn-default(type='button')
+														i.fa.fa-paper-plane
+
+								li.chat-row
+									a(href="#").chat-user
+										.chat-img
+											i.fa.fa-circle.text-danger
+											img(src='img/widgets/user_2.jpg', alt='User')
+										.chat-info
+											h5 Jane Yang
+											div.mood I'm feeling good
+										ul.chat-status
+											li.tt-chat(title='Online')
+												i.fa.fa-circle-o.text-success
+											li
+												span.label.label-danger 4
+
+									.chat-conversation.ason-widget(data-ason-type="scrollbar", data-ason-max-height="350")
+										.chat-date-start Today 02:32pm
+
+										.chat-user.user-1
+											.chat-img
+												img(src='img/widgets/user_2.jpg', alt='User')
+											.chat-info-conv
+												.chat-message
+													.chat-text
+														h5 Jane Yang
+														div Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+													.chat-time
+														span 02:28
+
+												.chat-message.chat-more-message
+													.chat-text
+														div Sed et lectus congue
+													.chat-time
+														span 02:32
+
+										.chat-user.user-2
+											.chat-img
+												img(src='img/profile/profile.jpg', alt='User')
+											.chat-info-conv
+												.chat-message
+													.chat-text
+														h5 William Jones
+														div Sed et lectus congue, aliquet enim vitae, viverra magna
+
+													.chat-time
+														span 02:45
+
+												.chat-message.chat-more-message
+													.chat-text
+														div Sed et lectus congue
+													.chat-time
+														span 02:32
+
+
+										.chat-user.user-1
+											.chat-img
+												img(src='img/widgets/user_2.jpg', alt='User')
+											.chat-info-conv
+												.chat-message
+													.chat-text
+														h5 Jane Yang
+														div In accumsan gravida aliquet.
+													.chat-time
+														span 03:01
+
+										.chat-input
+											.input-group.l-spaced
+												span.input-group-btn
+													button.btn.btn-default(type='button')
+														i.fa.fa-paperclip
+												input.form-control(type='text', placeholder='Type a message here')
+												span.input-group-btn
+													button.btn.btn-default(type='button')
+														i.fa.fa-paper-plane
+
+								li.chat-row
+									a(href="#").chat-user
+										.chat-img
+											i.fa.fa-circle.text-info
+											img(src='img/widgets/user_3.jpg', alt='User')
+										.chat-info
+											h5 Samuel Sims
+											div.mood I'm feeling good
+										ul.chat-status
+											li.tt-chat(title='Offline')
+												i.fa.fa-circle-o.text-dark
+
+									.chat-conversation.ason-widget(data-ason-type="scrollbar", data-ason-max-height="350")
+										.chat-date-start NO CONVERSATION
+
+										.chat-input
+											.input-group.l-spaced
+												span.input-group-btn
+													button.btn.btn-default(type='button')
+														i.fa.fa-paperclip
+												input.form-control(type='text', placeholder='Type a message here')
+												span.input-group-btn
+													button.btn.btn-default(type='button')
+														i.fa.fa-paper-plane
+
+				// Chat Widget
+				.l-side-box
+					.widget-chat
+						.widget-chat-header
+							h4.chat-title.pull-left All
+							a(href='#', title='Sort - Asc').tt-chat.btn.pull-right
+								i.fa.fa-sort-amount-asc
+
+						.widget-chat-body
+							ul
+								li.chat-row.first-row
+									a(href="#").chat-user
+										.chat-img
+											i.fa.fa-circle.text-info
+											img(src='img/widgets/user_5.jpg', alt='User')
+										.chat-info
+											h5 David Reynolds
+											div.mood I'm feeling good
+										ul.chat-status
+											li.tt-chat(title='Busy')
+												i.fa.fa-circle-o.text-danger
+
+									.chat-conversation.ason-widget(data-ason-type="scrollbar", data-ason-max-height="350")
+										.chat-date-start Today 07:12pm
+
+										.chat-user.user-1
+											.chat-img
+												img(src='img/widgets/user_5.jpg', alt='User')
+											.chat-info-conv
+												.chat-message
+													.chat-text
+														h5 Jane Yang
+														div Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+													.chat-time
+														span 07:12
+
+
+										.chat-user.user-2
+											.chat-img
+												img(src='img/profile/profile.jpg', alt='User')
+											.chat-info-conv
+												.chat-message
+													.chat-text
+														h5 William Jones
+														div Sed et lectus congue, aliquet enim vitae, viverra magna
+
+													.chat-time
+														span 07:20
+
+										.chat-input
+											.input-group.l-spaced
+												span.input-group-btn
+													button.btn.btn-default(type='button')
+														i.fa.fa-paperclip
+												input.form-control(type='text', placeholder='Type a message here')
+												span.input-group-btn
+													button.btn.btn-default(type='button')
+														i.fa.fa-paper-plane
+
+								li.chat-row
+									a(href="#").chat-user
+										.chat-img
+											i.fa.fa-circle.text-danger
+											img(src='img/widgets/user_4.jpg', alt='User')
+										.chat-info
+											h5 Carolyn Chen
+											div.mood I'm feeling good
+										ul.chat-status
+											li.tt-chat(title='Offline')
+												i.fa.fa-circle-o.text-dark
+
+									.chat-conversation.ason-widget(data-ason-type="scrollbar", data-ason-max-height="350")
+										.chat-date-start NO CONVERSATION
+
+										.chat-input
+											.input-group.l-spaced
+												span.input-group-btn
+													button.btn.btn-default(type='button')
+														i.fa.fa-paperclip
+												input.form-control(type='text', placeholder='Type a message here')
+												span.input-group-btn
+													button.btn.btn-default(type='button')
+														i.fa.fa-paper-plane
+
+			// Tab Activity
+			#sidebar-activity.tab-pane.l-spaced-vertical
+
+				include ../../../widgets/widget_activity/activity_in_side

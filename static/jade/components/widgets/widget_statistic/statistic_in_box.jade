@@ -1,0 +1,60 @@
+// Widget Statistic
+.widget-statistic
+	.statistic-header
+		.l-span-sm-4
+			#statisticTitle.statistic-title Visitor Statistics <span class="statistic-title-1">- 2,453</span>
+		.l-span-sm-8
+
+			ul.statistic-options
+
+				li
+					a#statisticFullScreen.ason-widget.tt-top(href='#', title="Fullscreen", data-ason-type="fullscreen", data-ason-target=".widget-statistic", data-ason-content="true")
+
+				li
+					a.ason-widget.tt-top(href='#', title="Refresh", data-ason-type="refresh", data-ason-target=".widget-statistic", data-ason-duration="1000")
+						i.fa.fa-rotate-right
+
+				li
+					a.ason-widget.tt-top(href='#', title="Toggle", data-ason-type="toggle", data-ason-find=".widget-statistic", data-ason-target=".statistic-body", data-ason-content="true", data-ason-duration="200")
+
+				li.last
+					a.ason-widget.tt-top(href='#', title="Delete", data-ason-type="delete", data-ason-target=".widget-statistic", data-ason-content="true", data-ason-animation="fadeOut")
+
+			ul.statistic-options#statisticChartType
+				li
+					a(href = '#', title="Area Chart")#statisticAreaBtn.tt-top.active
+						i.fa.fa-area-chart
+
+				li
+					a(href = '#', title="Bar Chart")#statisticBarBtn.tt-top
+						i.fa.fa-bar-chart
+
+				li
+					a(href = '#', title="Line Chart")#statisticLineBtn.tt-top
+						i.fa.fa-line-chart
+
+			ul.statistic-options#statisticDataType
+				li
+					a(href = '#', title="Visitors")#statisticVisitorsBtn.tt-top.active
+						i.fa.fa-users
+
+				li
+					a(href = '#', title="Pageviews")#statisticPageviewsBtn.tt-top
+						i.fa.fa-file-text-o
+
+				li
+					a(href = '#', title="Average Visit Time")#statisticTimeBtn.tt-top
+						i.fa.fa-clock-o
+
+				li
+					a(href = '#', title="Bounce Rate")#statisticBounceBtn.tt-top
+						i.fa.fa-exchange
+
+	.statistic-body
+		.hide.rickshaw-statistic-c-1-1
+		.hide.rickshaw-statistic-c-1-2
+		.hide.rickshaw-statistic-c-2-1
+		.hide.rickshaw-statistic-c-3-1
+		.hide.rickshaw-statistic-c-4-1
+		#statisticChart
+		#statisticChartLegend.statistic_rickshaw_legend

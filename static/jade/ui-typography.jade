@@ -1,0 +1,454 @@
+//- ------------------------------------
+//- BASE LAYOUT
+//- ------------------------------------
+extends aaa-master-layout
+
+
+//- ------------------------------------
+//- PAGE CONFIGURATION
+//- ------------------------------------
+prepend config
+	- var link = "ui-typography.html"
+	- var page = "ui.u-typography"
+	- var pageSubTitle = " - UI Elements - Typography"
+
+
+//- ------------------------------------
+//- PAGE CONTENT
+//- ------------------------------------
+block content
+
+	//SECTION
+	section.l-main-container
+
+		include components/layout/sidebar/sidebar_1/sidebar_1__t_1__left
+
+		//Main Content
+		section.l-container
+
+			include components/layout/header/header_1/header_1__t_1
+
+			.l-page-header
+				h2.l-page-title <span>Typography</span>
+				+breadcrumb(bread_ui_typography)
+
+			.l-row.l-spaced
+
+				.l-col-md-6
+
+					//Headings
+					.l-box.l-spaced-bottom
+						.l-box-header
+							h2.l-box-title <span>Headings</span>
+							+box-options
+
+						.l-box-body.l-spaced
+							h1
+								| h1. Heading
+								| #{''}
+								small Secondary text
+							hr
+							h2
+								| h2. Heading
+								| #{''}
+								small Secondary text
+							hr
+							h3
+								| h3. Heading
+								| #{''}
+								small Secondary text
+							hr
+							h4
+								| h4. Heading
+								| #{''}
+								small Secondary text
+							hr
+							h5
+								| h5. Heading
+								| #{''}
+								small Secondary text
+							hr
+							h6
+								| h6. Heading
+								| #{''}
+								small Secondary text
+
+					//Font Family Classes
+					.l-box.l-spaced-bottom
+						.l-box-header
+							h2.l-box-title <span>Font Family Classes</span>
+							+box-options
+
+						.l-box-body.l-spaced.badge-container
+							p.font-extralight Extra Light
+							p.font-light Light
+							p.font-base Regular (Base)
+							p.font-semibold Semibold
+							p.font-bold Bold
+
+					//Font Size Classes
+					.l-box.l-spaced-bottom
+						.l-box-header
+							h2.l-box-title <span>Font Size Classes</span>
+							+box-options
+
+						.l-box-body.l-spaced.badge-container
+							.l-row
+								.l-col-md-4
+									p.fz-10 Font Size 10
+									p.fz-11 Font Size 11
+									p.fz-12 Font Size 12
+									p.fz-13 Font Size 13
+									p.fz-14 Font Size 14
+									p.fz-15 Font Size 15
+									p.fz-16 Font Size 16
+
+								.l-col-md-4
+									p.fz-17 Font Size 17
+									p.fz-18 Font Size 18
+									p.fz-19 Font Size 19
+									p.fz-20 Font Size 20
+									p.fz-21 Font Size 21
+									p.fz-22 Font Size 22
+									p.fz-23 Font Size 23
+
+								.l-col-md-4
+									p.fz-24 Font Size 24
+									p.fz-25 Font Size 25
+									p.fz-26 Font Size 26
+									p.fz-27 Font Size 27
+									p.fz-28 Font Size 28
+									p.fz-29 Font Size 29
+									p.fz-29 Font Size 30
+
+
+
+					//Transformation classes
+					.l-box.l-spaced-bottom
+						.l-box-header
+							h2.l-box-title <span>Transformation classes</span>
+							+box-options
+
+						.l-box-body.l-spaced
+							.l-row
+								.l-col-md-6
+									h4.sep-bottom.mt-5 Proteus
+									p.text-lc Lowercased text.
+									p.text-uc Uppercased text.
+									p.text-cap Capitalized text.
+
+								.l-col-md-6
+									h4.sep-bottom.mt-5 Bootstrap
+									p.text-lowercase Lowercased text.
+									p.text-uppercase Uppercased text.
+									p.text-capitalize Capitalized text.
+
+					//Lists
+					.l-box.l-spaced-bottom
+						.l-box-header
+							h2.l-box-title <span>Lists</span>
+							+box-options
+
+						.l-box-body.l-spaced
+							.l-row
+								.l-col-md-6
+									h4 Unordered
+									ul.list-styled
+										li Lorem ipsum dolor sit amet
+										li Consectetur adipiscing elit
+										li Integer molestie lorem at massa
+										li Facilisis in pretium nisl aliquet
+										li
+											| Nulla volutpat aliquam velit
+											ul
+												li Phasellus iaculis neque
+												li Purus sodales ultricies
+												li Vestibulum laoreet porttitor sem
+												li Ac tristique libero volutpat at
+										li Faucibus porta lacus fringilla vel
+										li Aenean sit amet erat nunc
+										li Eget porttitor lorem
+
+								.l-col-md-6
+									h4 Ordered
+									ol
+										li Lorem ipsum dolor sit amet
+										li Consectetur adipiscing elit
+										li Integer molestie lorem at massa
+										li Facilisis in pretium nisl aliquet
+										li Nulla volutpat aliquam velit
+										li Faucibus porta lacus fringilla vel
+										li Aenean sit amet erat nunc
+										li Eget porttitor lorem
+							hr
+
+							.l-row
+								.l-col-md-6
+									h4 Unstyled
+									ul
+										li Lorem ipsum dolor sit amet
+										li Consectetur adipiscing elit
+										li Integer molestie lorem at massa
+										li Facilisis in pretium nisl aliquet
+										li
+											| Nulla volutpat aliquam velit
+											ul.list-styled
+												li Phasellus iaculis neque
+												li Purus sodales ultricies
+												li Vestibulum laoreet porttitor sem
+												li Ac tristique libero volutpat at
+										li Faucibus porta lacus fringilla vel
+										li Aenean sit amet erat nunc
+										li Eget porttitor lorem
+
+								.l-col-md-6
+									h4 Inline
+									ul.list-inline
+										li Lorem ipsum
+										li Phasellus iaculis
+										li Nulla volutpat
+									hr
+
+									h4 Description
+									dl
+										dt Description lists
+										dd A description list is perfect for defining terms.
+										dt Euismod
+										dd Vestibulum id ligula porta felis euismod semper eget lacinia odio sem nec elit.
+										dd Donec id elit non mi porta gravida at eget metus.
+										dt Malesuada porta
+										dd Etiam porta sem malesuada magna mollis euismod.
+
+							hr
+
+							.l-row
+								.l-col-md-12
+									h4 Horizontal description
+									dl.dl-horizontal
+										dt Description lists
+										dd A description list is perfect for defining terms.
+										dt Euismod
+										dd Vestibulum id ligula porta felis euismod semper eget lacinia odio sem nec elit.
+										dd Donec id elit non mi porta gravida at eget metus.
+										dt Malesuada porta
+										dd Etiam porta sem malesuada magna mollis euismod.
+										dt Felis euismod semper eget lacinia
+										dd
+											| Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.
+
+					//Contextual
+					.l-box.l-spaced-bottom
+						.l-box-header
+							h2.l-box-title <span>Contextual</span>
+							+box-options
+
+						.l-box-body.l-spaced
+							h4 Colors
+							p.text-muted Fusce dapibus, tellus ac cursus commodo, tortor mauris nibh.
+							p.text-primary Nullam id dolor id nibh ultricies vehicula ut id elit.
+							p.text-success Duis mollis, est non commodo luctus, nisi erat porttitor ligula.
+							p.text-info Maecenas sed diam eget risus varius blandit sit amet non magna.
+							p.text-warning Etiam porta sem malesuada magna mollis euismod.
+							p.text-danger Donec ullamcorper nulla non metus auctor fringilla.
+							p.text-dark Duis mollis, est non commodo luctus, nisi erat porttitor ligula.
+
+							hr
+							h4 Backgrounds
+							p.bg-primary.t-background Nullam id dolor id nibh ultricies vehicula ut id elit.
+							p.bg-success.t-background Duis mollis, est non commodo luctus, nisi erat porttitor ligula.
+							p.bg-info.t-background Maecenas sed diam eget risus varius blandit sit amet non magna.
+							p.bg-warning.t-background Etiam porta sem malesuada magna mollis euismod.
+							p.bg-danger.t-background Donec ullamcorper nulla non metus auctor fringilla.
+
+
+				.l-col-md-6
+
+					//Copy
+					.l-box.l-spaced-bottom
+						.l-box-header
+							h2.l-box-title <span>Copy</span>
+							+box-options
+
+						.l-box-body.l-spaced
+							h4 Lead
+							p.lead  Lorem ipsum dolor sit amet, consectetur adipisicing elit. Exercitationem, laboriosam quo error recusandae natus corporis temporibus!
+							hr
+							h4 Body
+							p  Voluptate, iure nisi minima eaque reprehenderit velit cupiditate soluta odit quos. Placeat sapiente culpa odit amet debitis beatae doloremque porro itaque ipsa.
+
+					//Alignment classes
+					.l-box.l-spaced-bottom
+						.l-box-header
+							h2.l-box-title <span>Alignment Classes</span>
+							+box-options
+
+						.l-box-body.l-spaced
+							h3.sep-bottom.mt-5 Proteus
+							p.tal Left aligned text.
+							p.tac Center aligned text.
+							p.tar Right aligned text.
+
+							h3.sep-bottom.mt-5 Bootstrap
+							p.text-left Left aligned text.
+							p.text-center Center aligned text.
+							p.text-right Right aligned text.
+							p.text-nowrap No wrap text.
+							hr
+							p.text-justify Justified text with ... lorem ipsum dolor sit amet, consectetur adipisicing elit. Aperiam, quos, ipsa, voluptatem fugiat odio beatae id saepe soluta deleniti dolor ex minima nisi autem ipsam provident ratione blanditiis cupiditate quia. Repellat, eum, excepturi, temporibus accusantium nihil adipisci facere quam nobis ea ducimus quia saepe officia vel repudiandae illo perferendis earum modi natus.
+
+
+					//Inline text elements
+					.l-box.l-spaced-bottom
+						.l-box-header
+							h2.l-box-title <span>Inline Text Elements</span>
+							+box-options
+
+						.l-box-body.l-spaced
+
+							h4 Marked text
+							| You can use the mark tag to
+							mark highlight
+							| text.
+							hr
+
+							h4 Deleted text
+							del This line of text is meant to be treated as deleted text.
+							hr
+
+							h4 Strikethrough text
+							s This line of text is meant to be treated as no longer accurate.
+							hr
+
+							h4 Inserted text
+							ins This line of text is meant to be treated as an addition to the document.
+							hr
+
+							h4 Underlined text
+							u This line of text will render as underlined
+							hr
+
+							h4 Small text
+							small This line of text is meant to be treated as fine print.
+							hr
+
+							h4 Bold
+							| The following snippet of text is &nbsp;
+							strong rendered as bold text
+							hr
+
+							h4 Italics
+							| The following snippet of text is
+							em rendered as italicized text
+
+							h4 Code
+							| The following snippet of text is
+							code rendered as code text
+
+					//Blockquotes and Addresses
+					.l-box.l-spaced-bottom
+						.l-box-header
+							h2.l-box-title <span>Blockquotes</span> and <span>Addresses</span>
+							+box-options
+
+						.l-box-body.l-spaced
+							h4 Blockquotes
+
+							blockquote
+								p
+									| Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante.
+								footer
+									| Someone famous in
+									cite(title='Source Title') Source Title
+
+							blockquote.blockquote-reverse
+								p
+									| Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante.
+								footer
+									| Someone famous in
+									cite(title='Source Title') Source Title
+							hr
+
+							h4 Addresses
+							address
+								strong Twitter, Inc.
+								br
+								| 795 Folsom Ave, Suite 600
+								br
+								| San Francisco, CA 94107
+								br
+								abbr(title='Phone') P:
+								| (123) 456-7890
+							address
+								strong Full Name
+								br
+								a(href='mailto:#') first.last@example.com
+
+					//Alerts
+					.l-box.l-spaced-bottom
+						.l-box-header
+							h2.l-box-title <span>Alerts</span> with <span>Links</span>
+							+box-options
+
+						.l-box-body.l-spaced
+							div.alert.alert-success(role='alert')
+								strong Well done!
+								|  You successfully read
+								| #{''}
+								a.alert-link(href='#') this important alert message
+								| .
+							div.alert.alert-info(role='alert')
+								strong Heads up!
+								|  This
+								| #{''}
+								a.alert-link(href='#') alert needs your attention
+								| , but it's not super important.
+							div.alert.alert-warning(role='alert')
+								strong Warning!
+								|  Better check yourself, you're
+								| #{''}
+								a.alert-link(href='#') not looking too good
+								| .
+							div.alert.alert-danger(role='alert')
+								strong Oh snap!
+								| #{''} #{''}
+								a.alert-link(href='#') Change a few things up
+								|  and try submitting again.
+							div.alert.alert-dark(role='alert')
+								strong Wow!
+								| #{''} #{''}
+								a.alert-link(href='#') I am just a dark matter
+								|  don't take me seriously.
+
+					//Labels
+					.l-box.l-spaced-bottom
+						.l-box-header
+							h2.l-box-title <span>Labels</span>
+							+box-options
+
+						.l-box-body.l-spaced.label-container
+							span.label.label-default Default
+							span.label.label-primary Primary
+							span.label.label-success Success
+							span.label.label-info Info
+							span.label.label-warning Warning
+							span.label.label-danger Danger
+							span.label.label-dark Dark
+
+					//Badges
+					.l-box.l-spaced-bottom
+						.l-box-header
+							h2.l-box-title <span>Badges</span>
+							+box-options
+
+						.l-box-body.l-spaced.badge-container
+							span.badge.badge-default Default
+							span.badge.badge-primary Primary
+							span.badge.badge-success Success
+							span.badge.badge-info Info
+							span.badge.badge-warning Warning
+							span.badge.badge-danger Danger
+							span.badge.badge-dark Dark
+
+			include components/layout/footer/footer_1/footer_1__t_1
+
+		include components/layout/sidebar/sidebar_2/sidebar_2__t_2__right

@@ -1,0 +1,65 @@
+//- ------------------------------------
+//- BASE LAYOUT
+//- ------------------------------------
+extends aaa-master-layout
+
+
+//- ------------------------------------
+//- PAGE CONFIGURATION
+//- ------------------------------------
+prepend config
+	- var link = "layout-footer-default.html"
+	- var page = "layout.footer.f-default"
+	- var pageSubTitle = " - Default Footer"
+	- var styles = [ 'syntaxhighlighter']
+	- var scripts = [ 'a.syntaxhighlighter' ]
+
+
+//- ------------------------------------
+//- PAGE CONTENT
+//- ------------------------------------
+block content
+
+	//SECTION
+	section.l-main-container
+
+		include components/layout/sidebar/sidebar_1/sidebar_1__t_1__left
+
+		//Main Content
+		section.l-container
+
+			include components/layout/header/header_1/header_1__t_1__no_sb
+
+			.l-page-header
+				h2.l-page-title <span>Default</span> Footer
+				+breadcrumb(bread_layout_footer_default)
+
+			.l-spaced-vertical
+				.l-box.no-border
+					.l-spaced
+
+						.syntax-wrapper
+							.syntax-info
+								p.mv Default footer content <strong>inside</strong> the main container.
+
+							.table-responsive
+								pre(class="brush:xml;")
+									|&lt;body&gt;
+									|	&nbsp;
+									|	<section class="l-main-container">
+									|	&nbsp;
+									|		<section class="l-container">
+									|	&nbsp;
+									|			Page content...
+									|	&nbsp;
+									|			<footer class="l-footer l-footer-1">
+									|				Footer content...
+									|       		</footer>
+									|	&nbsp;
+									|   		</section>
+									|	&nbsp;
+									|   	</section>
+									|	&nbsp;
+									|&lt;/body&gt;
+
+			include components/layout/footer/footer_1/footer_1__t_1

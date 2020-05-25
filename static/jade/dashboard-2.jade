@@ -1,0 +1,659 @@
+//- ------------------------------------
+//- BASE LAYOUT
+//- ------------------------------------
+extends aaa-master-layout
+
+//- ------------------------------------
+//- PAGE CONFIGURATION
+//- ------------------------------------
+prepend config
+	- var link = "dashboard-2.html"
+	- var page = 'dashboard.dashboard-2'
+	- var scripts = [ 'charts.sparkline', 'charts.d3', 'charts.c3', 'form.checkBo', 'x.call.dashboard.2' ]
+
+append config
+	- var pageBodyClasses = bodyClasses.push('l-dashboard')
+
+//- ------------------------------------
+//- PAGE CONTENT
+//- ------------------------------------
+block content
+
+	//SECTION
+	section.l-main-container
+
+		include components/layout/sidebar/sidebar_1/sidebar_1__t_1__left
+
+		//Main Content
+		section.l-container
+
+			include components/layout/header/header_1/header_1__t_1
+
+			// Row 1 - Info Widgets
+			.l-row.l-spaced-horizontal.l-spaced-top
+				// User Widget Info
+				.l-col-md-3.l-col-sm-6.l-spaced-bottom
+					.widget-info-wrapper.ason-widget(data-ason-type="draggable")
+						.widget-info-refresh-helper
+
+							.widget-info.t-info-1.ui-drag-item
+								ul.widget-options.is-options-right
+									li.option-main-item
+										a(href = '#').ui-drag-handle
+											i.fa.fa-arrows
+
+									li.option-main-item
+										a(href='#').ason-widget(data-ason-type="refresh", data-ason-target=".widget-info-refresh-helper", data-ason-content="true", data-ason-duration="1100")
+
+									li.option-main-item
+										a(href='#').ason-widget(data-ason-type="toggle", data-ason-parent="false", data-ason-target="#user-info", data-ason-content="true", data-ason-duration="200")
+
+									li.option-main-item
+										a(href='#').ason-widget(data-ason-type="delete", data-ason-target=".widget-info-wrapper", data-ason-content="true", data-ason-animation="fadeOut")
+
+									li
+										ul
+											li
+												a(href = '#').toggler-btn
+													i.fa.fa-circle-thin
+
+											li.option-sub-item
+												a(href = '#').details-btn
+													i.fa.fa-file
+
+											li.option-sub-item
+												a(href = '#').chart-btn
+													i.fa.fa-line-chart
+
+								.widget-info-details#user-info
+									.info-data.open
+										h4 1577
+										hr
+										p
+											span Total
+											= ' '
+											| Customers
+
+										.progress.progress-no-border.progress-mini
+											.progress-bar(role='progressbar', aria-valuenow='75', aria-valuemin='0', aria-valuemax='100', style='width: 75%;')
+												span.sr-only 75% Complete
+
+									.info-chart
+										.hide.info-t-1-spark-1-c
+										#customerChart
+
+
+				// Orders Widget Info
+				.l-col-md-3.l-col-sm-6.l-spaced-bottom.l-clear-sm
+					.widget-info-wrapper.ason-widget(data-ason-type="draggable")
+						.widget-info-refresh-helper
+
+							.widget-info.t-info-2.ui-drag-item
+								ul.widget-options.is-options-right
+									li.option-main-item
+										a(href = '#').ui-drag-handle
+											i.fa.fa-arrows
+
+									li.option-main-item
+										a(href='#').ason-widget(data-ason-type="refresh", data-ason-target=".widget-info-refresh-helper", data-ason-content="true", data-ason-duration="1100")
+
+									li.option-main-item
+										a(href='#').ason-widget(data-ason-type="toggle", data-ason-parent="false", data-ason-target="#order-info", data-ason-content="true", data-ason-duration="200")
+
+									li.option-main-item
+										a(href='#').ason-widget(data-ason-type="delete", data-ason-target=".widget-info-wrapper", data-ason-content="true", data-ason-animation="fadeOut")
+
+									li
+										ul
+											li
+												a(href = '#').toggler-btn
+													i.fa.fa-circle-thin
+
+											li.option-sub-item
+												a(href = '#').details-btn
+													i.fa.fa-file
+
+											li.option-sub-item
+												a(href = '#').chart-btn
+													i.fa.fa-line-chart
+
+								.widget-info-details#order-info
+									.info-data.open
+										h4 2332
+										hr
+										p
+											span Total
+											= ' '
+											| Orders
+
+										.progress.progress-no-border.progress-mini
+											.progress-bar(role='progressbar', aria-valuenow='50', aria-valuemin='0', aria-valuemax='100', style='width: 50%;')
+												span.sr-only 50% Complete
+
+									.info-chart
+										.hide.info-t-2-spark-1-c
+										.hide.info-t-2-spark-2-c
+										.hide.info-t-2-spark-3-c
+										#ordersChart
+
+				// Reports Widget Info
+				.l-col-md-3.l-col-sm-6.l-spaced-bottom
+					.widget-info-wrapper.ason-widget(data-ason-type="draggable")
+						.widget-info-refresh-helper
+
+							.widget-info.t-info-3.ui-drag-item
+								ul.widget-options.is-options-right
+									li.option-main-item
+										a(href = '#').ui-drag-handle
+											i.fa.fa-arrows
+
+									li.option-main-item
+										a(href='#').ason-widget(data-ason-type="refresh", data-ason-target=".widget-info-refresh-helper", data-ason-content="true", data-ason-duration="1100")
+
+									li.option-main-item
+										a(href='#').ason-widget(data-ason-type="toggle", data-ason-parent="false", data-ason-target="#report-info", data-ason-content="true", data-ason-duration="200")
+
+									li.option-main-item
+										a(href='#').ason-widget(data-ason-type="delete", data-ason-target=".widget-info-wrapper", data-ason-content="true", data-ason-animation="fadeOut")
+
+									li
+										ul
+											li
+												a(href = '#').toggler-btn
+													i.fa.fa-circle-thin
+
+											li.option-sub-item
+												a(href = '#').details-btn
+													i.fa.fa-file
+
+											li.option-sub-item
+												a(href = '#').chart-btn
+													i.fa.fa-line-chart
+
+								.widget-info-details#report-info
+									.info-data.open
+										h4 4253
+										hr
+										p
+											span Total
+											= ' '
+											| Reports
+
+										.progress.progress-no-border.progress-mini
+											.progress-bar(role='progressbar', aria-valuenow='20', aria-valuemin='0', aria-valuemax='100', style='width: 20%;')
+												span.sr-only 20% Complete
+
+									.info-chart
+										.pt-10
+											.hide.info-t-3-spark-1-c
+											#reportsChart
+
+				// Payout Widget Info
+				.l-col-md-3.l-col-sm-6.l-spaced-bottom
+					.widget-info-wrapper.ason-widget(data-ason-type="draggable")
+						.widget-info-refresh-helper
+
+							.widget-info.t-info-4.ui-drag-item
+								ul.widget-options.is-options-right
+									li.option-main-item
+										a(href = '#').ui-drag-handle
+											i.fa.fa-arrows
+
+									li.option-main-item
+										a(href='#').ason-widget(data-ason-type="refresh", data-ason-target=".widget-info-refresh-helper", data-ason-content="true", data-ason-duration="1100")
+
+									li.option-main-item
+										a(href='#').ason-widget(data-ason-type="toggle", data-ason-parent="false", data-ason-target="#payout-info", data-ason-content="true", data-ason-duration="200")
+
+									li.option-main-item
+										a(href='#').ason-widget(data-ason-type="delete", data-ason-target=".widget-info-wrapper", data-ason-content="true", data-ason-animation="fadeOut")
+
+									li
+										ul
+											li
+												a(href = '#').toggler-btn
+													i.fa.fa-circle-thin
+
+											li.option-sub-item
+												a(href = '#').details-btn
+													i.fa.fa-file
+
+											li.option-sub-item
+												a(href = '#').chart-btn
+													i.fa.fa-line-chart
+
+								.widget-info-details#payout-info
+									.info-data.open
+										h4 $32768
+										hr
+										p
+											span Total
+											= ' '
+											| Payouts
+
+										.progress.progress-no-border.progress-mini
+											.progress-bar(role='progressbar', aria-valuenow='65', aria-valuemin='0', aria-valuemax='100', style='width: 65%;')
+												span.sr-only 65% Complete
+									.info-chart
+										.hide.info-t-4-spark-1-c
+										#paymentChart
+
+			// Row 2 - Stats, Orders, Social
+			.l-row.l-spaced-horizontal
+
+				// Stats Widget
+				.l-col-lg-3.l-col-md-4.l-spaced-bottom
+					.widget-stats.t-stats-1
+						ul.widget-options.is-options-right
+							li.option-main-item
+								a(href='#').ason-widget(data-ason-type="refresh", data-ason-target=".widget-stats", data-ason-content="true", data-ason-duration="1100")
+
+							li.option-main-item
+								a(href='#').ason-widget(data-ason-type="toggle", data-ason-parent="false", data-ason-target=".widget-stats-info", data-ason-content="true", data-ason-duration="200")
+
+							li.option-main-item
+								a(href='#').ason-widget(data-ason-type="delete", data-ason-target=".widget-stats", data-ason-content="true", data-ason-animation="fadeOut")
+
+							li
+								a(href = '#').toggler-btn
+									i.fa.fa-circle-thin
+
+						.widget-stats-info
+							h4.widget-header Stats
+							.l-row
+								.l-col-xs-8.stats-data
+									span 27826
+									div subscribers
+								.l-col-xs-4.stats-change
+									span.text-success +12%
+									div this week
+							.l-row
+								.l-col-xs-8.stats-data
+									span 12475
+									div visitors
+								.l-col-xs-4.stats-change
+									span.text-danger -8%
+									div this week
+							.l-row
+								.l-col-xs-8.stats-data
+									span 4235
+									div comments
+								.l-col-xs-4.stats-change
+									span +25
+									div this week
+							.l-row
+								.l-col-xs-8.stats-data
+									span 728
+									div posts
+								.l-col-xs-4.stats-change
+									span +47
+									div this week
+
+
+				// Orders Widget
+				.l-col-lg-6.l-col-md-8.l-clear-md.l-spaced-bottom
+					.widget-latest-orders.t-latest-orders-1
+
+						ul.widget-options.is-options-left
+							li.option-main-item
+								a(href='#').ason-widget(data-ason-type="refresh", data-ason-target=".widget-latest-orders", data-ason-content="true", data-ason-duration="1100")
+
+							li.option-main-item
+								a(href='#').ason-widget(data-ason-type="toggle", data-ason-parent="false", data-ason-target=".widget-latest-orders-info", data-ason-content="true", data-ason-duration="200")
+
+							li.option-main-item
+								a(href='#').ason-widget(data-ason-type="delete", data-ason-target=".widget-latest-orders", data-ason-content="true", data-ason-animation="fadeOut")
+
+							li
+								a(href = '#').toggler-btn
+									i.fa.fa-circle-thin
+
+						.widget-latest-orders-info
+
+							h4.widget-header Latest Orders
+								.weekly
+									span.text-success +5%
+									= ' '
+									| this week
+
+							table.table.table-hover.table-order-header
+								thead
+									tr
+										th.tb-col-1 #
+										th.tb-col-2 Customer Name
+										th.tb-col-3 Number
+										th.tb-col-4 Average Amount
+										th.tb-col-5 Total Amount
+
+							.table-order-body
+								.ason-widget(data-ason-type="scrollbar", data-ason-max-height="200")
+									table.table.table-hover
+										tbody
+											tr
+												td.tb-col-1 1
+												td.tb-col-2 Evelyn Elliott
+												td.tb-col-3 2
+												td.tb-col-4 $2647
+												td.tb-col-5 $5294
+											tr
+												td.tb-col-1 2
+												td.tb-col-2 Austin Powell
+												td.tb-col-3 1
+												td.tb-col-4 $840
+												td.tb-col-5 $840
+											tr
+												td.tb-col-1 3
+												td.tb-col-2 Scott Ward
+												td.tb-col-3 4
+												td.tb-col-4 $124
+												td.tb-col-5 $496
+											tr
+												td.tb-col-1 4
+												td.tb-col-2 Sara Perkins
+												td.tb-col-3 3
+												td.tb-col-4 $520
+												td.tb-col-5 $1560
+											tr
+												td.tb-col-1 5
+												td.tb-col-2 Karen Edwards
+												td.tb-col-3 2
+												td.tb-col-4 $250
+												td.tb-col-5 $500
+											tr
+												td.tb-col-1 6
+												td.tb-col-2 Beverly Hoffman
+												td.tb-col-3 10
+												td.tb-col-4 $85
+												td.tb-col-5 $850
+											tr
+												td.tb-col-1 7
+												td.tb-col-2 Jason Wallace
+												td.tb-col-3 6
+												td.tb-col-4 $541
+												td.tb-col-5 $3246
+											tr
+												td.tb-col-1 8
+												td.tb-col-2 Nathan Alvarez
+												td.tb-col-3 12
+												td.tb-col-4 $57
+												td.tb-col-5 $684
+											tr
+												td.tb-col-1 9
+												td.tb-col-2 Cheryl Carter
+												td.tb-col-3 8
+												td.tb-col-4 $745
+												td.tb-col-5 $5960
+											tr
+												td.tb-col-1 10
+												td.tb-col-2 Ryan Hudson
+												td.tb-col-3 2
+												td.tb-col-4 $500
+												td.tb-col-5 $1000
+							.l-row
+								.l-col-xs-6
+									a(href="#").view-all
+										i.fa.fa-angle-double-down
+										= ' '
+										| View All
+								.l-col-xs-6
+									.total
+										| Total:
+										span $20430
+
+				// Social Widget
+				.l-col-lg-3.l-col-md-12.l-spaced-bottom
+					.l-row
+						.l-col-lg-12.l-col-sm-4
+							.widget-social.social-in-box.t-social-facebook
+								.social-icon
+									i.fa.fa-facebook
+								.social-info
+									span 76547
+									= ' '
+									| Likes
+
+						.l-col-lg-12.l-col-sm-4
+							.widget-social.social-in-box.t-social-twitter
+								.social-icon
+									i.fa.fa-twitter
+								.social-info
+									span 34756
+									= ' '
+									| Followers
+
+						.l-col-lg-12.l-col-sm-4
+							.widget-social.social-in-box.t-social-google-plus
+								.social-icon
+									i.fa.fa-google-plus
+								.social-info
+									span 54785
+									= ' '
+									| Followers
+
+
+			// Row 3 - Revenue Widget
+			.l-row.l-spaced-horizontal
+
+				// Revenue Widget
+				.widget-revenue.l-spaced-bottom
+					ul.widget-options.is-options-right
+						li.option-main-item
+							a(href='#').ason-widget(data-ason-type="refresh", data-ason-target=".widget-revenue",  data-ason-loader-class="spinner line back-and-forth grow", data-ason-content="true", data-ason-duration="1100")
+
+						li.option-main-item
+							a(href='#').ason-widget(data-ason-type="toggle", data-ason-parent="false", data-ason-target=".widget-revenue-info", data-ason-content="true", data-ason-duration="200")
+
+						li.option-main-item
+							a(href='#').ason-widget(data-ason-type="delete", data-ason-target=".widget-revenue", data-ason-content="true", data-ason-animation="fadeOut")
+
+						li
+							a(href = '#').toggler-btn
+								i.fa.fa-circle-thin
+
+					.widget-revenue-info
+						h4.widget-header Annual Revenue
+						.hide.c3-revenue-1
+						.hide.c3-revenue-2
+						.hide.c3-revenue-3
+						.hide.c3-revenue-4
+						.hide.c3-revenue-5
+						.revenue-chart
+							#revenueChart
+
+			// Row 4 - Todo and Maps
+			.l-row.l-spaced-horizontal
+
+				.l-col-xl-3.l-col-lg-4.l-col-md-5.l-spaced-bottom
+
+					// Todo Widget
+					.widget-todo
+						ul.widget-options.is-options-right
+							li.option-main-item
+								a(href='#').ason-widget(data-ason-type="refresh", data-ason-target=".widget-todo", data-ason-content="true", data-ason-duration="1100")
+
+							li.option-main-item
+								a(href='#').ason-widget(data-ason-type="toggle", data-ason-parent="false", data-ason-target=".widget-todo-info", data-ason-content="true", data-ason-duration="200")
+
+							li.option-main-item
+								a(href='#').ason-widget(data-ason-type="delete", data-ason-target=".widget-todo", data-ason-content="true", data-ason-animation="fadeOut")
+
+							li
+								a(href = '#').toggler-btn
+									i.fa.fa-circle-thin
+
+						.widget-todo-info
+							h4.widget-header Todo List
+							ul.todo-list.todocheckbo.ason-widget(data-ason-type="draggable")
+								li.todo-item.ui-drag-item
+									a(href='#').ui-drag-handle
+										i.fa.fa-bars
+									label.cb-checkbox.cb-checkbox-danger-2
+										input(type='checkbox', value='')
+										span.todo-text Commit latest changes
+									a(href='#').delete-todo.ason-widget.pull-right(data-ason-type="delete", data-ason-target=".todo-item", data-ason-content="true", data-ason-animation="fadeOut")
+
+								li.todo-item.ui-drag-item
+									a(href='#').ui-drag-handle
+										i.fa.fa-bars
+									label.cb-checkbox.cb-checkbox-danger-2
+										input(type='checkbox', value='')
+										span.todo-text Finish documentation
+									a(href='#').delete-todo.ason-widget.pull-right(data-ason-type="delete", data-ason-target=".todo-item", data-ason-content="true", data-ason-animation="fadeOut")
+
+								li.todo-item.ui-drag-item
+									a(href='#').ui-drag-handle
+										i.fa.fa-bars
+									label.cb-checkbox.cb-checkbox-warning-2
+										input(type='checkbox', value='')
+										span.todo-text Update website
+									a(href='#').delete-todo.ason-widget.pull-right(data-ason-type="delete", data-ason-target=".todo-item", data-ason-content="true", data-ason-animation="fadeOut")
+
+								li.todo-item.ui-drag-item
+									a(href='#').ui-drag-handle
+										i.fa.fa-bars
+									label.cb-checkbox.cb-checkbox-info-2
+										input(type='checkbox', value='')
+										span.todo-text Prepare presentation
+									a(href='#').delete-todo.ason-widget.pull-right(data-ason-type="delete", data-ason-target=".todo-item", data-ason-content="true", data-ason-animation="fadeOut")
+
+								li.todo-item.ui-drag-item
+									a(href='#').ui-drag-handle
+										i.fa.fa-bars
+									label.cb-checkbox.cb-checkbox-dark-2
+										input(type='checkbox', value='')
+										span.todo-text Go to gym
+									a(href='#').delete-todo.ason-widget.pull-right(data-ason-type="delete", data-ason-target=".todo-item", data-ason-content="true", data-ason-animation="fadeOut")
+
+								li.todo-item.ui-drag-item
+									a(href='#').ui-drag-handle
+										i.fa.fa-bars
+									label.cb-checkbox.cb-checkbox-dark-2
+										input(type='checkbox', value='')
+										span.todo-text Book plain tickets
+									a(href='#').delete-todo.ason-widget.pull-right(data-ason-type="delete", data-ason-target=".todo-item", data-ason-content="true", data-ason-animation="fadeOut")
+
+							.todo-input
+								.input-group
+									input#addTaskInput.form-control(type='text', placeholder='Add task...')
+									span.input-group-btn
+										button(type="button")#addTaskButton.btn.btn-dark
+											i.fa.fa-plus
+
+				.l-col-xl-9.l-col-lg-8.l-col-md-7.l-spaced-bottom
+					.widget-members.t-members-1
+
+						ul.widget-options.is-options-right
+							li.option-main-item
+								a(href='#').ason-widget(data-ason-type="refresh", data-ason-target=".widget-members", data-ason-loader-class="spinner duo",  data-ason-content="true", data-ason-duration="1100")
+
+							li.option-main-item
+								a(href='#').ason-widget(data-ason-type="toggle", data-ason-parent="false", data-ason-target=".widget-members-info", data-ason-content="true", data-ason-duration="200")
+
+							li.option-main-item
+								a(href='#').ason-widget(data-ason-type="delete", data-ason-target=".widget-members", data-ason-content="true", data-ason-animation="fadeOut")
+
+							li
+								a(href = '#').toggler-btn
+									i.fa.fa-circle-thin
+
+						.widget-members-info
+
+							h4.widget-header Members
+							.table-responsive
+								table.todocheckbo.table.table-hover.table-striped.table-order-header
+									thead
+										tr
+											th.tb-col-0
+												label.cb-checkbox.cb-checkbox#members-all
+													input(type='checkbox', value='')
+											th.tb-col-1 #
+											th.tb-col-2 Name
+											th.tb-col-3 Position
+											th.tb-col-4 Status
+											th.tb-col-5 Action
+
+									tbody
+										tr.members-row
+											td.tb-col-0
+												label.cb-checkbox
+													input(type='checkbox', value='')
+											td.tb-col-1 1
+											td.tb-col-2 Kelly Garcia
+											td.tb-col-3 Designer
+											td.tb-col-4
+												.label.label-danger Offline
+											td.tb-col-5
+												a(href="#").btn.btn-dark Edit
+
+										tr.members-row
+											td.tb-col-0
+												label.cb-checkbox
+													input(type='checkbox', value='')
+											td.tb-col-1 2
+											td.tb-col-2 Jerry Nelson
+											td.tb-col-3 Member
+											td.tb-col-4
+												.label.label-success Online
+											td.tb-col-5
+												a(href="#").btn.btn-dark Edit
+										tr.members-row
+											td.tb-col-0
+												label.cb-checkbox
+													input(type='checkbox', value='')
+											td.tb-col-1 3
+											td.tb-col-2 Harold Ellis
+											td.tb-col-3 Programmer
+											td.tb-col-4
+												.label.label-danger Offline
+											td.tb-col-5
+												a(href="#").btn.btn-dark Edit
+										tr.members-row
+											td.tb-col-0
+												label.cb-checkbox
+													input(type='checkbox', value='')
+											td.tb-col-1 4
+											td.tb-col-2 Michael Hart
+											td.tb-col-3 Co-founder
+											td.tb-col-4
+												.label.label-danger Offline
+											td.tb-col-5
+												a(href="#").btn.btn-dark Edit
+										tr.members-row
+											td.tb-col-0
+												label.cb-checkbox
+													input(type='checkbox', value='')
+											td.tb-col-1 5
+											td.tb-col-2 Madison Hart
+											td.tb-col-3 Member
+											td.tb-col-4
+												.label.label-success Online
+											td.tb-col-5
+												a(href="#").btn.btn-dark Edit
+										tr.members-row
+											td.tb-col-0
+												label.cb-checkbox
+													input(type='checkbox', value='')
+											td.tb-col-1 6
+											td.tb-col-2 Kelly Oliver
+											td.tb-col-3 CEO
+											td.tb-col-4
+												.label.label-success Online
+											td.tb-col-5
+												a(href="#").btn.btn-dark Edit
+
+
+
+			include components/layout/footer/footer_1/footer_1__t_1
+
+		include components/layout/sidebar/sidebar_2/sidebar_2__t_2__right
+
+//- ------------------------------------
+//- FOOT SCRIPTS JQUERY
+//- ------------------------------------
+append foot-scripts-jquery
+	script(src="js/shared/jquery-ui.min.js")
+	script(src="js/shared/jquery.ui.touch-punch.min.js")
+	script(type='text/javascript').
+		// jQuery Ui and Bootstrap conflict workaround
+		$.widget.bridge('uitooltip', $.ui.tooltip);
+		$.widget.bridge('uibutton', $.ui.button);

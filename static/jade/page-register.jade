@@ -1,0 +1,79 @@
+//- ------------------------------------
+//- BASE LAYOUT
+//- ------------------------------------
+extends aaa-master-layout
+
+
+//- ------------------------------------
+//- PAGE CONFIGURATION
+//- ------------------------------------
+prepend config
+	- var link = "page-register.html"
+	- var page = "page.p-register"
+	- var pageSubTitle = " - Page - Register"
+	- var scripts = [ 'form.checkradios', 'form.validate', 'form.validate.additional', 'x.call.page.register' ]
+	- var hideThemeSettings = true
+
+append config
+	- var pageBodyClasses = bodyClasses.push('login-bg')
+
+//- ------------------------------------
+//- PAGE CONTENT
+//- ------------------------------------
+block content
+
+	//SECTION
+	section.l-main-container
+
+		//Main Content
+		.login-wrapper.register-wrapper
+
+			.login-container
+
+				//Logo
+				h1.login-logo
+					img(src = 'img/logo.png', alt = 'Proteus')
+
+				//Login Form
+				form#registerForm.login-form(role='form', action='index.html')
+
+					.form-group
+						input#registerName.form-control(type='text', name='registerName', placeholder='Name')
+
+					.form-group
+						input#registerEmail.form-control(type='email', name='registerEmail', placeholder='Email')
+
+					.form-group
+						input#registerPassword.form-control(type='password', name='registerPassword', placeholder='Password')
+
+					.form-group
+						input#registerPasswordRepeat.form-control(type='password', name='registerPasswordRepeat', placeholder='Repeat password')
+
+					.checkbox
+						input#registerTerms.checkradios.checkradiosDark-1(type='checkbox', name='registerTerms')
+						| By signing up you are accepting out
+						| #{''}
+						a(href = '#') Terms and Conditions
+
+					button.btn.btn-dark.btn-block.btn-login(type='submit') Sign Up
+
+					.login-social
+
+						.l-span-md-12
+							.or
+								span - OR -
+
+						.l-span-md-12.register-sign-in
+							a(href="page-login.html").btn.btn-primary.btn-block.btn-login-register Sign In
+
+						.l-col-sm-6
+							a(href="#").btn.btn-facebook.btn-block
+								i.fa.fa-facebook
+								| Sign In with Facebook
+
+						.l-col-sm-6
+							a(href="#").btn.btn-twitter.btn-block
+								i.fa.fa-twitter
+								| Sign In with Twitter
+
+					.login-options

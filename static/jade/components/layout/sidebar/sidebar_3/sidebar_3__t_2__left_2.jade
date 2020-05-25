@@ -1,0 +1,135 @@
+//- Component Configuration
+
+- var scripts_sidebar_3_2 = [ 'a.shared.raphael', 'charts.morris', 'x.call.part.sidebar.3.2' ]
+
+//- ------------------------------------
+
+//Left Sidebar Content
+aside#sb-left-2.l-sidebar.l-sidebar-hidden.t-sidebar-2.z-index-99
+
+	//Server Stats Widget
+	.l-side-box
+		.widget-server-stats.server-stats-in-side.t-server-stats-1
+			a(href="#").server-stats-btn
+				.server-stats-icon.text-danger
+					i.fa.fa-tachometer
+				span 19%
+
+			.server-stats-content
+				.server-stats-header
+					h4 PCU
+					span.increase
+						i.fa.fa-angle-up
+						= ' '
+						| 3%
+				.server-stats-body
+					.hide.server-stats-pcu-1
+					.hide.server-stats-pcu-2
+					.server-stats-chart.pcu-chart#pcuChart
+
+				.server-stats-footer 19%
+
+
+		.widget-server-stats.server-stats-in-side.t-server-stats-1
+			a(href="#").server-stats-btn
+				.server-stats-icon.text-success
+					i.fa.fa-cubes
+				span 23%
+
+			.server-stats-content
+				.server-stats-header
+					h4 Memory
+					span.decrease
+						i.fa.fa-angle-down
+						= ' '
+						| 8%
+				.server-stats-body
+					.hide.server-stats-memory-1
+					.hide.server-stats-memory-2
+					.server-stats-chart.memory-chart#memoryChart
+
+				.server-stats-footer 23%
+
+
+		.widget-server-stats.server-stats-in-side.t-server-stats-1
+			a(href="#").server-stats-btn
+				.server-stats-icon.text-warning
+					i.fa.fa-fire
+				span 78
+					sup o
+
+			.server-stats-content
+				.server-stats-header
+					h4 Temperature
+					span.increase
+						i.fa.fa-angle-up
+						= ' '
+						| 18%
+				.server-stats-body
+					.hide.server-stats-temp-1
+					.server-stats-chart.temp-chart#tempChart
+
+				.server-stats-footer 78
+					sup o
+
+		.widget-server-stats.server-stats-in-side.t-server-stats-1
+			a(href="#").server-stats-btn
+				.server-stats-icon.text-info
+					i.fa.fa-users
+				span 22,365
+
+			.server-stats-content
+				.server-stats-header
+					h4 Active Users
+					span.decrease
+						i.fa.fa-angle-down
+						= ' '
+						| 10%
+				.server-stats-body
+					.hide.server-stats-user-1
+					.hide.server-stats-user-2
+					.server-stats-chart.user-chart#userChart
+
+				.server-stats-footer 22,365
+
+		.widget-server-stats.server-stats-in-side.t-server-stats-1
+			a(href="#").server-stats-btn
+				.server-stats-icon.text-dark
+					i.fa.fa-cloud-upload
+				span 325
+					span.small GB
+
+			.server-stats-content
+				.server-stats-header
+					h4 Traffic
+					span.increase: i.fa.fa-chevron-up
+				.server-stats-body
+					.server-stats-progress
+						.progress.progress-radius-2
+							.progress-bar.progress-bar-striped.active.progress-bar-dark(role='progressbar', aria-valuenow='38', aria-valuemin='0', aria-valuemax='100', style='width: 38%;')
+								| 38%
+
+				.server-stats-footer 325
+					span.small GB
+
+
+
+		.widget-server-stats.server-stats-in-side.t-server-stats-1
+			a(href="#").server-stats-btn
+				.server-stats-icon.text-muted
+					i.fa.fa-hdd-o
+				span 258
+					span.small GB
+
+			.server-stats-content
+				.server-stats-header
+					h4 Backup Progress
+					span 45%
+				.server-stats-body
+					.server-stats-progress
+						.progress.progress-radius-2
+							.progress-bar.progress-bar-striped.active(role='progressbar', aria-valuenow='45', aria-valuemin='0', aria-valuemax='100', style='width: 45%;')
+								span.sr-only 45% Complete
+
+				.server-stats-footer 258
+					span.small GB

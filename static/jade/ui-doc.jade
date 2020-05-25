@@ -1,0 +1,237 @@
+//- ------------------------------------
+//- BASE LAYOUT
+//- ------------------------------------
+extends aaa-master-layout
+
+
+//- ------------------------------------
+//- PAGE CONFIGURATION
+//- ------------------------------------
+prepend config
+	- var link = "ui-doc.html"
+	- var page = "ui.u-doc"
+	- var pageSubTitle = " - UI Elements - Documentation and SyntaxHighlighter"
+	- var styles = [ 'syntaxhighlighter' ]
+	- var scripts = [ 'a.syntaxhighlighter' ]
+
+
+//- ------------------------------------
+//- PAGE CONTENT
+//- ------------------------------------
+block content
+
+	//SECTION
+	section.l-main-container
+
+		include components/layout/sidebar/sidebar_1/sidebar_1__t_1__left
+
+		//Main Content
+		section.l-container
+
+			include components/layout/header/header_1/header_1__t_1
+
+			.l-page-header
+				h2.l-page-title <span>Documentation</span> and <span>SyntaxHighlighter</span>
+				+breadcrumb(bread_ui_doc)
+
+			.l-spaced
+				// Documentation
+				.l-box.l-spaced-bottom
+					.l-box-header
+						h2.l-box-title <span>Documentation</span>
+						+box-options
+					.l-box-body.l-spaced
+
+						h4.sep-bottom Basic
+
+						.doc.doc-default.l-spaced-bottom
+							| Default documentation container for describing, explaining and documenting your code.
+
+						.doc.doc-default.doc-border.l-spaced-bottom
+							| Bordered documentation container.
+
+						.doc.doc-default.doc-text.l-spaced-bottom
+							| Colored text documentation container.
+
+						.doc.doc-default.l-spaced-bottom
+							h3.doc-text.mt-0 Individual text coloring
+							| You can change the <span class="doc-text">main container</span> color or set <span class="doc-text">individually</span> the color of the elements.
+
+						hr.l-spaced-bottom
+
+						h4.sep-bottom Border Options
+
+						.doc.doc-default.doc-top.l-spaced-bottom
+							| Styled documentation container.
+
+						.doc.doc-default.doc-right.l-spaced-bottom
+							| Styled documentation container.
+
+						.doc.doc-default.doc-bottom.l-spaced-bottom
+							| Styled documentation container.
+
+						.doc.doc-default.doc-left.l-spaced-bottom
+							| Styled documentation container.
+						hr.l-spaced-bottom
+						.doc.doc-default.doc-border.doc-top.l-spaced-bottom
+							| Styled documentation container.
+
+						.doc.doc-default.doc-border.doc-right.l-spaced-bottom
+							| Styled documentation container.
+
+						.doc.doc-default.doc-border.doc-bottom.l-spaced-bottom
+							| Styled documentation container.
+
+						.doc.doc-default.doc-border.doc-left.l-spaced-bottom
+							| Styled documentation container.
+
+						hr.l-spaced-bottom
+
+						h4.sep-bottom Colors v1
+
+						.doc.doc-primary.doc-border.doc-left.l-spaced-bottom
+							| Some <span class="doc-text">color</span> <strong> variations</strong>.
+
+						.doc.doc-success.doc-border.doc-left.l-spaced-bottom
+							| Some <span class="doc-text">color</span> variations.
+
+						.doc.doc-info.doc-border.doc-left.l-spaced-bottom
+							| Some <span class="doc-text">color</span> variations.
+
+						.doc.doc-warning.doc-border.doc-left.l-spaced-bottom
+							| Some <span class="doc-text">color</span> variations.
+
+						.doc.doc-danger.doc-border.doc-left.l-spaced-bottom
+							| Some <span class="doc-text">color</span> variations.
+
+						.doc.doc-dark.doc-border.doc-left.l-spaced-bottom
+							| Some <span class="doc-text">color</span> variations.
+
+						.doc.doc-light.doc-border.doc-left.l-spaced-bottom
+							| Some <span class="doc-text">color</span> variations.
+
+						h4.sep-bottom Colors v2
+
+						.doc.doc-primary-1.doc-left.l-spaced-bottom
+							| Some <span class="doc-text">color</span> variations.
+
+						.doc.doc-success-1.doc-left.l-spaced-bottom
+							| Some <span class="doc-text">color</span> <strong> variations</strong>.
+
+						.doc.doc-info-1.doc-left.l-spaced-bottom
+							| Some <span class="doc-text">color</span> variations.
+
+						.doc.doc-warning-1.doc-left.l-spaced-bottom
+							| Some <span class="doc-text">color</span> variations.
+
+						.doc.doc-danger-1.doc-left.l-spaced-bottom
+							| Some <span class="doc-text">color</span> variations.
+
+						.doc.doc-dark-1.doc-left.l-spaced-bottom
+							| Some <span class="doc-text">color</span> variations.
+
+
+				// SyntaxHighlighter
+				.l-box.l-spaced-bottom
+					.l-box-header
+						h2.l-box-title <span>SyntaxHighlighter</span>
+						+box-options
+					.l-box-body.l-spaced
+
+						.syntax-wrapper.l-spaced-bottom
+							.syntax-info
+								h3 Css
+
+							.table-responsive
+								pre(class='brush:css;')
+									| 	body {
+									| 		font-family: "Source Sans Pro Regular", Helvetica, Arial, sans-serif;
+									| 		position: relative;
+									| 		height: 100%;
+									| 	}
+									| 	ul {
+									| 		list-style: none;
+									| 		margin: 0;
+									| 		padding: 0;
+									| 	}
+									| 	img {
+									| 		max-width: 100%;
+									| 	}
+									| 	* {
+									| 		outline: none !important;
+									| 	}
+									| 	h1, .h1 {
+									|		font-size: 36px;
+									|		font-size: 2.57143rem;
+									|	}
+									| 	a:hover {
+									| 		text-decoration: none;
+									| 	}
+
+
+						.syntax-wrapper.l-spaced-bottom
+							.syntax-info
+								h3 Html
+
+							.table-responsive
+								pre(class='brush:xml;')
+									form(role='form')
+										.form-group
+											label(for='yourEmail') Email address
+											input#yourEmail.form-control(type='email', placeholder='Enter email')
+										.form-group
+											label(for='yourPassword') Password
+											input#yourPassword.form-control(type='password', placeholder='Password')
+										.checkbox
+											label
+												input(type='checkbox')
+												| Check me out
+										button.btn.btn-default(type='submit') Submit
+
+						.syntax-wrapper.l-spaced-bottom
+							.syntax-info
+								h3 JavaScript
+
+							.table-responsive
+								pre(class='brush:js;')
+									| namespace( 'media' );
+									| media.Podcast = ( function() {
+									|   var podcastConstructor = function Podcast( name ) {
+									|       if ( false === ( this instanceof Podcast ) ) {
+									|         return new Podcast();
+									|       }
+									|       this.getName = function() {
+									|          return name;
+									|       }
+									|   }
+									|   podcastConstructor.prototype.download = function ( episode ) {
+									|     console.log( 'Downloading ' + episode + ' of ' + this.getName() );
+									|   }
+									|   return podcastConstructor;
+									| }());
+									| var astronomyCast = new media.Podcast( 'Astronomy podcast' );
+									| astronomyCast.download( 'the first episode' );
+
+						.syntax-wrapper
+							.syntax-info
+								h3 Php
+
+							.table-responsive
+								pre(class='brush:php;')
+									| 	class AboutController extends BaseController{
+									| 		public function showAbout(){
+									| 			return View::make('about');
+									| 		}
+									| 		public function showPage($thePage){
+									| 			return $thePage .' content';
+									| 		}
+									| 		public function showContact(){
+									| 			$contactUrl = URL::route('contact');
+									| 			return "Contact URL: $contactUrl";
+									| 		}
+									| 	}
+
+
+			include components/layout/footer/footer_1/footer_1__t_1
+
+		include components/layout/sidebar/sidebar_2/sidebar_2__t_2__right

@@ -1,0 +1,385 @@
+//- ==========================================================================
+//- Object Declarations
+//- ==========================================================================
+//- ==========================================================================
+
+//- ==========================================================================
+//- Breadcrumbs
+//- ==========================================================================
+
+//- layout-menu.jade
+//- ==========================================================================
+- var bread_layout_menu = [ { type:'text', url: '#', name: 'Layouts'}, { type:'active', name: 'Menu'} ]
+
+//- layout-page-full.jade
+//- ==========================================================================
+- var bread_layout_page_full = [ { type:'text', url: '#', name: 'Layouts'}, { type:'text', url: '#', name: 'Page'}, { type:'active', name: 'Full Width'} ]
+
+//- layout-page-boxed.jade
+//- ==========================================================================
+- var bread_layout_page_boxed = [ { type:'text', url: '#', name: 'Layouts'}, { type:'text', url: '#', name: 'Page'}, { type:'active', name: 'Boxed'} ]
+
+
+//- layout-sidebar-compact-left.jade
+//- ==========================================================================
+- var bread_layout_sidebar_compact_left = [ { type:'text', url: '#', name: 'Layouts'}, { type:'text', url: '#', name: 'Sidebar'}, { type:'text', name: 'Compact'}, { type:'active', name: 'Left'} ]
+
+//- layout-sidebar-compact-right.jade
+//- ==========================================================================
+- var bread_layout_sidebar_compact_right = [ { type:'text', url: '#', name: 'Layouts'}, { type:'text', url: '#', name: 'Sidebar'}, { type:'text', name: 'Compact'}, { type:'active', name: 'Right'} ]
+
+
+//- layout-sidebar-collapsed-left.jade
+//- ==========================================================================
+- var bread_layout_sidebar_collapsed_left = [ { type:'text', url: '#', name: 'Layouts'}, { type:'text', url: '#', name: 'Sidebar'}, { type:'text', name: 'Collapsed'}, { type:'active', name: 'Left'} ]
+
+//- layout-sidebar-collapsed-right.jade
+//- ==========================================================================
+- var bread_layout_sidebar_collapsed_right = [ { type:'text', url: '#', name: 'Layouts'}, { type:'text', url: '#', name: 'Sidebar'}, { type:'text', name: 'Collapsed'}, { type:'active', name: 'Right'} ]
+
+
+//- layout-sidebar-left.jade
+//- ==========================================================================
+- var bread_layout_sidebar_pixel_left = [ { type:'text', url: '#', name: 'Layouts'}, { type:'text', url: '#', name: 'Sidebar'}, { type:'text', name: 'Pixel Based'}, { type:'active', name: 'Left'} ]
+
+//- layout-sidebar-right.jade
+//- ==========================================================================
+- var bread_layout_sidebar_pixel_right = [ { type:'text', url: '#', name: 'Layouts'}, { type:'text', url: '#', name: 'Sidebar'}, { type:'text', name: 'Pixel Based'}, { type:'active', name: 'Right'} ]
+
+//- layout-sidebar-2-left.jade
+//- ==========================================================================
+- var bread_layout_sidebar_pixel_2_left = [ { type:'text', url: '#', name: 'Layouts'}, { type:'text', url: '#', name: 'Sidebar'}, { type:'text', name: 'Pixel Based'}, { type:'active', name: '2 Left'} ]
+
+//- layout-sidebar-2-right.jade
+//- ==========================================================================
+- var bread_layout_sidebar_pixel_2_right = [ { type:'text', url: '#', name: 'Layouts'}, { type:'text', url: '#', name: 'Sidebar'}, { type:'text', name: 'Pixel Based'}, { type:'active', name: '2 Right'} ]
+
+//- layout-sidebar-left-right.jade
+//- ==========================================================================
+- var bread_layout_sidebar_pixel_left_right = [ { type:'text', url: '#', name: 'Layouts'}, { type:'text', url: '#', name: 'Sidebar'}, { type:'text', name: 'Pixel Based'}, { type:'active', name: 'Left and Right'} ]
+
+//- layout-sidebar-1-left-2-right.jade
+//- ==========================================================================
+- var bread_layout_sidebar_pixel_1_left_2_right = [ { type:'text', url: '#', name: 'Layouts'}, { type:'text', url: '#', name: 'Sidebar'}, { type:'text', name: 'Pixel Based'}, { type:'active', name: '1 Left and 2 Right'} ]
+
+//- layout-sidebar-1-right-2-left.jade
+//- ==========================================================================
+- var bread_layout_sidebar_pixel_1_right_2_left = [ { type:'text', url: '#', name: 'Layouts'}, { type:'text', url: '#', name: 'Sidebar'}, { type:'text', name: 'Pixel Based'}, { type:'active', name: '1 Right and 2 Left'} ]
+
+//- layout-sidebar-2-left-2-right.jade
+//- ==========================================================================
+- var bread_layout_sidebar_pixel_2_left_2_right = [ { type:'text', url: '#', name: 'Layouts'}, { type:'text', url: '#', name: 'Sidebar'}, { type:'text', name: 'Pixel Based'}, { type:'active', name: '2 Left and 2 Right'} ]
+
+//- layout-sidebar-percent-left.jade
+//- ==========================================================================
+- var bread_layout_sidebar_percent_left = [ { type:'text', url: '#', name: 'Layouts'}, { type:'text', url: '#', name: 'Sidebar'}, { type:'text', name: 'Percentage Based'}, { type:'active', name: 'Left'} ]
+
+//- layout-sidebar-percent-right.jade
+//- ==========================================================================
+- var bread_layout_sidebar_percent_right = [ { type:'text', url: '#', name: 'Layouts'}, { type:'text', url: '#', name: 'Sidebar'}, { type:'text', name: 'Percentage Based'}, { type:'active', name: 'Right'} ]
+
+//- layout-sidebar-percent-left-right.jade
+//- ==========================================================================
+- var bread_layout_sidebar_percent_left_right = [ { type:'text', url: '#', name: 'Layouts'}, { type:'text', url: '#', name: 'Sidebar'}, { type:'text', name: 'Percentage Based'}, { type:'active', name: 'Left and Right'} ]
+
+//- layout-sidebar-slide-default.jade
+//- ==========================================================================
+- var bread_layout_sidebar_slide_default = [ { type:'text', url: '#', name: 'Layouts'}, { type:'text', url: '#', name: 'Sidebar'}, { type:'text', name: 'Slide'}, { type:'active', name: 'Default'} ]
+
+//- layout-sidebar-slide-static.jade
+//- ==========================================================================
+- var bread_layout_sidebar_slide_static = [ { type:'text', url: '#', name: 'Layouts'}, { type:'text', url: '#', name: 'Sidebar'}, { type:'text', name: 'Slide'}, { type:'active', name: 'Static'} ]
+
+//- layout-sidebar-slide-push-default.jade
+//- ==========================================================================
+- var bread_layout_sidebar_slide_push_default = [ { type:'text', url: '#', name: 'Layouts'}, { type:'text', url: '#', name: 'Sidebar'}, { type:'text', name: 'Slide and Push'}, { type:'active', name: 'Default'} ]
+
+//- layout-sidebar-slide-push-static.jade
+//- ==========================================================================
+- var bread_layout_sidebar_slide_push_static = [ { type:'text', url: '#', name: 'Layouts'}, { type:'text', url: '#', name: 'Sidebar'}, { type:'text', name: 'Slide and Push'}, { type:'active', name: 'Static'} ]
+
+
+//- layout-header-default.jade
+//- ==========================================================================
+- var bread_layout_header_default = [ { type:'text', url: '#', name: 'Layouts'}, { type:'text', url: '#', name: 'Header'}, { type:'active', name: 'Default 1'} ]
+
+//- layout-header-default-2.jade
+//- ==========================================================================
+- var bread_layout_header_default_2 = [ { type:'text', url: '#', name: 'Layouts'}, { type:'text', url: '#', name: 'Header'}, { type:'active', name: 'Default 2'} ]
+
+//- layout-header-fixed.jade
+//- ==========================================================================
+- var bread_layout_header_fixed = [ { type:'text', url: '#', name: 'Layouts'}, { type:'text', url: '#', name: 'Header'}, { type:'active', name: 'Fixed'} ]
+
+//- layout-header-fixed-boxed.jade
+//- ==========================================================================
+- var bread_layout_header_fixed_boxed = [ { type:'text', url: '#', name: 'Layouts'}, { type:'text', url: '#', name: 'Header'}, { type:'active', name: 'Fixed and Boxed'} ]
+
+//- layout-header-sticky.jade
+//- ==========================================================================
+- var bread_layout_header_sticky = [ { type:'text', url: '#', name: 'Layouts'}, { type:'text', url: '#', name: 'Header'}, { type:'active', name: 'Sticky'} ]
+
+//- layout-header-sticky-boxed.jade
+//- ==========================================================================
+- var bread_layout_header_sticky_boxed = [ { type:'text', url: '#', name: 'Layouts'}, { type:'text', url: '#', name: 'Header'}, { type:'active', name: 'Sticky and Boxed'} ]
+
+//- layout-header-slide.jade
+//- ==========================================================================
+- var bread_layout_header_slide = [ { type:'text', url: '#', name: 'Layouts'}, { type:'text', url: '#', name: 'Header'}, { type:'active', name: 'Slide'} ]
+
+//- layout-header-slide-push.jade
+//- ==========================================================================
+- var bread_layout_header_slide_push = [ { type:'text', url: '#', name: 'Layouts'}, { type:'text', url: '#', name: 'Header'}, { type:'active', name: 'Slide and Push'} ]
+
+//- layout-header-multiple.jade
+//- ==========================================================================
+- var bread_layout_header_multiple = [ { type:'text', url: '#', name: 'Layouts'}, { type:'text', url: '#', name: 'Header'}, { type:'active', name: 'Multiple'} ]
+
+
+//- layout-footer-default.jade
+//- ==========================================================================
+- var bread_layout_footer_default = [ { type:'text', url: '#', name: 'Layouts'}, { type:'text', url: '#', name: 'Footer'}, { type:'active', name: 'Default'} ]
+
+//- layout-footer-default-2.jade
+//- ==========================================================================
+- var bread_layout_footer_default_2 = [ { type:'text', url: '#', name: 'Layouts'}, { type:'text', url: '#', name: 'Footer'}, { type:'active', name: 'Default 2'} ]
+
+//- layout-footer-fixed.jade
+//- ==========================================================================
+- var bread_layout_footer_fixed = [ { type:'text', url: '#', name: 'Layouts'}, { type:'text', url: '#', name: 'Footer'}, { type:'active', name: 'Fixed'} ]
+
+//- layout-footer-fixed-boxed.jade
+//- ==========================================================================
+- var bread_layout_footer_fixed_boxed = [ { type:'text', url: '#', name: 'Layouts'}, { type:'text', url: '#', name: 'Footer'}, { type:'active', name: 'Fixed and Boxed'} ]
+
+//- layout-footer-sticky.jade
+//- ==========================================================================
+- var bread_layout_footer_sticky = [ { type:'text', url: '#', name: 'Layouts'}, { type:'text', url: '#', name: 'Footer'}, { type:'active', name: 'Sticky'} ]
+
+//- layout-footer-sticky-boxed.jade
+//- ==========================================================================
+- var bread_layout_footer_sticky_boxed = [ { type:'text', url: '#', name: 'Layouts'}, { type:'text', url: '#', name: 'Footer'}, { type:'active', name: 'Sticky and Boxed'} ]
+
+//- layout-footer-slide.jade
+//- ==========================================================================
+- var bread_layout_footer_slide = [ { type:'text', url: '#', name: 'Layouts'}, { type:'text', url: '#', name: 'Footer'}, { type:'active', name: 'Slide'} ]
+
+//- layout-footer-slide-push.jade
+//- ==========================================================================
+- var bread_layout_footer_slide_push = [ { type:'text', url: '#', name: 'Layouts'}, { type:'text', url: '#', name: 'Footer'}, { type:'active', name: 'Slide and Push'} ]
+
+//- layout-footer-multiple.jade
+//- ==========================================================================
+- var bread_layout_footer_multiple = [ { type:'text', url: '#', name: 'Layouts'}, { type:'text', url: '#', name: 'Footer'}, { type:'active', name: 'Multiple'} ]
+
+
+//- form-layout.jade
+//- ==========================================================================
+- var bread_form_layout =  [ { type:'text', url: '#', name: 'Forms'}, { type:'active', name: 'Layout'} ]
+
+//- form-elements.jade
+//- ==========================================================================
+- var bread_form_elements =  [ { type:'text', url: '#', name: 'Forms'}, { type:'active', name: 'Elements'} ]
+
+//- form-validation.jade
+//- ==========================================================================
+- var bread_form_validation =  [ { type:'text', url: '#', name: 'Forms'}, { type:'active', name: 'Validation'} ]
+
+//- form-wizard.jade
+//- ==========================================================================
+- var bread_form_wizard =  [ { type:'text', url: '#', name: 'Forms'}, { type:'active', name: 'Wizard'} ]
+
+//- form-upload.jade
+//- ==========================================================================
+- var bread_form_upload =  [ { type:'text', url: '#', name: 'Forms'}, { type:'active', name: 'Upload'} ]
+
+
+//- chart-flot.jade
+//- ==========================================================================
+- var bread_chart_flot =  [ { type:'text', url: '#', name: 'Charts'}, { type:'active', name: 'Flot'} ]
+
+//- chart-c3.jade
+//- ==========================================================================
+- var bread_chart_c3 =  [ { type:'text', url: '#', name: 'Charts'}, { type:'active', name: 'C3'} ]
+
+//- chart-morris.jade
+//- ==========================================================================
+- var bread_chart_morris =  [ { type:'text', url: '#', name: 'Charts'}, { type:'active', name: 'Morris'} ]
+
+//- chart-rickshaw.jade
+//- ==========================================================================
+- var bread_chart_rickshaw =  [ { type:'text', url: '#', name: 'Charts'}, { type:'active', name: 'Rickshaw'} ]
+
+//- chart-other.jade
+//- ==========================================================================
+- var bread_chart_other =  [ { type:'text', url: '#', name: 'Charts'}, { type:'active', name: 'Other'} ]
+
+
+
+//- table-basic.jade
+//- ==========================================================================
+- var bread_table_basic =  [ { type:'text', url: '#', name: 'Table'}, { type:'active', name: 'Basic'} ]
+
+//- table-datatable.jade
+//- ==========================================================================
+- var bread_table_data =  [ { type:'text', url: '#', name: 'Table'}, { type:'active', name: 'Data Table'} ]
+
+//- table-footable.jade
+//- ==========================================================================
+- var bread_table_foo =  [ { type:'text', url: '#', name: 'Table'}, { type:'active', name: 'Foo Table'} ]
+
+
+
+//- ui-doc.jade
+//- ==========================================================================
+- var bread_ui_doc = [ { type:'text', url: '#', name: 'UI Elements'}, { type:'active', name: 'Documentation and SyntaxHighlighter'} ]
+
+//- ui-box.jade
+//- ==========================================================================
+- var bread_ui_box = [ { type:'text', url: '#', name: 'UI Elements'}, { type:'active', name: 'Boxes and Panels'} ]
+
+//- ui-draggable.jade
+//- ==========================================================================
+- var bread_ui_draggable = [ { type:'text', url: '#', name: 'UI Elements'}, { type:'active', name: 'Draggables'} ]
+
+//- ui-accordions.jade
+//- ==========================================================================
+- var bread_ui_accordions = [ { type:'text', url: '#', name: 'UI Elements'}, { type:'active', name: 'Accordions'} ]
+
+//- ui-tab.jade
+//- ==========================================================================
+- var bread_ui_tabs = [ { type:'text', url: '#', name: 'UI Elements'}, { type:'active', name: 'Tabs'} ]
+
+//- ui-tag.jade
+//- ==========================================================================
+- var bread_ui_tags = [ { type:'text', url: '#', name: 'UI Elements'}, { type:'active', name: 'Tags'} ]
+
+//- ui-modal.jade
+//- ==========================================================================
+- var bread_ui_modals = [ { type:'text', url: '#', name: 'UI Elements'}, { type:'active', name: 'Modals'} ]
+
+//- ui-icons.jade
+//- ==========================================================================
+- var bread_ui_icons = [ { type:'text', url: '#', name: 'UI Elements'}, { type:'active', name: 'Icons'} ]
+
+//- ui-map.jade
+//- ==========================================================================
+- var bread_ui_map = [ { type:'text', url: '#', name: 'UI Elements'}, { type:'active', name: 'Maps'} ]
+
+//- ui-date-time.jade
+//- ==========================================================================
+- var bread_ui_date_time = [ { type:'text', url: '#', name: 'UI Elements'}, { type:'active', name: 'Date and Time'} ]
+
+//- ui-calendar.jade
+//- ==========================================================================
+- var bread_ui_calendar = [ { type:'text', url: '#', name: 'UI Elements'}, { type:'active', name: 'Calendar'} ]
+
+//- ui-grid.jade
+//- ==========================================================================
+- var bread_ui_grids = [ { type:'text', url: '#', name: 'UI Elements'}, { type:'active', name: 'Grids'} ]
+
+//- ui-notification.jade
+//- ==========================================================================
+- var bread_ui_notification = [ { type:'text', url: '#', name: 'UI Elements'}, { type:'active', name: 'Notifications'} ]
+
+//- ui-breadcrumb.jade
+//- ==========================================================================
+- var bread_ui_breadcrumb = [ { type:'text', url: '#', name: 'UI Elements'}, { type:'active', name: 'Breadcrumb'} ]
+
+//- ui-button.jade
+//- ==========================================================================
+- var bread_ui_button = [ { type:'text', url: '#', name: 'UI Elements'}, { type:'active', name: 'Buttons'} ]
+
+//- ui-typography.jade
+//- ==========================================================================
+- var bread_ui_typography = [ { type:'text', url: '#', name: 'UI Elements'}, { type:'active', name: 'Typography'} ]
+
+//- ui-pagination.jade
+//- ==========================================================================
+- var bread_ui_pagination = [ { type:'text', url: '#', name: 'UI Elements'}, { type:'active', name: 'Pagination'} ]
+
+//- ui-progressbar.jade
+//- ==========================================================================
+- var bread_ui_progressbar = [ { type:'text', url: '#', name: 'UI Elements'}, { type:'active', name: 'Progressbars'} ]
+
+//- ui-page-progressbar.jade
+//- ==========================================================================
+- var bread_ui_page_progressbar = [ { type:'text', url: '#', name: 'UI Elements'}, { type:'active', name: 'Page Progressbars'} ]
+
+
+//- ui-spinner.jade
+//- ==========================================================================
+- var bread_ui_spinner = [ { type:'text', url: '#', name: 'UI Elements'}, { type:'active', name: 'Spinners'} ]
+
+
+//- ui-colorpicker.jade
+//- ==========================================================================
+- var bread_ui_colorpicker = [ { type:'text', url: '#', name: 'UI Elements'}, { type:'active', name: 'Colorpickers'} ]
+
+//- ui-slider.jade
+//- ==========================================================================
+- var bread_ui_slider = [ { type:'text', url: '#', name: 'UI Elements'}, { type:'active', name: 'Sliders'} ]
+
+//- ui-pricing-table.jade
+//- ==========================================================================
+- var bread_ui_pricing_table = [ { type:'text', url: '#', name: 'UI Elements'}, { type:'active', name: 'Pricing Table'} ]
+
+//- ui-pricing-table.jade
+//- ==========================================================================
+- var bread_ui_tooltip = [ { type:'text', url: '#', name: 'UI Elements'}, { type:'active', name: 'Tooltips and Popovers'} ]
+
+
+//- widget.jade
+//- ==========================================================================
+- var bread_widget = [ { type:'active', name: 'Widgets'} ]
+
+
+//- page-error-403.jade
+//- ==========================================================================
+- var bread_page_error_403 = [ { type:'text', url: '#', name: 'Pages'}, { type:'text', url: '#', name: 'Error'}, { type:'active', name: '403'} ]
+
+//- page-error-404.jade
+//- ==========================================================================
+- var bread_page_error_404 = [ { type:'text', url: '#', name: 'Pages'}, { type:'text', url: '#', name: 'Error'}, { type:'active', name: '404'} ]
+
+//- page-error-405.jade
+//- ==========================================================================
+- var bread_page_error_405 = [ { type:'text', url: '#', name: 'Pages'}, { type:'text', url: '#', name: 'Error'}, { type:'active', name: '405'} ]
+
+//- page-error-500.jade
+//- ==========================================================================
+- var bread_page_error_500 = [ { type:'text', url: '#', name: 'Pages'}, { type:'text', url: '#', name: 'Error'}, { type:'active', name: '500'} ]
+
+//- page-error-503.jade
+//- ==========================================================================
+- var bread_page_error_503 = [ { type:'text', url: '#', name: 'Pages'}, { type:'text', url: '#', name: 'Error'}, { type:'active', name: '503'} ]
+
+//- page-error-offline.jade
+//- ==========================================================================
+- var bread_page_error_offline = [ { type:'text', url: '#', name: 'Pages'}, { type:'text', url: '#', name: 'Error'}, { type:'active', name: 'offline'} ]
+
+
+//- page-blank.jade
+//- ==========================================================================
+- var bread_page_blank = [ { type:'text', url: '#', name: 'Pages'}, { type:'active', name: 'Blank'} ]
+
+//- page-faqs.jade
+//- ==========================================================================
+- var bread_page_faqs = [ { type:'text', url: '#', name: 'Pages'}, { type:'active', name: 'Faqs'} ]
+
+//- page-search.jade
+//- ==========================================================================
+- var bread_page_search = [ { type:'text', url: '#', name: 'Pages'}, { type:'active', name: 'Search'} ]
+
+//- page-profile.jade
+//- ==========================================================================
+- var bread_page_profile = [ { type:'text', url: '#', name: 'Pages'}, { type:'active', name: 'Profile'} ]
+
+//- page-invoice.jade
+//- ==========================================================================
+- var bread_page_invoice = [ { type:'text', url: '#', name: 'Pages'}, { type:'active', name: 'Invoice'} ]
+
+
+//- app-mail.jade
+//- ==========================================================================
+- var bread_app_mail = [ { type:'text', url: '#', name: 'App'}, { type:'active', name: 'Mail'} ]

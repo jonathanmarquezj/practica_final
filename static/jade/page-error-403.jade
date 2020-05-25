@@ -1,0 +1,43 @@
+//- ------------------------------------
+//- BASE LAYOUT
+//- ------------------------------------
+extends aaa-master-layout
+
+
+//- ------------------------------------
+//- PAGE CONFIGURATION
+//- ------------------------------------
+prepend config
+	- var link = "page-error-403.html"
+	- var page = "page.error.e-403"
+	- var pageSubTitle = " - Pages - Error - 403"
+	- var scripts = [ 'page.particleground', 'x.call.page.error' ]
+	- var hideThemeSettings = true
+
+//- ------------------------------------
+//- PAGE CONTENT
+//- ------------------------------------
+block content
+
+	//Main Content
+	section#error-bg.error-container
+		#error-particle.hide
+		.error-403
+			.center-outer
+				.center-inner
+					.center-content.error-403-content
+						h2.font-bold
+							| Error <span>403</span>
+						h3.font-light
+							//i.fa.fa-exclamation
+							| 	#{''}
+							| Access forbidden !
+
+						.info
+							p You don't have permission to access this page
+							p You could also do a quick search. Maybe you are lucky:
+						.input-group
+							input.form-control(type='text',placeholder="Search site...")
+							span.input-group-btn
+								button.btn.btn-default(type='button')
+									i.fa.fa-search

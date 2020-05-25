@@ -1,0 +1,51 @@
+unless hideThemeSettings
+
+	//- Component Configuration
+
+	//- ------------------------------------
+
+	//THEME SETTINGS
+	.widget-theme-settings.t-theme-settings-2
+
+		a.theme-settings-toggle(href="#")
+			i.fa.fa-paint-brush
+
+		.theme-settings-wrapper
+			h3 Theme Settings
+
+			.theme-collapsible-cointainer
+				.ason-widget(data-ason-type="scrollbar", data-ason-max-height="400px")
+
+					#themeSection1.theme-collapsible
+						| Default
+						span
+					div
+						.cont
+							.content
+								//- h4.theme-skin-title Bootstrap
+
+								a(href="#{urlAdminBootstrapThemeDefault}#{link}", title="Amber").theme-skin-wrapper.skin-default.tt-theme-settings
+									.l-row
+										.l-span-xs-4.theme-skin.skin-c-1
+										.l-span-xs-4.theme-skin.skin-c-2
+										.l-span-xs-4.theme-skin.skin-c-3
+
+								a(href="#{urlAdminBootstrapThemeMediumPurple}#{link}", title="Medium Purple").theme-skin-wrapper.skin-medium-purple.tt-theme-settings
+									.l-row
+										.l-span-xs-3.theme-skin.skin-c-1
+										.l-span-xs-3.theme-skin.skin-c-2
+										.l-span-xs-3.theme-skin.skin-c-3
+										.l-span-xs-3.theme-skin.skin-c-4
+
+
+					#themeSection2.theme-collapsible
+						| Material
+						span
+					div
+						.cont
+							.content
+								//- h4.theme-skin-title Bootstrap
+
+								.theme-skin-wrapper.skin-soon.tt-theme-settings(title="Material Design Soon")
+									.l-row
+										.l-span-xs-12.theme-skin.skin-c-soon Material Design Soon

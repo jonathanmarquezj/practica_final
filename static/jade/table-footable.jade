@@ -1,0 +1,158 @@
+//- ------------------------------------
+//- BASE LAYOUT
+//- ------------------------------------
+extends aaa-master-layout
+
+
+//- ------------------------------------
+//- PAGE CONFIGURATION
+//- ------------------------------------
+prepend config
+	- var link = "table-footable.html"
+	- var page = "table.t-footable"
+	- var pageSubTitle = " - Table - FooTable"
+	- var scripts = [ 'table.fooTables', 'x.call.table.foo' ]
+
+
+//- ------------------------------------
+//- PAGE CONTENT
+//- ------------------------------------
+block content
+
+	//SECTION
+	section.l-main-container
+
+		include components/layout/sidebar/sidebar_1/sidebar_1__t_1__left
+
+		//Main Content
+		section.l-container
+
+			include components/layout/header/header_1/header_1__t_1
+
+			.l-page-header
+				h2.l-page-title <span>Foo</span> Table
+				+breadcrumb(bread_table_foo)
+
+			.l-spaced
+
+				.l-row
+					.l-box
+						.l-box-header
+							h2.l-box-title <span>Foo</span> Table
+							+box-options
+
+						.l-box-body
+							.l-spaced
+
+								include components/modules/doc/foo-table-doc
+
+								form.form-inline(role='form')
+									.form-group.mr-20
+										label(for='filter').mr-5 Search
+										input#filter.form-control(type='text')
+									.form-group.mr-20
+										label(for='status').mr-5 Status
+										select#status.form-control.filter-status
+											option
+											option(value='active') Active
+											option(value='disabled') Disabled
+											option(value='suspended') Suspended
+									a.btn.btn-dark.clear-filter.mr-20(href='#clear', title='clear filter') Clear
+									span.row-count
+
+
+							table#fooTableId.table.table-hover.label-container(data-filter='#filter', data-page-size='5')
+								thead
+									tr.active
+										th(data-toggle='true')
+											| First Name
+										th(data-hide='phone')
+											| Last Name
+										th(data-hide='phone,tablet')
+											| Job Title
+										th(data-hide='phone,tablet', data-name='Date Of Birth')
+											| DOB
+										th
+											| Status
+								tbody
+									tr
+										td Isidra
+										td Boudreaux
+										td Traffic Court Referee
+										td(data-value='78025368997') 22 Jun 1972
+										td(data-value='1')
+											span.label.label-success(title='Active') Active
+									tr
+										td Shona
+										td Woldt
+										td
+											a(href='#') Airline Transport Pilot
+										td(data-value='370961043292') 3 Oct 1981
+										td(data-value='2')
+											span.label.label-dark(title='Disabled') Disabled
+									tr
+										td Granville
+										td Leonardo
+										td Business Services Sales Representative
+										td(data-value='-22133780420') 19 Apr 1969
+										td(data-value='3')
+											span.label.label-danger(title='Suspended') Suspended
+									tr
+										td Easer
+										td Dragoo
+										td Drywall Stripper
+										td(data-value='250833505574') 13 Dec 1977
+										td(data-value='1')
+											span.label.label-success(title='Active') Active
+									tr
+										td Maple
+										td Halladay
+										td Aviation Tactical Readiness Officer
+										td(data-value='694116650726') 30 Dec 1991
+										td(data-value='3')
+											span.label.label-danger(title='Suspended') Suspended
+									tr
+										td Maxine
+										td Woldt
+										td
+											a(href='#') Business Services Sales Representative
+										td(data-value='561440464855') 17 Oct 1987
+										td(data-value='2')
+											span.label.label-dark(title='Disabled') Disabled
+									tr
+										td Lorraine
+										td Mcgaughy
+										td Hemodialysis Technician
+										td(data-value='437400551390') 11 Nov 1983
+										td(data-value='2')
+											span.label.label-dark(title='Disabled') Disabled
+									tr
+										td Lizzee
+										td Goodlow
+										td Technical Services Librarian
+										td(data-value='-257733999319') 1 Nov 1961
+										td(data-value='3')
+											span.label.label-danger(title='Suspended') Suspended
+									tr
+										td Judi
+										td Badgett
+										td Electrical Lineworker
+										td(data-value='362134712000') 23 Jun 1981
+										td(data-value='1')
+											span.label.label-success(title='Active') Active
+									tr
+										td Lauri
+										td Hyland
+										td Blackjack Supervisor
+										td(data-value='500874333932') 15 Nov 1985
+										td(data-value='3')
+											span.label.label-danger(title='Suspended') Suspended
+								tfoot.hide-if-no-paging
+									tr
+										td(colspan='5').tac
+											ul.pagination
+
+
+			include components/layout/footer/footer_1/footer_1__t_1
+
+		include components/layout/sidebar/sidebar_2/sidebar_2__t_2__right

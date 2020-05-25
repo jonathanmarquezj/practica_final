@@ -1,0 +1,180 @@
+//- ------------------------------------
+//- BASE LAYOUT
+//- ------------------------------------
+extends aaa-master-layout
+
+
+//- ------------------------------------
+//- PAGE CONFIGURATION
+//- ------------------------------------
+prepend config
+	- var link = "page-invoice.html"
+	- var page = "page-invoice"
+	- var pageSubTitle = " - Page - Invoice Printed"
+	- var hideThemeSettings = true
+
+//- ------------------------------------
+//- PAGE CONTENT
+//- ------------------------------------
+block content
+
+	//SECTION
+	section.l-main-container
+
+		//Main Content
+		section.l-container
+			.l-page-header
+				h2.l-page-title <span>Invoice</span>
+
+			.l-spaced
+				.invoice-container
+
+					.l-row
+						.company-details
+							h2
+								a(href='#')
+									img(src='img/logo_dark.png', alt='Logo')
+
+							address
+								strong Loxdesign, Inc.
+								br
+								| 795 Folsom Ave, Suite 854
+								br
+								| San Francisco, CA 47856
+								br
+								| United States
+								br
+								br
+								| Phone: 1-856-375-6257
+								br
+								| Fax: 1-856-375-4587
+
+
+						.purchase-details
+							ul
+								li
+									strong Invoice No.
+								li
+									h4 HFT-5487956
+								li
+									strong Issue Date:
+									| #{''}
+									| September 30, 2014
+								li
+									strong Due Date:
+									| #{''}
+									| November 10, 2014
+
+					hr
+
+					.l-row
+						.invoice-address
+							h3.font-semibold  Client address
+							address
+								strong John Doe
+								br
+								| 1645 Main St
+								br
+								| Abigail Chicago 56247
+								br
+								| United States
+								br
+								br
+								| Phone: 1-365-457-5874
+								br
+								| Fax: 1-365-457-4751
+
+						.shipping-address
+
+							h3.font-semibold  Shipping address
+							address
+								strong Johnny, Inc.
+								br
+								| 1645 Main St
+								br
+								| Abigail Chicago 56247
+								br
+								| United States
+								br
+								br
+								| Phone: 1-365-457-5874
+								br
+								| Fax: 1-365-457-4751
+
+
+					table.table.table-striped.table-invoice
+						thead
+							tr
+								td.col-1 Project
+								td Description
+								td Quantity
+								td.col-4 Unit Price
+								td Amount
+						tbody
+							tr
+								td Logo Design
+								td
+									| Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.
+								td 1
+								td $1,000.00
+								td $1,000.00
+							tr
+								td Website Design
+								td
+									| Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.
+								td 2
+								td $800.00
+								td $1,600.00
+							tr
+								td Mobile App Designers
+								td
+									| Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.
+								td 3
+								td $750.00
+								td $2,250.00
+							tr
+								td Business Card Design
+								td
+									| Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.
+								td 2
+								td $350.00
+								td $750.00
+							tr
+								td Banner ad design
+								td
+									| Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.
+								td 4
+								td $250.00
+								td $1000.00
+						tfoot
+							tr.middle
+								td(colspan='4')
+									span
+										strong Subtotal
+								td
+									strong $6,600.00
+							tr
+								td(colspan='4')
+									span Discount
+								td 5%
+							tr
+								td(colspan='4')
+									span Tax
+								td 15%
+							tr.big
+								td(colspan='4')
+									span
+										strong Total
+								td
+									strong $7,210.5
+
+
+					hr
+					.note
+						h4 Note:
+						p Quisque id iaculis dolor, quis viverra ligula. Morbi id velit risus. Aenean volutpat libero quis aliquam rhoncus. Etiam elit massa, semper vitae massa at, cursus laoreet nibh. Duis dui tellus, bibendum vitae pharetra in, placerat non dolor. Fusce consequat commodo mi, vitae pretium magna auctor non. Morbi urna lorem, posuere id urna vel, gravida cursus mi. Aliquam eleifend egestas quam. Quisque felis ligula, interdum at gravida id, posuere eget odio. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec dictum augue libero, id convallis magna blandit ut.
+
+						p Nam dapibus sed ligula eget tristique. Pellentesque eu ex eu velit feugiat ullamcorper. Duis convallis volutpat lectus eu bibendum. Nunc lectus velit, ultricies non erat at, ultrices dictum velit. Donec at sapien ligula. Mauris ut ligula auctor nisi elementum ultrices. Ut sagittis neque nec sollicitudin faucibus.
+
+	script(type='text/javascript').
+		window.print();

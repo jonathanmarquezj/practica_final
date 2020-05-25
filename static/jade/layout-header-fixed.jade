@@ -1,0 +1,71 @@
+//- ------------------------------------
+//- BASE LAYOUT
+//- ------------------------------------
+extends aaa-master-layout
+
+
+//- ------------------------------------
+//- PAGE CONFIGURATION
+//- ------------------------------------
+prepend config
+	- var link = "layout-header-fixed.html"
+	- var page = "layout.header.h-fixed"
+	- var pageSubTitle = " - Fixed Header"
+	- var styles = [ 'syntaxhighlighter']
+	- var scripts = [ 'a.syntaxhighlighter' ]
+	- var hideThemeSettingsFooter = true
+
+append config
+	- var pageBodyClasses = bodyClasses.push('l-header-fixed-1')
+
+
+//- ------------------------------------
+//- PAGE CONTENT
+//- ------------------------------------
+block content
+
+	//SECTION
+	section.l-main-container.has-header-1
+
+		include components/layout/sidebar/sidebar_1/sidebar_1__t_1__left
+
+		//Main Content
+		section.l-container
+
+			include components/layout/header/header_1/header_1__t_1__no_sb
+
+			.l-page-header
+				h2.l-page-title <span>Fixed</span> Header
+				+breadcrumb(bread_layout_header_fixed)
+
+			.l-spaced-top
+				.l-box.no-border
+					.l-spaced
+
+						.syntax-wrapper
+							.syntax-info
+								p.mv
+									| The <strong>fixed header</strong> is kind a <strong>fusion</strong> of the "default" and "default-2" examples.
+									br
+									| Although by markup the header is inside the main container, visually it's outside of it.
+									br
+									| Useful in case you want to control the header through JavaScript.
+
+							.table-responsive
+								pre(class="brush:xml;")
+									|&lt;body class="l-header-fixed-1" &gt;
+									|	&nbsp;
+									|	<section class="l-main-container has-header-1">
+									|	&nbsp;
+									|		<section class="l-container">
+									|	&nbsp;
+									|			<header class="l-header l-header-1">
+									|				Header content...
+									|       		</header>
+									|	&nbsp;
+									|   		</section>
+									|	&nbsp;
+									|		Page content...
+									|   	</section>
+									|	&nbsp;
+									|&lt;/body&gt;

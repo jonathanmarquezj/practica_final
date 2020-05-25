@@ -1,0 +1,78 @@
+//- ------------------------------------
+//- BASE LAYOUT
+//- ------------------------------------
+extends aaa-master-layout
+
+
+//- ------------------------------------
+//- PAGE CONFIGURATION
+//- ------------------------------------
+prepend config
+	- var link = "layout-menu.html"
+	- var page = "layout.menu"
+	- var pageSubTitle = " - Menu"
+	- var styles = [ 'syntaxhighlighter']
+	- var scripts = [ 'a.syntaxhighlighter', 'velocity.custom.effects', 'x.call.layout.menu']
+
+
+//- ------------------------------------
+//- PAGE CONTENT
+//- ------------------------------------
+block content
+
+	//SECTION
+	section.l-main-container
+
+
+		include components/layout/sidebar/sidebar_1/sidebar_1__t_1__left_2
+
+		//Main Content
+		section.l-container
+
+			include components/layout/header/header_1/header_1__t_1__no_sb
+
+			.l-page-header
+				h2.l-page-title <span>Menu</span>
+				+breadcrumb(bread_layout_menu)
+
+			.min-height-900
+
+				.l-spaced-vertical
+					.l-box.no-border
+						.l-spaced
+
+							.syntax-wrapper
+								.syntax-info
+									.mv
+										p In this example we demonstrate how easy it is to set up a custom <strong>Menu</strong> with the help of <strong>asonWidget</strong>.
+										p Here is the list of changes:
+										div.mh
+											ul.list-styled
+												li 1. - Changed the initialization animation to slide in from left.
+												li 2. - Changed the submenu open animation to expand in with an increased stagger (default is 50).
+												li 3. - Changed menu item not to auto close an open menu if we try to open another one.
+												li 4. - Disabled navigation scrolling.
+										p.mt-10 asonWidgets Menu animations are powered by <strong><a href="http://julian.com/research/velocity/#uiPack" target="_blank">Velocity.js UIPack</a></strong>, which means you have a ton of animation options.
+										p For more menu customization options please check out the <strong>documentation!</strong>
+
+								.table-responsive
+									pre(class="brush:xml;")
+										|&lt;body&gt;
+										|	&nbsp;
+										|	<section>
+										|	&nbsp;
+										|		<aside id="mainMenu">
+										|			Sidebar content...
+										|		</aside>
+										|	&nbsp;
+										|		Page content...
+										|   	</section>
+										|	&nbsp;
+										|&lt;/body&gt;
+
+									hr
+
+									pre(class="brush:js;")
+										| $('#mainMenu').asonwidget({ type: 'menu', animInit: 'transition.slideLeftBigIn',  animOpen: 'transition.expandIn', animOpenStagger: 100, closeSameLevel: false, navScroll:false});
+
+				include components/layout/footer/footer_1/footer_1__t_1

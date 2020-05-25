@@ -1,0 +1,238 @@
+include ../../widgets/widget_task/task_in_box
+
+hr.l-spaced-vertical
+
+.l-row
+	.l-col-md-6
+
+		include ../../widgets/widget_message/message_in_box
+
+
+	.l-col-md-6
+		include ../../widgets/widget_notification/notification_in_box
+
+
+
+hr.l-spaced-vertical
+
+.l-row.l-spaced-bottom
+	.l-col-md-3
+		.widget-stats-2.stats-2-in-box.t-stats-2-1
+
+			.l-row.stats-2-header
+				.l-span-sm-8.stats-2-title
+					h4 Sales
+				.l-span-sm-4.stats-2-icon
+					i.fa.fa-money
+
+			.l-row.stats-2-body
+				.l-span-sm-8.stats-2-info $ 22,500
+				.l-span-sm-4.stats-2-change
+					i.fa.fa-angle-up
+					= ' '
+					span + 12%
+
+	.l-col-md-3
+		.widget-stats-2.stats-2-in-box.t-stats-2-2
+
+			.l-row.stats-2-header
+				.l-span-sm-8.stats-2-title
+					h4 Visitors
+				.l-span-sm-4.stats-2-icon
+					i.fa.fa-users
+
+			.l-row.stats-2-body
+				.l-span-sm-8.stats-2-info 3,281
+				.l-span-sm-4.stats-2-change
+					i.fa.fa-angle-up
+					= ' '
+					span + 21%
+
+
+	.l-col-md-3
+		.widget-stats-2.stats-2-in-box.t-stats-2-3
+
+			.l-row.stats-2-header
+				.l-span-sm-8.stats-2-title
+					h4 Pageviews
+				.l-span-sm-4.stats-2-icon
+					i.fa.fa-eye
+
+			.l-row.stats-2-body
+				.l-span-sm-8.stats-2-info 12,738
+				.l-span-sm-4.stats-2-change
+					i.fa.fa-angle-down
+					= ' '
+					span - 135
+
+	.l-col-md-3
+		.widget-stats-2.stats-2-in-box.t-stats-2-4
+
+			.l-row.stats-2-header
+				.l-span-sm-8.stats-2-title
+					h4 Avg. time on Site
+				.l-span-sm-4.stats-2-icon
+					i.fa.fa-clock-o
+
+			.l-row.stats-2-body
+				.l-span-sm-8.stats-2-info 00:15:32
+				.l-span-sm-4.stats-2-change
+					i.fa.fa-angle-up
+					= ' '
+					span + 5%
+
+.l-row.l-spaced-bottom
+	.l-col-md-4
+		.widget-stats-2.stats-2-in-box
+
+			.l-row.stats-2-header
+				.l-span-sm-8.stats-2-title
+					h4 Total Likes
+				.l-span-sm-4.stats-2-icon
+					i.fa.fa-thumbs-up
+
+			.l-row.stats-2-body
+				.l-span-sm-8.stats-2-info 15,674
+				.l-span-sm-4.stats-2-change
+					i.fa.fa-angle-up
+					= ' '
+					span + 249
+
+	.l-col-md-4
+		.widget-stats-2.stats-2-in-box.t-stats-2-5
+
+			.l-row.stats-2-header
+				.l-span-sm-8.stats-2-title
+					h4 Total Comments
+				.l-span-sm-4.stats-2-icon
+					i.fa.fa-comments
+
+			.l-row.stats-2-body
+				.l-span-sm-8.stats-2-info 5,421
+				.l-span-sm-4.stats-2-change
+					i.fa.fa-angle-up
+					= ' '
+					span + 178
+
+	.l-col-md-4
+		.widget-stats-2.stats-2-in-box.t-stats-2-6
+
+			.l-row.stats-2-header
+				.l-span-sm-8.stats-2-title
+					h4 Active Users
+				.l-span-sm-4.stats-2-icon
+					i.fa.fa-user
+
+			.l-row.stats-2-body
+				.l-span-sm-8.stats-2-info 232
+				.l-span-sm-4.stats-2-change
+					i.fa.fa-angle-up
+					= ' '
+					span + 2%
+
+.l-row.l-spaced-bottom
+	.l-col-md-3
+		.widget-social.social-in-box.t-social-facebook
+			.social-icon
+				i.fa.fa-facebook
+			.social-info
+				span 76547
+				= ' '
+				| Likes
+
+	.l-col-md-3
+		.widget-social.social-in-box.t-social-twitter
+			.social-icon
+				i.fa.fa-twitter
+			.social-info
+				span 34756
+				= ' '
+				| Followers
+
+	.l-col-md-3
+		.widget-social.social-in-box.t-social-google-plus
+			.social-icon
+				i.fa.fa-google-plus
+			.social-info
+				span 54785
+				= ' '
+				| Followers
+
+	.l-col-md-3
+		.widget-social.social-in-box.t-social-youtube
+			.social-icon
+				i.fa.fa-youtube
+			.social-info
+				span 12478
+				= ' '
+				| Subscribers
+
+
+.l-row
+
+	.l-col-lg-4.l-col-md-12.l-spaced-bottom
+		.widget-profile-2.profile-2-in-box.t-profile-2-2
+			.profile-2-img
+				a(href="page-profile.html"): img(src='img/profile/profile.jpg')
+				a.edit-profile(href="page-profile.html"): i.fa.fa-edit
+
+			ul.profile-2-info
+				li: h3 William Jones
+				li Designer
+
+			ul.profile-2-details
+				li: a(href="#")
+					span.text Messages
+					span.text-small M
+					.label.label-info 5
+
+				li: a(href="#")
+					span.text Tasks
+					span.text-small T
+					.label.label-danger 4
+
+				li: a(href="#")
+					span.text Notifications
+					span.text-small N
+					.label.label-success 5
+
+	.l-col-lg-4.l-col-md-6.l-spaced-bottom
+		.widget-social.social-in-box.t-social-instagram
+			.social-icon
+				i.fa.fa-instagram
+			.social-info
+				span 54785
+				= ' '
+				| Followers
+
+	.l-col-lg-4.l-col-md-6.l-spaced-bottom
+		.widget-nav.nav-in-box.t-nav-2
+			ul
+				li: a(href="page-profile.html")
+					.nav-icon
+						i.fa.fa-user
+					.nav-text Profile
+
+				li: a(href="app-mail.html")
+					.nav-icon
+						i.fa.fa-envelope
+
+						.nav-info
+							.badge.badge-danger 5
+
+					.nav-text Inbox
+
+				li: a(href="widget.html")
+					.nav-icon
+						i.fa.fa-cog
+					.nav-text Settings
+
+				li: a(href="page-lock-screen.html")
+					.nav-icon
+						i.fa.fa-lock
+					.nav-text Log Out
+
+				li: a(href="page-login.html")
+					.nav-icon
+						i.fa.fa-power-off
+					.nav-text Sign Out

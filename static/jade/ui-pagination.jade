@@ -1,0 +1,186 @@
+//- ------------------------------------
+//- BASE LAYOUT
+//- ------------------------------------
+extends aaa-master-layout
+
+
+//- ------------------------------------
+//- PAGE CONFIGURATION
+//- ------------------------------------
+prepend config
+	- var link = "ui-pagination.html"
+	- var page = "ui.u-pagination"
+	- var pageSubTitle = " - UI Elements - Pagination"
+
+
+//- ------------------------------------
+//- PAGE CONTENT
+//- ------------------------------------
+block content
+
+	//SECTION
+	section.l-main-container
+
+		include components/layout/sidebar/sidebar_1/sidebar_1__t_1__left
+
+		//Main Content
+		section.l-container
+
+			include components/layout/header/header_1/header_1__t_1
+
+			.l-page-header
+				h2.l-page-title <span>Pagination</span>
+				+breadcrumb(bread_ui_pagination)
+
+			.l-spaced
+				//Pagination
+				.l-box.l-spaced-bottom
+					.l-box-header
+						h2.l-box-title <span>Pagination</span>
+						+box-options
+
+					.l-box-body.l-spaced-horizontal
+						.l-row
+							.l-col-md-6
+								h4.sep-bottom  Default pagination
+								nav
+									ul.pagination
+										li
+											a(href='#')
+												span(aria-hidden='true') «
+												span.sr-only Previous
+										li
+											a(href='#') 1
+										li
+											a(href='#') 2
+										li
+											a(href='#') 3
+										li
+											a(href='#') 4
+										li
+											a(href='#') 5
+										li
+											a(href='#')
+												span(aria-hidden='true') »
+												span.sr-only Next
+
+								h4.sep-bottom  Disabled and active states
+								nav
+									ul.pagination
+										li.disabled
+											a(href='#')
+												span(aria-hidden='true') «
+												span.sr-only Previous
+										li.active
+											a(href='#')
+												| 1
+												span.sr-only (current)
+										li
+											a(href='#') 2
+										li
+											a(href='#') 3
+										li
+											a(href='#') 4
+										li
+											a(href='#') 5
+										li
+											a(href='#')
+												span(aria-hidden='true') »
+												span.sr-only Next
+
+							.l-col-md-6
+								h4.sep-bottom  Sizing
+								nav
+									ul.pagination.pagination-lg
+										li
+											a(href='#')
+												span(aria-hidden='true') «
+												span.sr-only Previous
+										li
+											a(href='#') 1
+										li
+											a(href='#') 2
+										li
+											a(href='#') 3
+										li
+											a(href='#') 4
+										li
+											a(href='#') 5
+										li
+											a(href='#')
+												span(aria-hidden='true') »
+												span.sr-only Next
+								nav
+									ul.pagination
+										li
+											a(href='#')
+												span(aria-hidden='true') «
+												span.sr-only Previous
+										li
+											a(href='#') 1
+										li
+											a(href='#') 2
+										li
+											a(href='#') 3
+										li
+											a(href='#') 4
+										li
+											a(href='#') 5
+										li
+											a(href='#')
+												span(aria-hidden='true') »
+												span.sr-only Next
+								nav
+									ul.pagination.pagination-sm
+										li
+											a(href='#')
+												span(aria-hidden='true') «
+												span.sr-only Previous
+										li
+											a(href='#') 1
+										li
+											a(href='#') 2
+										li
+											a(href='#') 3
+										li
+											a(href='#') 4
+										li
+											a(href='#') 5
+										li
+											a(href='#')
+												span(aria-hidden='true') »
+												span.sr-only Next
+
+				//Pager
+				.l-box.l-spaced-bottom
+					.l-box-header
+						h2.l-box-title <span>Pager</span>
+						+box-options
+
+					.l-box-body.l-spaced-horizontal
+						.l-row
+							.l-col-md-6
+								h4.sep-bottom  Default pager
+								nav
+									ul.pager
+										li
+											a(href='#') Previous
+										li
+											a(href='#') Next
+							.l-col-md-6
+								h4.sep-bottom  Pager with aligned links and disabled state
+								nav
+									ul.pager
+										li.previous.disabled
+											a(href='#')
+												span(aria-hidden='true') ←
+												| Older
+										li.next
+											a(href='#')
+												| Newer
+												span(aria-hidden='true') →
+
+			include components/layout/footer/footer_1/footer_1__t_1
+
+		include components/layout/sidebar/sidebar_2/sidebar_2__t_2__right
+

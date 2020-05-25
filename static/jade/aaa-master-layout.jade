@@ -1,0 +1,59 @@
+//- ------------------------------------
+//- PAGE CONFIGURATION
+//- ------------------------------------
+block config
+
+	//- General Settings
+	- var pageTitle   = "Proteus"
+	- var htmlClasses = ['']
+	- var bodyClasses = ['']
+	- var copyright   = "© Copyright 2015"
+	- var version     = "v 1.0"
+
+	//- Theme Urls
+	- var urlDefaultTheme = "/"
+	- var urlDefaultThemeMediumPurple = "/"
+
+	//- Includes
+
+	//- Objects
+	include components/config/objects
+
+	//- Mixins
+	include components/config/general
+	include components/config/styles
+	include components/config/scripts
+	include components/config/nav
+
+//- ------------------------------------
+
+doctype html
+html(class=htmlClasses,lang="en")
+
+	head
+		//- ------------------------------------
+		//- PAGE HEAD
+		//- ------------------------------------
+		block head
+			include components/base/head
+
+
+	body(class=bodyClasses)
+
+		include components/helpers/browsehappy
+		include components/settings/general
+		include components/settings/theme
+
+
+		//- ------------------------------------
+		//- PAGE CONTENT
+		//- ------------------------------------
+		block content
+
+
+		//- ------------------------------------
+		//- PAGE FOOT
+		//- ------------------------------------
+		block foot
+			include components/base/foot
+

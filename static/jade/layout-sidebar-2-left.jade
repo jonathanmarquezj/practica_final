@@ -1,0 +1,84 @@
+//- ------------------------------------
+//- BASE LAYOUT
+//- ------------------------------------
+extends aaa-master-layout
+
+
+//- ------------------------------------
+//- PAGE CONFIGURATION
+//- ------------------------------------
+prepend config
+	- var link = "layout-sidebar-2-left.html"
+	- var page = "layout.sidebar.pixel.si-2-left"
+	- var pageSubTitle = " - 2 Left Sidebars"
+	- var styles = [ 'syntaxhighlighter']
+	- var scripts = [ 'a.syntaxhighlighter' ]
+
+//- ------------------------------------
+//- PAGE CONTENT
+//- ------------------------------------
+block content
+
+	//SECTION
+	section.l-main-container
+
+		include components/layout/sidebar/sidebar_1/sidebar_1__t_1__left
+
+		include components/layout/sidebar/sidebar_3/sidebar_3__t_3
+
+		//Main Content
+		section.l-container
+
+			include components/layout/header/header_1/header_1__t_1__no_sb
+
+			.l-page-header
+				h2.l-page-title <span>2 Left</span> Sidebars
+				+breadcrumb(bread_layout_sidebar_pixel_2_left)
+
+			.l-spaced-vertical
+
+				.l-box.no-border
+					.l-spaced
+
+						.syntax-wrapper
+							.syntax-info
+								.mv
+									p In this example we see <strong>2 left sidebars</strong>.
+									p The <strong>first</strong> one switches states on different screen sizes.
+									p The <strong>second</strong> has no switch button and no Ason Widget attached to it, it's just a basic responsive sidebar.
+									p For more information please check out the <strong>documentation!</strong>
+
+							.table-responsive
+								pre(class="brush:xml;")
+									|&lt;body&gt;
+									|	&nbsp;
+									|	<section class="l-main-container">
+									|	&nbsp;
+									|		<aside id="sb-left-id" class="l-sidebar l-sidebar-1">
+									|	&nbsp;
+									|			<a href="#" class="ason-widget" data-ason-type="sidebar" data-ason-to-sm="sidebar" data-ason-target="#sb-left-id" >
+									|				<i class="fa fa-bars"> </i>
+									|			</a>
+									|	&nbsp;
+									|   		</aside>
+									|	&nbsp;
+									|		<aside class="l-sidebar l-sidebar-3">
+									|	&nbsp;
+									|			Sidebar content...
+									|	&nbsp;
+									|   		</aside>
+									|	&nbsp;
+									|		<section class="l-container">
+									|	&nbsp;
+									| 			Page content...
+									|	&nbsp;
+									|   		</section>
+									|	&nbsp;
+									|		Page content...
+									|   	</section>
+									|	&nbsp;
+									|&lt;/body&gt;
+
+			include components/layout/footer/footer_1/footer_1__t_1
+
+

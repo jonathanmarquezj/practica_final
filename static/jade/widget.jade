@@ -1,0 +1,112 @@
+//- ------------------------------------
+//- BASE LAYOUT
+//- ------------------------------------
+extends aaa-master-layout
+
+
+//- ------------------------------------
+//- PAGE CONFIGURATION
+//- ------------------------------------
+prepend config
+	- var link = "widget.html"
+	- var page = "widget"
+	- var pageSubTitle = " - Widgets"
+	- var scripts = [ 'a.shared.perfectScrollbar', 'tabs.easyResponsiveTabs', 'charts.sparkline', 'x.call.widget' ]
+	//- var hideThemeSettings = true
+
+//- ------------------------------------
+//- HEAD STYLES GENERAL
+//- ------------------------------------
+prepend  head-styles-general
+	// Pre general
+	link(class="style-theme-addon", rel="stylesheet", href="css/addons/theme/jquery-ui.css")
+
+
+//- ------------------------------------
+//- PAGE CONTENT
+//- ------------------------------------
+block content
+
+	include components/layout/header/header_1/header_1__t_1__no_sb_3
+
+	//SECTION
+	section.l-main-container
+
+		include components/layout/sidebar/sidebar_1/sidebar_1__t_1__left_3
+
+		//Main Content
+		section.l-container
+
+			include components/layout/header/header_1/header_1__t_1__no_sb_2
+
+			.l-page-header
+
+				.l-col-sm-6.l-col-xs-9
+					h2.l-page-title <span>Widget</span>
+					+breadcrumb(bread_widget)
+
+				.l-col-sm-6.l-col-xs-3
+					.l-spaced-vertical.tar
+						button.btn.btn-primary.mt-10.ason-widget.tt-left(
+							title="Toggle Slide Header",
+							data-ason-type="header",
+							data-ason-anim-full=['velocity', 'transition.slideDownBigIn', 'transition.slideUpBigOut' ],
+							data-ason-anim-md=['velocity', 'transition.bounceDownIn', 'transition.bounceUpOut' ],
+							data-ason-target="#header")
+								i.fa.fa-arrow-circle-up
+
+						button.btn.btn-primary.mt-10.ason-widget(
+							data-ason-type="sidebar",
+							data-ason-on-all="hidden",
+							data-ason-to-all="sidebar",
+							data-ason-anim-all=['velocity', null, 'transition.slideRightBigIn'],
+							data-ason-target="#sb-right-3")
+								i.fa.fa-arrow-circle-right
+
+			.l-spaced
+
+				include components/modules/doc/widget-main
+
+				#widgets.resp-tabs-skin-1
+					ul.resp-tabs-list
+						li Basic
+						li Advanced
+						li Ason
+					div.resp-tabs-container
+
+						// Basic Content
+						div
+							include components/modules/doc/widget-basic
+
+							include components/modules/widget/basic
+
+						// Advanced Content
+						div
+							include components/modules/doc/widget-advanced
+
+							include components/modules/widget/advanced
+
+
+						// Ason Content
+						div
+							include components/modules/doc/widget-ason
+
+							include components/modules/widget/ason
+
+
+			include components/layout/footer/footer_1/footer_1__t_1
+
+		include components/layout/sidebar/sidebar_1/sidebar_1__t_2__right
+
+
+//- ------------------------------------
+//- FOOT SCRIPTS JQUERY
+//- ------------------------------------
+append foot-scripts-jquery
+
+	script(src="js/shared/jquery-ui.min.js")
+	script(src="js/shared/jquery.ui.touch-punch.min.js")
+	script(type='text/javascript').
+		// jQuery Ui and Bootstrap conflict workaround
+		$.widget.bridge('uitooltip', $.ui.tooltip);
+		$.widget.bridge('uibutton', $.ui.button);

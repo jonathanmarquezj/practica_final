@@ -1,0 +1,52 @@
+//- ------------------------------------
+//- PAGE TITLE
+//- ------------------------------------
+block title
+	title #{pageTitle}#{pageSubTitle}
+
+
+//- ------------------------------------
+//- PAGE METATAGS
+//- ------------------------------------
+block metatags
+	meta(charset="utf-8")
+	meta(http-equiv="X-UA-Compatible" content="IE=edge")
+	meta(name="viewport" content="width=device-width, initial-scale=1")
+	meta(name="description" content="")
+
+
+// ===== FAVICON =====
+link(rel="shortcut icon", href="favicon.ico")
+
+
+// ===== CSS =====
+
+//- ------------------------------------
+//- HEAD STYLES GENERAL
+//- ------------------------------------
+block head-styles-general
+	// General
+	link(rel="stylesheet", href="css/basic.css")
+	link(rel="stylesheet", href="css/general.css")
+	link(rel="stylesheet", href="css/theme.css", class="style-theme")
+	//- link(rel="stylesheet", href="css/theme_medium_purple.css", class="style-theme")
+
+
+//- ------------------------------------
+//- HEAD STYLES SPECIFIC
+//- ------------------------------------
+block head-styles-specific
+	+styles
+
+
+| #{''}
+<!--[if lt IE 9]>
+<script src="js/basic/respond.min.js"></script>
+<script src="js/basic/html5shiv.min.js"></script>
+<![endif]-->
+
+
+//- ------------------------------------
+//- HEAD SCRIPTS
+//- ------------------------------------
+block head-scripts

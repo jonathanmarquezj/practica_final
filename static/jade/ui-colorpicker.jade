@@ -1,0 +1,123 @@
+//- ------------------------------------
+//- BASE LAYOUT
+//- ------------------------------------
+extends aaa-master-layout
+
+
+//- ------------------------------------
+//- PAGE CONFIGURATION
+//- ------------------------------------
+prepend config
+	- var link = "ui-colorpicker.html"
+	- var page = "ui.u-colorpicker"
+	- var pageSubTitle = " - UI Elements - Colorpickers"
+	- var scripts = [ 'colorpicker.bootstrapColorpicker', 'colorpicker.tinycolor', 'colorpicker.bootstrapColorpickerSliders', 'x.call.ui.colorpicker' ]
+
+
+//- ------------------------------------
+//- PAGE CONTENT
+//- ------------------------------------
+block content
+
+	//SECTION
+	section.l-main-container
+
+		include components/layout/sidebar/sidebar_1/sidebar_1__t_1__left
+
+		//Main Content
+		section.l-container
+
+			include components/layout/header/header_1/header_1__t_1
+
+			.l-page-header
+				h2.l-page-title <span>Colorpicker</span>
+				+breadcrumb(bread_ui_colorpicker)
+
+			.l-spaced
+				//Colorpicker - Bootstrap
+				.l-box.l-spaced-bottom
+					.l-box-header
+						h2.l-box-title <span>Bootstrap</span> Colorpicker
+						+box-options
+
+					.l-box-body.l-spaced-left.l-spaced-right.l-spaced-bottom
+
+						.l-row
+							.l-col-md-6
+								h4.sep-bottom Basic Setup
+								input.form-control#bootColorpicker_1(type='text', value='#5367ce')
+
+							.l-col-md-6
+								h4.sep-bottom As a component
+								div.input-group#bootColorpicker_2
+									span.input-group-addon
+										i
+									input.form-control(type='text', value='')
+
+						.l-row
+							.l-col-md-6
+								h4.sep-bottom Horizonal mode
+								input#bootColorpicker_3.form-control.colorpicker-element(type='text', data-horizontal='true', value='#8fff00')
+
+							.l-col-md-6
+								h4.sep-bottom With Bootstrap Modal
+								button.btn.btn-dark(data-toggle='modal', data-target='#myModal')
+									| Show Modal
+
+								#myModal.modal.fade(tabindex='-1', role='dialog', aria-labelledby='myModalLabel', aria-hidden='true')
+									.modal-dialog
+										.modal-content
+											.modal-header
+												button.close(type='button', data-dismiss='modal', aria-hidden='true') ×
+												h4#myModalLabel.modal-title In a Modal
+											.modal-body
+												#bootColorpicker_4.input-group.colorpicker-component
+													input.form-control(type='text', value='')
+													span.input-group-addon
+														i
+											.modal-footer
+												button.btn.btn-dark(type='button', data-dismiss='modal') Close
+
+
+				//Colorpicker Slider - Bootstrap
+				.l-box.l-spaced-bottom
+					.l-box-header
+						h2.l-box-title <span>Bootstrap</span> Colorpicker with <span>Slider</span>
+						+box-options
+
+					.l-box-body.l-spaced
+						.l-row
+							.l-col-md-12
+								h4.sep-bottom.first Full featured popover
+								input#bootColorpickerSlider_1.form-control(type='text', value='#383838', data-color-format='hex')
+
+						.l-row
+							.l-col-md-6
+								h4.sep-bottom Small sized HSL
+								input#bootColorpickerSlider_2.form-control(type='text', value='#adff2f')
+
+							.l-col-md-6
+								h4.sep-bottom Small sized HSV
+								input#bootColorpickerSlider_3.form-control(type='text', value='#2FB6FF')
+
+						.l-row
+							.l-col-md-6
+								h4.sep-bottom Default sized RGB
+								input#bootColorpickerSlider_4.form-control(type='text', value='#7f7f7f')
+
+							.l-col-md-6
+								h4.sep-bottom Large sized CIE Lch
+								input#bootColorpickerSlider_5.form-control(type='text', value='rgb(251, 167, 219)')
+
+						.l-row
+							.l-col-md-6
+								h4.sep-bottom Swatches only
+								input#bootColorpickerSlider_6.form-control(type='text', value='#7f7f7f')
+
+							.l-col-md-6
+								h4.sep-bottom HSL with opdacity and swatches
+								input#bootColorpickerSlider_7.form-control(type='text', value='hsl(180, 50%, 50%)')
+
+			include components/layout/footer/footer_1/footer_1__t_1
+
+		include components/layout/sidebar/sidebar_2/sidebar_2__t_2__right

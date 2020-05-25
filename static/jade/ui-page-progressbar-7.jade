@@ -1,0 +1,122 @@
+//- ------------------------------------
+//- BASE LAYOUT
+//- ------------------------------------
+extends aaa-master-layout
+
+
+//- ------------------------------------
+//- PAGE CONFIGURATION
+//- ------------------------------------
+prepend config
+	- var link = "ui-page-progressbar-7.html"
+	- var page = "ui.u-page-progressbar"
+	- var pageSubTitle = " - UI Elements - Page Progressbars"
+	- var scripts = [ 'x.call.ui.pageprogressbar' ]
+
+
+//- ------------------------------------
+//- PAGE CONTENT
+//- ------------------------------------
+block content
+
+	//SECTION
+	section.l-main-container
+
+		include components/layout/sidebar/sidebar_1/sidebar_1__t_1__left
+
+		//Main Content
+		section.l-container
+
+			include components/layout/header/header_1/header_1__t_1
+
+			.l-page-header
+				h2.l-page-title <span>Page Progressbars</span>
+				+breadcrumb(bread_ui_page_progressbar)
+
+			.l-spaced
+
+				include components/modules/doc/ui-page-progressbar-doc
+
+				//Page Progressbars
+				.l-box.l-spaced-bottom
+					.l-box-header
+						h2.l-box-title <span>Effects</span>
+
+					.l-box-body.l-spaced.lh-2-4
+
+						.l-row.l-box.p-10
+							.l-col-sm-4 Minimal
+							.l-col-sm-4
+								code .pace-effect-1
+							.l-col-sm-4
+								a.btn.btn-default(href='ui-page-progressbar.html') Show Effect
+
+						.l-row.l-box.p-10
+							.l-col-sm-4 Flash
+							.l-col-sm-4
+									code .pace-effect-2
+							.l-col-sm-4
+								a.btn.btn-default(href='ui-page-progressbar-2.html') Show Effect
+
+						.l-row.l-box.p-10
+							.l-col-sm-4 Barber Shop
+							.l-col-sm-4
+								code .pace-effect-3
+							.l-col-sm-4
+								a.btn.btn-default(href='ui-page-progressbar-3.html') Show Effect
+
+						.l-row.l-box.p-10
+							.l-col-sm-4 Fill Left
+							.l-col-sm-4
+								code .pace-effect-4
+							.l-col-sm-4
+								a.btn.btn-default(href='ui-page-progressbar-4.html') Show Effect
+
+						.l-row.l-box.p-10
+							.l-col-sm-4 Big Counter
+							.l-col-sm-4
+								code .pace-effect-5
+							.l-col-sm-4
+								a.btn.btn-default(href='ui-page-progressbar-5.html') Show Effect
+
+						.l-row.l-box.p-10
+							.l-col-sm-4 Corner Indicator
+							.l-col-sm-4
+								code .pace-effect-6
+							.l-col-sm-4
+								a.btn.btn-default(href='ui-page-progressbar-6.html') Show Effect
+
+						.l-row.l-box.p-10.pace-active-effect
+							.l-col-sm-4 Bounce
+							.l-col-sm-4
+								code .pace-effect-7
+							.l-col-sm-4
+								a.btn.btn-default(href='ui-page-progressbar-7.html') Show Effect
+
+						.l-row.l-box.p-10
+							.l-col-sm-4 Loading Bar
+							.l-col-sm-4
+								code .pace-effect-8
+							.l-col-sm-4
+								a.btn.btn-default(href='ui-page-progressbar-8.html') Show Effect
+
+						.l-row.l-box.p-10
+							.l-col-sm-4 Center Simple
+							.l-col-sm-4
+								code .pace-effect-9
+							.l-col-sm-4
+								a.btn.btn-default(href='ui-page-progressbar-9.html') Show Effect
+
+
+			include components/layout/footer/footer_1/footer_1__t_1
+
+		include components/layout/sidebar/sidebar_2/sidebar_2__t_2__right
+
+//- ------------------------------------
+//- FOOT SCRIPTS SEMI GENERAL
+//- ------------------------------------
+prepend foot-scripts-semi-general
+	// Semi general preconfig
+	script(type='text/javascript').
+		paceSpecific = {class: 'pace-effect-7' }
+

@@ -1,0 +1,121 @@
+//- ------------------------------------
+//- BASE LAYOUT
+//- ------------------------------------
+extends aaa-master-layout
+
+
+//- ------------------------------------
+//- PAGE CONFIGURATION
+//- ------------------------------------
+prepend config
+	- var link = "page-blank.html"
+	- var page = "page.p-blank"
+	- var pageSubTitle = " - Page - Blank"
+	- var scripts = [ 'page.blank.plugins', 'x.call.page.blank' ]
+
+//- ------------------------------------
+//- PAGE TITLE
+//- ------------------------------------
+prepend  title
+//block  title
+append 	 title
+
+
+//- ------------------------------------
+//- PAGE METATAGS
+//- ------------------------------------
+prepend  metatags
+//block  metatags
+append   metatags
+
+
+//- ------------------------------------
+//- HEAD STYLES GENERAL
+//- ------------------------------------
+prepend  head-styles-general
+//block  head-styles-general
+append   head-styles-general
+
+
+//- ------------------------------------
+//- HEAD STYLES SPECIFIC
+//- ------------------------------------
+prepend  head-styles-specific
+//block  head-styles-specific
+append   head-styles-specific
+
+
+//- ------------------------------------
+//- HEAD SCRIPTS
+//- ------------------------------------
+prepend	 head-scripts
+//block  head-scripts
+append   head-scripts
+
+
+//- ------------------------------------
+//- PAGE CONTENT
+//- ------------------------------------
+block content
+
+	//SECTION
+	section.l-main-container
+
+		include components/layout/sidebar/sidebar_1/sidebar_1__t_1__left
+
+		//Main Content
+		section.l-container
+
+			include components/layout/header/header_1/header_1__t_1__no_sb
+
+			.l-page-header
+				h2.l-page-title <span>Blank</span> Page
+				+breadcrumb(bread_page_blank)
+
+			.l-spaced-vertical
+				.l-box.no-border
+					.l-spaced
+						p This is a <strong> Blank Page</strong>. It's a template for creating pages.
+						p You will also find a <strong>Sass template</strong> in the modules (<strong>page_blank.scss</strong>) and widgets(<strong>widget_blank.scss</strong>) directories.
+						p For more information check out the <strong> documentation </strong>.
+
+
+			include components/layout/footer/footer_1/footer_1__t_1
+
+
+//- ------------------------------------
+//- FOOT STYLES
+//- ------------------------------------
+prepend	 foot-styles
+//block  foot-styles
+append   foot-styles
+
+//- ------------------------------------
+//- FOOT SCRIPTS JQUERY
+//- ------------------------------------
+prepend	 foot-scripts-jquery
+//block  foot-scripts-jquery
+append   foot-scripts-jquery
+
+//- ------------------------------------
+//- FOOT SCRIPTS GENERAL
+//- ------------------------------------
+prepend	 foot-scripts-general
+//block  foot-scripts-general
+append   foot-scripts-general
+
+
+//- ------------------------------------
+//- FOOT SCRIPTS SEMI GENERAL
+//- ------------------------------------
+prepend	 foot-scripts-semi-general
+//block  foot-scripts-semi-general
+append   foot-scripts-semi-general
+
+
+//- ------------------------------------
+//- FOOT SCRIPTS SPECIFIC
+//- ------------------------------------
+prepend	 foot-scripts-specific
+//block  foot-scripts-specific
+append   foot-scripts-specific

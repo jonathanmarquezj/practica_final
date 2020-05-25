@@ -1,0 +1,213 @@
+//- ------------------------------------
+//- BASE LAYOUT
+//- ------------------------------------
+extends aaa-master-layout
+
+
+//- ------------------------------------
+//- PAGE CONFIGURATION
+//- ------------------------------------
+prepend config
+	- var link = "ui-spinner.html"
+	- var page = "ui.u-spinner"
+	- var pageSubTitle = " - UI Elements - Spinners"
+	- var scripts = [ 'x.call.ui.spinners' ]
+
+
+//- ------------------------------------
+//- PAGE CONTENT
+//- ------------------------------------
+block content
+
+	//SECTION
+	section.l-main-container
+
+		include components/layout/sidebar/sidebar_1/sidebar_1__t_1__left
+
+		//Main Content
+		section.l-container
+
+			include components/layout/header/header_1/header_1__t_1
+
+			.l-page-header
+				h2.l-page-title <span>Spinners</span>
+				+breadcrumb(bread_ui_spinner)
+
+			.l-spaced
+				.l-box.l-spaced-bottom
+					.l-box-header
+						h2.l-box-title Spinner <span>Types</span>
+						+box-options
+
+					.l-box-body.l-spaced
+
+						// Row 1
+						.l-row
+
+							.l-col-lg-3.l-col-md-6.l-spaced-bottom
+								.l-box.spinner-helper
+									.l-box-header
+										h2.l-box-title .spinner.no-overlay
+									.l-box-body.spinner.no-overlay Bushwick freegan master cleanse mlkshk. Small batch cliche yr, pork belly trust fund wolf Portland cred forage bespoke Cosby sweater occupy.
+
+							.l-col-lg-3.l-col-md-6.l-spaced-bottom.l-clear-md
+								.l-box.spinner-helper
+									.l-box-header
+										h2.l-box-title .spinner
+									.l-box-body.spinner Bushwick freegan master cleanse mlkshk. Small batch cliche yr, pork belly trust fund wolf Portland cred forage bespoke Cosby sweater occupy.
+
+							.l-col-lg-3.l-col-md-6.l-spaced-bottom
+								.l-box.spinner-helper
+									.l-box-header
+										h2.l-box-title .spinner.bar
+									.l-box-body.spinner.bar Bushwick freegan master cleanse mlkshk. Small batch cliche yr, pork belly trust fund wolf Portland cred forage bespoke Cosby sweater occupy.
+
+							.l-col-lg-3.l-col-md-6.l-spaced-bottom
+								.l-box.spinner-helper
+									.l-box-header
+										h2.l-box-title .spinner.blade
+									.l-box-body.spinner.blade Bushwick freegan master cleanse mlkshk. Small batch cliche yr, pork belly trust fund wolf Portland cred forage bespoke Cosby sweater occupy.
+
+
+						// Row 2
+						.l-row
+
+							.l-col-md-6.l-col-lg-3.l-spaced-bottom
+								.l-box.spinner-helper
+									.l-box-header
+										h2.l-box-title .spinner.double-up
+									.l-box-body.spinner.double-up Bushwick freegan master cleanse mlkshk. Small batch cliche yr, pork belly trust fund wolf Portland cred forage bespoke Cosby sweater occupy.
+
+							.l-col-md-6.l-col-lg-3.l-spaced-bottom.l-clear-md
+								.l-box.spinner-helper
+									.l-box-header
+										h2.l-box-title .spinner.duo
+									.l-box-body.spinner.duo Bushwick freegan master cleanse mlkshk. Small batch cliche yr, pork belly trust fund wolf Portland cred forage bespoke Cosby sweater occupy.
+
+							.l-col-md-6.l-col-lg-3.l-spaced-bottom
+								.l-box.spinner-helper
+									.l-box-header
+										h2.l-box-title .spinner.helicopter
+									.l-box-body.spinner.helicopter Bushwick freegan master cleanse mlkshk. Small batch cliche yr, pork belly trust fund wolf Portland cred forage bespoke Cosby sweater occupy.
+
+							.l-col-md-6.l-col-lg-3.l-spaced-bottom
+								.l-box.spinner-helper
+									.l-box-header
+										h2.l-box-title .spinner.ringed
+									.l-box-body.spinner.ringed Bushwick freegan master cleanse mlkshk. Small batch cliche yr, pork belly trust fund wolf Portland cred forage bespoke Cosby sweater occupy.
+
+
+						// Row 3
+						.l-row.l-spaced-bottom
+
+							.l-col-md-6.l-col-lg-3.l-spaced-bottom
+								.l-box.spinner-helper
+									.l-box-header
+										h2.l-box-title .spinner.line
+									.l-box-body.spinner.line Bushwick freegan master cleanse mlkshk. Small batch cliche yr, pork belly trust fund wolf Portland cred forage bespoke Cosby sweater occupy.
+
+							.l-col-md-6.l-col-lg-3.l-spaced-bottom.l-clear-md
+								.l-box.spinner-helper
+									.l-box-header
+										h2.l-box-title .spinner.line.grow
+									.l-box-body.spinner.line.grow Bushwick freegan master cleanse mlkshk. Small batch cliche yr, pork belly trust fund wolf Portland cred forage bespoke Cosby sweater occupy.
+
+							.l-col-md-6.l-col-lg-3.l-spaced-bottom
+								.l-box.spinner-helper
+									.l-box-header
+										h2.l-box-title .spinner.line.back-and-forth
+									.l-box-body.spinner.line.back-and-forth Bushwick freegan master cleanse mlkshk. Small batch cliche yr, pork belly trust fund wolf Portland cred forage bespoke Cosby sweater occupy.
+
+							.l-col-md-6.l-col-lg-3.l-spaced-bottom
+								.l-box.spinner-helper
+									.l-box-header
+										h2.l-box-title .spinner.line.back-and-forth.grow
+									.l-box-body.spinner.line.back-and-forth.grow Bushwick freegan master cleanse mlkshk. Small batch cliche yr, pork belly trust fund wolf Portland cred forage bespoke Cosby sweater occupy.
+
+
+						// Row 4
+						.l-row.l-spaced-bottom
+
+							.l-col-md-6.l-col-lg-3.l-spaced-bottom
+								.l-box.spinner-helper
+									.l-box-header
+										h2.l-box-title .spinner.shadow
+									.l-box-body.spinner.shadow Bushwick freegan master cleanse mlkshk. Small batch cliche yr, pork belly trust fund wolf Portland cred forage bespoke Cosby sweater occupy.
+
+							.l-col-md-6.l-col-lg-3.l-spaced-bottom.l-clear-md
+								.l-box.spinner-helper
+									.l-box-header
+										h2.l-box-title .spinner.shadow.oval
+									.l-box-body.spinner.shadow.oval Bushwick freegan master cleanse mlkshk. Small batch cliche yr, pork belly trust fund wolf Portland cred forage bespoke Cosby sweater occupy.
+
+							.l-col-md-6.l-col-lg-3.l-spaced-bottom
+								.l-box.spinner-helper
+									.l-box-header
+										h2.l-box-title .spinner.shadow.oval.right
+									.l-box-body.spinner.shadow.oval.right Bushwick freegan master cleanse mlkshk. Small batch cliche yr, pork belly trust fund wolf Portland cred forage bespoke Cosby sweater occupy.
+
+							.l-col-md-6.l-col-lg-3.l-spaced-bottom
+								.l-box.spinner-helper
+									.l-box-header
+										h2.l-box-title .spinner.traditional
+									.l-box-body.spinner.traditional Bushwick freegan master cleanse mlkshk. Small batch cliche yr, pork belly trust fund wolf Portland cred forage bespoke Cosby sweater occupy.
+
+
+						// Row 5
+						.l-row.l-spaced-bottom
+
+							.l-col-md-6.l-col-lg-3.l-spaced-bottom
+								.l-box.spinner-helper
+									.l-box-header
+										h2.l-box-title .spinner.sphere
+									.l-box-body.spinner.sphere Bushwick freegan master cleanse mlkshk. Small batch cliche yr, pork belly trust fund wolf Portland cred forage bespoke Cosby sweater occupy.
+
+							.l-col-md-6.l-col-lg-3.l-spaced-bottom.l-clear-md
+								.l-box.spinner-helper
+									.l-box-header
+										h2.l-box-title .spinner.sphere.vertical
+									.l-box-body.spinner.sphere.vertical Bushwick freegan master cleanse mlkshk. Small batch cliche yr, pork belly trust fund wolf Portland cred forage bespoke Cosby sweater occupy.
+
+							.l-col-md-6.l-col-lg-3.l-spaced-bottom
+								.l-box.spinner-helper
+									.l-box-header
+										h2.l-box-title .spinner.dashed
+									.l-box-body.spinner.dashed Bushwick freegan master cleanse mlkshk. Small batch cliche yr, pork belly trust fund wolf Portland cred forage bespoke Cosby sweater occupy.
+
+							.l-col-md-6.l-col-lg-3.l-spaced-bottom
+								.l-box.spinner-helper
+									.l-box-header
+										h2.l-box-title .spinner.dashed.thick
+									.l-box-body.spinner.dashed.thick Bushwick freegan master cleanse mlkshk. Small batch cliche yr, pork belly trust fund wolf Portland cred forage bespoke Cosby sweater occupy.
+
+						// Row 6
+						.l-row.l-spaced-bottom
+
+							.l-col-md-6.l-col-lg-3.l-spaced-bottom
+								.l-box.spinner-helper
+									.l-box-header
+										h2.l-box-title .spinner.audiowave
+									.l-box-body.spinner.audiowave Bushwick freegan master cleanse mlkshk. Small batch cliche yr, pork belly trust fund wolf Portland cred forage bespoke Cosby sweater occupy.
+
+							.l-col-md-6.l-col-lg-3.l-spaced-bottom.l-clear-md
+								.l-box.spinner-helper
+									.l-box-header
+										h2.l-box-title .spinner.snake
+									.l-box-body.spinner.snake Bushwick freegan master cleanse mlkshk. Small batch cliche yr, pork belly trust fund wolf Portland cred forage bespoke Cosby sweater occupy.
+
+							.l-col-md-6.l-col-lg-3.l-spaced-bottom
+								.l-box.spinner-helper
+									.l-box-header
+										h2.l-box-title .spinner.spinningdisc
+									.l-box-body.spinner.spinningdisc Bushwick freegan master cleanse mlkshk. Small batch cliche yr, pork belly trust fund wolf Portland cred forage bespoke Cosby sweater occupy.
+
+							.l-col-md-6.l-col-lg-3.l-spaced-bottom
+								.l-box.spinner-helper
+									.l-box-header
+										h2.l-box-title .spinner.glisteningwindow
+									.l-box-body.spinner.glisteningwindow Bushwick freegan master cleanse mlkshk. Small batch cliche yr, pork belly trust fund wolf Portland cred forage bespoke Cosby sweater occupy.
+
+			include components/layout/footer/footer_1/footer_1__t_1
+
+		include components/layout/sidebar/sidebar_2/sidebar_2__t_2__right
+

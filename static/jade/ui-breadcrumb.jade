@@ -1,0 +1,96 @@
+//- ------------------------------------
+//- BASE LAYOUT
+//- ------------------------------------
+extends aaa-master-layout
+
+
+//- ------------------------------------
+//- PAGE CONFIGURATION
+//- ------------------------------------
+prepend config
+	- var link = "ui-breadcrumb.html"
+	- var page = "ui.u-breadcrumb"
+	- var pageSubTitle = " - UI Elements - Breadcrumb"
+	- var scripts = [ 'a.shared.easing', 'breadcrumb.jBreadCrumb', 'x.call.ui.breadcrumb' ]
+
+
+//- ------------------------------------
+//- PAGE CONTENT
+//- ------------------------------------
+block content
+
+	//SECTION
+	section.l-main-container
+
+		include components/layout/sidebar/sidebar_1/sidebar_1__t_1__left
+
+		//Main Content
+		section.l-container
+
+			include components/layout/header/header_1/header_1__t_1
+
+			.l-page-header
+				h2.l-page-title <span>Breadcrumb</span>
+				+breadcrumb(bread_ui_breadcrumb)
+
+			.l-spaced
+				.l-box.l-spaced-bottom
+					.l-box-header
+						h2.l-box-title <span>Bootstrap</span>
+						+box-options
+
+					.l-box-body.l-spaced
+						ol.breadcrumb
+							li
+								a(href='#') Home
+							li
+								a(href='#') Layout
+							li  Header
+							li.active Fixed
+
+			.l-spaced
+				.l-box.l-spaced-bottom
+					.l-box-header
+						h2.l-box-title <span>jBreadCrumb</span>
+						+box-options
+
+					.l-box-body.l-spaced.group
+
+						.l-spaced-bottom.group
+							#breadCrumb1.breadCrumb
+								ul
+									li
+										a(href='#') Home
+									li
+										a(href='#') Biocompare Home
+									li
+										a(href='#') Product Discovery
+									li
+										a(href='#') Life Science Products / Laboratory Supplies
+									li
+										a(href='#') Kits and Assays
+									li
+										a(href='#') Mutagenesis Kits
+									li
+										| Mutation Generation System™
+
+						#breadCrumb2.breadCrumb
+							ul
+								li
+									a(href='#') Home
+								li
+									a(href='#') Biocompare Home
+								li
+									a(href='#') Product Discovery
+								li
+									a(href='#') Life Science Products / Laboratory Supplies
+								li
+									a(href='#') Kits and Assays
+								li
+									a(href='#') Mutagenesis Kits
+								li
+									| Mutation Generation System™ Kit (MGS™ Kit) from Finnzymes Oy
+
+			include components/layout/footer/footer_1/footer_1__t_1
+
+		include components/layout/sidebar/sidebar_2/sidebar_2__t_2__right

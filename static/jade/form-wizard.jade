@@ -1,0 +1,224 @@
+//- ------------------------------------
+//- BASE LAYOUT
+//- ------------------------------------
+extends aaa-master-layout
+
+
+//- ------------------------------------
+//- PAGE CONFIGURATION
+//- ------------------------------------
+prepend config
+	- var link = "form-wizard.html"
+	- var page = "form.fo-wizard"
+	- var pageSubTitle = " - Form - Wizard"
+	- var scripts = [ 'a.shared.cookie', 'form.validate',  'form.steps', 'x.call.form.wizard' ]
+
+
+//- ------------------------------------
+//- PAGE CONTENT
+//- ------------------------------------
+block content
+
+	//SECTION
+	section.l-main-container
+
+		include components/layout/sidebar/sidebar_1/sidebar_1__t_1__left
+
+		//Main Content
+		section.l-container
+
+			include components/layout/header/header_1/header_1__t_1
+
+			.l-page-header
+				h2.l-page-title Form <span>Wizard</span>
+				+breadcrumb(bread_form_wizard)
+
+			.l-spaced
+
+				.l-box.l-spaced-bottom
+					.l-box-header
+						h2.l-box-title <span>Default</span> Form Wizard
+						+box-options
+
+					.l-box-body.l-spaced
+						form#wizardDefault(action='login')
+							div
+								h3 Account
+								section
+									.form-group.row
+										label.col-sm-2.control-label(for='userName') User name *
+										.col-sm-10
+											input#userName.form-control.required(name='userName', type='text')
+
+									.form-group.row
+										label.col-sm-2.control-label(for='password') Password *
+										.col-sm-10
+											input#password.form-control.required(name='password', type='password')
+
+									.form-group.row
+										label.col-sm-2.control-label(for='confirm') Confirm Password *
+										.col-sm-10
+											input#confirm.form-control.required(name='confirm', type='password')
+
+
+									p (*) Mandatory
+								h3 Profile
+								section
+									.form-group.row
+										label.col-sm-2.control-label(for='name') First name *
+										.col-sm-10
+											input#name.form-control.required(name='name', type='text')
+
+									.form-group.row
+										label.col-sm-2.control-label(for='surname') Last name *
+										.col-sm-10
+											input#surname.form-control.required(name='surname', type='text')
+
+									.form-group.row
+										label.col-sm-2.control-label(for='email') Email *
+										.col-sm-10
+											input#email.form-control.required.email(name='email', type='text')
+
+									.form-group.row
+										label.col-sm-2.control-label(for='tel') Phone
+										.col-sm-10
+											input#tel.form-control(name='tel', type='text')
+
+									p (*) Mandatory
+								h3 Address
+								section
+									.form-group.row
+										label.col-sm-2.control-label(for='address') Address
+										.col-sm-10
+											textarea#address.form-control.required(name='address')
+
+									.form-group.row
+										label.col-sm-2.control-label(for='city') City
+										.col-sm-10
+											input#city.form-control.required(name='city', type='text')
+
+									.form-group.row
+										label.col-sm-2.control-label(for='province') Province / State
+										.col-sm-10
+											input#province.form-control.required(name='province', type='text')
+
+									.form-group.row
+										label.col-sm-2.control-label(for='postal') Postal / Zip Code
+										.col-sm-10
+											input#postal.form-control.required(name='postal', type='text')
+
+									.form-group.row
+										label.col-sm-2.control-label(for='country') Country
+										.col-sm-10
+											select#country.form-control.required(name='country')
+												option(selected, disabled, value='') Select...
+												option(value="england") England
+												option(value="germany") Germany
+												option(value="spain") Spain
+												option(value="hungary") Hungary
+
+
+									p (*) Mandatory
+
+								h3 Finish
+								section
+									input#acceptTerms.required(name='acceptTerms', type='checkbox')
+									label(for='acceptTerms') I agree with the Terms and Conditions.
+
+
+				.l-box.l-spaced-bottom
+					.l-box-header
+						h2.l-box-title <span>Vertical</span> Form Wizard
+						+box-options
+
+					.l-box-body.l-spaced
+						form#wizardVertical(action='#')
+							div
+								h3 Account
+								section
+									.form-group.row
+										label.col-sm-3.control-label(for='userName-v') User name *
+										.col-sm-9
+											input#userName-v.form-control.required(name='userName-v', type='text')
+
+									.form-group.row
+										label.col-sm-3.control-label(for='password-v') Password *
+										.col-sm-9
+											input#password-v.form-control.required(name='password-v', type='password')
+
+									.form-group.row
+										label.col-sm-3.control-label(for='confirm-v') Confirm Password *
+										.col-sm-9
+											input#confirm-v.form-control.required(name='confirm-v', type='password')
+
+
+									p (*) Mandatory
+								h3 Profile
+								section
+									.form-group.row
+										label.col-sm-3.control-label(for='name-v') First name *
+										.col-sm-9
+											input#name-v.form-control.required(name='name-v', type='text')
+
+									.form-group.row
+										label.col-sm-3.control-label(for='surname-v') Last name *
+										.col-sm-9
+											input#surname-v.form-control.required(name='surname-v', type='text')
+
+									.form-group.row
+										label.col-sm-3.control-label(for='email-v') Email *
+										.col-sm-9
+											input#email-v.form-control.required.email(name='email-v', type='text')
+
+									.form-group.row
+										label.col-sm-3.control-label(for='tel-v') Phone
+										.col-sm-9
+											input#tel-v.form-control(name='tel-v', type='text')
+
+									p (*) Mandatory
+								h3 Address
+								section
+									.form-group.row
+										label.col-sm-3.control-label(for='address-v') Address
+										.col-sm-9
+											textarea#address-v.form-control.required(name='address-v')
+
+									.form-group.row
+										label.col-sm-3.control-label(for='city-v') City
+										.col-sm-9
+											input#city-v.form-control.required(name='city-v', type='text')
+
+									.form-group.row
+										label.col-sm-3.control-label(for='province-v') Province / State
+										.col-sm-9
+											input#province-v.form-control.required(name='province-v', type='text')
+
+									.form-group.row
+										label.col-sm-3.control-label(for='postal-v') Postal / Zip Code
+										.col-sm-9
+											input#postal-v.form-control.required(name='postal-v', type='text')
+
+									.form-group.row
+										label.col-sm-3.control-label(for='country-v') Country
+										.col-sm-9
+											select#country-v.form-control.required(name='country-v')
+												option(selected, disabled, value='') Select...
+												option(value="england") England
+												option(value="germany") Germany
+												option(value="spain") Spain
+												option(value="hungary") Hungary
+
+
+									p (*) Mandatory
+
+								h3 Finish
+								section
+									input#acceptTerms-v.required(name='acceptTerms-v', type='checkbox')
+									label(for='acceptTerms-v') I agree with the Terms and Conditions.
+
+
+
+
+			include components/layout/footer/footer_1/footer_1__t_1
+
+		include components/layout/sidebar/sidebar_2/sidebar_2__t_2__right

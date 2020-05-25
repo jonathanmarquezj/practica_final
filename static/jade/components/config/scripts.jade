@@ -1,0 +1,580 @@
+//- ==========================================================================
+//- Scripts
+//- ==========================================================================
+
+//- ==========================================================================
+//- Register and Include JavaScript files only once
+//- ==========================================================================
+mixin scripts()
+
+	- var final_scripts = []
+
+	//- ----------------------------------------------------------------------
+	//- Page scripts
+	- if(scripts)
+		// Specific
+		- final_scripts = scripts
+
+
+	//- Theme Setting -----------------------------------------------------
+
+	//- Theme Setting scripts
+	- if(scripts_theme_setting)
+		- final_scripts = mergeArrays(final_scripts,scripts_theme_setting)
+
+
+	//- Headers -----------------------------------------------------
+
+	//- Header 1 scripts
+	- if(scripts_header_1)
+		- final_scripts = mergeArrays(final_scripts,scripts_header_1)
+
+	//- Header 2 scripts
+	- if(scripts_header_2)
+		- final_scripts = mergeArrays(final_scripts,scripts_header_2)
+
+
+	//- Sidebars -----------------------------------------------------
+
+	//- Sidebar 1 scripts
+	- if(scripts_sidebar_1)
+		- final_scripts = mergeArrays(final_scripts,scripts_sidebar_1)
+
+	//- Sidebar 2 scripts
+	- if(scripts_sidebar_2)
+		- final_scripts = mergeArrays(final_scripts,scripts_sidebar_2)
+
+	//- Sidebar 3 scripts
+	- if(scripts_sidebar_3)
+		- final_scripts = mergeArrays(final_scripts,scripts_sidebar_3)
+
+	//- Sidebar 3 scripts 2
+	- if(scripts_sidebar_3_2)
+		- final_scripts = mergeArrays(final_scripts,scripts_sidebar_3_2)
+
+	//- Footers -----------------------------------------------------
+
+	//- Footer 1 scripts
+	- if(scripts_footer_1)
+		- final_scripts = mergeArrays(final_scripts,scripts_footer_1)
+
+	//- Footer 2 scripts
+	- if(scripts_footer_2)
+		- final_scripts = mergeArrays(final_scripts,scripts_footer_2)
+
+
+	//- ----------------------------------------------------------------------
+	//- Eliminate duplicate items
+	- final_scripts = eliminateDuplicate(final_scripts)
+
+	//- Sort scripts list
+	- final_scripts = final_scripts.sort()
+
+
+	//- ----------------------------------------------------------------------
+	//- List the styles
+	-each script in final_scripts
+		+scriptListing(script)
+
+
+
+//- List the javascript files
+//- ==========================================================================
+mixin scriptListing(lib)
+
+		case lib
+
+			when 'a.basic.modernizr'
+				script(src="js/basic/modernizr.min.js")
+
+			when 'a.syntaxhighlighter'
+				script(src="js/plugins/syntaxhighlighter/shCore.js")
+				script(src="js/plugins/syntaxhighlighter/shBrushJScript.js")
+				script(src="js/plugins/syntaxhighlighter/shBrushXml.js")
+				script(src="js/plugins/syntaxhighlighter/shBrushCss.js")
+				script(src="js/plugins/syntaxhighlighter/shBrushPhp.js")
+				script(src="js/plugins/syntaxhighlighter/shBrushPlain.js")
+				script(src="js/calls/syntaxhighlighter.js")
+
+			when 'a.shared.jquery.ui'
+				script(src="js/shared/jquery-ui.min.js")
+				script(src="js/shared/jquery.ui.touch-punch.min.js")
+
+			when 'a.shared.jquery.ui.autocomplete.html'
+				script(src="js/shared/jquery.ui.autocomplete.html.js")
+
+			when 'a.shared.moment'
+				script(src="js/shared/moment.min.js")
+
+			when 'a.shared.raphael'
+				script(src="js/shared/raphael.min.js")
+
+			when 'a.shared.classie'
+				script(src="js/shared/classie.js")
+
+			when 'a.shared.cookie'
+				script(src="js/shared/jquery.cookie.min.js")
+
+			when 'a.shared.easing'
+				script(src="js/shared/jquery.easing.1.3.js")
+
+			when 'a.shared.matchHeight'
+				script(src="js/shared/jquery.matchHeight.min.js")
+
+			when 'a.shared.jasnyBootstrap'
+				script(src="js/shared/jasny-bootstrap.min.js")
+
+			when 'a.shared.holder'
+				script(src="js/shared/holder.js")
+
+			when 'a.shared.shuffle'
+				script(src="js/shared/jquery.shuffle.min.js")
+
+			when 'a.shared.perfectScrollbar'
+				script(src="js/shared/perfect-scrollbar.min.js")
+
+			when 'a.shared.underscore'
+				script(src="js/shared/underscore-min.js")
+
+
+			when 'x.call.dashboard.1'
+				script(src="js/calls/dashboard.1.js")
+
+			when 'x.call.dashboard.2'
+				script(src="js/calls/dashboard.2.js")
+
+
+			when 'x.call.layout.menu'
+				script(src="js/calls/layout.menu.js")
+
+
+			when 'form.maskedInput'
+				script(src="js/plugins/forms/elements/jquery.maskedinput.min.js")
+
+			when 'form.autogrow'
+				script(src="js/plugins/forms/elements/jquery.autogrow.min.js")
+
+			when 'form.textareaCounter'
+				script(src="js/plugins/forms/elements/jquery.textareaCounter.plugin.js")
+
+			when 'form.bootstrapTouchspin'
+				script(src="js/plugins/forms/elements/jquery.bootstrap-touchspin.min.js")
+
+			when 'form.switchery'
+				script(src="js/plugins/forms/elements/jquery.switchery.min.js")
+
+			when 'form.onoff'
+				script(src="js/plugins/forms/elements/jquery.onoff.min.js")
+
+			when 'form.fancySelect'
+				script(src="js/plugins/forms/elements/jquery.fancySelect.min.js")
+
+			when 'form.select2'
+				script(src="js/plugins/forms/elements/jquery.select2.min.js")
+
+			when 'form.checkradios'
+				script(src="js/plugins/forms/elements/jquery.checkradios.min.js")
+
+			when 'form.checkBo'
+				script(src="js/plugins/forms/elements/jquery.checkBo.min.js")
+
+			when 'form.bootstrapSelect'
+				script(src="js/plugins/forms/elements/jquery.bootstrap-select.min.js")
+
+
+			when 'x.call.form.elements'
+				script(src="js/calls/form.elements.js")
+
+
+			when 'x.call.form.layout'
+				script(src="js/calls/form.layout.js")
+
+
+			when 'form.parsley'
+				script(src="js/plugins/forms/validation/jquery.parsley.min.js")
+
+			when 'form.validate'
+				script(src="js/plugins/forms/validation/jquery.validate.min.js")
+
+			when 'form.validate.additional'
+				script(src="js/plugins/forms/validation/jquery.validate.additional.min.js")
+
+			when 'x.call.form.validation'
+				script(src="js/calls/form.validation.js")
+
+
+
+			when 'form.steps'
+				script(src="js/plugins/forms/wizard/jquery.steps.min.js")
+
+			when 'x.call.form.wizard'
+				script(src="js/calls/form.wizard.js")
+
+
+
+			when 'form.summernote'
+				script(src="js/plugins/forms/upload/jquery.summernote.min.js")
+
+			when 'form.fileupload'
+				script(src="js/plugins/forms/upload/jquery.ui.widget.js")
+				script(src="js/plugins/forms/upload/jquery.tmpl.min.js")
+				script(src="js/plugins/forms/upload/jquery.load-image.all.min.js")
+				script(src="js/plugins/forms/upload/jquery.canvas-to-blob.min.js")
+				script(src="js/plugins/forms/upload/jquery.blueimp-gallery.min.js")
+				script(src="js/plugins/forms/upload/jquery.iframe-transport.js")
+				script(src="js/plugins/forms/upload/jquery.fileupload.js")
+				script(src="js/plugins/forms/upload/jquery.fileupload-process.js")
+				script(src="js/plugins/forms/upload/jquery.fileupload-image.js")
+				script(src="js/plugins/forms/upload/jquery.fileupload-audio.js")
+				script(src="js/plugins/forms/upload/jquery.fileupload-video.js")
+				script(src="js/plugins/forms/upload/jquery.fileupload-validate.js")
+				script(src="js/plugins/forms/upload/jquery.fileupload-ui.js")
+
+			when 'x.call.form.upload'
+				script(src="js/calls/form.upload.js")
+
+
+
+			when 'charts.d3'
+				script(src="js/plugins/charts/c3/d3.v3.min.js")
+
+			when 'charts.c3'
+				script(src="js/plugins/charts/c3/c3.min.js")
+
+			when 'x.call.chart.c3'
+				script(src="js/calls/chart.c3.js")
+
+
+
+			when 'charts.flot'
+				script(src="js/plugins/charts/flot/jquery.flot.min.js")
+				script(src="js/plugins/charts/flot/jquery.flot.resize.min.js")
+
+			when 'charts.flot.pie'
+				script(src="js/plugins/charts/flot/jquery.flot.pie.min.js")
+
+			when 'charts.flot.stack'
+				script(src="js/plugins/charts/flot/jquery.flot.stack.min.js")
+
+			when 'charts.flot.symbol'
+				script(src="js/plugins/charts/flot/jquery.flot.symbol.min.js")
+
+			when 'x.call.chart.flot'
+				script(src="js/calls/chart.flot.js")
+
+
+
+			when 'charts.morris'
+				script(src="js/plugins/charts/morris/morris.min.js")
+
+			when 'x.call.chart.morris'
+				script(src="js/calls/chart.morris.js")
+
+
+
+			when 'charts.rickshaw'
+				script(src="js/plugins/charts/rickshaw/rickshaw.min.js")
+
+			when 'x.call.chart.rickshaw'
+				script(src="js/calls/chart.rickshaw.js")
+
+
+
+			when 'charts.circliful'
+				script(src="js/plugins/charts/other/jquery.circliful.min.js")
+
+			when 'charts.sparkline'
+				script(src="js/plugins/charts/other/jquery.sparkline.min.js")
+
+			when 'charts.easypiechart'
+				script(src="js/plugins/charts/other/jquery.easypiechart.min.js")
+
+			when 'x.call.chart.other'
+				script(src="js/calls/chart.other.js")
+
+
+			when 'x.call.ui.box'
+				script(src="js/calls/ui.box.js")
+
+
+			when 'draggable.gridstack'
+				script(src="js/plugins/draggable/gridstack.min.js")
+
+			when 'x.call.ui.draggable'
+				script(src="js/calls/ui.draggable.js")
+
+
+			when 'notifications.jgrowl'
+				script(src="js/plugins/notifications/jquery.jgrowl.min.js")
+
+			when 'notifications.toastr'
+				script(src="js/plugins/notifications/jquery.toastr.min.js")
+
+			when 'notifications.amaran'
+				script(src="js/plugins/notifications/jquery.amaran.js")
+
+			when 'x.call.ui.notification'
+				script(src="js/calls/ui.notification.js")
+
+
+
+			when 'tabs.easyResponsiveTabs'
+				script(src="js/plugins/tabs/jquery.easyResponsiveTabs.js")
+
+			when 'tabs.responsiveTabs'
+				script(src="js/plugins/tabs/jquery.responsiveTabs.min.js")
+
+			when 'tabs.tabslet'
+				script(src="js/plugins/tabs/jquery.tabslet.min.js")
+
+			when 'x.call.ui.tabs'
+				script(src="js/calls/ui.tabs.js")
+
+
+
+			when 'tags.tagEditor'
+				script(src="js/plugins/tags/jquery.tag-editor.min.js")
+
+			when 'tags.tagging'
+				script(src="js/plugins/tags/tagging.min.js")
+
+			when 'tags.masterblaster'
+				script(src="js/plugins/tags/jquery.masterblaster.min.js")
+
+			when 'x.call.ui.tags'
+				script(src="js/calls/ui.tags.js")
+
+
+
+			when 'modals.remodal'
+				script(src="js/plugins/modals/jquery.remodal.min.js")
+
+			when 'modals.magnificPopup'
+				script(src="js/plugins/modals/jquery.magnific-popup.min.js")
+
+			when 'x.call.ui.modals'
+				script(src="js/calls/ui.modals.js")
+
+
+
+			when 'colorpicker.bootstrapColorpicker'
+				script(src="js/plugins/colorpicker/bootstrap-colorpicker.min.js")
+
+			when 'colorpicker.tinycolor'
+				script(src="js/plugins/colorpicker/tinycolor.js")
+
+			when 'colorpicker.bootstrapColorpickerSliders'
+				script(src="js/plugins/colorpicker/bootstrap.colorpickersliders.min.js")
+
+			when 'x.call.ui.colorpicker'
+				script(src="js/calls/ui.colorpicker.js")
+
+
+
+			when 'accordions.collapse'
+				script(src="js/plugins/accordions/jquery.collapse.js")
+				script(src="js/plugins/accordions/jquery.collapse_storage.js")
+				script(src="js/plugins/accordions/jquery.collapse_cookie_storage.js")
+
+			when 'accordions.collapsible'
+				script(src="js/plugins/accordions/jquery.collapsible.min.js")
+
+			when 'x.call.ui.accordions'
+				script(src="js/calls/ui.accordions.js")
+
+
+
+			when 'breadcrumb.jBreadCrumb'
+				script(src="js/plugins/breadcrumb/jquery.jBreadCrumb.1.1.js")
+
+			when 'x.call.ui.breadcrumb'
+				script(src="js/calls/ui.breadcrumb.js")
+
+
+
+			when 'x.call.ui.buttons'
+				script(src="js/calls/ui.buttons.js")
+
+
+
+			when 'datetime.daterangepicker'
+				script(src="js/plugins/datetime/daterangepicker.js")
+
+			when 'datetime.bs.datepicker'
+				script(src="js/plugins/datetime/bootstrap-datepicker.min.js")
+
+			when 'datetime.bs.datetimepicker'
+				script(src="js/plugins/datetime/bootstrap-datetimepicker.min.js")
+
+			when 'datetime.clockface'
+				script(src="js/plugins/datetime/clockface.js")
+
+			when 'datetime.digitalClock'
+				script(src="js/plugins/datetime/digital.clock.js")
+
+			when 'datetime.jqClock'
+				script(src="js/plugins/datetime/jqClock.min.js")
+
+			when 'x.call.ui.datetime'
+				script(src="js/calls/ui.datetime.js")
+
+
+
+			when 'sliders.jqueryUiSliderPips'
+				script(src="js/plugins/sliders/jquery-ui-slider-pips.min.js")
+
+			when 'x.call.ui.slider'
+				script(src="js/calls/ui.slider.js")
+
+
+
+			when 'x.call.ui.icons'
+				script(src="js/calls/ui.icons.js")
+
+
+
+			when 'x.call.ui.spinners'
+				script(src="js/calls/ui.spinners.js")
+
+
+			when 'tooltips.webuiPopover'
+				script(src="js/plugins/tooltip/jquery.webui-popover.min.js")
+
+			when 'tooltips.tooltipster'
+				script(src="js/plugins/tooltip/jquery.tooltipster.min.js")
+
+			when 'x.call.ui.tooltips'
+				script(src="js/calls/ui.tooltips.js")
+
+
+			when 'pageprogressbar.pace'
+				script(src="js/plugins/pageprogressbar/pace.min.js")
+
+			when 'x.call.ui.pageprogressbar'
+				script(src="js/calls/ui.pageprogressbar.js")
+
+
+			when 'calendar.fullcalendar'
+				script(src="js/plugins/calendar/fullcalendar.min.js")
+
+			when 'x.call.ui.calendar'
+				script(src="js/calls/ui.calendar.js")
+
+
+			when 'maps.gmaps'
+				script(src="js/plugins/maps/gmaps.js")
+
+			when 'x.call.ui.map'
+				script(src="js/calls/ui.map.js")
+
+
+			when 'table.dataTables'
+				script(src="js/plugins/table/jquery.dataTables.min.js")
+
+			when 'x.call.table.data'
+				script(src="js/calls/table.data.js")
+
+			when 'table.fooTables'
+				script(src="js/plugins/table/footable.all.min.js")
+
+			when 'x.call.table.foo'
+				script(src="js/calls/table.foo.js")
+
+
+			when 'x.call.page.register'
+				script(src="js/calls/page.register.js")
+
+			when 'x.call.page.login'
+				script(src="js/calls/page.login.js")
+
+			when 'x.call.page.forgot'
+				script(src="js/calls/page.forgot.js")
+
+			when 'x.call.page.change'
+				script(src="js/calls/page.change.js")
+
+			when 'x.call.page.lockscreen'
+				script(src="js/calls/page.lockscreen.js")
+
+			when 'x.call.page.search'
+				script(src="js/calls/page.search.js")
+
+
+			when 'profile.touch'
+				script(src="js/plugins/profile/toucheffects.js")
+
+			when 'x.call.page.profile'
+				script(src="js/calls/page.profile.js")
+
+
+			when 'page.blank.plugins'
+				script(src="js/plugins/page/jquery.blank.min.js")
+
+			when 'x.call.page.blank'
+				script(src="js/calls/page.blank.js")
+
+
+			when 'page.particleground'
+				script(src="js/plugins/errors/jquery.particleground.min.js")
+
+			when 'x.call.page.error'
+				script(src="js/calls/page.error.js")
+
+
+			when 'widget.uisearch'
+				script(src="js/plugins/widgets/uisearch.js")
+
+			when 'x.call.widget'
+				script(src="js/calls/widget.js")
+
+
+			when 'x.call.app.mail'
+				script(src="js/calls/app.mail.js")
+
+
+			when 'textrotator.morphext'
+				script(src="js/plugins/textrotator/morphext.min.js")
+
+			when 'textrotator.simpleTextRotator'
+				script(src="js/plugins/textrotator/jquery.simple-text-rotator.min.js")
+
+			when 'weather.simpleWeather'
+				script(src="js/plugins/weather/jquery.simpleWeather.min.js")
+
+			when 'velocity.custom.effects'
+				script(src="js/plugins/velocity/custom.effects.js")
+
+
+			when 'x.call.shared.tooltipster'
+				script(src="js/calls/shared.tooltipster.js")
+
+
+			when 'x.call.part.theme.setting'
+				script(src="js/calls/part.theme.setting.js")
+
+
+			when 'x.call.part.header.1'
+				script(src="js/calls/part.header.1.js")
+
+			when 'x.call.part.header.2'
+				script(src="js/calls/part.header.2.js")
+
+
+			when 'x.call.part.sidebar.1'
+				script(src="js/calls/part.sidebar.1.js")
+
+			when 'x.call.part.sidebar.2'
+				script(src="js/calls/part.sidebar.2.js")
+
+			when 'x.call.part.sidebar.3'
+				script(src="js/calls/part.sidebar.3.js")
+
+			when 'x.call.part.sidebar.3.2'
+				script(src="js/calls/part.sidebar.3.2.js")
+
+
+			when 'x.call.part.footer.1'
+				script(src="js/calls/part.footer.1.js")
+
+			when 'x.call.part.footer.2'
+				script(src="js/calls/part.footer.2.js")

@@ -1,0 +1,192 @@
+//- ------------------------------------
+//- BASE LAYOUT
+//- ------------------------------------
+extends aaa-master-layout
+
+
+//- ------------------------------------
+//- PAGE CONFIGURATION
+//- ------------------------------------
+prepend config
+	- var link = "ui-tab.html"
+	- var page = "ui.u-tab"
+	- var pageSubTitle = " - UI Elements - Tabs"
+	- var scripts = [ 'tabs.easyResponsiveTabs', 'tabs.responsiveTabs', 'tabs.tabslet', 'x.call.ui.tabs' ]
+
+
+//- ------------------------------------
+//- PAGE CONTENT
+//- ------------------------------------
+block content
+
+	//SECTION
+	section.l-main-container
+
+		include components/layout/sidebar/sidebar_1/sidebar_1__t_1__left
+
+		//Main Content
+		section.l-container
+
+			include components/layout/header/header_1/header_1__t_1
+
+			.l-page-header
+				h2.l-page-title <span>Tabs</span>
+				+breadcrumb(bread_ui_tabs)
+
+			.l-spaced
+				.l-box.l-spaced-bottom
+					.l-box-header
+						h2.l-box-title <span>Bootstrap</span> Tabs
+						+box-options
+
+					.l-box-body.l-spaced
+						ul.nav.nav-tabs(role='tablist')
+							li.active
+								a(href='#home', role='tab', data-toggle='tab') Home
+							li
+								a(href='#profile', role='tab', data-toggle='tab') Profile
+							li
+								a(href='#messages', role='tab', data-toggle='tab') Messages
+							li
+								a(href='#settings', role='tab', data-toggle='tab') Settings
+						// Tab panes
+						.tab-content
+							#home.tab-pane.active.l-spaced-vertical Home - Lorem ipsum dolor sit amet, consectetur adipisicing elit. Magnam, repellat, et, accusantium temporibus aliquam corporis nisi maxime officiis ullam voluptate distinctio minima molestiae dolor enim ad animi eaque perspiciatis sed?
+							#profile.tab-pane.l-spaced-vertical Profile - Lorem ipsum dolor sit amet, consectetur adipisicing elit. Magnam, repellat, et, accusantium temporibus aliquam corporis nisi maxime officiis ullam voluptate distinctio minima molestiae dolor enim ad animi eaque perspiciatis sed?
+							#messages.tab-pane.l-spaced-vertical Messages - Lorem ipsum dolor sit amet, consectetur adipisicing elit. Magnam, repellat, et, accusantium temporibus aliquam corporis nisi maxime officiis ullam voluptate distinctio minima molestiae dolor enim ad animi eaque perspiciatis sed?
+							#settings.tab-pane.l-spaced-vertical Settings - Lorem ipsum dolor sit amet, consectetur adipisicing elit. Magnam, repellat, et, accusantium temporibus aliquam corporis nisi maxime officiis ullam voluptate distinctio minima molestiae dolor enim ad animi eaque perspiciatis sed?
+
+
+				.l-box.l-spaced-bottom
+					.l-box-header
+						h2.l-box-title <span>Horizontal Easy Responsive </span> Tabs
+						+box-options
+
+					.l-box-body.l-spaced
+						// Horizontal Tabs
+						#horizEasyRespTab
+							ul.resp-tabs-list
+								li Home
+								li Profile
+								li Messages
+							div.resp-tabs-container
+								div
+									p
+										| Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum nibh urna, euismod ut ornare non, volutpat vel tortor. Integer laoreet placerat suscipit. Sed sodales scelerisque commodo. Nam porta cursus lectus. Proin nunc erat, gravida a facilisis quis, ornare id lectus. Proin consectetur nibh quis urna gravida mollis.
+								div
+									p
+										| This tab has icon in consectetur adipiscing eliconse consectetur adipiscing elit. Vestibulum nibh urna, ctetur adipiscing elit. Vestibulum nibh urna, t.consectetur adipiscing elit. Vestibulum nibh urna,  Vestibulum nibh urna,it.
+								div
+									p
+										| Suspendisse blandit velit Integer laoreet placerat suscipit. Sed sodales scelerisque commodo. Nam porta cursus lectus. Proin nunc erat, gravida a facilisis quis, ornare id lectus. Proin consectetur nibh quis Integer laoreet placerat suscipit. Sed sodales scelerisque commodo. Nam porta cursus lectus. Proin nunc erat, gravida a facilisis quis, ornare id lectus. Proin consectetur nibh quis urna gravid urna gravid eget erat suscipit in malesuada odio venenatis.
+
+
+				.l-box.l-spaced-bottom
+					.l-box-header
+						h2.l-box-title <span>Vertical Easy Responsive </span> Tabs
+						+box-options
+
+					.l-box-body.l-spaced.group
+						// Vertical Tabs
+						#vertEasyRespTab
+							ul.resp-tabs-list
+								li Home
+								li Profile
+								li Messages
+								li Settings
+							.resp-tabs-container
+								div
+									p
+										| Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum nibh urna, euismod ut ornare non, volutpat vel tortor. Integer laoreet placerat suscipit. Sed sodales scelerisque commodo. Nam porta cursus lectus. Proin nunc erat, gravida a facilisis quis, ornare id lectus. Proin consectetur nibh quis urna gravida mollis.
+								div
+									p This tab has icon in it.
+								div
+									p
+										| Suspendisse blandit velit Integer laoreet placerat suscipit. Sed sodales scelerisque commodo. Nam porta cursus lectus. Proin nunc erat, gravida a facilisis quis, ornare id lectus. Proin consectetur nibh quis Integer laoreet placerat suscipit. Sed sodales scelerisque commodo. Nam porta cursus lectus. Proin nunc erat, gravida a facilisis quis, ornare id lectus. Proin consectetur nibh quis urna gravid urna gravid eget erat suscipit in malesuada odio venenatis.
+								div
+									p
+										| d ut ornare non, volutpat vel tortor. Integer laoreet placerat suscipit. Sed sodales scelerisque commodo. Nam porta cursus lectus. Proin nunc erat, gravida a facilisis quis, ornare id lectus. Proin consectetur nibh quis urna gravida mollis.Suspendisse blandit velit eget erat suscipit in malesuada odio venenatis.
+
+
+				.l-box.l-spaced-bottom
+					.l-box-header
+						h2.l-box-title <span>Responsive</span> Tabs
+						+box-options
+
+					.l-box-body.l-spaced
+						// Horizontal Tabs
+						div#horizontalTab
+							ul
+								li
+									a(href='#tab-1') Responsive Tab-1
+								li
+									a(href='#tab-2') Responsive Tab-2
+								li
+									a(href='#tab-3') Responsive Tab-3
+								li
+									a(href='#tab-4') Responsive Tab-4
+								li
+									a(href='#tab-5') Responsive Tab-5
+							div#tab-1
+								p
+									| Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce eu scelerisque eros. Fusce ante orci, hendrerit sit amet metus sit amet, venenatis sodales felis. Morbi vel mi in leo dignissim convallis in a neque. Suspendisse sollicitudin nibh non dapibus condimentum. Etiam sit amet arcu ultricies, porttitor justo eget, scelerisque urna. Praesent non ligula nec ligula euismod condimentum eget sed augue. Ut feugiat, turpis id sollicitudin vestibulum, tellus massa adipiscing nisl, quis cursus nisl arcu vel ipsum.
+							div#tab-2
+								p
+									| Quisque sodales sodales lacus pharetra bibendum. Etiam commodo non velit ac rhoncus. Mauris euismod purus sem, ac adipiscing quam laoreet et. Praesent vulputate ornare sem vel scelerisque. Ut dictum augue non erat lacinia, sed lobortis elit gravida. Proin ante massa, ornare accumsan ultricies et, posuere sit amet magna. Praesent dignissim, enim sed malesuada luctus, arcu sapien sodales sapien, ut placerat eros nunc vel est. Donec tristique mi turpis, et sodales nibh gravida eu. Etiam odio risus, porttitor non lacus id, rhoncus tempus tortor. Curabitur tincidunt molestie turpis, ut luctus nibh sollicitudin vel. Sed vel luctus nisi, at mattis metus. Aenean ultricies dolor est, a congue ante dapibus varius. Nulla at auctor nunc. Curabitur accumsan feugiat felis ut pretium. Praesent semper semper nisi, eu cursus augue.
+							div#tab-3
+								p
+									| Mauris facilisis elit ut sem eleifend accumsan molestie sit amet dolor. Pellentesque dapibus arcu eu lorem laoreet, vitae cursus metus mattis. Nullam eget porta enim, eu rutrum magna. Duis quis tincidunt sem, sit amet faucibus magna. Integer commodo, turpis consequat fermentum egestas, leo odio posuere dui, elementum placerat eros erat id augue. Nullam at eros eget urna vestibulum malesuada vitae eu mauris. Aliquam interdum rhoncus velit, quis scelerisque leo viverra non. Suspendisse id feugiat dui. Nulla in aliquet leo. Proin vel magna sed est gravida rhoncus. Mauris lobortis condimentum nibh, vitae bibendum tortor vehicula ac. Curabitur posuere arcu eros.
+							div#tab-4
+								p
+									| Donec egestas facilisis sapien sit amet euismod. Donec mollis lectus neque, in consectetur magna sodales et. Nam rutrum libero vitae magna sollicitudin aliquet. In tristique ultrices euismod. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Suspendisse pretium congue sodales. Curabitur egestas, metus sed ultrices suscipit, metus nibh vehicula ligula, vel volutpat sapien nibh sed quam. Etiam elementum nisi eu risus congue, ut eleifend lectus ultricies. Vivamus in ligula fermentum, bibendum sapien eget, pretium est. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Donec ut ante non risus rutrum faucibus.
+							div#tab-5
+								p
+									| Proin dignissim faucibus odio sollicitudin sagittis. Phasellus aliquet, erat vitae mollis consectetur, enim lectus ornare libero, et porta mi dui eu tellus. Morbi lobortis, elit at euismod porta, magna lacus mattis massa, a lacinia ligula risus et lectus. Sed et aliquam ligula. Nunc venenatis orci magna, quis facilisis sem porta non. Nunc sodales arcu in consectetur malesuada. Maecenas varius justo lacus, scelerisque viverra tellus luctus eu. Nam imperdiet ultricies suscipit. Ut urna mauris, eleifend quis lacinia non, mollis id libero. Praesent pharetra viverra ipsum at posuere. Quisque commodo tortor nec hendrerit faucibus. Fusce convallis urna et vehicula tincidunt. Duis sed vehicula justo, eu placerat nisi. Donec facilisis augue non turpis semper, eget condimentum mauris malesuada. Nunc in dignissim mi, sed laoreet felis.
+
+				.l-box.l-spaced-bottom
+					.l-box-header
+						h2.l-box-title <span>Horizontal Tabslet</span> Tabs
+						+box-options
+
+					.l-box-body.l-spaced
+						div.horizTabslet.tabslet
+							ul.tabs-nav.horizontal
+								li
+									a(href='#tabslet-h-1') Nunc tincidunt
+								li
+									a(href='#tabslet-h-2') Proin dolor
+								li
+									a(href='#tabslet-h-3') Aenean lacinia
+							div.tabs-panel#tabslet-h-1
+								P Donec egestas facilisis sapien sit amet euismod. Donec mollis lectus neque, in consectetur magna sodales et. Nam rutrum libero vitae magna sollicitudin aliquet. In tristique ultrices euismod. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Suspendisse pretium congue sodales. Curabitur egestas, metus sed ultrices suscipit, metus nibh vehicula ligula, vel volutpat sapien nibh sed quam. Etiam elementum nisi eu risus congue, ut eleifend lectus ultricies. Vivamus in ligula fermentum, bibendum sapien eget, pretium est. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Donec ut ante non risus rutrum faucibus.
+							div.tabs-panel#tabslet-h-2
+								P Proin elit arcu, rutrum commodo, vehicula tempus, commodo a, risus. Curabitur nec arcu. Donec sollicitudin mi sit amet mauris. Nam elementum quam ullamcorper ante. Etiam aliquet massa et lorem. Mauris dapibus lacus auctor risus. Aenean tempor ullamcorper leo. Vivamus sed magna quis ligula eleifend adipiscing. Duis orci. Aliquam sodales tortor vitae ipsum. Aliquam nulla. Duis aliquam molestie erat. Ut et mauris vel pede varius sollicitudin. Sed ut dolor nec orci tincidunt interdum. Phasellus ipsum. Nunc tristique tempus lectus.
+							div.tabs-panel#tabslet-h-3
+								P Morbi tincidunt, dui sit amet facilisis feugiat, odio metus gravida ante, ut pharetra massa metus id nunc. Duis scelerisque molestie turpis. Sed fringilla, massa eget luctus malesuada, metus eros molestie lectus, ut tempus eros massa ut dolor. Aenean aliquet fringilla sem. Suspendisse sed ligula in ligula suscipit aliquam. Praesent in eros vestibulum mi adipiscing adipiscing. Morbi facilisis. Curabitur ornare consequat nunc. Aenean vel metus. Ut posuere viverra nulla. Aliquam erat volutpat. Pellentesque convallis. Maecenas feugiat, tellus pellentesque pretium posuere, felis lorem euismod felis, eu ornare leo nisi vel felis. Mauris consectetur tortor et purus.
+
+
+				.l-box.l-spaced-bottom
+					.l-box-header
+						h2.l-box-title <span>Vertical Tabslet</span> Tabs
+						+box-options
+
+					.l-box-body.l-spaced
+						div.vertTabslet.tabslet
+							ul.tabs-nav.vertical
+								li
+									a(href='#tabslet-h-1') Nunc tincidunt
+								li
+									a(href='#tabslet-h-2') Proin dolor
+								li
+									a(href='#tabslet-h-3') Aenean lacinia
+							div.tabs-panel#tabslet-h-1
+								P Donec egestas facilisis sapien sit amet euismod. Donec mollis lectus neque, in consectetur magna sodales et. Nam rutrum libero vitae magna sollicitudin aliquet. In tristique ultrices euismod. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Suspendisse pretium congue sodales. Curabitur egestas, metus sed ultrices suscipit, metus nibh vehicula ligula, vel volutpat sapien nibh sed quam. Etiam elementum nisi eu risus congue, ut eleifend lectus ultricies. Vivamus in ligula fermentum, bibendum sapien eget, pretium est. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Donec ut ante non risus rutrum faucibus.
+							div.tabs-panel#tabslet-h-2
+								P Proin elit arcu, rutrum commodo, vehicula tempus, commodo a, risus. Curabitur nec arcu. Donec sollicitudin mi sit amet mauris. Nam elementum quam ullamcorper ante. Etiam aliquet massa et lorem. Mauris dapibus lacus auctor risus. Aenean tempor ullamcorper leo. Vivamus sed magna quis ligula eleifend adipiscing. Duis orci. Aliquam sodales tortor vitae ipsum. Aliquam nulla. Duis aliquam molestie erat. Ut et mauris vel pede varius sollicitudin. Sed ut dolor nec orci tincidunt interdum. Phasellus ipsum. Nunc tristique tempus lectus.
+							div.tabs-panel#tabslet-h-3
+								P Morbi tincidunt, dui sit amet facilisis feugiat, odio metus gravida ante, ut pharetra massa metus id nunc. Duis scelerisque molestie turpis. Sed fringilla, massa eget luctus malesuada, metus eros molestie lectus, ut tempus eros massa ut dolor. Aenean aliquet fringilla sem. Suspendisse sed ligula in ligula suscipit aliquam. Praesent in eros vestibulum mi adipiscing adipiscing. Morbi facilisis. Curabitur ornare consequat nunc. Aenean vel metus. Ut posuere viverra nulla. Aliquam erat volutpat. Pellentesque convallis. Maecenas feugiat, tellus pellentesque pretium posuere, felis lorem euismod felis, eu ornare leo nisi vel felis. Mauris consectetur tortor et purus.
+
+			include components/layout/footer/footer_1/footer_1__t_1
+
+		include components/layout/sidebar/sidebar_2/sidebar_2__t_2__right
+

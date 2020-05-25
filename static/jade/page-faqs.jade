@@ -1,0 +1,250 @@
+//- ------------------------------------
+//- BASE LAYOUT
+//- ------------------------------------
+extends aaa-master-layout
+
+
+//- ------------------------------------
+//- PAGE CONFIGURATION
+//- ------------------------------------
+prepend config
+	- var link = "page-faqs.html"
+	- var page = "page.p-faqs"
+	- var pageSubTitle = " - Page - Faqs"
+
+
+//- ------------------------------------
+//- PAGE CONTENT
+//- ------------------------------------
+block content
+
+	//SECTION
+	section.l-main-container
+
+		include components/layout/sidebar/sidebar_1/sidebar_1__t_1__left
+
+		//Main Content
+		section.l-container
+
+			include components/layout/header/header_1/header_1__t_1
+
+			.l-page-header
+				h2.l-page-title <span>Faqs</span>
+				+breadcrumb(bread_page_faqs)
+
+			.l-spaced-top.faqs-container
+
+				.l-box.l-spaced-p
+
+					h2.font-light Frequently Asked Questions
+					hr
+					.input-group.has-dark
+						input.form-control(type='text', placeholder="Search...")
+						span.input-group-btn
+							button.btn.btn-dark.btn-search(type='button')
+								i.fa.fa-search
+								| &nbsp; Search
+					hr
+
+					h3.sep-bottom General
+
+					div#accordion.panel-group
+
+						// Question 1
+						div.panel.panel-default
+							div.panel-heading
+								h4.panel-title
+									a(data-toggle='collapse', data-parent='#accordion', href='#collapse1')
+										| 1 - Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+							div#collapse1.panel-collapse.collapse.in
+								div.panel-body
+									| Harum, recusandae, error impedit veritatis rem laudantium numquam adipisci commodi similique molestiae voluptas facere in inventore excepturi porro vitae provident blanditiis officiis!
+
+						// Question 2
+						div.panel.panel-default
+							div.panel-heading
+								h4.panel-title
+									a(data-toggle='collapse', data-parent='#accordion', href='#collapse2')
+										| 2 - Velit nostrud eu commodo officia ad.
+							div#collapse2.panel-collapse.collapse
+								div.panel-body
+									| Magna id elit quis exercitation Excepteur cupidatat velit commodo id pariatur est consectetur est fugiat fugiat ea sint voluptate eiusmod et tempor velit dolore pariatur incididunt enim quis tempor dolore.
+									br
+									br
+									| Lorem ipsum Dolor sed amet officia qui mollit in enim mollit velit ut eiusmod quis irure consectetur magna fugiat do dolore consequat sint in amet.
+
+						// Question 3
+						div.panel.panel-default
+							div.panel-heading
+								h4.panel-title
+									a(data-toggle='collapse', data-parent='#accordion', href='#collapse3')
+										| 3 - Dolore sit minim ea Ut.
+							div#collapse3.panel-collapse.collapse
+								div.panel-body
+									| Lorem ipsum Id in qui culpa est non tempor commodo ut commodo velit incididunt non anim Duis aute veniam ea nostrud elit Duis aute in et nostrud culpa nostrud tempor adipisicing cillum est incididunt cillum non nulla dolor Duis in commodo amet voluptate ad dolor dolore magna qui aliquip occaecat veniam eu Duis magna est id sit ut officia in dolor esse occaecat amet sint ut occaecat quis non Excepteur aliqua dolor ea anim nisi exercitation ea ullamco non in deserunt non magna ut adipisicing est minim mollit dolore ea anim incididunt incididunt exercitation Excepteur ullamco laboris aliquip mollit voluptate laborum Duis nulla sunt aliquip ea dolor pariatur sunt do ex ullamco laboris qui commodo Ut in qui tempor laborum consectetur nisi culpa sunt tempor magna ex amet dolore Excepteur anim anim sunt aute laboris labore amet esse cupidatat cupidatat et sunt enim voluptate aute veniam nulla quis laboris ut consequat quis aute dolor velit eiusmod consectetur est dolore sunt occaecat commodo id labore irure sit occaecat cupidatat culpa dolore aliquip exercitation proident magna irure enim incididunt exercitation in commodo Duis culpa dolore labore esse tempor occaecat laboris non laboris velit cillum dolor deserunt adipisicing velit commodo dolor sit in consectetur reprehenderit aliquip dolore occaecat Duis adipisicing cupidatat cillum consequat aliquip laboris quis commodo irure id fugiat deserunt aute ad culpa laborum occaecat irure ad magna Ut aliquip reprehenderit veniam consequat.
+
+						// Question 4
+						div.panel.panel-default
+							div.panel-heading
+								h4.panel-title
+									a(data-toggle='collapse', data-parent='#accordion', href='#collapse4')
+										| 4 - Enim ut ut tempor proident consequat commodo officia nisi Duis.
+							div#collapse4.panel-collapse.collapse
+								div.panel-body
+									| Paleo fashion axe farm-to-table biodiesel <strong>Godard Carles</strong>, trust fund keffiyeh banh mi ugh. Kitsch artisan Carles, crucifix fap flannel street art PBR&B Schlitz food truck Neutra. Salvia farm-to-table keytar ethical, stumptown hella kale chips meggings. Shabby chic craft beer Portland, put a bird on it drinking vinegar fashion axe American Apparel DIY. Fanny pack occupy Marfa actually. Cliche four loko food truck lomo Williamsburg. High Life organic letterpress Intelligentsia hoodie selfies dreamcatcher hella, shabby chic wayfarers slow-carb Echo Park DIY scenester.
+									br
+									br
+									| Aesthetic cray bespoke, mixtape squid direct trade fashion axe whatever ethical occupy brunch. <strong>Intelligentsia locavore normcore,</strong> selvage hoodie artisan roof party forage Bushwick. DIY butcher letterpress Etsy ethnic. Typewriter Pinterest actually ethnic forage kogi. Freegan synth seitan plaid. Narwhal selvage normcore Shoreditch cardigan farm-to-table you probably haven't heard of them. 8-bit kogi Cosby sweater meh, salvia brunch single-origin coffee 90's bicycle rights Marfa XOXO seitan 3 wolf moon.
+									br
+									br
+									| Mumblecore kitsch disrupt pug put a bird on it drinking vinegar. Sustainable skateboard church-key Echo Park. Next level trust fund ugh kale chips, street art Neutra Portland roof party disrupt Odd Future plaid. Cornhole four loko Pitchfork, literally ennui cray kale chips deep v cardigan <strong>Helvetica hella typewriter Wes Anderson small batch kitsch</strong>. Church-key squid banh mi mustache. Messenger bag ennui deep v, food truck Vice locavore Kickstarter blog you probably haven't heard of them bespoke retro American Apparel polaroid semiotics 90's. Master cleanse Portland next level squid.
+									br
+									br
+									| <strong>YOLO</strong> asymmetrical tofu disrupt trust fund kogi. Mixtape fashion axe literally PBR&B tote bag. Kogi gluten-free lo-fi, cornhole street art paleo Intelligentsia pickled. Artisan farm-to-table YOLO locavore jean shorts, fixie keytar Intelligentsia mustache. Leggings mustache gastropub actually scenester sriracha. McSweeney's stumptown retro, High Life actually VHS you probably haven't heard of them mustache Cosby sweater raw denim fingerstache hoodie. Swag +1 Cosby sweater, shabby chic kitsch Williamsburg paleo normcore Pinterest forage biodiesel literally.
+
+						// Question 5
+						div.panel.panel-default
+							div.panel-heading
+								h4.panel-title
+									a(data-toggle='collapse', data-parent='#accordion', href='#collapse5')
+										|5 - Fugiat qui sint velit consequat aute ullamco do sed deserunt sunt Duis elit laborum.
+							div#collapse5.panel-collapse.collapse
+								div.panel-body
+									| Keytar church-key stumptown meggings, American Apparel meh tofu vinyl brunch kogi typewriter direct trade. Kitsch bicycle rights Schlitz Austin Wes Anderson, ennui leggings deep v occupy shabby chic gastropub +1 fanny pack. Ethical mixtape beard cornhole, hoodie slow-carb ugh whatever Thundercats freegan. Godard Intelligentsia High Life selvage bespoke, American Apparel lo-fi crucifix bicycle rights fingerstache kitsch post-ironic. Disrupt 8-bit post-ironic XOXO irony Neutra messenger bag. Kale chips bicycle rights deep v Odd Future Austin whatever. Before they sold out Neutra you probably haven't heard of them, meggings asymmetrical sartorial scenester Kickstarter yr squid organic cliche flexitarian sriracha Tumblr.
+
+					h3.sep-bottom Payment
+
+					div#accordion_1.panel-group
+
+						// Question 1
+						div.panel.panel-default
+							div.panel-heading
+								h4.panel-title
+									a(data-toggle='collapse', data-parent='#accordion_1', href='#collapse-p-1')
+										| 1 - Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+							div#collapse-p-1.panel-collapse.collapse.in
+								div.panel-body
+									| Harum, recusandae, error impedit veritatis rem laudantium numquam adipisci commodi similique molestiae voluptas facere in inventore excepturi porro vitae provident blanditiis officiis!
+
+						// Question 2
+						div.panel.panel-default
+							div.panel-heading
+								h4.panel-title
+									a(data-toggle='collapse', data-parent='#accordion_1', href='#collapse-p-2')
+										| 2 - Velit nostrud eu commodo officia ad.
+							div#collapse-p-2.panel-collapse.collapse
+								div.panel-body
+									| Magna id elit quis exercitation Excepteur cupidatat velit commodo id pariatur est consectetur est fugiat fugiat ea sint voluptate eiusmod et tempor velit dolore pariatur incididunt enim quis tempor dolore.
+									br
+									br
+									| Lorem ipsum Dolor sed amet officia qui mollit in enim mollit velit ut eiusmod quis irure consectetur magna fugiat do dolore consequat sint in amet.
+
+						// Question 3
+						div.panel.panel-default
+							div.panel-heading
+								h4.panel-title
+									a(data-toggle='collapse', data-parent='#accordion_1', href='#collapse-p-3')
+										| 3 - Dolore sit minim ea Ut.
+							div#collapse-p-3.panel-collapse.collapse
+								div.panel-body
+									| Lorem ipsum Id in qui culpa est non tempor commodo ut commodo velit incididunt non anim Duis aute veniam ea nostrud elit Duis aute in et nostrud culpa nostrud tempor adipisicing cillum est incididunt cillum non nulla dolor Duis in commodo amet voluptate ad dolor dolore magna qui aliquip occaecat veniam eu Duis magna est id sit ut officia in dolor esse occaecat amet sint ut occaecat quis non Excepteur aliqua dolor ea anim nisi exercitation ea ullamco non in deserunt non magna ut adipisicing est minim mollit dolore ea anim incididunt incididunt exercitation Excepteur ullamco laboris aliquip mollit voluptate laborum Duis nulla sunt aliquip ea dolor pariatur sunt do ex ullamco laboris qui commodo Ut in qui tempor laborum consectetur nisi culpa sunt tempor magna ex amet dolore Excepteur anim anim sunt aute laboris labore amet esse cupidatat cupidatat et sunt enim voluptate aute veniam nulla quis laboris ut consequat quis aute dolor velit eiusmod consectetur est dolore sunt occaecat commodo id labore irure sit occaecat cupidatat culpa dolore aliquip exercitation proident magna irure enim incididunt exercitation in commodo Duis culpa dolore labore esse tempor occaecat laboris non laboris velit cillum dolor deserunt adipisicing velit commodo dolor sit in consectetur reprehenderit aliquip dolore occaecat Duis adipisicing cupidatat cillum consequat aliquip laboris quis commodo irure id fugiat deserunt aute ad culpa laborum occaecat irure ad magna Ut aliquip reprehenderit veniam consequat.
+
+						// Question 4
+						div.panel.panel-default
+							div.panel-heading
+								h4.panel-title
+									a(data-toggle='collapse', data-parent='#accordion_1', href='#collapse-p-4')
+										| 4 - Enim ut ut tempor proident consequat commodo officia nisi Duis.
+							div#collapse-p-4.panel-collapse.collapse
+								div.panel-body
+									| Paleo fashion axe farm-to-table biodiesel <strong>Godard Carles</strong>, trust fund keffiyeh banh mi ugh. Kitsch artisan Carles, crucifix fap flannel street art PBR&B Schlitz food truck Neutra. Salvia farm-to-table keytar ethical, stumptown hella kale chips meggings. Shabby chic craft beer Portland, put a bird on it drinking vinegar fashion axe American Apparel DIY. Fanny pack occupy Marfa actually. Cliche four loko food truck lomo Williamsburg. High Life organic letterpress Intelligentsia hoodie selfies dreamcatcher hella, shabby chic wayfarers slow-carb Echo Park DIY scenester.
+									br
+									br
+									| Aesthetic cray bespoke, mixtape squid direct trade fashion axe whatever ethical occupy brunch. <strong>Intelligentsia locavore normcore,</strong> selvage hoodie artisan roof party forage Bushwick. DIY butcher letterpress Etsy ethnic. Typewriter Pinterest actually ethnic forage kogi. Freegan synth seitan plaid. Narwhal selvage normcore Shoreditch cardigan farm-to-table you probably haven't heard of them. 8-bit kogi Cosby sweater meh, salvia brunch single-origin coffee 90's bicycle rights Marfa XOXO seitan 3 wolf moon.
+									br
+									br
+									| Mumblecore kitsch disrupt pug put a bird on it drinking vinegar. Sustainable skateboard church-key Echo Park. Next level trust fund ugh kale chips, street art Neutra Portland roof party disrupt Odd Future plaid. Cornhole four loko Pitchfork, literally ennui cray kale chips deep v cardigan <strong>Helvetica hella typewriter Wes Anderson small batch kitsch</strong>. Church-key squid banh mi mustache. Messenger bag ennui deep v, food truck Vice locavore Kickstarter blog you probably haven't heard of them bespoke retro American Apparel polaroid semiotics 90's. Master cleanse Portland next level squid.
+									br
+									br
+									| <strong>YOLO</strong> asymmetrical tofu disrupt trust fund kogi. Mixtape fashion axe literally PBR&B tote bag. Kogi gluten-free lo-fi, cornhole street art paleo Intelligentsia pickled. Artisan farm-to-table YOLO locavore jean shorts, fixie keytar Intelligentsia mustache. Leggings mustache gastropub actually scenester sriracha. McSweeney's stumptown retro, High Life actually VHS you probably haven't heard of them mustache Cosby sweater raw denim fingerstache hoodie. Swag +1 Cosby sweater, shabby chic kitsch Williamsburg paleo normcore Pinterest forage biodiesel literally.
+
+						// Question 5
+						div.panel.panel-default
+							div.panel-heading
+								h4.panel-title
+									a(data-toggle='collapse', data-parent='#accordion_1', href='#collapse-p-5')
+										|5 - Fugiat qui sint velit consequat aute ullamco do sed deserunt sunt Duis elit laborum.
+							div#collapse-p-5.panel-collapse.collapse
+								div.panel-body
+									| Keytar church-key stumptown meggings, American Apparel meh tofu vinyl brunch kogi typewriter direct trade. Kitsch bicycle rights Schlitz Austin Wes Anderson, ennui leggings deep v occupy shabby chic gastropub +1 fanny pack. Ethical mixtape beard cornhole, hoodie slow-carb ugh whatever Thundercats freegan. Godard Intelligentsia High Life selvage bespoke, American Apparel lo-fi crucifix bicycle rights fingerstache kitsch post-ironic. Disrupt 8-bit post-ironic XOXO irony Neutra messenger bag. Kale chips bicycle rights deep v Odd Future Austin whatever. Before they sold out Neutra you probably haven't heard of them, meggings asymmetrical sartorial scenester Kickstarter yr squid organic cliche flexitarian sriracha Tumblr.
+
+					h3.sep-bottom Account
+
+					div#accordion_2.panel-group
+
+						// Question 1
+						div.panel.panel-default
+							div.panel-heading
+								h4.panel-title
+									a(data-toggle='collapse', data-parent='#accordion_2', href='#collapse-a-1')
+										| 1 - Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+							div#collapse-a-1.panel-collapse.collapse.in
+								div.panel-body
+									| Harum, recusandae, error impedit veritatis rem laudantium numquam adipisci commodi similique molestiae voluptas facere in inventore excepturi porro vitae provident blanditiis officiis!
+
+						// Question 2
+						div.panel.panel-default
+							div.panel-heading
+								h4.panel-title
+									a(data-toggle='collapse', data-parent='#accordion_2', href='#collapse-a-2')
+										| 2 - Velit nostrud eu commodo officia ad.
+							div#collapse-a-2.panel-collapse.collapse
+								div.panel-body
+									| Magna id elit quis exercitation Excepteur cupidatat velit commodo id pariatur est consectetur est fugiat fugiat ea sint voluptate eiusmod et tempor velit dolore pariatur incididunt enim quis tempor dolore.
+									br
+									br
+									| Lorem ipsum Dolor sed amet officia qui mollit in enim mollit velit ut eiusmod quis irure consectetur magna fugiat do dolore consequat sint in amet.
+
+						// Question 3
+						div.panel.panel-default
+							div.panel-heading
+								h4.panel-title
+									a(data-toggle='collapse', data-parent='#accordion_2', href='#collapse-a-3')
+										| 3 - Dolore sit minim ea Ut.
+							div#collapse-a-3.panel-collapse.collapse
+								div.panel-body
+									| Lorem ipsum Id in qui culpa est non tempor commodo ut commodo velit incididunt non anim Duis aute veniam ea nostrud elit Duis aute in et nostrud culpa nostrud tempor adipisicing cillum est incididunt cillum non nulla dolor Duis in commodo amet voluptate ad dolor dolore magna qui aliquip occaecat veniam eu Duis magna est id sit ut officia in dolor esse occaecat amet sint ut occaecat quis non Excepteur aliqua dolor ea anim nisi exercitation ea ullamco non in deserunt non magna ut adipisicing est minim mollit dolore ea anim incididunt incididunt exercitation Excepteur ullamco laboris aliquip mollit voluptate laborum Duis nulla sunt aliquip ea dolor pariatur sunt do ex ullamco laboris qui commodo Ut in qui tempor laborum consectetur nisi culpa sunt tempor magna ex amet dolore Excepteur anim anim sunt aute laboris labore amet esse cupidatat cupidatat et sunt enim voluptate aute veniam nulla quis laboris ut consequat quis aute dolor velit eiusmod consectetur est dolore sunt occaecat commodo id labore irure sit occaecat cupidatat culpa dolore aliquip exercitation proident magna irure enim incididunt exercitation in commodo Duis culpa dolore labore esse tempor occaecat laboris non laboris velit cillum dolor deserunt adipisicing velit commodo dolor sit in consectetur reprehenderit aliquip dolore occaecat Duis adipisicing cupidatat cillum consequat aliquip laboris quis commodo irure id fugiat deserunt aute ad culpa laborum occaecat irure ad magna Ut aliquip reprehenderit veniam consequat.
+
+						// Question 4
+						div.panel.panel-default
+							div.panel-heading
+								h4.panel-title
+									a(data-toggle='collapse', data-parent='#accordion_2', href='#collapse-a-4')
+										| 4 - Enim ut ut tempor proident consequat commodo officia nisi Duis.
+							div#collapse-a-4.panel-collapse.collapse
+								div.panel-body
+									| Paleo fashion axe farm-to-table biodiesel <strong>Godard Carles</strong>, trust fund keffiyeh banh mi ugh. Kitsch artisan Carles, crucifix fap flannel street art PBR&B Schlitz food truck Neutra. Salvia farm-to-table keytar ethical, stumptown hella kale chips meggings. Shabby chic craft beer Portland, put a bird on it drinking vinegar fashion axe American Apparel DIY. Fanny pack occupy Marfa actually. Cliche four loko food truck lomo Williamsburg. High Life organic letterpress Intelligentsia hoodie selfies dreamcatcher hella, shabby chic wayfarers slow-carb Echo Park DIY scenester.
+									br
+									br
+									| Aesthetic cray bespoke, mixtape squid direct trade fashion axe whatever ethical occupy brunch. <strong>Intelligentsia locavore normcore,</strong> selvage hoodie artisan roof party forage Bushwick. DIY butcher letterpress Etsy ethnic. Typewriter Pinterest actually ethnic forage kogi. Freegan synth seitan plaid. Narwhal selvage normcore Shoreditch cardigan farm-to-table you probably haven't heard of them. 8-bit kogi Cosby sweater meh, salvia brunch single-origin coffee 90's bicycle rights Marfa XOXO seitan 3 wolf moon.
+									br
+									br
+									| Mumblecore kitsch disrupt pug put a bird on it drinking vinegar. Sustainable skateboard church-key Echo Park. Next level trust fund ugh kale chips, street art Neutra Portland roof party disrupt Odd Future plaid. Cornhole four loko Pitchfork, literally ennui cray kale chips deep v cardigan <strong>Helvetica hella typewriter Wes Anderson small batch kitsch</strong>. Church-key squid banh mi mustache. Messenger bag ennui deep v, food truck Vice locavore Kickstarter blog you probably haven't heard of them bespoke retro American Apparel polaroid semiotics 90's. Master cleanse Portland next level squid.
+									br
+									br
+									| <strong>YOLO</strong> asymmetrical tofu disrupt trust fund kogi. Mixtape fashion axe literally PBR&B tote bag. Kogi gluten-free lo-fi, cornhole street art paleo Intelligentsia pickled. Artisan farm-to-table YOLO locavore jean shorts, fixie keytar Intelligentsia mustache. Leggings mustache gastropub actually scenester sriracha. McSweeney's stumptown retro, High Life actually VHS you probably haven't heard of them mustache Cosby sweater raw denim fingerstache hoodie. Swag +1 Cosby sweater, shabby chic kitsch Williamsburg paleo normcore Pinterest forage biodiesel literally.
+
+						// Question 5
+						div.panel.panel-default
+							div.panel-heading
+								h4.panel-title
+									a(data-toggle='collapse', data-parent='#accordion_2', href='#collapse-a-5')
+										|5 - Fugiat qui sint velit consequat aute ullamco do sed deserunt sunt Duis elit laborum.
+							div#collapse-a-5.panel-collapse.collapse
+								div.panel-body
+									| Keytar church-key stumptown meggings, American Apparel meh tofu vinyl brunch kogi typewriter direct trade. Kitsch bicycle rights Schlitz Austin Wes Anderson, ennui leggings deep v occupy shabby chic gastropub +1 fanny pack. Ethical mixtape beard cornhole, hoodie slow-carb ugh whatever Thundercats freegan. Godard Intelligentsia High Life selvage bespoke, American Apparel lo-fi crucifix bicycle rights fingerstache kitsch post-ironic. Disrupt 8-bit post-ironic XOXO irony Neutra messenger bag. Kale chips bicycle rights deep v Odd Future Austin whatever. Before they sold out Neutra you probably haven't heard of them, meggings asymmetrical sartorial scenester Kickstarter yr squid organic cliche flexitarian sriracha Tumblr.
+
+
+			include components/layout/footer/footer_1/footer_1__t_1
+
+		include components/layout/sidebar/sidebar_2/sidebar_2__t_2__right

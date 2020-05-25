@@ -1,0 +1,133 @@
+//- ------------------------------------
+//- BASE LAYOUT
+//- ------------------------------------
+extends aaa-master-layout
+
+
+//- ------------------------------------
+//- PAGE CONFIGURATION
+//- ------------------------------------
+prepend config
+	- var link = "ui-notification.html"
+	- var page = "ui.u-notification"
+	- var pageSubTitle = " - UI Elements - Notifications"
+	- var scripts = [ 'a.shared.easing', 'notifications.jgrowl', 'notifications.toastr', 'notifications.amaran', 'x.call.ui.notification' ]
+
+
+//- ------------------------------------
+//- PAGE CONTENT
+//- ------------------------------------
+block content
+
+	//SECTION
+	section.l-main-container
+
+		include components/layout/sidebar/sidebar_1/sidebar_1__t_1__left
+
+		//Main Content
+		section.l-container
+
+			include components/layout/header/header_1/header_1__t_1
+
+			.l-page-header
+				h2.l-page-title <span>Notification Messages</span>
+				+breadcrumb(bread_ui_notification)
+
+			.l-spaced
+
+				.l-box.l-spaced-bottom
+					.l-box-header
+						h2.l-box-title <span>jGrowl</span> Notifications
+						+box-options
+
+					.l-box-body.l-spaced
+						table.table.table-bordered.table-striped.notifi-container
+							tbody
+								tr
+									td.text-right.notifi-align Basic
+									td
+										a.btn.btn-dark#jGrowl_1(href = '#') Show jGrowl
+
+								tr
+									td.text-right Sticky
+									td
+										a.btn.btn-dark#jGrowl_2(href = '#') Show jGrowl
+
+								tr
+									td.text-right Custom Header
+									td
+										a.btn.btn-dark#jGrowl_3(href = '#') Show jGrowl
+
+								tr
+									td.text-right Delayed Closing
+									td
+										a.btn.btn-dark#jGrowl_4(href = '#') Show jGrowl
+
+								tr
+									td.text-right Positions
+									td
+										.btn-group
+											a.btn.btn-dark#jGrowl_tr(href = '#') Top Right
+											a.btn.btn-dark#jGrowl_tl(href = '#') Top Left
+											a.btn.btn-dark#jGrowl_br(href = '#') Bottom Right
+											a.btn.btn-dark#jGrowl_bl(href = '#') Bottom Left
+
+										.jGrowl.top-right
+										.jGrowl.top-left
+										.jGrowl.bottom-right
+										.jGrowl.bottom-left
+
+				.l-box.l-spaced-bottom
+					.l-box-header
+						h2.l-box-title <span>Toastr</span> Notifications
+						+box-options
+
+					.l-box-body.l-spaced
+						table.table.table-bordered.table-striped.notifi-container
+							tbody
+								tr
+									td.text-right.notifi-align Basic
+									td
+										a.btn.btn-dark#toastr_1(href = '#') Show Toastr
+
+								tr
+									td.text-right With close button
+									td
+										a.btn.btn-dark#toastr_2(href = '#') Show Toastr
+								tr
+									td.text-right Easing
+									td
+										.btn-group
+											a.btn.btn-dark#toastr_swing(href = '#') Swing
+											a.btn.btn-dark#toastr_linear(href = '#') Linear
+											a.btn.btn-dark#toastr_bounce(href = '#') Bounce
+											a.btn.btn-dark#toastr_sine(href = '#') Sine
+											a.btn.btn-dark#toastr_elastic(href = '#') Elastic
+								tr
+									td.text-right Animation
+									td
+										.btn-group
+											a.btn.btn-dark#toastr_fade(href = '#') Fade
+											a.btn.btn-dark#toastr_slide(href = '#') Slide
+											a.btn.btn-dark#toastr_show(href = '#') Show
+								tr
+									td.text-right Positions
+									td
+										.btn-group
+											a.btn.btn-dark#toastr_tr(href = '#') Top Right
+											a.btn.btn-dark#toastr_tc(href = '#') Top Center
+											a.btn.btn-dark#toastr_tl(href = '#') Top Left
+											a.btn.btn-dark#toastr_br(href = '#') Bottom Right
+											a.btn.btn-dark#toastr_bc(href = '#') Bottom Center
+											a.btn.btn-dark#toastr_bl(href = '#') Bottom Left
+
+								tr
+									td.text-right More Positions
+									td
+										.btn-group
+											a.btn.btn-dark#toastr_tfw(href = '#') Top Full Width
+											a.btn.btn-dark#toastr_bfw(href = '#') Bottom Full Width
+
+			include components/layout/footer/footer_1/footer_1__t_1
+
+		include components/layout/sidebar/sidebar_2/sidebar_2__t_2__right

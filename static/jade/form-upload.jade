@@ -1,0 +1,213 @@
+//- ------------------------------------
+//- BASE LAYOUT
+//- ------------------------------------
+extends aaa-master-layout
+
+
+//- ------------------------------------
+//- PAGE CONFIGURATION
+//- ------------------------------------
+prepend config
+	- var link = "form-upload.html"
+	- var page = "form.fo-upload"
+	- var pageSubTitle = " - Form - Upload and WYSIWYG"
+	- var styles = [ 'summernote' ]
+	- var scripts = [ 'form.summernote', 'form.checkradios', 'form.fileupload', 'x.call.form.upload' ]
+
+
+//- ------------------------------------
+//- PAGE CONTENT
+//- ------------------------------------
+block content
+
+	//SECTION
+	section.l-main-container
+
+
+		include components/layout/sidebar/sidebar_1/sidebar_1__t_1__left
+
+		//Main Content
+		section.l-container
+
+			include components/layout/header/header_1/header_1__t_1
+
+			.l-page-header
+				h2.l-page-title <span>File Upload</span> and <span>WYSIWYG</span>
+				+breadcrumb(bread_form_upload)
+
+			.l-spaced
+				.l-box.l-spaced-bottom
+					.l-box-header
+						h2.l-box-title <span>Bootstrap</span> File Upload
+						+box-options
+
+					.l-box-body.l-spaced-horizontal
+						.l-row
+							.l-col-lg-6.l-col-sm-6
+								h4.sep-bottom Standard Button
+								span.file-input.btn.btn-primary.btn-file
+									| Browse…
+									input(type='file', multiple='')
+							.l-col-lg-6.l-col-sm-6.l-clear-lg.l-clear-sm
+								h4.sep-bottom
+									| Block-level Button
+								span.file-input.btn.btn-block.btn-primary.btn-file
+									| Browse…
+									input(type='file', multiple='')
+							.l-col-lg-6.l-col-sm-6
+								h4.sep-bottom Button Groups
+								.btn-group
+									a.btn.btn-default(href='#') Action 1
+									a.btn.btn-default(href='#') Action 2
+									span.btn.btn-primary.btn-file
+										| Browse…
+										input(type='file', multiple='')
+							.l-col-lg-6.l-col-sm-6
+								h4.sep-bottom Input Groups
+								.input-group
+									span.input-group-btn
+										span.btn.btn-primary.btn-file
+											| Browse…
+											input(type='file', multiple='')
+									input.form-control(type='text', readonly='')
+								span.help-block
+									| Try selecting one or more files and watch the feedback
+
+
+				.l-box.l-spaced-bottom
+					.l-box-header
+						h2.l-box-title <span>jQuery</span> File Upload
+						+box-options
+
+					.l-box-body.l-spaced
+						form#fileupload(action='//jquery-file-upload.appspot.com/', method='POST', enctype='multipart/form-data')
+							// Redirect browsers with JavaScript disabled to the origin page
+							noscript
+								| <input type="hidden" name="redirect" value="http://blueimp.github.io/jQuery-File-Upload/">
+							// The fileupload-buttonbar contains buttons to add/delete files and start/cancel the upload
+							.row.fileupload-buttonbar
+								.col-lg-7
+									// The fileinput-button span is used to style the file input field as button
+									span.btn.btn-success.fileinput-button
+										i.glyphicon.glyphicon-plus
+										span Add files...
+										input(type='file', name='files[]', multiple='')
+									button.btn.btn-dark.start(type='submit')
+										i.glyphicon.glyphicon-upload
+										span Start upload
+									button.btn.btn-warning.cancel(type='reset')
+										i.glyphicon.glyphicon-ban-circle
+										span Cancel upload
+									button.btn.btn-danger.delete(type='button')
+										i.glyphicon.glyphicon-trash
+										span Delete
+									input.checkradios.checkradiosDark-1.toggle(type='checkbox')
+									// The global file processing state
+									span.fileupload-process
+								// The global progress state
+								.col-lg-5.fileupload-progress.fade
+									// The global progress bar
+									.progress.progress-striped.active(role='progressbar', aria-valuemin='0', aria-valuemax='100')
+										.progress-bar.progress-bar-success(style='width:0%;')
+									// The extended global progress state
+									.progress-extended  
+							// The table listing the files available for upload/download
+							table.table.table-striped(role='presentation')
+								tbody.files
+
+						#blueimp-gallery.blueimp-gallery.blueimp-gallery-controls(data-filter=':even')
+							.slides
+							h3.title
+							a.prev ‹
+							a.next ›
+							a.close ×
+							a.play-pause
+							ol.indicator
+
+						// The template to display files available for upload
+						script#template-upload(type='text/x-tmpl').
+							{% for (var i=0, file; file=o.files[i]; i++) { %}
+								<tr class="template-upload fade">
+									<td>
+										<span class="preview"></span>
+									</td>
+									<td>
+										<p class="name">{%=file.name%}</p>
+										<strong class="error text-danger"></strong>
+									</td>
+									<td>
+										<p class="size">Processing...</p>
+										<div class="progress progress-striped active" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0"><div class="progress-bar progress-bar-success" style="width:0%;"></div></div>
+									</td>
+									<td>
+										{% if (!i && !o.options.autoUpload) { %}
+											<button class="btn btn-dark start" disabled>
+												<i class="glyphicon glyphicon-upload"></i>
+												<span>Start</span>
+											</button>
+										{% } %}
+										{% if (!i) { %}
+											<button class="btn btn-warning cancel">
+												<i class="glyphicon glyphicon-ban-circle"></i>
+												<span>Cancel</span>
+											</button>
+										{% } %}
+									</td>
+								</tr>
+							{% } %}
+
+						// The template to display files available for download
+						script#template-download(type='text/x-tmpl').
+							{% for (var i=0, file; file=o.files[i]; i++) { %}
+								<tr class="template-download fade">
+									<td>
+										<span class="preview">
+											{% if (file.thumbnailUrl) { %}
+												<a href="{%=file.url%}" title="{%=file.name%}" download="{%=file.name%}" data-gallery><img src="{%=file.thumbnailUrl%}"></a>
+											{% } %}
+										</span>
+									</td>
+									<td>
+										<p class="name">
+											{% if (file.url) { %}
+												<a href="{%=file.url%}" title="{%=file.name%}" download="{%=file.name%}" {%=file.thumbnailUrl?'data-gallery':''%}>{%=file.name%}</a>
+											{% } else { %}
+												<span>{%=file.name%}</span>
+											{% } %}
+										</p>
+										{% if (file.error) { %}
+											<div><span class="label label-danger">Error</span> {%=file.error%}</div>
+										{% } %}
+									</td>
+									<td>
+										<span class="size">{%=o.formatFileSize(file.size)%}</span>
+									</td>
+									<td>
+										{% if (file.deleteUrl) { %}
+											<button class="btn btn-danger delete" data-type="{%=file.deleteType%}" data-url="{%=file.deleteUrl%}"{% if (file.deleteWithCredentials) { %} data-xhr-fields='{"withCredentials":true}'{% } %}>
+												<i class="glyphicon glyphicon-trash"></i>
+												<span>Delete</span>
+											</button>
+											<input type="checkbox" name="delete" value="1" class="toggle checkradios">
+										{% } else { %}
+											<button class="btn btn-warning cancel">
+												<i class="glyphicon glyphicon-ban-circle"></i>
+												<span>Cancel</span>
+											</button>
+										{% } %}
+									</td>
+								</tr>
+							{% } %}
+
+				.l-box.l-spaced-bottom
+					.l-box-header
+						h2.l-box-title <span>Summernote</span> WYSIWYG
+						+box-options
+
+					.l-box-body.l-spaced
+						div#summernote Hello Summernote
+
+
+			include components/layout/footer/footer_1/footer_1__t_1
+
+		include components/layout/sidebar/sidebar_2/sidebar_2__t_2__right

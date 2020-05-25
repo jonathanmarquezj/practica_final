@@ -1,0 +1,69 @@
+// Notification Widget
+ul.widget-notification.notification-in-box
+	li.dropdown-menu-header
+		| Notification
+		span.label.label-success 5
+	li.nft-content
+		ul
+			li
+				a(href = '#')
+					.l-row
+						.l-col-sm-2.nft-icon.text-info
+							i.fa.fa-user
+						.l-col-sm-6.nft-info
+							p New User Sign Up
+						.l-col-sm-2.time
+							span 15 min
+						.l-col-sm-2.nft-status
+							div.nft-tip(data-toggle="tooltip", title="Mark as read")
+								i.fa.fa-circle-o
+			li
+				a(href = '#')
+					.l-row
+						.l-col-sm-2.nft-icon
+							i.fa.fa-shopping-cart.text-success
+						.l-col-sm-6.nft-info
+							p New Order
+						.l-col-sm-2.time
+							span 31 min
+						.l-col-sm-2.nft-status
+							div.nft-tip(data-toggle="tooltip", title="Mark as read")
+								i.fa.fa-circle-o
+			li
+				a(href = '#')
+					.l-row
+						.l-col-sm-2.nft-icon
+							i.fa.fa-comment.text-warning
+						.l-col-sm-6.nft-info
+							p New Comment
+						.l-col-sm-2.time
+							span 07/02/14
+						.l-col-sm-2.nft-status
+							div.nft-tip(data-toggle="tooltip", title="Mark as read")
+								i.fa.fa-circle-o
+			li
+				a(href = '#')
+					.l-row
+						.l-col-sm-2.nft-icon
+							i.fa.fa-database.text-danger
+						.l-col-sm-6.nft-info
+							p Database Updated
+						.l-col-sm-2.time
+							span 09/24/14
+						.l-col-sm-2.nft-status
+							div.nft-tip(data-toggle="tooltip", title="Mark as unread")
+								i.fa.fa-circle
+			li
+				a(href = '#')
+					.l-row
+						.l-col-sm-2.nft-icon
+							i.fa.fa-code-fork.text-primary
+						.l-col-sm-6.nft-info
+							p Github Fork Updated
+						.l-col-sm-2.time
+							span 11/12/14
+						.l-col-sm-2.nft-status
+							div.nft-tip(data-toggle="tooltip", title="Mark as unread")
+								i.fa.fa-circle
+	li.dropdown-menu-footer
+		a(href = '#') View all notifications

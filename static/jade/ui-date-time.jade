@@ -1,0 +1,234 @@
+//- ------------------------------------
+//- BASE LAYOUT
+//- ------------------------------------
+extends aaa-master-layout
+
+
+//- ------------------------------------
+//- PAGE CONFIGURATION
+//- ------------------------------------
+prepend config
+	- var link = "ui-date-time.html"
+	- var page = "ui.u-date-time"
+	- var pageSubTitle = " - UI Elements - Date and Time pickers"
+	- var scripts = [ 'a.shared.moment', 'datetime.jqClock',  'notifications.jgrowl', 'datetime.daterangepicker', 'datetime.bs.datepicker', 'datetime.bs.datetimepicker', 'datetime.clockface', 'x.call.ui.datetime' ]
+
+
+
+//- ------------------------------------
+//- PAGE CONTENT
+//- ------------------------------------
+block content
+
+	//SECTION
+	section.l-main-container
+
+		include components/layout/sidebar/sidebar_1/sidebar_1__t_1__left
+
+		//Main Content
+		section.l-container
+
+			include components/layout/header/header_1/header_1__t_1
+
+			.l-page-header
+				h2.l-page-title <span>Date</span> and <span>Time Pickers</span>
+				+breadcrumb(bread_ui_date_time)
+
+			.l-spaced
+
+				.l-row
+					.l-box.l-col-xl-4.l-spaced-bottom
+						.l-box-header
+							h2.l-box-title Date Range and Time Picker
+							+box-options
+
+						.l-box-body.l-spaced
+							.input-group
+								span.input-group-addon
+									i.fa.fa-calendar
+								input#daterangepicker_1.form-control(type='text', name='daterangepicker_1', value='08/01/2015 1:00 PM - 08/01/2015 1:30 PM')
+
+
+					.l-box.l-col-xl-4.l-spaced-bottom
+						.l-box-header
+							h2.l-box-title Date Range Picker
+							+box-options
+
+						.l-box-body.l-spaced
+							.input-group
+								span.input-group-addon
+									i.fa.fa-calendar
+								input#daterangepicker_2.form-control(type='text', name='daterangepicker_2', value='03/18/2015 - 03/23/2015')
+
+					.l-box.l-col-xl-4.l-spaced-bottom
+						.l-box-header
+							h2.l-box-title Single Date Picker
+							+box-options
+
+						.l-box-body.l-spaced
+							.input-group
+								span.input-group-addon
+									i.fa.fa-calendar
+								input#daterangepicker_3.form-control(type='text', name='daterangepicker_3', value='03/18/2015')
+
+				.l-row
+					.l-box.l-col-xl-4.l-spaced-bottom
+						.l-box-header
+							h2.l-box-title Single Date Picker
+							+box-options
+
+						.l-box-body.l-spaced
+							.input-group
+								span.input-group-addon
+									i.fa.fa-calendar
+								input#daterangepicker_4.form-control(type='text', name='daterangepicker_4', value='03/11/2015')
+
+					.l-box.l-col-xl-4.l-spaced-bottom
+						.l-box-header
+							h2.l-box-title Single Date Picker with DropDown
+							+box-options
+
+						.l-box-body.l-spaced
+							.input-group
+								span.input-group-addon
+									i.fa.fa-calendar
+								input#daterangepicker_5.form-control(type='text', name='daterangepicker_5', value='07/02/1984')
+
+					.l-box.l-col-xl-4.l-spaced-bottom
+						.l-box-header
+							h2.l-box-title <span>Basic</span> Date Time Picker
+							+box-options
+
+						.l-box-body.l-spaced.datetimepicker
+							#datetimepicker_1.input-group
+								input.form-control(type='text', data-format='dd/MM/yyyy hh:mm:ss')
+								span.input-group-addon.add-on
+									i.fa.fa-calendar
+
+
+
+
+				.l-row
+					.l-box.l-col-xl-4.l-spaced-bottom
+						.l-box-header
+							h2.l-box-title <span>US Date/Hour Format</span> Date Time Picker
+							+box-options
+
+						.l-box-body.l-spaced.datetimepicker
+							#datetimepicker_2.input-group
+								input.form-control(type='text', data-format='MM/dd/yyyy HH:mm:ss PP')
+								span.input-group-addon.add-on
+									i.fa.fa-calendar
+
+					.l-box.l-col-xl-4.l-spaced-bottom
+						.l-box-header
+							h2.l-box-title <span>Time Picker</span> Date Time Picker
+							+box-options
+
+						.l-box-body.l-spaced
+							#datetimepicker_3.input-group
+								input.form-control(type='text', data-format='hh:mm:ss')
+								span.input-group-addon.add-on
+									i.fa.fa-clock-o
+
+					.l-box.l-col-xl-4.l-spaced-bottom
+						.l-box-header
+							h2.l-box-title <span>Basic</span> Clockface
+							+box-options
+
+						.l-box-body.l-spaced
+							.input-group
+								input#clockface_1.form-control(type='text', value='2:30 PM', data-format='hh:mm A')
+								span.input-group-addon
+									i.fa.fa-clock-o
+
+
+				.l-row
+					.l-box.l-col-xl-4.l-spaced-bottom
+						.l-box-header
+							h2.l-box-title <span>Readonly Input with Button</span> Clockface
+							+box-options
+
+						.l-box-body.l-spaced
+							.input-group
+								input#clockface_2.form-control(type='text', value='14:30', readonly='')
+								span#clockface_2_btn.input-group-addon
+									i.fa.fa-clock-o
+
+					.l-box.l-col-xl-4.l-spaced-bottom
+						.l-box-header
+							h2.l-box-title Date Picker - <span>Calendar weeks</span>
+							+box-options
+
+						.l-box-body.l-spaced#datepicker_1
+							input.form-control(type='text', name='datepicker_1')
+
+
+					.l-box.l-col-xl-4.l-spaced-bottom
+						.l-box-header
+							h2.l-box-title Date Picker - <span>Month Display</span>
+							+box-options
+
+						.l-box-body.l-spaced#datepicker_2
+							.input-group.date
+								input.form-control(type='text', name='datepicker_2')
+								span.input-group-addon
+									i.fa.fa-calendar
+
+				.l-row
+					.l-box.l-col-xl-4.l-spaced-bottom
+						.l-box-header
+							h2.l-box-title Date Picker - <span>Year Display</span>
+							+box-options
+
+						.l-box-body.l-spaced#datepicker_3
+							input.form-control(type='text', name='datepicker_3')
+
+					.l-box.l-col-xl-4.l-spaced-bottom
+						.l-box-header
+							h2.l-box-title Date Picker - <span>Range</span>
+							+box-options
+
+						.l-box-body.l-spaced#datepicker_4
+							.input-daterange.input-group
+								input.input-sm.form-control(type='text', name='start')
+								span.input-group-addon to
+								input.input-sm.form-control(type='text', name='end')
+
+					.l-box.l-col-xl-4.l-spaced-bottom
+						.l-box-header
+							h2.l-box-title Date Picker - Today and Clear Button Display
+							+box-options
+
+						.l-box-body.l-spaced#datepicker_5
+							input.form-control(type='text', name='datepicker_5')
+
+				.l-row
+					.l-box.l-col-xl-4.l-spaced-bottom
+						.l-box-header
+							h2.l-box-title Clock - <span>Default</span>
+							+box-options
+
+						.l-box-body.l-spaced
+							#clock_1.custom-clock
+
+					.l-box.l-col-xl-4.l-spaced-bottom
+						.l-box-header
+							h2.l-box-title Clock - <span>No Calendar</span>
+							+box-options
+
+						.l-box-body.l-spaced
+							#clock_2.custom-clock
+
+					.l-box.l-col-xl-4.l-spaced-bottom
+						.l-box-header
+							h2.l-box-title Clock - <span>No Seconds</span>
+							+box-options
+
+						.l-box-body.l-spaced.datetimepicker
+							#clock_3.custom-clock
+
+
+			include components/layout/footer/footer_1/footer_1__t_1
+
+		include components/layout/sidebar/sidebar_2/sidebar_2__t_2__right

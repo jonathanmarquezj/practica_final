@@ -1,0 +1,65 @@
+//- ------------------------------------
+//- BASE LAYOUT
+//- ------------------------------------
+extends aaa-master-layout
+
+
+//- ------------------------------------
+//- PAGE CONFIGURATION
+//- ------------------------------------
+prepend config
+	- var link = "layout-page-full.html"
+	- var page = "layout.l-page.pa-full"
+	- var pageSubTitle = " - Full width page"
+	- var styles = [ 'syntaxhighlighter']
+	- var scripts = [ 'a.syntaxhighlighter' ]
+
+
+//- ------------------------------------
+//- PAGE CONTENT
+//- ------------------------------------
+block content
+
+	//SECTION
+	section.l-main-container
+
+
+		include components/layout/sidebar/sidebar_1/sidebar_1__t_1__left
+
+		//Main Content
+		section.l-container
+
+			include components/layout/header/header_1/header_1__t_1__no_sb
+
+			.l-page-header
+				h2.l-page-title <span>Full Width</span> Page Layout
+				+breadcrumb(bread_layout_page_full)
+
+			.min-height-900
+				.l-spaced-vertical
+					.l-box.no-border
+						.l-spaced
+
+							.syntax-wrapper
+								.syntax-info
+									p.mv <strong>Full width</strong> page layout, it is also the default layout.
+
+								.table-responsive
+									pre(class="brush:xml;")
+										|&lt;body&gt;
+										|	&nbsp;
+										|	<section>
+										|		<header>
+										|			Header content...
+										|       	</header>
+										|	&nbsp;
+										|		<aside>
+										|			Sidebar content...
+										|		</aside>
+										|	&nbsp;
+										|		Page content...
+										|   	</section>
+										|	&nbsp;
+										|&lt;/body&gt;
+
+				include components/layout/footer/footer_1/footer_1__t_1
