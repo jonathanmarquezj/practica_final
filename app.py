@@ -289,7 +289,7 @@ def eliminarEvento(calendar_id, event_id):
 def crearToken():
 	# Solicitamos permiso para acceder al calendario del cliente.
 	scopes = ['https://www.googleapis.com/auth/calendar']
-	flow = InstalledAppFlow.from_client_secrets_file("client_secret.json", scopes=scopes)
+	flow = InstalledAppFlow.from_client_secrets_file("client_secret_heroku.json", scopes=scopes)
 	# Redirigimos, a la web de google para dar permiso y guardamos el token en una variable
 	credentials = flow.run_local_server(port=0)
 
