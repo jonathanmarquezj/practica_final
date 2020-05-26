@@ -19,7 +19,7 @@ from os import remove
 app = flask.Flask(__name__)
 
 
-
+# VARIABLES NECESARIAS LAS LA APLICACION
 CLIENT_SECRETS_FILE='client_secret_heroku.json'
 SCOPES=['https://www.googleapis.com/auth/calendar']
 
@@ -153,7 +153,7 @@ def modificarEvento(id_evento, calendar_id, mensaje=None):
 		return flask.render_template("modificarEvento.html", id_evento=id_evento, mensaje=mensaje, titulo=titulo, fechaInicio=fechaInicio, horaInicio=horaInicio, fechaFin=fechaFin, horaFin=horaFin, calendar_id=calendar_id)
 
 
-# Elimina el evento del calendario
+# ELIMINAR EVENTO DEL CALENDARIO
 @app.route('/eliminarEvento/<calendar_id>/<event_id>', methods=["GET", "POST"])
 def eliminarEvento(calendar_id, event_id):
 	# Miramos si existe el token, en caso contrario tendremos que crearlo
@@ -164,8 +164,23 @@ def eliminarEvento(calendar_id, event_id):
 	return flask.redirect(flask.url_for('calendario', mensaje='Evento eliminado', calendar_id=calendar_id))
 
 
+# ELIMINA LAS CREDENCIALES DEL SISTEMA
+@app.route('/eliminarToken', methods=["GET", "POST"])
+def eliminarToken():
+	del flask.session['credentials']
+	return flask.render_template("index.html")
 
-# PARA LAS CREDENCIALES
+
+#PARA PERSONALIZAR EL ERROR 404
+@app.errorhandler(404)
+def page_not_found(error):
+    return "<h1>ERROR: 404</h1><br/>página no encontrada <br/><br/><a href='/'>Atras</a>"
+
+
+#-------------------------------------------------------------------
+#                    PARA LAS CREDENCIALES
+#-------------------------------------------------------------------
+
 @app.route('/authorize', methods=["GET", "POST"])
 def authorize():
 	flow = google_auth_oauthlib.flow.Flow.from_client_secrets_file(CLIENT_SECRETS_FILE, scopes=SCOPES)
@@ -177,8 +192,6 @@ def authorize():
 	flask.session['state'] = state
 
 	return flask.redirect(authorization_url)
-
-
 
 @app.route('/oauth2callback')
 def oauth2callback():
@@ -197,26 +210,11 @@ def oauth2callback():
 
 
 
-# Elimina el archivo Token que es el que tiene el acceso al calendario
-@app.route('/eliminarToken', methods=["GET", "POST"])
-def eliminarToken():
-	del flask.session['credentials']
-	return flask.render_template("index.html")
-
-
-#PARA PERSONALIZAR EL ERROR 404
-@app.errorhandler(404)
-def page_not_found(error):
-    return "<h1>ERROR: 404</h1><br/>página no encontrada <br/><br/><a href='/'>Atras</a>"
-
-
-
-
 #-------------------------------------------------------------------
 #     FUNCIONES PYTHON
 #-------------------------------------------------------------------
 
-# Devuelve una lista de todos los calendarios que tiene el usuario
+# DEVUELVE UNA LISTA CON TODOS LOS CALENDARIO DEL USUARIO
 def listarCalendarios():
 	credentials = google.oauth2.credentials.Credentials(**flask.session['credentials'])
 
@@ -229,7 +227,7 @@ def listarCalendarios():
 
 	return calendarios
 
-# Solicita al servidor todos los eventos del calendario
+# SOLICITA AL SERVIDOR TODOS LOS EVENTOS DEL CALENDARIO SELECCIONADO
 def solicitarEventos(calendar_id):
 	credentials = google.oauth2.credentials.Credentials(**flask.session['credentials'])
 	service = build("calendar", "v3", credentials=credentials)
@@ -266,7 +264,7 @@ def solicitarEventos(calendar_id):
 	file.write("{}]")
 
 
-# Añade el evento
+# PARA AÑADIR EL EVENTO AL CALENDARIO SELECCIONADO
 def anadirEvento(titulo, fechaInicio, horaInicio, fechaFin, horaFin, calendar_id, descripcion=None, localidad=None):
 	# Creamos la pantilla del evento para despues mandarla a google
 	timezone = 'Europe/Madrid'
@@ -296,7 +294,7 @@ def anadirEvento(titulo, fechaInicio, horaInicio, fechaFin, horaFin, calendar_id
 	# Insertamos el evento
 	service.events().insert(calendarId=calendar_id, body=event).execute()
 
-# Actualiza el evento que el usuario a modificado
+# PARA ACTUALIZAR EL EVENTO DEL CALENDARIO QUE EL USUARIO A SELECCIONADO
 def actualizarEvento(evento_id, titulo, fechaInicio, horaInicio, fechaFin, horaFin, calendar_id, descripcion=None, localidad=None):
 	# Creamos la pantilla del evento para despues mandarla a google
 	timezone = 'Europe/Madrid'
@@ -326,14 +324,14 @@ def actualizarEvento(evento_id, titulo, fechaInicio, horaInicio, fechaFin, horaF
 	# Insertamos el evento
 	service.events().update(calendarId=calendar_id, eventId=evento_id, body=event).execute()
 
-# Elimina el evento
+# PARA ELIMINAR EL EVENTO DEL CALENDARIO
 def eliminarEvento(calendar_id, event_id):
 	credentials = google.oauth2.credentials.Credentials(**flask.session['credentials'])
 	service = build("calendar", "v3", credentials=credentials)
 
 	service.events().delete(calendarId=calendar_id, eventId=event_id).execute()
 
-
+# PARA CONTRUIR LAS CREDENCIALES
 def credentials_to_dict(credentials):
 	return {'token': credentials.token,
 		'refresh_token': credentials.refresh_token,
@@ -351,7 +349,9 @@ def credentials_to_dict(credentials):
 #   $ export PORT=8080
 port=os.environ["PORT"]
 if __name__ == '__main__':
+	# Para permitir conexiones no segutas
 	os.environ['OAUTHLIB_INSECURE_TRANSPORT'] = '1'
-	app.run('0.0.0.0', int(port), debug=True)
+	# DAtos del servidor
+	app.run('0.0.0.0', int(port), debug=False)
 
 
