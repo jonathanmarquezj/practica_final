@@ -318,7 +318,7 @@ def inicio():
 	return render_template("index.html")
 
 @app.route('/token', methods=["GET", "POST"])
-def inicio():
+def token():
 	flow = google_auth_oauthlib.flow.Flow.from_client_secrets_file(CLIENT_SECRETS_FILE, scopes=SCOPES)
 
 	flow.redirect_uri = flask.url_for('oauth2callback', _external=True)
