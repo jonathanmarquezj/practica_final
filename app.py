@@ -32,10 +32,6 @@ app.secret_key = '6qdL7nEDswA88vdnx-WIUdJB'
 #INICIO
 @app.route('/', methods=["GET", "POST"])
 def inicio():
-	# Para mirar si tenemos las credenciales
-	if 'credentials' not in flask.session:
-		return flask.redirect('authorize')
-
 	return flask.render_template("index.html")
 
 
@@ -201,18 +197,12 @@ def oauth2callback():
 
 
 
-
-
-
-
-
-"""
-
 # Elimina el archivo Token que es el que tiene el acceso al calendario
 @app.route('/eliminarToken', methods=["GET", "POST"])
 def eliminarToken():
-	remove("token.pkl")
-	return render_template("index.html")
+	flask.session['credentials']=""
+	return flask.render_template("index.html")
+
 
 #PARA PERSONALIZAR EL ERROR 404
 @app.errorhandler(404)
@@ -222,12 +212,10 @@ def page_not_found(error):
 
 
 
-
-
 #-------------------------------------------------------------------
 #     FUNCIONES PYTHON
 #-------------------------------------------------------------------
-"""
+
 # Devuelve una lista de todos los calendarios que tiene el usuario
 def listarCalendarios():
 	credentials = google.oauth2.credentials.Credentials(**flask.session['credentials'])
@@ -353,43 +341,6 @@ def credentials_to_dict(credentials):
 		'client_id': credentials.client_id,
 		'client_secret': credentials.client_secret,
 		'scopes': credentials.scopes}
-
-
-"""
-
-
-
-
-
-# Crea el token del calendario para que el usuario pueda acceder
-def crearToken():
-
-	# Solicitamos permiso para acceder al calendario del cliente.
-	scopes = ['https://www.googleapis.com/auth/calendar']
-	flow = InstalledAppFlow.from_client_secrets_file("client_secret.json", scopes=scopes)
-	# Redirigimos, a la web de google para dar permiso y guardamos el token en una variable
-	credentials = flow.run_local_server(port=0)
-
-	# Creamos el token en el servidor para no tener que solicitar de nuevo el permiso
-	pickle.dump(credentials, open("token.pkl", "wb"))
-
-
-# --------------------------------------
-
-"""
-#PRUEBA
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
