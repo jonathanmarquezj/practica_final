@@ -31,7 +31,9 @@ app.secret_key = '6qdL7nEDswA88vdnx-WIUdJB'
 
 #INICIO
 @app.route('/', methods=["GET", "POST"])
-def inicio():
+def inicio():# Miramos si existe el token, en caso contrario tendremos que crearlo
+	if 'credentials' not in flask.session:
+		return flask.redirect('authorize')
 	return flask.render_template("index.html")
 
 
