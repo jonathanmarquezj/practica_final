@@ -315,7 +315,7 @@ app.secret_key = '6qdL7nEDswA88vdnx-WIUdJB'
 #INICIO
 @app.route('/', methods=["GET", "POST"])
 def inicio():
-	return render_template("index.html")
+	return flask.render_template("index.html")
 
 @app.route('/token', methods=["GET", "POST"])
 def token():
