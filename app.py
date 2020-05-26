@@ -19,7 +19,7 @@ from os import remove
 app = flask.Flask(__name__)
 
 
-# VARIABLES NECESARIAS LAS LA APLICACION
+# VARIABLES NECESARIAS LA APLICACION
 CLIENT_SECRETS_FILE='client_secret_heroku.json'
 SCOPES=['https://www.googleapis.com/auth/calendar']
 
