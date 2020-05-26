@@ -34,6 +34,8 @@ app.secret_key = '6qdL7nEDswA88vdnx-WIUdJB'
 def inicio():# Miramos si existe el token, en caso contrario tendremos que crearlo
 	if 'credentials' not in flask.session:
 		return flask.redirect('authorize')
+	del flask.session['credentials']
+
 	return flask.render_template("index.html")
 
 
@@ -202,7 +204,7 @@ def oauth2callback():
 # Elimina el archivo Token que es el que tiene el acceso al calendario
 @app.route('/eliminarToken', methods=["GET", "POST"])
 def eliminarToken():
-	flask.session['credentials']=""
+	del flask.session['credentials']
 	return flask.render_template("index.html")
 
 
