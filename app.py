@@ -72,6 +72,36 @@ def calendario(mensaje=None, calendar_id=None):
 
 
 
+# AÑADIR EVENTO EN EL CALENDARIO
+@app.route('/anadirEvento/<calendar_id>', methods=["GET", "POST"])
+@app.route('/anadirEvento/<mensaje>/<calendar_id>', methods=["GET", "POST"])
+def anadirEvento(calendar_id, mensaje=None):
+	# Miramos si envio el formulario para insertar los datos
+	if flask.request.method == "POST":
+		calendar_id=flask.request.form['calendar_id']
+		titulo=flask.request.form['titulo']
+		fechaInicio=flask.request.form['fechaInicio']
+		horaInicio=flask.request.form['horaInicio']
+		fechaFin=flask.request.form['fechaFin']
+		horaFin=flask.request.form['horaFin']
+
+		# Comprobamos la fecha
+		if fechaInicio.replace('-','') > fechaFin.replace('-',''):
+			# Si pone mal la fecha le ponemos un mensaje
+			return flask.redirect(flask.url_for('anadirEvento', mensaje='Lo sentimos pero no se pudo insertar el evento. La fecha inicio no pueder ser mayor a la fecha fin', calendar_id=calendar_id))
+		else:
+			# Si todo es correcto metemos el evento y lo mandamos al calendario
+			anadirEvento(titulo, fechaInicio, horaInicio, fechaFin, horaFin, calendar_id)
+			# Le pedimos al calendario los eventos de nuevo 
+			solicitarEventos(calendar_id)
+			return flask.redirect(flask.url_for('calendario', mensaje='Evento insertado', calendar_id=calendar_id))
+
+	else:
+		return flask.render_template("anadirEvento.html", mensaje=mensaje, calendar_id=calendar_id)
+
+
+
+
 
 
 # PARA LAS CREDENCIALES
@@ -113,32 +143,6 @@ def oauth2callback():
 
 """
 
-# AÑADIR EVENTO EN EL CALENDARIO
-@app.route('/anadirEvento/<calendar_id>', methods=["GET", "POST"])
-@app.route('/anadirEvento/<mensaje>/<calendar_id>', methods=["GET", "POST"])
-def anadirEvento(calendar_id, mensaje=None):
-	# Miramos si envio el formulario para insertar los datos
-	if request.method == "POST":
-		calendar_id=request.form['calendar_id']
-		titulo=request.form['titulo']
-		fechaInicio=request.form['fechaInicio']
-		horaInicio=request.form['horaInicio']
-		fechaFin=request.form['fechaFin']
-		horaFin=request.form['horaFin']
-
-		# Comprobamos la fecha
-		if fechaInicio.replace('-','') > fechaFin.replace('-',''):
-			# Si pone mal la fecha le ponemos un mensaje
-			return redirect(url_for('anadirEvento', mensaje='Lo sentimos pero no se pudo insertar el evento. La fecha inicio no pueder ser mayor a la fecha fin', calendar_id=calendar_id))
-		else:
-			# Si todo es correcto metemos el evento y lo mandamos al calendario
-			anadirEvento(titulo, fechaInicio, horaInicio, fechaFin, horaFin, calendar_id)
-			# Le pedimos al calendario los eventos de nuevo 
-			solicitarEventos(calendar_id)
-			return redirect(url_for('calendario', mensaje='Evento insertado', calendar_id=calendar_id))
-
-	else:
-		return render_template("anadirEvento.html", mensaje=mensaje, calendar_id=calendar_id)
 
 
 # MODIFICAR EVENTO EN EL CALENDARIO
@@ -267,6 +271,35 @@ def solicitarEventos(calendar_id):
 	file.write("{}]")
 
 
+# Añade el evento
+def anadirEvento(titulo, fechaInicio, horaInicio, fechaFin, horaFin, calendar_id, descripcion=None, localidad=None):
+	# Creamos la pantilla del evento para despues mandarla a google
+	timezone = 'Europe/Madrid'
+	event = {
+		'summary': titulo,
+		'location': localidad,
+		'description': descripcion,
+		'start': {
+			'dateTime': fechaInicio +"T"+ horaInicio +":00",
+			'timeZone': timezone,
+		},
+		'end': {
+			'dateTime': fechaFin+"T"+ horaFin +":00",
+			'timeZone': timezone,
+		},
+		'reminders': {
+			'useDefault': False,
+			'overrides': [
+				{'method': 'email', 'minutes': 24 * 60},
+				{'method': 'popup', 'minutes': 10},
+			],
+		},
+	}
+	# Iniciamos el token
+	credentials = google.oauth2.credentials.Credentials(**flask.session['credentials'])
+	service = build("calendar", "v3", credentials=credentials)
+	# Insertamos el evento
+	service.events().insert(calendarId=calendar_id, body=event).execute()
 
 
 
@@ -314,35 +347,7 @@ def actualizarEvento(evento_id, titulo, fechaInicio, horaInicio, fechaFin, horaF
 	service.events().update(calendarId=calendar_id, eventId=evento_id, body=event).execute()
 
 
-# Añade el evento
-def anadirEvento(titulo, fechaInicio, horaInicio, fechaFin, horaFin, calendar_id, descripcion=None, localidad=None):
-	# Creamos la pantilla del evento para despues mandarla a google
-	timezone = 'Europe/Madrid'
-	event = {
-		'summary': titulo,
-		'location': localidad,
-		'description': descripcion,
-		'start': {
-			'dateTime': fechaInicio +"T"+ horaInicio +":00",
-			'timeZone': timezone,
-		},
-		'end': {
-			'dateTime': fechaFin+"T"+ horaFin +":00",
-			'timeZone': timezone,
-		},
-		'reminders': {
-			'useDefault': False,
-			'overrides': [
-				{'method': 'email', 'minutes': 24 * 60},
-				{'method': 'popup', 'minutes': 10},
-			],
-		},
-	}
-	# Iniciamos el token
-	credentials = pickle.load(open("token.pkl", "rb"))
-	service = build("calendar", "v3", credentials=credentials)
-	# Insertamos el evento
-	service.events().insert(calendarId=calendar_id, body=event).execute()
+
 
 
 # Solicita al servidor todos los eventos del calendario
