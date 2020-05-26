@@ -348,7 +348,8 @@ def oauth2callback():
 # Ponemos en el terminal el siguiente comando para especificar el puerto de la web.
 #   $ export PORT=8080
 port=os.environ["PORT"]
-
-app.run('0.0.0.0', int(port), debug=True)
+if __name__ == '__main__':
+	os.environ['OAUTHLIB_INSECURE_TRANSPORT'] = '1'
+	app.run('0.0.0.0', int(port), debug=True)
 
 
