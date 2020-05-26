@@ -315,10 +315,15 @@ app.secret_key = '6qdL7nEDswA88vdnx-WIUdJB'
 #INICIO
 @app.route('/', methods=["GET", "POST"])
 def inicio():
+	if 'credentials' not in flask.session:
+		return flask.redirect('authorize')
+
 	return flask.render_template("index.html")
 
-@app.route('/token', methods=["GET", "POST"])
-def token():
+
+
+@app.route('/authorize', methods=["GET", "POST"])
+def authorize():
 	flow = google_auth_oauthlib.flow.Flow.from_client_secrets_file(CLIENT_SECRETS_FILE, scopes=SCOPES)
 
 	flow.redirect_uri = flask.url_for('oauth2callback', _external=True)
