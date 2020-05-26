@@ -73,7 +73,7 @@
           editable: false,
           eventLimit: true, 
           events: {
-            url: {{ eventos_calendario }},
+            url: {{ eventos_calendario.decode("utf-8") }},
             cache: false,
             lazyFetching: false,
           }
