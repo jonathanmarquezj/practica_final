@@ -320,6 +320,29 @@ def inicio():
 
 	return flask.render_template("index.html")
 
+#SELECCIONAR CALENDARIO
+@app.route('/seleccionarCalendario', methods=["GET", "POST"])
+def seleccionarCalendario():
+	# Miramos si existe el token, en caso contrario tendremos que crearlo
+	if 'credentials' not in flask.session:
+		return flask.redirect('authorize')
+	
+	return render_template("seleccionarCalendario.html", calendarios=listarCalendarios())
+
+
+# Devuelve una lista de todos los calendarios que tiene el usuario
+def listarCalendarios():
+	credentials = google.oauth2.credentials.Credentials(**flask.session['credentials'])
+
+	service = build("calendar", "v3", credentials=credentials)
+	result = service.calendarList().list().execute()
+
+	calendarios = {}
+	for calendar_list_entry in result['items']:
+		calendarios[calendar_list_entry['id']] = calendar_list_entry['summary']
+
+	return calendarios
+
 
 
 @app.route('/authorize', methods=["GET", "POST"])
