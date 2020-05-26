@@ -73,7 +73,7 @@
           editable: false,
           eventLimit: true, 
           events: {
-            url: {{ eventos_calendario.decode("utf-8") }},
+            url: "{{url_for('static', filename = 'eventos.json')}}",
             cache: false,
             lazyFetching: false,
           }

@@ -63,9 +63,9 @@ def calendario(mensaje=None, calendar_id=None):
 		return flask.redirect(flask.url_for('seleccionarCalendario'))
 
 	# Creamos el archivo "static/eventos.json" que sera donde estaran los eventos
-	
+	solicitarEventos(calendar_id)
 
-	return flask.render_template("calendario.html", mensaje=mensaje, calendar_id=calendar_id, eventos_calendario= solicitarEventos(calendar_id))
+	return flask.render_template("calendario.html", mensaje=mensaje, calendar_id=calendar_id)
 
 
 
@@ -247,25 +247,24 @@ def solicitarEventos(calendar_id):
 	events = result.get('items', [])
 
 	# Empezamos a crear el archivo que sera el que contenga los eventos
-	#file = open("static/eventos.json", "w")
-	contenedor="["
+	file = open("static/eventos.json", "w")
+	file.write("[" + os.linesep)
 
 	for event in events:
-		contenedor=contenedor+"	{"
-		contenedor=contenedor+'		"title": "'+ event['summary'] +'",'
+		file.write("	{" + os.linesep)
+		file.write('		"title": "'+ event['summary'] +'",' + os.linesep)
 		if 'dateTime' in event['start']:
-			contenedor=contenedor+'		"start": "'+ event['start']['dateTime'] +'",'
+			file.write('		"start": "'+ event['start']['dateTime'] +'",' + os.linesep)
 		if 'date' in event['start']:
-			contenedor=contenedor+'		"start": "'+ event['start']['date'] +'",'
+			file.write('		"start": "'+ event['start']['date'] +'",' + os.linesep)
 		if 'dateTime' in event['end']:
-			contenedor=contenedor+'		"end": "'+ event['end']['dateTime'] +'",'
+			file.write('		"end": "'+ event['end']['dateTime'] +'",' + os.linesep)
 		if 'date' in event['end']:
-			contenedor=contenedor+'		"end": "'+ event['end']['date'] +'",'
-		contenedor=contenedor+'		"url": "/modificarEvento/'+ event['id']+'/'+ calendar_id +'"'
-		contenedor=contenedor+"	},"
+			file.write('		"end": "'+ event['end']['date'] +'",' + os.linesep)
+		file.write('		"url": "/modificarEvento/'+ event['id']+'/'+ calendar_id +'"' + os.linesep)
+		file.write("	}," + os.linesep)
 
-	contenedor=contenedor+"{}]"
-	return contenedor
+	file.write("{}]")
 
 
 # PARA AÑADIR EL EVENTO AL CALENDARIO SELECCIONADO
