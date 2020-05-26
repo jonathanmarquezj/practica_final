@@ -307,7 +307,7 @@ def crearToken():
 #PRUEBA
 
 
-CLIENT_SECRETS_FILE='client_secret.json'
+CLIENT_SECRETS_FILE='client_secret_heroku.json'
 SCOPES=['https://www.googleapis.com/auth/calendar']
 
 app.secret_key = '6qdL7nEDswA88vdnx-WIUdJB'
