@@ -100,7 +100,55 @@ def anadirEvento(calendar_id, mensaje=None):
 		return flask.render_template("anadirEvento.html", mensaje=mensaje, calendar_id=calendar_id)
 
 
+# MODIFICAR EVENTO EN EL CALENDARIO
+@app.route('/modificarEvento/<id_evento>/<calendar_id>', methods=["GET", "POST"])
+@app.route('/modificarEvento/<id_evento>/<calendar_id>/<mensaje>', methods=["GET", "POST"])
+def modificarEvento(id_evento, calendar_id, mensaje=None):
+	# Miramos si envio el formulario para insertar los datos
+	if flask.request.method == "POST":
+		id_evento=flask.request.form['id_evento']
+		titulo=flask.request.form['titulo']
+		fechaInicio=flask.request.form['fechaInicio']
+		horaInicio=flask.request.form['horaInicio']
+		fechaFin=flask.request.form['fechaFin']
+		horaFin=flask.request.form['horaFin']
+		calendar_id=flask.request.form['calendar_id']
 
+		# Comprobamos la fecha
+		if fechaInicio.replace('-','') > fechaFin.replace('-',''):
+			# Si pone mal la fecha le ponemos un mensaje
+			return flask.redirect(flask.url_for('modificarEvento', mensaje='Lo sentimos pero no se pudo insertar el evento. La fecha inicio no pueder ser mayor a la fecha fin', id_evento=id_evento, titulo=titulo, fechaInicio=fechaInicio, horaInicio=horaInicio, fechaFin=fechaFin, horaFin=horaFin, calendar_id=calendar_id))
+		else:
+			# Si todo es correcto metemos el evento y lo mandamos al calendario
+			actualizarEvento(id_evento, titulo, fechaInicio, horaInicio, fechaFin, horaFin, calendar_id)
+			# Le pedimos al calendario los eventos de nuevo
+			solicitarEventos(calendar_id)
+			return flask.redirect(flask.url_for('calendario', mensaje='Evento modificado', calendar_id=calendar_id))
+
+	else:
+		# Pedimos al calendario el evento con el id correspondiente y lo mostramos al usuario
+		credentials = google.oauth2.credentials.Credentials(**flask.session['credentials'])
+		service = build("calendar", "v3", credentials=credentials)
+
+		event = service.events().get(calendarId=calendar_id, eventId=id_evento).execute()
+
+		titulo=event['summary']
+		if 'dateTime' in event['start']:
+			fechaInicio=event['start']['dateTime'].split('T')[0]
+			horaInicio=event['start']['dateTime'].split('T')[1][0:5]
+		if 'date' in event['start']:
+			fechaInicio=event['start']['date'].split('T')[0]
+			horaInicio='00:00'
+
+		if 'dateTime' in event['end']:
+			fechaFin=event['end']['dateTime'].split('T')[0]
+			horaFin=event['end']['dateTime'].split('T')[1][0:5]
+		if 'date' in event['end']:
+			fechaFin=event['end']['date'].split('T')[0]
+			horaFin='00:00'
+
+
+		return flask.render_template("modificarEvento.html", id_evento=id_evento, mensaje=mensaje, titulo=titulo, fechaInicio=fechaInicio, horaInicio=horaInicio, fechaFin=fechaFin, horaFin=horaFin, calendar_id=calendar_id)
 
 
 
@@ -145,55 +193,7 @@ def oauth2callback():
 
 
 
-# MODIFICAR EVENTO EN EL CALENDARIO
-@app.route('/modificarEvento/<id_evento>/<calendar_id>', methods=["GET", "POST"])
-@app.route('/modificarEvento/<id_evento>/<calendar_id>/<mensaje>', methods=["GET", "POST"])
-def modificarEvento(id_evento, calendar_id, mensaje=None):
-	# Miramos si envio el formulario para insertar los datos
-	if request.method == "POST":
-		id_evento=request.form['id_evento']
-		titulo=request.form['titulo']
-		fechaInicio=request.form['fechaInicio']
-		horaInicio=request.form['horaInicio']
-		fechaFin=request.form['fechaFin']
-		horaFin=request.form['horaFin']
-		calendar_id=request.form['calendar_id']
 
-		# Comprobamos la fecha
-		if fechaInicio.replace('-','') > fechaFin.replace('-',''):
-			# Si pone mal la fecha le ponemos un mensaje
-			return redirect(url_for('modificarEvento', mensaje='Lo sentimos pero no se pudo insertar el evento. La fecha inicio no pueder ser mayor a la fecha fin', id_evento=id_evento, titulo=titulo, fechaInicio=fechaInicio, horaInicio=horaInicio, fechaFin=fechaFin, horaFin=horaFin, calendar_id=calendar_id))
-		else:
-			# Si todo es correcto metemos el evento y lo mandamos al calendario
-			actualizarEvento(id_evento, titulo, fechaInicio, horaInicio, fechaFin, horaFin, calendar_id)
-			# Le pedimos al calendario los eventos de nuevo
-			solicitarEventos(calendar_id)
-			return redirect(url_for('calendario', mensaje='Evento modificado', calendar_id=calendar_id))
-
-	else:
-		# Pedimos al calendario el evento con el id correspondiente y lo mostramos al usuario
-		credentials = pickle.load(open("token.pkl", "rb"))
-		service = build("calendar", "v3", credentials=credentials)
-
-		event = service.events().get(calendarId=calendar_id, eventId=id_evento).execute()
-
-		titulo=event['summary']
-		if 'dateTime' in event['start']:
-			fechaInicio=event['start']['dateTime'].split('T')[0]
-			horaInicio=event['start']['dateTime'].split('T')[1][0:5]
-		if 'date' in event['start']:
-			fechaInicio=event['start']['date'].split('T')[0]
-			horaInicio='00:00'
-
-		if 'dateTime' in event['end']:
-			fechaFin=event['end']['dateTime'].split('T')[0]
-			horaFin=event['end']['dateTime'].split('T')[1][0:5]
-		if 'date' in event['end']:
-			fechaFin=event['end']['date'].split('T')[0]
-			horaFin='00:00'
-
-
-		return render_template("modificarEvento.html", id_evento=id_evento, mensaje=mensaje, titulo=titulo, fechaInicio=fechaInicio, horaInicio=horaInicio, fechaFin=fechaFin, horaFin=horaFin, calendar_id=calendar_id)
 
 # Elimina el evento del calendario
 @app.route('/eliminarEvento/<calendar_id>/<event_id>', methods=["GET", "POST"])
@@ -301,21 +301,6 @@ def anadirEvento(titulo, fechaInicio, horaInicio, fechaFin, horaFin, calendar_id
 	# Insertamos el evento
 	service.events().insert(calendarId=calendar_id, body=event).execute()
 
-
-
-
-def credentials_to_dict(credentials):
-	return {'token': credentials.token,
-		'refresh_token': credentials.refresh_token,
-		'token_uri': credentials.token_uri,
-		'client_id': credentials.client_id,
-		'client_secret': credentials.client_secret,
-		'scopes': credentials.scopes}
-
-
-"""
-
-
 # Actualiza el evento que el usuario a modificado
 def actualizarEvento(evento_id, titulo, fechaInicio, horaInicio, fechaFin, horaFin, calendar_id, descripcion=None, localidad=None):
 	# Creamos la pantilla del evento para despues mandarla a google
@@ -341,10 +326,25 @@ def actualizarEvento(evento_id, titulo, fechaInicio, horaInicio, fechaFin, horaF
 		},
 	}
 	# Iniciamos el token
-	credentials = pickle.load(open("token.pkl", "rb"))
+	credentials = google.oauth2.credentials.Credentials(**flask.session['credentials'])
 	service = build("calendar", "v3", credentials=credentials)
 	# Insertamos el evento
 	service.events().update(calendarId=calendar_id, eventId=evento_id, body=event).execute()
+
+
+
+
+def credentials_to_dict(credentials):
+	return {'token': credentials.token,
+		'refresh_token': credentials.refresh_token,
+		'token_uri': credentials.token_uri,
+		'client_id': credentials.client_id,
+		'client_secret': credentials.client_secret,
+		'scopes': credentials.scopes}
+
+
+"""
+
 
 
 
