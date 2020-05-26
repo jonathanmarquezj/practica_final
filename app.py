@@ -312,8 +312,12 @@ SCOPES=['https://www.googleapis.com/auth/calendar']
 
 app.secret_key = '6qdL7nEDswA88vdnx-WIUdJB'
 
-
+#INICIO
 @app.route('/', methods=["GET", "POST"])
+def inicio():
+	return render_template("index.html")
+
+@app.route('/token', methods=["GET", "POST"])
 def inicio():
 	flow = google_auth_oauthlib.flow.Flow.from_client_secrets_file(CLIENT_SECRETS_FILE, scopes=SCOPES)
 
@@ -340,7 +344,9 @@ def oauth2callback():
 	credentials = flow.credentials
 	flask.session['credentials'] = credentials_to_dict(credentials)
 
-	return flask.redirect(flask.url_for('test_api_request'))
+	return flask.redirect(flask.url_for('inicio'))
+
+
 
 def credentials_to_dict(credentials):
 	return {'token': credentials.token,
