@@ -1,10 +1,13 @@
 from apiclient.discovery import build
-from google_auth_oauthlib.flow import InstalledAppFlow
 import pickle
 import pprint
 
+import google.oauth2.credentials
+import google_auth_oauthlib.flow
+import googleapiclient.discovery
+
 import os
-from flask import Flask, render_template, abort, request, redirect, url_for
+import flask
 import json
 
 from datetime import date
@@ -13,14 +16,14 @@ from datetime import datetime
 #Para eliminar el token cuando terminemos
 from os import remove
 
-app = Flask(__name__)
+app = flask.Flask(__name__)
 
 
 
 #-------------------------------------------------------------------
 #     WEB
 #-------------------------------------------------------------------
-
+"""
 
 #INICIO
 @app.route('/', methods=["GET", "POST"])
@@ -287,6 +290,7 @@ def eliminarEvento(calendar_id, event_id):
 
 # Crea el token del calendario para que el usuario pueda acceder
 def crearToken():
+
 	# Solicitamos permiso para acceder al calendario del cliente.
 	scopes = ['https://www.googleapis.com/auth/calendar']
 	flow = InstalledAppFlow.from_client_secrets_file("client_secret.json", scopes=scopes)
@@ -298,6 +302,46 @@ def crearToken():
 
 
 # --------------------------------------
+
+"""
+#PRUEBA
+
+
+CLIENT_SECRETS_FILE='client_secret.json'
+SCOPES=['https://www.googleapis.com/auth/calendar']
+
+app.secret_key = '6qdL7nEDswA88vdnx-WIUdJB'
+
+
+@app.route('/', methods=["GET", "POST"])
+def inicio():
+	flow = google_auth_oauthlib.flow.Flow.from_client_secrets_file(CLIENT_SECRETS_FILE, scopes=SCOPES)
+
+	flow.redirect_uri = flask.url_for('oauth2callback', _external=True)
+
+	authorization_url, state = flow.authorization_url(access_type='offline',include_granted_scopes='true')
+
+	flask.session['state'] = state
+
+	return flask.redirect(authorization_url)
+
+
+
+@app.route('/oauth2callback')
+def oauth2callback():
+	state = flask.session['state']
+
+	flow = google_auth_oauthlib.flow.Flow.from_client_secrets_file(CLIENT_SECRETS_FILE, scopes=SCOPES, state=state)
+	flow.redirect_uri = flask.url_for('oauth2callback', _external=True)
+
+	authorization_response = flask.request.url
+	flow.fetch_token(authorization_response=authorization_response)
+	
+	credentials = flow.credentials
+	flask.session['credentials'] = credentials_to_dict(credentials)
+
+	return flask.redirect(flask.url_for('test_api_request'))
+
 
 
 # Tienes que crear esta variable si no la tienes, en heroku no hace falta.
