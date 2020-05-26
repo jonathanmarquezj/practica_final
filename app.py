@@ -25,8 +25,10 @@ SCOPES=['https://www.googleapis.com/auth/calendar']
 
 app.secret_key = os.environ["secret_key"]
 
+
+
 #-------------------------------------------------------------------
-#     WEB
+#                          WEB
 #-------------------------------------------------------------------
 
 #INICIO
@@ -177,6 +179,7 @@ def page_not_found(error):
     return "<h1>ERROR: 404</h1><br/>página no encontrada <br/><br/><a href='/'>Atras</a>"
 
 
+
 #-------------------------------------------------------------------
 #                    PARA LAS CREDENCIALES
 #-------------------------------------------------------------------
@@ -211,7 +214,7 @@ def oauth2callback():
 
 
 #-------------------------------------------------------------------
-#     FUNCIONES PYTHON
+#                         FUNCIONES PYTHON
 #-------------------------------------------------------------------
 
 # DEVUELVE UNA LISTA CON TODOS LOS CALENDARIO DEL USUARIO
@@ -342,7 +345,9 @@ def credentials_to_dict(credentials):
 
 
 
-
+#-------------------------------------------------------------------
+#               DATOS NECESARIO PARA EL SERVIDOR
+#-------------------------------------------------------------------
 
 # Tienes que crear esta variable si no la tienes, en heroku no hace falta.
 # Ponemos en el terminal el siguiente comando para especificar el puerto de la web.
