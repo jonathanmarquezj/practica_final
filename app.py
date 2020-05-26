@@ -327,7 +327,7 @@ def seleccionarCalendario():
 	if 'credentials' not in flask.session:
 		return flask.redirect('authorize')
 	
-	return render_template("seleccionarCalendario.html", calendarios=listarCalendarios())
+	return flask.render_template("seleccionarCalendario.html", calendarios=listarCalendarios())
 
 
 # Devuelve una lista de todos los calendarios que tiene el usuario
