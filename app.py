@@ -20,49 +20,98 @@ app = flask.Flask(__name__)
 
 
 
+CLIENT_SECRETS_FILE='client_secret_heroku.json'
+SCOPES=['https://www.googleapis.com/auth/calendar']
+
+app.secret_key = '6qdL7nEDswA88vdnx-WIUdJB'
+
 #-------------------------------------------------------------------
 #     WEB
 #-------------------------------------------------------------------
-"""
 
 #INICIO
 @app.route('/', methods=["GET", "POST"])
 def inicio():
-	return render_template("index.html")
+	# Para mirar si tenemos las credenciales
+	if 'credentials' not in flask.session:
+		return flask.redirect('authorize')
+
+	return flask.render_template("index.html")
 
 
 #SELECCIONAR CALENDARIO
 @app.route('/seleccionarCalendario', methods=["GET", "POST"])
 def seleccionarCalendario():
 	# Miramos si existe el token, en caso contrario tendremos que crearlo
-	if os.path.exists("token.pkl"):
-		return render_template("seleccionarCalendario.html", calendarios=listarCalendarios())
-	else:
-		crearToken()
-
-		return render_template("seleccionarCalendario.html", calendarios=listarCalendarios())
-
-
+	if 'credentials' not in flask.session:
+		return flask.redirect('authorize')
+	
+	return flask.render_template("seleccionarCalendario.html", calendarios=listarCalendarios())
 
 #CALENDARIO
 @app.route('/calendario', methods=["GET", "POST"])
 @app.route('/calendario/<mensaje>', methods=["GET", "POST"])
 @app.route('/calendario/<mensaje>/<calendar_id>', methods=["GET", "POST"])
 def calendario(mensaje=None, calendar_id=None):
+	# Para mirar si tenemos las credenciales
+	if 'credentials' not in flask.session:
+		return flask.redirect('authorize')
+
 	# Miramos si a enviado el ID del calendario por post
 	if request.method == "POST":
 		calendar_id=request.form['calendar_id']
 	# En el caso de que no tengamos el ID del calendario tanto por POST como por GET, lo mandamos a que lo seleccione
 	if calendar_id==None and request.method != "POST":
-		return redirect(url_for('seleccionarCalendario'))
+		return flask.redirect(flask.url_for('seleccionarCalendario'))
 
 	# Creamos el archivo "static/eventos.json" que sera donde estaran los eventos
 	solicitarEventos(calendar_id)
 
-	return render_template("calendario.html", mensaje=mensaje, calendar_id=calendar_id)
+	return flask.render_template("calendario.html", mensaje=mensaje, calendar_id=calendar_id)
 
 
 
+
+
+
+# PARA LAS CREDENCIALES
+@app.route('/authorize', methods=["GET", "POST"])
+def authorize():
+	flow = google_auth_oauthlib.flow.Flow.from_client_secrets_file(CLIENT_SECRETS_FILE, scopes=SCOPES)
+
+	flow.redirect_uri = flask.url_for('oauth2callback', _external=True)
+
+	authorization_url, state = flow.authorization_url(access_type='offline',include_granted_scopes='true')
+
+	flask.session['state'] = state
+
+	return flask.redirect(authorization_url)
+
+
+
+@app.route('/oauth2callback')
+def oauth2callback():
+	state = flask.session['state']
+
+	flow = google_auth_oauthlib.flow.Flow.from_client_secrets_file(CLIENT_SECRETS_FILE, scopes=SCOPES, state=state)
+	flow.redirect_uri = flask.url_for('oauth2callback', _external=True)
+
+	authorization_response = flask.request.url
+	flow.fetch_token(authorization_response=authorization_response)
+	
+	credentials = flow.credentials
+	flask.session['credentials'] = credentials_to_dict(credentials)
+
+	return flask.redirect(flask.url_for('inicio'))
+
+
+
+
+
+
+
+
+"""
 
 # AÑADIR EVENTO EN EL CALENDARIO
 @app.route('/anadirEvento/<calendar_id>', methods=["GET", "POST"])
@@ -167,10 +216,11 @@ def page_not_found(error):
 #-------------------------------------------------------------------
 #     FUNCIONES PYTHON
 #-------------------------------------------------------------------
-
+"""
 # Devuelve una lista de todos los calendarios que tiene el usuario
 def listarCalendarios():
-	credentials = pickle.load(open("token.pkl", "rb"))
+	credentials = google.oauth2.credentials.Credentials(**flask.session['credentials'])
+
 	service = build("calendar", "v3", credentials=credentials)
 	result = service.calendarList().list().execute()
 
@@ -179,6 +229,58 @@ def listarCalendarios():
 		calendarios[calendar_list_entry['id']] = calendar_list_entry['summary']
 
 	return calendarios
+
+# Solicita al servidor todos los eventos del calendario
+def solicitarEventos(calendar_id):
+	credentials = google.oauth2.credentials.Credentials(**flask.session['credentials'])
+	service = build("calendar", "v3", credentials=credentials)
+	# Le decimos que el evento tiene que tener una fecha minima
+	now = datetime.now()
+	fechaMinima = format(now.year)+'-01-01T01:00:00.226752Z'
+	# Le decimos un maximo de eventos para mostrar, puede ir de 1 a 2500
+	eventosMaximos = 2500
+	# Le pedimos que nos lo ordene
+	ordenarPor = 'startTime'
+
+	result = service.events().list(calendarId=calendar_id, timeMin=fechaMinima, maxResults=eventosMaximos, singleEvents=True, orderBy=ordenarPor).execute()
+
+	events = result.get('items', [])
+
+	# Empezamos a crear el archivo que sera el que contenga los eventos
+	file = open("static/eventos.json", "w")
+	file.write("[" + os.linesep)
+
+	for event in events:
+		file.write("	{" + os.linesep)
+		file.write('		"title": "'+ event['summary'] +'",' + os.linesep)
+		if 'dateTime' in event['start']:
+			file.write('		"start": "'+ event['start']['dateTime'] +'",' + os.linesep)
+		if 'date' in event['start']:
+			file.write('		"start": "'+ event['start']['date'] +'",' + os.linesep)
+		if 'dateTime' in event['end']:
+			file.write('		"end": "'+ event['end']['dateTime'] +'",' + os.linesep)
+		if 'date' in event['end']:
+			file.write('		"end": "'+ event['end']['date'] +'",' + os.linesep)
+		file.write('		"url": "/modificarEvento/'+ event['id']+'/'+ calendar_id +'"' + os.linesep)
+		file.write("	}," + os.linesep)
+
+	file.write("{}]")
+
+
+
+
+
+
+def credentials_to_dict(credentials):
+	return {'token': credentials.token,
+		'refresh_token': credentials.refresh_token,
+		'token_uri': credentials.token_uri,
+		'client_id': credentials.client_id,
+		'client_secret': credentials.client_secret,
+		'scopes': credentials.scopes}
+
+
+"""
 
 
 # Actualiza el evento que el usuario a modificado
@@ -307,82 +409,18 @@ def crearToken():
 #PRUEBA
 
 
-CLIENT_SECRETS_FILE='client_secret_heroku.json'
-SCOPES=['https://www.googleapis.com/auth/calendar']
-
-app.secret_key = '6qdL7nEDswA88vdnx-WIUdJB'
-
-#INICIO
-@app.route('/', methods=["GET", "POST"])
-def inicio():
-	if 'credentials' not in flask.session:
-		return flask.redirect('authorize')
-
-	return flask.render_template("index.html")
-
-#SELECCIONAR CALENDARIO
-@app.route('/seleccionarCalendario', methods=["GET", "POST"])
-def seleccionarCalendario():
-	# Miramos si existe el token, en caso contrario tendremos que crearlo
-	if 'credentials' not in flask.session:
-		return flask.redirect('authorize')
-	
-	return flask.render_template("seleccionarCalendario.html", calendarios=listarCalendarios())
-
-
-# Devuelve una lista de todos los calendarios que tiene el usuario
-def listarCalendarios():
-	credentials = google.oauth2.credentials.Credentials(**flask.session['credentials'])
-
-	service = build("calendar", "v3", credentials=credentials)
-	result = service.calendarList().list().execute()
-
-	calendarios = {}
-	for calendar_list_entry in result['items']:
-		calendarios[calendar_list_entry['id']] = calendar_list_entry['summary']
-
-	return calendarios
 
 
 
-@app.route('/authorize', methods=["GET", "POST"])
-def authorize():
-	flow = google_auth_oauthlib.flow.Flow.from_client_secrets_file(CLIENT_SECRETS_FILE, scopes=SCOPES)
-
-	flow.redirect_uri = flask.url_for('oauth2callback', _external=True)
-
-	authorization_url, state = flow.authorization_url(access_type='offline',include_granted_scopes='true')
-
-	flask.session['state'] = state
-
-	return flask.redirect(authorization_url)
 
 
 
-@app.route('/oauth2callback')
-def oauth2callback():
-	state = flask.session['state']
-
-	flow = google_auth_oauthlib.flow.Flow.from_client_secrets_file(CLIENT_SECRETS_FILE, scopes=SCOPES, state=state)
-	flow.redirect_uri = flask.url_for('oauth2callback', _external=True)
-
-	authorization_response = flask.request.url
-	flow.fetch_token(authorization_response=authorization_response)
-	
-	credentials = flow.credentials
-	flask.session['credentials'] = credentials_to_dict(credentials)
-
-	return flask.redirect(flask.url_for('inicio'))
 
 
 
-def credentials_to_dict(credentials):
-	return {'token': credentials.token,
-		'refresh_token': credentials.refresh_token,
-		'token_uri': credentials.token_uri,
-		'client_id': credentials.client_id,
-		'client_secret': credentials.client_secret,
-		'scopes': credentials.scopes}
+
+
+
 
 
 
