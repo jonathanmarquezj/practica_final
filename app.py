@@ -58,10 +58,10 @@ def calendario(mensaje=None, calendar_id=None):
 		return flask.redirect('authorize')
 
 	# Miramos si a enviado el ID del calendario por post
-	if request.method == "POST":
-		calendar_id=request.form['calendar_id']
+	if flask.request.method == "POST":
+		calendar_id=flask.request.form['calendar_id']
 	# En el caso de que no tengamos el ID del calendario tanto por POST como por GET, lo mandamos a que lo seleccione
-	if calendar_id==None and request.method != "POST":
+	if calendar_id==None and flask.request.method != "POST":
 		return flask.redirect(flask.url_for('seleccionarCalendario'))
 
 	# Creamos el archivo "static/eventos.json" que sera donde estaran los eventos
