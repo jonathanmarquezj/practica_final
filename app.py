@@ -63,9 +63,9 @@ def calendario(mensaje=None, calendar_id=None):
 		return flask.redirect(flask.url_for('seleccionarCalendario'))
 
 	# Creamos el archivo "static/eventos.json" que sera donde estaran los eventos
-	
+	contenedor=solicitarEventos(calendar_id)
 
-	return flask.render_template("calendario.html", mensaje=mensaje, calendar_id=calendar_id, eventos_calendario= solicitarEventos(calendar_id))
+	return flask.render_template("calendario.html", mensaje=mensaje, calendar_id=calendar_id, eventos_calendario= contenedor)
 
 
 
