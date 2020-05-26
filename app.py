@@ -76,6 +76,9 @@ def calendario(mensaje=None, calendar_id=None):
 @app.route('/anadirEvento/<calendar_id>', methods=["GET", "POST"])
 @app.route('/anadirEvento/<mensaje>/<calendar_id>', methods=["GET", "POST"])
 def anadirEvento(calendar_id, mensaje=None):
+	# Miramos si existe el token, en caso contrario tendremos que crearlo
+	if 'credentials' not in flask.session:
+		return flask.redirect('authorize')
 	# Miramos si envio el formulario para insertar los datos
 	if flask.request.method == "POST":
 		calendar_id=flask.request.form['calendar_id']
@@ -104,6 +107,9 @@ def anadirEvento(calendar_id, mensaje=None):
 @app.route('/modificarEvento/<id_evento>/<calendar_id>', methods=["GET", "POST"])
 @app.route('/modificarEvento/<id_evento>/<calendar_id>/<mensaje>', methods=["GET", "POST"])
 def modificarEvento(id_evento, calendar_id, mensaje=None):
+	# Miramos si existe el token, en caso contrario tendremos que crearlo
+	if 'credentials' not in flask.session:
+		return flask.redirect('authorize')
 	# Miramos si envio el formulario para insertar los datos
 	if flask.request.method == "POST":
 		id_evento=flask.request.form['id_evento']
@@ -151,6 +157,17 @@ def modificarEvento(id_evento, calendar_id, mensaje=None):
 		return flask.render_template("modificarEvento.html", id_evento=id_evento, mensaje=mensaje, titulo=titulo, fechaInicio=fechaInicio, horaInicio=horaInicio, fechaFin=fechaFin, horaFin=horaFin, calendar_id=calendar_id)
 
 
+# Elimina el evento del calendario
+@app.route('/eliminarEvento/<calendar_id>/<event_id>', methods=["GET", "POST"])
+def eliminarEvento(calendar_id, event_id):
+	# Miramos si existe el token, en caso contrario tendremos que crearlo
+	if 'credentials' not in flask.session:
+		return flask.redirect('authorize')
+
+	eliminarEvento(calendar_id, event_id)
+	return flask.redirect(flask.url_for('calendario', mensaje='Evento eliminado', calendar_id=calendar_id))
+
+
 
 # PARA LAS CREDENCIALES
 @app.route('/authorize', methods=["GET", "POST"])
@@ -190,16 +207,6 @@ def oauth2callback():
 
 
 """
-
-
-
-
-
-# Elimina el evento del calendario
-@app.route('/eliminarEvento/<calendar_id>/<event_id>', methods=["GET", "POST"])
-def eliminarEvento(calendar_id, event_id):
-	eliminarEvento(calendar_id, event_id)
-	return redirect(url_for('calendario', mensaje='Evento eliminado', calendar_id=calendar_id))
 
 # Elimina el archivo Token que es el que tiene el acceso al calendario
 @app.route('/eliminarToken', methods=["GET", "POST"])
@@ -331,7 +338,12 @@ def actualizarEvento(evento_id, titulo, fechaInicio, horaInicio, fechaFin, horaF
 	# Insertamos el evento
 	service.events().update(calendarId=calendar_id, eventId=evento_id, body=event).execute()
 
+# Elimina el evento
+def eliminarEvento(calendar_id, event_id):
+	credentials = google.oauth2.credentials.Credentials(**flask.session['credentials'])
+	service = build("calendar", "v3", credentials=credentials)
 
+	service.events().delete(calendarId=calendar_id, eventId=event_id).execute()
 
 
 def credentials_to_dict(credentials):
@@ -347,52 +359,6 @@ def credentials_to_dict(credentials):
 
 
 
-
-
-
-# Solicita al servidor todos los eventos del calendario
-def solicitarEventos(calendar_id):
-	credentials = pickle.load(open("token.pkl", "rb"))
-	service = build("calendar", "v3", credentials=credentials)
-	# Le decimos que el evento tiene que tener una fecha minima
-	now = datetime.now()
-	fechaMinima = format(now.year)+'-01-01T01:00:00.226752Z'
-	# Le decimos un maximo de eventos para mostrar, puede ir de 1 a 2500
-	eventosMaximos = 2500
-	# Le pedimos que nos lo ordene
-	ordenarPor = 'startTime'
-
-	result = service.events().list(calendarId=calendar_id, timeMin=fechaMinima, maxResults=eventosMaximos, singleEvents=True, orderBy=ordenarPor).execute()
-
-	events = result.get('items', [])
-
-	# Empezamos a crear el archivo que sera el que contenga los eventos
-	file = open("static/eventos.json", "w")
-	file.write("[" + os.linesep)
-
-	for event in events:
-		file.write("	{" + os.linesep)
-		file.write('		"title": "'+ event['summary'] +'",' + os.linesep)
-		if 'dateTime' in event['start']:
-			file.write('		"start": "'+ event['start']['dateTime'] +'",' + os.linesep)
-		if 'date' in event['start']:
-			file.write('		"start": "'+ event['start']['date'] +'",' + os.linesep)
-		if 'dateTime' in event['end']:
-			file.write('		"end": "'+ event['end']['dateTime'] +'",' + os.linesep)
-		if 'date' in event['end']:
-			file.write('		"end": "'+ event['end']['date'] +'",' + os.linesep)
-		file.write('		"url": "/modificarEvento/'+ event['id']+'/'+ calendar_id +'"' + os.linesep)
-		file.write("	}," + os.linesep)
-
-	file.write("{}]")
-
-
-# Elimina el evento
-def eliminarEvento(calendar_id, event_id):
-	credentials = pickle.load(open("token.pkl", "rb"))
-	service = build("calendar", "v3", credentials=credentials)
-
-	service.events().delete(calendarId=calendar_id, eventId=event_id).execute()
 
 
 # Crea el token del calendario para que el usuario pueda acceder
